@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B1020" />
+  <meta name="description" content="Prodigy Nest Global — a holding-company hub for ventures in learning, relationships, wellness, commerce, arts, and medical education." />
+  <title>Prodigy Nest Global</title>
+
+  <!-- Fonts (optional). Remove if you want 100% offline self-contained. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Prodigy Nest Global — single-file landing page (extensive)
+       - Central hub concept, multiple subsidiaries
+       - Fancy background “image” via embedded SVG data URI
+       - Responsive, accessible, light JS for interactions
+       ============================================================ */
+
+    :root {
+      --bg0: #070A12;
+      --bg1: #0B1020;
+      --bg2: #0E1833;
+      --ink: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --faint: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.10);
+      --glass: rgba(255,255,255,0.06);
+      --glass2: rgba(255,255,255,0.10);
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,0.45);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 12px;
+      --max: 1180px;
+
+      --serif: "DM Serif Display", ui-serif, Georgia, serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      /* Fancy background SVG (subtle nest rings + globe arcs + dots)
+         Tip: swap this URI with your own image later.
+      */
+      --bg-svg: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1800'%20height='1100'%20viewBox='0%200%201800%201100'%3E%3Cdefs%3E%3CradialGradient%20id='g0'%20cx='30%25'%20cy='35%25'%20r='70%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23273BFF'%20stop-opacity='0.32'/%3E%3Cstop%20offset='52%25'%20stop-color='%2300D2FF'%20stop-opacity='0.10'/%3E%3Cstop%20offset='100%25'%20stop-color='%23000000'%20stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient%20id='g1'%20cx='72%25'%20cy='52%25'%20r='62%25'%3E%3Cstop%20offset='0%25'%20stop-color='%23FF6BD6'%20stop-opacity='0.18'/%3E%3Cstop%20offset='45%25'%20stop-color='%23FFB347'%20stop-opacity='0.08'/%3E%3Cstop%20offset='100%25'%20stop-color='%23000000'%20stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient%20id='glow'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23FFFFFF'%20stop-opacity='0.10'/%3E%3Cstop%20offset='1'%20stop-color='%23FFFFFF'%20stop-opacity='0'/%3E%3C/linearGradient%3E%3Cfilter%20id='soft'%20x='-20%25'%20y='-20%25'%20width='140%25'%20height='140%25'%3E%3CfeGaussianBlur%20stdDeviation='18'/%3E%3C/filter%3E%3Cfilter%20id='soft2'%20x='-20%25'%20y='-20%25'%20width='140%25'%20height='140%25'%3E%3CfeGaussianBlur%20stdDeviation='9'/%3E%3C/filter%3E%3C/defs%3E%3Crect%20width='1800'%20height='1100'%20fill='%23070A12'/%3E%3Crect%20width='1800'%20height='1100'%20fill='url(%23g0)'/%3E%3Crect%20width='1800'%20height='1100'%20fill='url(%23g1)'/%3E%3Cg%20opacity='0.50'%3E%3Cg%20filter='url(%23soft)'%3E%3Cpath%20d='M260%20740c260-240%20660-360%201080-280'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.18'%20stroke-width='2'/%3E%3Cpath%20d='M320%20790c270-210%20650-300%201010-210'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.14'%20stroke-width='2'/%3E%3Cpath%20d='M390%20840c290-180%20610-250%20920-150'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.10'%20stroke-width='2'/%3E%3C/g%3E%3C/g%3E%3C!-- Nest rings --%3E%3Cg%20opacity='0.40'%3E%3Cg%20transform='translate(950%20510)'%3E%3Ccircle%20r='300'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.10'%20stroke-width='2'/%3E%3Ccircle%20r='220'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.08'%20stroke-width='2'/%3E%3Ccircle%20r='150'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.06'%20stroke-width='2'/%3E%3Cpath%20d='M-280%200%20A280%20280%200%200%201%20280%200'%20fill='none'%20stroke='%23FFFFFF'%20stroke-opacity='0.10'%20stroke-width='3'/%3E%3C/g%3E%3C/g%3E%3C!-- Constellation nodes --%3E%3Cg%20opacity='0.55'%3E%3Cg%20filter='url(%23soft2)'%3E%3Ccircle%20cx='280'%20cy='260'%20r='4'%20fill='%23FFFFFF'%20fill-opacity='0.70'/%3E%3Ccircle%20cx='410'%20cy='190'%20r='3'%20fill='%23FFFFFF'%20fill-opacity='0.55'/%3E%3Ccircle%20cx='520'%20cy='320'%20r='3'%20fill='%23FFFFFF'%20fill-opacity='0.55'/%3E%3Ccircle%20cx='1230'%20cy='220'%20r='4'%20fill='%23FFFFFF'%20fill-opacity='0.65'/%3E%3Ccircle%20cx='1470'%20cy='360'%20r='3'%20fill='%23FFFFFF'%20fill-opacity='0.55'/%3E%3Ccircle%20cx='1320'%20cy='840'%20r='4'%20fill='%23FFFFFF'%20fill-opacity='0.60'/%3E%3Ccircle%20cx='540'%20cy='900'%20r='4'%20fill='%23FFFFFF'%20fill-opacity='0.58'/%3E%3Cpath%20d='M280%20260%20L410%20190%20L520%20320'%20fill='none'%20stroke='url(%23glow)'%20stroke-width='2'/%3E%3Cpath%20d='M1230%20220%20L1470%20360'%20fill='none'%20stroke='url(%23glow)'%20stroke-width='2'/%3E%3Cpath%20d='M1320%20840%20L540%20900'%20fill='none'%20stroke='url(%23glow)'%20stroke-width='2'/%3E%3C/g%3E%3C/g%3E%3C!-- Subtle grid --%3E%3Cg%20opacity='0.18'%3E%3Cpath%20d='M0%20110H1800%20M0%20220H1800%20M0%20330H1800%20M0%20440H1800%20M0%20550H1800%20M0%20660H1800%20M0%20770H1800%20M0%20880H1800%20M0%20990H1800'%20stroke='%23FFFFFF'%20stroke-opacity='0.06'/%3E%3Cpath%20d='M180%200V1100%20M360%200V1100%20M540%200V1100%20M720%200V1100%20M900%200V1100%20M1080%200V1100%20M1260%200V1100%20M1440%200V1100%20M1620%200V1100'%20stroke='%23FFFFFF'%20stroke-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+
+      /* Light mode palette (optional). */
+      --l-bg0: #F7F8FB;
+      --l-bg1: #FFFFFF;
+      --l-ink: rgba(12,16,26,0.92);
+      --l-muted: rgba(12,16,26,0.70);
+      --l-faint: rgba(12,16,26,0.52);
+      --l-line: rgba(12,16,26,0.10);
+      --l-glass: rgba(255,255,255,0.70);
+      --l-glass2: rgba(255,255,255,0.85);
+      --l-shadow: 0 22px 60px rgba(12,16,26,0.16);
+      --l-shadow2: 0 10px 26px rgba(12,16,26,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: radial-gradient(1200px 900px at 25% 20%, rgba(79,112,255,0.22), transparent 55%),
+                  radial-gradient(1100px 850px at 80% 55%, rgba(255,107,214,0.14), transparent 55%),
+                  linear-gradient(135deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background image layer */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image: var(--bg-svg);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.85;
+      transform: scale(1.02);
+      will-change: transform;
+    }
+
+    /* Subtle noise overlay (CSS-only) */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.10;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.028) 0, rgba(255,255,255,0.028) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.022) 0, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 4px);
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       Layout helpers
+       ============================================================ */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .spacer { height: 18px; }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      z-index: 999;
+    }
+    .skip:focus { left: 16px; outline: none; box-shadow: 0 0 0 4px rgba(255,255,255,0.18); }
+
+    /* ============================================================
+       Top bar / Nav
+       ============================================================ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(7,10,18,0.86), rgba(7,10,18,0.62));
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 40%),
+        linear-gradient(135deg, rgba(79,112,255,0.55), rgba(255,107,214,0.35));
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow: hidden;
+    }
+    .mark::after {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 210deg, rgba(255,255,255,0.0), rgba(255,255,255,0.18), rgba(255,255,255,0.0));
+      animation: spin 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .brand h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: 0.4px;
+      font-size: 18px;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .navlink {
+      padding: 9px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .navlink:hover {
+      color: var(--ink);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+      transform: translateY(-1px);
+    }
+    .navlink[aria-current="page"] {
+      color: var(--ink);
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.20);
+      transform: translateY(-1px);
+    }
+
+    .btn.primary {
+      border-color: rgba(255,255,255,0.24);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.20), transparent 45%),
+        linear-gradient(135deg, rgba(79,112,255,0.55), rgba(255,107,214,0.42));
+      box-shadow: var(--shadow2);
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+    }
+
+    /* ============================================================
+       Hero
+       ============================================================ */
+    .hero {
+      padding: 54px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(79,112,255,0.25), transparent 55%),
+        radial-gradient(circle at 75% 45%, rgba(255,107,214,0.20), transparent 55%),
+        radial-gradient(circle at 55% 90%, rgba(255,179,71,0.12), transparent 55%);
+      filter: blur(12px);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .hero-card > * { position: relative; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 0 0 0 rgba(255,255,255,0.34);
+      animation: pulse 1.8s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.34); }
+      100% { box-shadow: 0 0 0 12px rgba(255,255,255,0.0); }
+    }
+
+    .hero h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(34px, 4.2vw, 54px);
+      letter-spacing: 0.3px;
+      line-height: 1.02;
+      margin: 0 0 14px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 62ch;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .micro {
+      margin-top: 12px;
+      color: var(--faint);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       Hub / Constellation panel (right side)
+       ============================================================ */
+    .hub {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 10px 14px;
+    }
+
+    .hub-head h3 {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: 0.3px;
+    }
+
+    .hub-head span {
+      color: var(--faint);
+      font-size: 12px;
+    }
+
+    .hub-graph {
+      aspect-ratio: 1 / 1;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.07), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-graph::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(79,112,255,0.22), transparent 45%),
+        radial-gradient(circle at 70% 60%, rgba(255,107,214,0.18), transparent 50%);
+      filter: blur(20px);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: grid;
+      gap: 6px;
+      place-items: center;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .node .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 0 0 5px rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .node:hover .dot {
+      transform: scale(1.06);
+      box-shadow: 0 0 0 8px rgba(255,255,255,0.12);
+    }
+
+    .node span {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 86px;
+      line-height: 1.2;
+    }
+
+    .node.center .dot {
+      width: 18px;
+      height: 18px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.75), rgba(255,255,255,0.92) 40%, rgba(255,255,255,0.85));
+      box-shadow: 0 0 0 8px rgba(255,255,255,0.10), 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .node.center span {
+      font-weight: 700;
+      color: rgba(255,255,255,0.90);
+      letter-spacing: 0.2px;
+    }
+
+    .hub-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    /* ============================================================
+       Section shells
+       ============================================================ */
+    section {
+      padding: 38px 0;
+    }
+
+    .section-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow2);
+      padding: 26px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,0.09), transparent 52%),
+        radial-gradient(circle at 85% 15%, rgba(79,112,255,0.16), transparent 50%),
+        radial-gradient(circle at 70% 90%, rgba(255,107,214,0.12), transparent 55%);
+      filter: blur(16px);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .section-card > * { position: relative; }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .title {
+      margin: 10px 0 10px;
+      font-size: clamp(22px, 2.4vw, 34px);
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 78ch;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .col-4 { grid-column: span 4; }
+    .col-5 { grid-column: span 5; }
+    .col-6 { grid-column: span 6; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .card h4 {
+      margin: 2px 0 8px;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .pillrow {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--faint);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.10);
+      margin: 16px 0;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+
+    /* ============================================================
+       Explore / Subsidiaries cards
+       ============================================================ */
+    .explore {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .explore-card {
+      grid-column: span 4;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.26);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      min-height: 180px;
+    }
+
+    .explore-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .explore-card::before {
+      content: "";
+      position: absolute;
+      inset: -70px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(79,112,255,0.18), transparent 55%),
+        radial-gradient(circle at 80% 55%, rgba(255,107,214,0.14), transparent 55%),
+        radial-gradient(circle at 40% 100%, rgba(255,179,71,0.10), transparent 55%);
+      filter: blur(14px);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+    .explore-card > * { position: relative; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      font-size: 12px;
+      color: var(--faint);
+      width: fit-content;
+    }
+
+    .badge svg { opacity: 0.9; }
+
+    .explore-card h3 {
+      margin: 12px 0 8px;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+
+    .explore-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .explore-card .hint {
+      margin-top: 14px;
+      color: rgba(255,255,255,0.82);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.9;
+    }
+
+    /* ============================================================
+       Filters
+       ============================================================ */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+      user-select: none;
+    }
+
+    .chip:hover { transform: translateY(-1px); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); color: var(--ink); }
+    .chip[aria-pressed="true"] { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.22); color: var(--ink); }
+
+    /* ============================================================
+       Roadmap / timeline
+       ============================================================ */
+    .timeline {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .step b {
+      color: rgba(255,255,255,0.88);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .step p { margin: 4px 0 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
+
+    /* ============================================================
+       FAQ (details/summary)
+       ============================================================ */
+    details {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 12px 14px;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .chev {
+      width: 18px;
+      height: 18px;
+      opacity: 0.8;
+      transition: transform 160ms ease;
+      flex: 0 0 auto;
+    }
+
+    details[open] .chev { transform: rotate(180deg); }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    footer {
+      padding: 44px 0 70px;
+      color: var(--faint);
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .footer-grid h4 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.86);
+      letter-spacing: 0.2px;
+    }
+
+    .footer-grid a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-grid a:hover { color: rgba(255,255,255,0.92); text-decoration: underline; }
+
+    /* ============================================================
+       Modal
+       ============================================================ */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.60);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 80;
+    }
+
+    .modal {
+      width: min(820px, 100%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(79,112,255,0.20), transparent 55%),
+        radial-gradient(circle at 75% 40%, rgba(255,107,214,0.18), transparent 55%),
+        radial-gradient(circle at 65% 100%, rgba(255,179,71,0.12), transparent 55%);
+      filter: blur(18px);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .modal header {
+      position: relative;
+      padding: 18px 18px 12px;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .modal header h3 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+
+    .modal header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+      max-width: 66ch;
+    }
+
+    .modal .body {
+      position: relative;
+      padding: 16px 18px 18px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+    }
+
+    .mini {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 14px;
+    }
+
+    .mini h4 { margin: 0 0 10px; font-size: 14px; color: rgba(255,255,255,0.86); }
+    .mini ul { margin: 0; padding-left: 16px; color: var(--muted); line-height: 1.65; }
+
+    .close {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease;
+      flex: 0 0 auto;
+    }
+
+    .close:hover { transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+
+    /* ============================================================
+       Forms
+       ============================================================ */
+    .form {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    label { display: grid; gap: 6px; font-size: 12px; color: var(--faint); }
+
+    input, textarea, select {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--ink);
+      padding: 12px 12px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(255,255,255,0.28);
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.10);
+    }
+
+    .form .btn { justify-self: start; }
+
+    /* ============================================================
+       Light mode (toggle with JS) — optional
+       ============================================================ */
+    body[data-theme="light"] {
+      color: var(--l-ink);
+      background: radial-gradient(1200px 900px at 25% 20%, rgba(79,112,255,0.18), transparent 55%),
+                  radial-gradient(1100px 850px at 80% 55%, rgba(255,107,214,0.12), transparent 55%),
+                  linear-gradient(135deg, var(--l-bg0), var(--l-bg1) 40%, #ECF0FF);
+    }
+    body[data-theme="light"] .topbar {
+      background: linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.72));
+      border-bottom: 1px solid rgba(12,16,26,0.10);
+    }
+    body[data-theme="light"] .navlink { color: rgba(12,16,26,0.70); }
+    body[data-theme="light"] .navlink:hover { color: rgba(12,16,26,0.92); background: rgba(12,16,26,0.05); border-color: rgba(12,16,26,0.10); }
+    body[data-theme="light"] .navlink[aria-current="page"] { color: rgba(12,16,26,0.92); background: rgba(12,16,26,0.06); border-color: rgba(12,16,26,0.12); }
+    body[data-theme="light"] .btn { color: rgba(12,16,26,0.90); background: rgba(255,255,255,0.70); border-color: rgba(12,16,26,0.12); }
+    body[data-theme="light"] .btn:hover { background: rgba(255,255,255,0.88); border-color: rgba(12,16,26,0.18); }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .actions { min-width: auto; }
+      .brand { min-width: auto; }
+      .modal .body { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 880px) {
+      .explore-card { grid-column: span 6; }
+      .col-4 { grid-column: span 6; }
+      .col-5, .col-7, .col-8 { grid-column: span 12; }
+      .row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .explore-card { grid-column: span 12; }
+      .hero-card { padding: 22px; }
+      .section-card { padding: 20px; }
+      nav { display: none; }
+    }
+
+    /* Reduce motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============================================================
+       TOP BAR
+       ============================================================ -->
+  <div class="topbar" role="banner">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="Prodigy Nest Global">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>Prodigy Nest Global</h1>
+            <small>Holding Company · IP Studio · Venture Hub</small>
+          </div>
+        </div>
+
+        <nav aria-label="Primary">
+          <a class="navlink" href="#about">About</a>
+          <a class="navlink" href="#explore">Explore</a>
+          <a class="navlink" href="#portfolio">Portfolio Map</a>
+          <a class="navlink" href="#roadmap">Roadmap</a>
+          <a class="navlink" href="#faq">FAQ</a>
+          <a class="navlink" href="#contact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <button class="btn icon-btn" id="themeBtn" type="button" aria-label="Toggle theme">
+            <!-- moon/sun icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12.4A8.5 8.5 0 0 1 11.6 3a7 7 0 1 0 9.4 9.4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="btn" id="openVision" type="button">Vision</button>
+          <a class="btn primary" href="#contact">Get involved</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+
+        <div class="hero-card">
+          <div class="eyebrow">
+            <span class="pulse" aria-hidden="true"></span>
+            <span>One nest. Many flights. A single hub for your evolving ecosystem.</span>
+          </div>
+
+          <h2>
+            A global home for
+            <span style="opacity:.95">learning</span>,
+            <span style="opacity:.95">wellness</span>,
+            <span style="opacity:.95">connection</span>,
+            <span style="opacity:.95">commerce</span>,
+            <span style="opacity:.95">arts</span>, and
+            <span style="opacity:.95">health education</span>.
+          </h2>
+
+          <p>
+            Prodigy Nest Global is a holding-company landing hub—designed to feel holistic, not cluttered.
+            Think of it like a constellation: one center, many meaningful paths. Visitors arrive at the nest,
+            then choose a direction that fits them.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#explore">Explore the Nest</a>
+            <button class="btn" id="openSubsidiaries" type="button">See subsidiaries</button>
+            <a class="btn" href="#contact">Subscribe / contact</a>
+          </div>
+
+          <p class="micro">
+            This page is intentionally “calm.” Each branch gets its own space, so you can expand over time without overwhelming people.
+          </p>
+        </div>
+
+        <aside class="hub" aria-label="Portfolio hub">
+          <div class="hub-head">
+            <h3>Portfolio constellation</h3>
+            <span>Tap a node to preview</span>
+          </div>
+
+          <div class="hub-graph" id="hub" role="application" aria-label="Interactive map of subsidiaries">
+            <svg class="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="lineGlow" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="rgba(255,255,255,0.14)" />
+                  <stop offset="1" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M50 50 L20 28" stroke="url(#lineGlow)" stroke-width="1" fill="none" />
+              <path d="M50 50 L78 25" stroke="url(#lineGlow)" stroke-width="1" fill="none" />
+              <path d="M50 50 L86 56" stroke="url(#lineGlow)" stroke-width="1" fill="none" />
+              <path d="M50 50 L75 82" stroke="url(#lineGlow)" stroke-width="1" fill="none" />
+              <path d="M50 50 L30 82" stroke="url(#lineGlow)" stroke-width="1" fill="none" />
+              <path d="M50 50 L14 56" stroke="url(#lineGlow)" stroke-width="1" fill="none" />
+            </svg>
+
+            <div class="node center" data-modal="vision" style="left: 50%; top: 50%;" tabindex="0" role="button" aria-label="Prodigy Nest Global hub">
+              <div class="dot" aria-hidden="true"></div>
+              <span>PN Global</span>
+            </div>
+
+            <div class="node" data-target="#lang" data-title="Language Learning" style="left: 20%; top: 28%;" tabindex="0" role="button" aria-label="Language Learning">
+              <div class="dot" aria-hidden="true"></div>
+              <span>Language</span>
+            </div>
+
+            <div class="node" data-target="#couples" data-title="Couples & Connection" style="left: 78%; top: 25%;" tabindex="0" role="button" aria-label="Couples & Connection">
+              <div class="dot" aria-hidden="true"></div>
+              <span>Couples</span>
+            </div>
+
+            <div class="node" data-target="#herbal" data-title="Herbal Remedies" style="left: 86%; top: 56%;" tabindex="0" role="button" aria-label="Herbal Remedies">
+              <div class="dot" aria-hidden="true"></div>
+              <span>Herbal</span>
+            </div>
+
+            <div class="node" data-target="#commerce" data-title="Commerce & Dropshipping" style="left: 75%; top: 82%;" tabindex="0" role="button" aria-label="Commerce & Dropshipping">
+              <div class="dot" aria-hidden="true"></div>
+              <span>Commerce</span>
+            </div>
+
+            <div class="node" data-target="#arts" data-title="Poetry & Music" style="left: 30%; top: 82%;" tabindex="0" role="button" aria-label="Poetry & Music">
+              <div class="dot" aria-hidden="true"></div>
+              <span>Arts</span>
+            </div>
+
+            <div class="node" data-target="#medical" data-title="Medical Education" style="left: 14%; top: 56%;" tabindex="0" role="button" aria-label="Medical Education">
+              <div class="dot" aria-hidden="true"></div>
+              <span>Medical</span>
+            </div>
+
+          </div>
+
+          <div class="spacer"></div>
+          <div class="pillrow" aria-label="Quick tags">
+            <span class="pill">Central hub landing</span>
+            <span class="pill">Subsidiary navigation</span>
+            <span class="pill">Products + IP + projects</span>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">About the Nest</div>
+          <h2 class="title">A calm, holistic hub for a multifaceted future</h2>
+          <p class="lead">
+            The trick with a wide portfolio is not to show everything at once—but to communicate a single, coherent feeling:
+            <em>curated growth</em>. Prodigy Nest Global is a parent brand that holds multiple subsidiaries, intellectual properties,
+            and projects. This landing page acts as the “front gate”—welcoming visitors, establishing trust, and guiding them to
+            the branch that fits their needs.
+          </p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>Design principle: one metaphor</h4>
+              <p>
+                Everything here follows one visual story: a nest at the center and “flights” to different domains.
+                That’s why the background is a single abstract image, and the content is organized as a constellation.
+              </p>
+              <div class="pillrow">
+                <span class="pill">Holistic</span>
+                <span class="pill">Modular</span>
+                <span class="pill">Expandable</span>
+              </div>
+            </div>
+
+            <div class="card col-6">
+              <h4>Brand voice: modern + grounded</h4>
+              <p>
+                Your interests span learning, wellness, relationships, commerce, arts, and medicine.
+                Instead of “everything everywhere,” the voice stays steady: thoughtful, elevated, and inviting.
+              </p>
+              <div class="pillrow">
+                <span class="pill">Trust-building</span>
+                <span class="pill">Clear pathways</span>
+                <span class="pill">Human-centered</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <ul class="feature-list" aria-label="How this landing page works">
+            <li><span class="check" aria-hidden="true">✓</span> A single hero message communicates your “why” in one breath.</li>
+            <li><span class="check" aria-hidden="true">✓</span> A clean Explore section offers six clear directions (you can add more later).</li>
+            <li><span class="check" aria-hidden="true">✓</span> Each direction has a mini-description + examples so visitors self-select quickly.</li>
+            <li><span class="check" aria-hidden="true">✓</span> A roadmap shows maturity over time—people understand you’re building a universe, not a clutter cybersecurity. </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPLORE
+         ============================================================ -->
+    <section id="explore">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Explore</div>
+          <h2 class="title">Choose a path</h2>
+          <p class="lead">
+            Each branch below represents a subsidiary (or a future subsidiary). Click a branch to preview it,
+            then jump to its section.
+          </p>
+
+          <div class="filters" role="toolbar" aria-label="Filter branches">
+            <button class="chip" aria-pressed="true" data-filter="all" type="button">All</button>
+            <button class="chip" aria-pressed="false" data-filter="learn" type="button">Learn</button>
+            <button class="chip" aria-pressed="false" data-filter="love" type="button">Connection</button>
+            <button class="chip" aria-pressed="false" data-filter="heal" type="button">Wellness</button>
+            <button class="chip" aria-pressed="false" data-filter="trade" type="button">Commerce</button>
+            <button class="chip" aria-pressed="false" data-filter="create" type="button">Arts</button>
+            <button class="chip" aria-pressed="false" data-filter="care" type="button">Health Ed</button>
+          </div>
+
+          <div class="explore" id="exploreGrid" aria-label="Subsidiary cards">
+
+            <article class="explore-card" data-tags="learn" data-title="Language Learning" data-target="#lang" tabindex="0" role="button" aria-label="Open Language Learning">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 5h12M4 9h7M4 13h12M4 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M18 8c0 5-2 8-6 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                Learn
+              </div>
+              <h3>Language Learning</h3>
+              <p>Immersive training, structured fluency tracks, cultural notes, and curated resources—built for real-world communication.</p>
+              <div class="hint">
+                <span>Preview</span>
+                <span aria-hidden="true">→</span>
+              </div>
+            </article>
+
+            <article class="explore-card" data-tags="love" data-title="Couples & Connection" data-target="#couples" tabindex="0" role="button" aria-label="Open Couples & Connection">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 21s-7-4.6-9.5-9C.6 8.3 3 5.5 6.2 6c1.4.2 2.7 1.2 3.4 2.3.7-1.1 2-2.1 3.4-2.3C16.2 5.5 18.6 8.3 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Connection
+              </div>
+              <h3>Couples & Connection</h3>
+              <p>Couple packets, guided prompts, activities, and mini-courses that help partners communicate, bond, and grow.</p>
+              <div class="hint"><span>Preview</span><span aria-hidden="true">→</span></div>
+            </article>
+
+            <article class="explore-card" data-tags="heal" data-title="Herbal Remedies" data-target="#herbal" tabindex="0" role="button" aria-label="Open Herbal Remedies">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 20c8 0 12-8 12-16 0 0-6 0-10 4-2 2-3 5-3 8 0 2 1 4 1 4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 15c2-2 6-5 10-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                Wellness
+              </div>
+              <h3>Holistic Herbal Remedies</h3>
+              <p>Traditional wisdom + modern caution: guides, product lines, ingredient education, and safe wellness routines.</p>
+              <div class="hint"><span>Preview</span><span aria-hidden="true">→</span></div>
+            </article>
+
+            <article class="explore-card" data-tags="trade" data-title="Commerce & Dropshipping" data-target="#commerce" tabindex="0" role="button" aria-label="Open Commerce & Dropshipping">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 7h14l-2 10H9L7 7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M7 7l-2 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM18 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                Commerce
+              </div>
+              <h3>Marketplace & Drop Shipping</h3>
+              <p>Curated products, bundles, and scalable fulfillment—while keeping the brand experience premium and consistent.</p>
+              <div class="hint"><span>Preview</span><span aria-hidden="true">→</span></div>
+            </article>
+
+            <article class="explore-card" data-tags="create" data-title="Poetry & Music" data-target="#arts" tabindex="0" role="button" aria-label="Open Poetry & Music">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18V5l12-2v13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 18a3 3 0 1 1-2-2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M21 16a3 3 0 1 1-2-2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                Arts
+              </div>
+              <h3>Poetry, Music & Culture</h3>
+              <p>A space for the soul: spoken word, lyrics, short films, and cultural notes—IP that can grow into releases.</p>
+              <div class="hint"><span>Preview</span><span aria-hidden="true">→</span></div>
+            </article>
+
+            <article class="explore-card" data-tags="care" data-title="Medical Education" data-target="#medical" tabindex="0" role="button" aria-label="Open Medical Education">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 21s7-4 7-10V5l-7-2-7 2v6c0 6 7 10 7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 8v6M9 11h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                Health Ed
+              </div>
+              <h3>Medical Education Platform</h3>
+              <p>Study tools, explainers, anatomy/physiology refreshers, and ethical guidance—designed for clarity and retention.</p>
+              <div class="hint"><span>Preview</span><span aria-hidden="true">→</span></div>
+            </article>
+
+          </div>
+
+          <div class="divider"></div>
+
+          <p class="micro">
+            Tip: As you spin up each subsidiary, you can replace the “Preview” modal content and these sections with real product pages.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PORTFOLIO MAP (overview)
+         ============================================================ -->
+    <section id="portfolio">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Portfolio Map</div>
+          <h2 class="title">A basket of projects, held by a single identity</h2>
+          <p class="lead">
+            Some visitors will want a quick explanation of how everything fits together.
+            Here’s the simplest frame: Prodigy Nest Global is the parent. Subsidiaries are the branches.
+            Each branch can later become its own full site, app, storefront, or IP studio.
+          </p>
+
+          <div class="grid">
+            <div class="card col-7">
+              <h4>The “Nest” model</h4>
+              <p>
+                The nest is a place of protection and development—where ideas mature. Each venture is a “flight”:
+                it has its own identity, but it’s still connected to the center.
+              </p>
+              <div class="divider"></div>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> One parent brand builds trust across all offerings.</li>
+                <li><span class="check" aria-hidden="true">✓</span> Each offering gets a clear pathway and unique messaging.</li>
+                <li><span class="check" aria-hidden="true">✓</span> You can scale without redesigning the whole system.</li>
+              </ul>
+            </div>
+
+            <div class="card col-5">
+              <h4>Visitor journeys</h4>
+              <p>Different people arrive for different reasons. The page is designed to steer them gently.</p>
+              <div class="divider"></div>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> “I want to learn languages.” → Language branch</li>
+                <li><span class="check" aria-hidden="true">✓</span> “I want deeper connection.” → Couples branch</li>
+                <li><span class="check" aria-hidden="true">✓</span> “I want holistic wellness.” → Herbal branch</li>
+                <li><span class="check" aria-hidden="true">✓</span> “I want products.” → Commerce branch</li>
+                <li><span class="check" aria-hidden="true">✓</span> “I want art.” → Arts branch</li>
+                <li><span class="check" aria-hidden="true">✓</span> “I want medical learning.” → Medical branch</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUBSIDIARY SECTIONS
+         ============================================================ -->
+
+    <section id="lang">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Branch 01 · Learn</div>
+          <h2 class="title">Language Learning</h2>
+          <p class="lead">A disciplined, practical approach: fluency through structure, culture, and consistent practice.</p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>Offerings you can launch</h4>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> Skill tracks (Beginner → Intermediate → Advanced)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Conversation labs + pronunciation clinics</li>
+                <li><span class="check" aria-hidden="true">✓</span> Cultural anthropology notes (context matters)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Digital workbooks and flashcard packs</li>
+              </ul>
+            </div>
+
+            <div class="card col-6">
+              <h4>How it stays “not overbearing”</h4>
+              <p>
+                Instead of listing every language and every method on the home page, you present a single promise:
+                <em>real-world communication</em>. Then you let the language branch page carry the details.
+              </p>
+              <div class="divider"></div>
+              <div class="pillrow">
+                <span class="pill">Courses</span>
+                <span class="pill">Tutoring</span>
+                <span class="pill">Resources</span>
+                <span class="pill">Culture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="couples">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Branch 02 · Connection</div>
+          <h2 class="title">Couples & Connection</h2>
+          <p class="lead">Guided intimacy through communication, play, and deliberate care—without cringe.</p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>Product ideas (packets)</h4>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> Weekly connection prompts (with a theme)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Conflict-to-clarity scripts (gentle, respectful)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Date-night frameworks (low-cost, high depth)</li>
+                <li><span class="check" aria-hidden="true">✓</span> “Rebuild trust” and “deepen intimacy” mini-courses</li>
+              </ul>
+            </div>
+
+            <div class="card col-6">
+              <h4>What makes it premium</h4>
+              <p>
+                The difference is curation: fewer items, higher quality. Think “beautiful tools that feel safe to use.”
+                This can be sold as digital downloads, a membership library, or a boxed physical product.
+              </p>
+              <div class="divider"></div>
+              <div class="pillrow">
+                <span class="pill">Digital downloads</span>
+                <span class="pill">Membership</span>
+                <span class="pill">Workshops</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="herbal">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Branch 03 · Wellness</div>
+          <h2 class="title">Holistic Herbal Remedies</h2>
+          <p class="lead">Education-first wellness: traditional herbal knowledge paired with modern safety, sourcing, and transparency.</p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>Potential pillars</h4>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> Ingredient library (uses, cautions, interactions)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Starter routines (sleep, focus, digestion, stress)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Sourcing & quality standards (trust is everything)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Product line: teas, tinctures, salves (later)</li>
+              </ul>
+            </div>
+
+            <div class="card col-6">
+              <h4>Important disclaimer (built-in)</h4>
+              <p>
+                If you offer herbal wellness, keep clarity: this isn’t medical advice and it doesn’t replace professional care.
+                The site can educate responsibly and refer visitors to clinicians when needed.
+              </p>
+              <div class="divider"></div>
+              <p class="micro">
+                *Always add compliance text appropriate to your region, especially if selling ingestible products.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="commerce">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Branch 04 · Commerce</div>
+          <h2 class="title">Marketplace & Dropshipping</h2>
+          <p class="lead">A storefront that feels curated, not chaotic—bundles and collections that match your brand philosophy.</p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>How to keep it aligned</h4>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> Only sell what fits the “Nest” identity (quality + usefulness)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Curated collections: “Language learner kit,” “Couples kit,” etc.</li>
+                <li><span class="check" aria-hidden="true">✓</span> Clear sourcing, shipping expectations, and support policy</li>
+                <li><span class="check" aria-hidden="true">✓</span> Avoid random catalog dumps—less is more</li>
+              </ul>
+            </div>
+
+            <div class="card col-6">
+              <h4>Scalable paths</h4>
+              <p>
+                Start with digital products (higher margin, faster iteration), then add a small number of physical items.
+                Dropshipping can support experiments, while your long-term brand focuses on IP and owned products.
+              </p>
+              <div class="divider"></div>
+              <div class="pillrow">
+                <span class="pill">Digital first</span>
+                <span class="pill">Curated physical</span>
+                <span class="pill">Bundle strategy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="arts">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Branch 05 · Arts</div>
+          <h2 class="title">Poetry, Music & Culture</h2>
+          <p class="lead">An IP studio lane: publish, perform, and build a body of work that can grow into releases and collaborations.</p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>Formats</h4>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> Poetry drops (text + audio)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Music snippets and behind-the-scenes notes</li>
+                <li><span class="check" aria-hidden="true">✓</span> Cultural essays, translations, and reflections</li>
+                <li><span class="check" aria-hidden="true">✓</span> Creative community / submissions (later)</li>
+              </ul>
+            </div>
+
+            <div class="card col-6">
+              <h4>A coherent vibe</h4>
+              <p>
+                Keep the arts branch aesthetically consistent with the parent brand.
+                The arts don’t need to be loud; they can feel like a quiet gallery inside the same universe.
+              </p>
+              <div class="divider"></div>
+              <div class="pillrow">
+                <span class="pill">Spoken word</span>
+                <span class="pill">Music</span>
+                <span class="pill">Translation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="medical">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Branch 06 · Health Ed</div>
+          <h2 class="title">Medical Education Platform</h2>
+          <p class="lead">A study-first space: digestible explanations, smart repetition, and ethical clarity.</p>
+
+          <div class="grid">
+            <div class="card col-6">
+              <h4>Possible modules</h4>
+              <ul class="feature-list">
+                <li><span class="check" aria-hidden="true">✓</span> Anatomy & physiology refreshers</li>
+                <li><span class="check" aria-hidden="true">✓</span> Pathophysiology concept maps</li>
+                <li><span class="check" aria-hidden="true">✓</span> Case-based learning (with disclaimers)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Flashcards / quizzes / spaced repetition</li>
+              </ul>
+            </div>
+
+            <div class="card col-6">
+              <h4>Ethical boundaries</h4>
+              <p>
+                Educational content is safer and more universal than personal medical advice.
+                The platform can teach concepts while clearly recommending professional consultation for diagnosis/treatment.
+              </p>
+              <div class="divider"></div>
+              <p class="micro">*Consider legal review if you expand into clinical guidance or regulated services.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ROADMAP
+         ============================================================ -->
+    <section id="roadmap">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Roadmap</div>
+          <h2 class="title">Build in phases (so the nest never feels chaotic)</h2>
+          <p class="lead">
+            A simple phased rollout keeps everything clean. You can replace placeholders with real links as each branch matures.
+          </p>
+
+          <div class="timeline" aria-label="Phased roadmap">
+            <div class="step">
+              <div>
+                <b>Phase 1</b>
+                <p>Brand foundation</p>
+              </div>
+              <div>
+                <p>
+                  Launch this hub. Create one flagship offering (often language or couples) with a simple checkout.
+                  Add email capture and a clear “coming soon” for other branches.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Phase 2</b>
+                <p>Branch pages</p>
+              </div>
+              <div>
+                <p>
+                  Turn each branch into its own landing page (still under the parent). Add 1–3 high-quality products per branch.
+                  Build trust through thoughtful content and policies.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Phase 3</b>
+                <p>Membership</p>
+              </div>
+              <div>
+                <p>
+                  Introduce memberships where it makes sense: relationship library, language labs, wellness education.
+                  Membership turns curiosity into community.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div>
+                <b>Phase 4</b>
+                <p>Scale</p>
+              </div>
+              <div>
+                <p>
+                  Expand into physical products, collaborations, and specialized platforms.
+                  At this point, you can spin off branches into independent sites while keeping the parent hub as the map.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">FAQ</div>
+          <h2 class="title">Common questions</h2>
+          <p class="lead">This section quietly answers doubts and keeps visitors confident.</p>
+
+          <div class="grid">
+            <div class="col-6" style="display:grid; gap:10px;">
+              <details>
+                <summary>
+                  How can one brand cover so many areas?
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p>
+                  The “nest” metaphor creates coherence. Each branch is a focused experience, while the parent stays calm and consistent.
+                  Think of it as an ecosystem map rather than a single mega-store.
+                </p>
+              </details>
+
+              <details>
+                <summary>
+                  Will visitors feel overwhelmed?
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p>
+                  Not if the hub stays high-level. This page shows only the categories and the promise.
+                  Details live on the branch pages.
+                </p>
+              </details>
+
+              <details>
+                <summary>
+                  Can I add more subsidiaries later?
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p>
+                  Yes. Duplicate an Explore card + a branch section. The layout is modular.
+                  You can also swap the constellation nodes to match your exact portfolio.
+                </p>
+              </details>
+            </div>
+
+            <div class="col-6" style="display:grid; gap:10px;">
+              <details>
+                <summary>
+                  What about legal/health disclaimers?
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p>
+                  Keep them clear and calm: education ≠ diagnosis. When you sell supplements or publish health-related content,
+                  you’ll want region-appropriate compliance text and careful language.
+                </p>
+              </details>
+
+              <details>
+                <summary>
+                  How do I monetize first?
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p>
+                  Start with one flagship product lane (digital is easiest): a course, couple packet bundle, or a membership.
+                  Use the hub as the gateway.
+                </p>
+              </details>
+
+              <details>
+                <summary>
+                  Can the background be swapped for a custom image?
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p>
+                  Absolutely. Replace <code>--bg-svg</code> in the CSS with your own image URL, or update it to a new data-URI SVG.
+                  The overlay and glass cards will still work.
+                </p>
+              </details>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-card">
+          <div class="kicker">Contact</div>
+          <h2 class="title">Join the Nest</h2>
+          <p class="lead">
+            Capture interest early. This form is front-end only; wire it to your email platform or backend when you’re ready.
+          </p>
+
+          <div class="grid">
+            <div class="card col-7">
+              <h4>Subscribe / inquiries</h4>
+              <form class="form" id="contactForm">
+                <div class="row">
+                  <label>
+                    Name
+                    <input name="name" autocomplete="name" placeholder="Your name" />
+                  </label>
+                  <label>
+                    Email
+                    <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+                  </label>
+                </div>
+
+                <label>
+                  I’m interested in
+                  <select name="interest">
+                    <option value="general">General (Prodigy Nest Global)</option>
+                    <option value="language">Language Learning</option>
+                    <option value="couples">Couples & Connection</option>
+                    <option value="herbal">Herbal Remedies</option>
+                    <option value="commerce">Marketplace / Dropshipping</option>
+                    <option value="arts">Poetry & Music</option>
+                    <option value="medical">Medical Education</option>
+                  </select>
+                </label>
+
+                <label>
+                  Message
+                  <textarea name="message" placeholder="Tell us what you’re looking for…"></textarea>
+                </label>
+
+                <button class="btn primary" type="submit">Send message</button>
+                <p class="micro" id="formNote" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="card col-5">
+              <h4>Small print (recommended)</h4>
+              <p class="micro">
+                If you publish wellness or medical-education content, add clear disclaimers:
+                educational information is not medical advice; consult qualified professionals.
+              </p>
+              <div class="divider"></div>
+              <h4>Quick links</h4>
+              <p class="micro">
+                <a href="#explore">Explore</a> · <a href="#roadmap">Roadmap</a> · <a href="#faq">FAQ</a> · <a href="#top">Back to top</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>Prodigy Nest Global</h4>
+          <p style="margin:0; color: rgba(255,255,255,0.62); line-height:1.65;">
+            A holding company and creative venture hub.
+            This page is a calm map—each branch can evolve into its own platform.
+          </p>
+        </div>
+        <div>
+          <h4>Branches</h4>
+          <p style="margin:0; line-height:1.9;">
+            <a href="#lang">Language Learning</a><br />
+            <a href="#couples">Couples & Connection</a><br />
+            <a href="#herbal">Herbal Remedies</a><br />
+            <a href="#commerce">Commerce</a><br />
+            <a href="#arts">Poetry & Music</a><br />
+            <a href="#medical">Medical Education</a>
+          </p>
+        </div>
+        <div>
+          <h4>Next steps</h4>
+          <p style="margin:0; line-height:1.9;">
+            <a href="#contact">Email capture</a><br />
+            <a href="#roadmap">Phased rollout</a><br />
+            <a href="#faq">Trust-building</a><br />
+            <a href="#top">Return to top</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="divider" style="margin: 22px 0 14px;"></div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;">
+        <span>© <span id="year"></span> Prodigy Nest Global. All rights reserved.</span>
+        <span style="opacity:0.9;">Built as a modular landing hub · Single-file HTML</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL
+       ============================================================ -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <header>
+        <div>
+          <h3 id="modalTitle">Title</h3>
+          <p id="modalDesc">Description</p>
+        </div>
+        <button class="close" id="closeModal" type="button" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </header>
+      <div class="body">
+        <div class="mini" id="modalMain">
+          <h4>Preview</h4>
+          <p style="margin:0; color: rgba(255,255,255,0.72); line-height:1.65;">
+            Replace this content with your real product/service copy as you build.
+          </p>
+        </div>
+        <div class="mini" id="modalSide">
+          <h4>Quick ideas</h4>
+          <ul id="modalList">
+            <li>Offer 1</li>
+            <li>Offer 2</li>
+            <li>Offer 3</li>
+          </ul>
+          <div class="spacer"></div>
+          <button class="btn primary" id="modalGo" type="button">Go to section</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================
+    // Prodigy Nest Global — minimal JS for interactions
+    // ============================================================
+
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+    const modalBackdrop = $("#modalBackdrop");
+    const modalTitle = $("#modalTitle");
+    const modalDesc = $("#modalDesc");
+    const modalMain = $("#modalMain");
+    const modalList = $("#modalList");
+    const modalGo = $("#modalGo");
+
+    let lastFocus = null;
+    let modalTarget = "#top";
+
+    const MODALS = {
+      vision: {
+        title: "The Vision",
+        desc: "Prodigy Nest Global is a parent brand built to hold multiple ventures—without feeling scattered.",
+        main: "Picture a nest at the center: a safe, elegant hub. Each branch is a focused experience with its own offerings, tone, and audience. The parent stays calm and cohesive, so growth feels intentional.",
+        list: [
+          "One identity, multiple paths",
+          "Curated experiences (not a catalog dump)",
+          "Expandable layout as you scale"
+        ],
+        target: "#explore"
+      },
+      lang: {
+        title: "Language Learning",
+        desc: "Practical fluency, cultural context, and structured training.",
+        main: "Launch a flagship track: one language, one clear promise, one premium pathway. Add resources and cultural notes as layered depth, not as clutter.",
+        list: ["Fluency tracks", "Conversation labs", "Workbooks & flashcards"],
+        target: "#lang"
+      },
+      couples: {
+        title: "Couples & Connection",
+        desc: "Guided prompts, packets, and courses that deepen intimacy and communication.",
+        main: "Build a ‘relationship toolkit’ with elegant prompts and frameworks. Keep it safe, practical, and tasteful—tools people actually use.",
+        list: ["Weekly prompts", "Date-night frameworks", "Mini-courses"],
+        target: "#couples"
+      },
+      herbal: {
+        title: "Holistic Herbal Remedies",
+        desc: "Education-first wellness: benefits, cautions, and quality standards.",
+        main: "Trust is the product. Start with an ingredient library + transparent sourcing. Add product lines later when standards are locked in.",
+        list: ["Ingredient library", "Starter routines", "Sourcing standards"],
+        target: "#herbal"
+      },
+      commerce: {
+        title: "Marketplace & Dropshipping",
+        desc: "Curated products and bundles that match the brand philosophy.",
+        main: "Keep the store curated. Build collections aligned to your branches (language kits, couples kits, wellness kits) rather than random items.",
+        list: ["Curated collections", "Bundle strategy", "Digital-first approach"],
+        target: "#commerce"
+      },
+      arts: {
+        title: "Poetry, Music & Culture",
+        desc: "An IP lane: publish, perform, and build a body of work.",
+        main: "Create a quiet gallery. Release poetry and music with a consistent aesthetic, then grow into collaborations or larger projects.",
+        list: ["Poetry drops", "Music snippets", "Cultural essays"],
+        target: "#arts"
+      },
+      medical: {
+        title: "Medical Education Platform",
+        desc: "Study tools and explainers designed for clarity and retention.",
+        main: "Focus on education, not diagnosis. Build modules that teach concepts: anatomy, physiology, and case-style learning with careful disclaimers.",
+        list: ["Concept maps", "Quizzes / spaced repetition", "Case-based learning"],
+        target: "#medical"
+      }
+    };
+
+    function openModal(keyOrConfig) {
+      const cfg = typeof keyOrConfig === "string" ? MODALS[keyOrConfig] : keyOrConfig;
+      if (!cfg) return;
+
+      lastFocus = document.activeElement;
+      modalTarget = cfg.target || "#top";
+
+      modalTitle.textContent = cfg.title || "Preview";
+      modalDesc.textContent = cfg.desc || "";
+
+      // Main content
+      modalMain.innerHTML = `
+        <h4>Preview</h4>
+        <p style="margin:0; color: rgba(255,255,255,0.72); line-height:1.72;">${escapeHtml(cfg.main || "")}</p>
+      `;
+
+      // List
+      modalList.innerHTML = (cfg.list || []).map(x => `<li>${escapeHtml(x)}</li>`).join("");
+
+      // Show
+      modalBackdrop.style.display = "flex";
+      modalBackdrop.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      // focus close
+      setTimeout(() => $("#closeModal").focus(), 0);
+    }
+
+    function closeModal() {
+      modalBackdrop.style.display = "none";
+      modalBackdrop.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    // --- Modal openers
+    $("#openVision").addEventListener("click", () => openModal("vision"));
+    $("#openSubsidiaries").addEventListener("click", () => openModal({
+      title: "Subsidiaries",
+      desc: "A quick preview of the portfolio branches.",
+      main: "This hub is built to route visitors smoothly. Each branch becomes a destination as you develop it—without making the home page feel busy.",
+      list: ["Language Learning", "Couples & Connection", "Herbal Remedies", "Commerce", "Arts", "Medical Education"],
+      target: "#explore"
+    }));
+
+    // --- Constellation nodes
+    $$(".node").forEach(n => {
+      const open = () => {
+        const target = n.getAttribute("data-target");
+        const modal = n.getAttribute("data-modal");
+        if (modal) return openModal(modal);
+
+        if (!target) return;
+        const key = target.replace("#", "");
+        if (MODALS[key]) openModal(key);
+        else {
+          openModal({ title: n.getAttribute("data-title") || "Preview", desc: "", main: "", list: [], target });
+        }
+      };
+      n.addEventListener("click", open);
+      n.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    });
+
+    // --- Explore cards (open modal + scroll)
+    $$(".explore-card").forEach(card => {
+      const go = () => {
+        const target = card.getAttribute("data-target") || "#top";
+        const key = target.replace("#", "");
+        if (MODALS[key]) openModal(key);
+        else openModal({ title: card.getAttribute("data-title") || "Preview", desc: "", main: "", list: [], target });
+      };
+      card.addEventListener("click", go);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+      });
+    });
+
+    // --- Modal controls
+    $("#closeModal").addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modalBackdrop.getAttribute("aria-hidden") === "false") closeModal();
+    });
+    modalGo.addEventListener("click", () => {
+      closeModal();
+      const el = document.querySelector(modalTarget);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // --- Filters
+    const chips = $$(".chip");
+    const exploreCards = $$(".explore-card");
+
+    function setFilter(tag) {
+      chips.forEach(c => c.setAttribute("aria-pressed", String(c.dataset.filter === tag)));
+      exploreCards.forEach(card => {
+        const tags = (card.dataset.tags || "").split(" ").filter(Boolean);
+        const show = (tag === "all") || tags.includes(tag);
+        card.style.display = show ? "block" : "none";
+      });
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => setFilter(chip.dataset.filter));
+    });
+
+    // --- Active nav link based on scroll
+    const navLinks = $$(".navlink");
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = "#" + entry.target.id;
+        navLinks.forEach(a => {
+          const cur = a.getAttribute("href") === id;
+          if (cur) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.02 });
+
+    sections.forEach(s => io.observe(s));
+
+    // --- Theme toggle
+    const themeBtn = $("#themeBtn");
+    const savedTheme = localStorage.getItem("png_theme");
+    if (savedTheme && savedTheme !== "dark") document.body.setAttribute("data-theme", savedTheme);
+
+    themeBtn.addEventListener("click", () => {
+      const isLight = document.body.getAttribute("data-theme") === "light";
+      if (isLight) document.body.removeAttribute("data-theme");
+      else document.body.setAttribute("data-theme", "light");
+      localStorage.setItem("png_theme", isLight ? "dark" : "light");
+    });
+
+    // --- Contact form (front-end only). Creates a mailto link.
+    const form = $("#contactForm");
+    const formNote = $("#formNote");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = (fd.get("name") || "").toString().trim();
+      const email = (fd.get("email") || "").toString().trim();
+      const interest = (fd.get("interest") || "general").toString();
+      const message = (fd.get("message") || "").toString().trim();
+
+      if (!email) {
+        formNote.textContent = "Please add an email address.";
+        return;
+      }
+
+      const subject = encodeURIComponent(`Prodigy Nest Global — ${interest} inquiry`);
+      const body = encodeURIComponent(
+        `Name: ${name || "(not provided)"}\nEmail: ${email}\nInterest: ${interest}\n\nMessage:\n${message || "(no message)"}\n\n— Sent from Prodigy Nest Global landing page`
+      );
+
+      // Replace with your real inbox.
+      const to = "hello@prodigynestglobal.com";
+      const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+
+      formNote.textContent = "Opening your email client… (Replace the inbox address in the HTML when ready.)";
+      window.location.href = mailto;
+    });
+
+    // --- Footer year
+    $("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
