@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Polyglot Heaven: Ultimate Language Learning Platform</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    /* --- THEME DEFINITIONS --- */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius: 8px;
+    }
+
+    /* THEME: Professional (Default) */
+    body[data-theme="pro"] {
+      --bg-body: #0f172a; --bg-sidebar: #1e293b; --bg-panel: #1e293b;
+      --bg-card: #334155; --bg-input: #020617;
+      --text-main: #f8fafc; --text-muted: #94a3b8;
+      --primary: #6366f1; --primary-hover: #4f46e5;
+      --accent: #38bdf8; --border: #334155; --border-light: #475569;
+      --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+    }
+
+    /* THEME: Paper (Light) */
+    body[data-theme="light"] {
+      --bg-body: #f1f5f9; --bg-sidebar: #ffffff; --bg-panel: #ffffff;
+      --bg-card: #f8fafc; --bg-input: #ffffff;
+      --text-main: #0f172a; --text-muted: #64748b;
+      --primary: #2563eb; --primary-hover: #1d4ed8;
+      --accent: #0891b2; --border: #e2e8f0; --border-light: #cbd5e1;
+      --success: #16a34a; --warning: #d97706; --danger: #dc2626;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+
+    /* THEME: Cyberpunk */
+    body[data-theme="cyber"] {
+      --bg-body: #000000; --bg-sidebar: #050505; --bg-panel: #0a0a0a;
+      --bg-card: #111; --bg-input: #000;
+      --text-main: #00ff9d; --text-muted: #008f58;
+      --primary: #ff0055; --primary-hover: #d90048;
+      --accent: #fcee0a; --border: #333; --border-light: #444;
+      --success: #00ff00; --warning: #ffcc00; --danger: #ff0000;
+      --shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+    }
+
+    /* --- BASE STYLES --- */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: var(--font-sans); background: var(--bg-body);
+      color: var(--text-main); overflow: hidden; display: flex; font-size: 14px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-body); }
+    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 5px; border: 2px solid var(--bg-body); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* LAYOUT */
+    .sidebar {
+      width: 280px; min-width: 280px; background: var(--bg-sidebar);
+      border-right: 1px solid var(--border); display: flex; flex-direction: column;
+      padding: 16px; gap: 16px; z-index: 50; transition: transform 0.2s;
+      overflow-y: auto;
+    }
+    .main-content { flex: 1; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+    
+    .topbar {
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; background: var(--bg-panel); border-bottom: 1px solid var(--border);
+    }
+    
+    .workspace {
+      flex: 1; display: grid; grid-template-columns: 1fr 340px; gap: 20px;
+      padding: 20px; overflow: hidden;
+    }
+
+    /* UI ELEMENTS */
+    .btn, .input, .select, textarea {
+      font-family: inherit; border-radius: var(--radius); border: 1px solid var(--border);
+      font-size: 13px; outline: none; transition: 0.15s;
+    }
+    .input, .select, textarea { background: var(--bg-input); color: var(--text-main); padding: 8px 12px; }
+    .input:focus, .select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-light); }
+    
+    .btn {
+      cursor: pointer; padding: 8px 16px; font-weight: 600;
+      background: var(--primary); color: #fff; border: 1px solid transparent;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(1); }
+    
+    .btn.secondary { background: var(--bg-card); color: var(--text-main); border-color: var(--border); }
+    .btn.secondary:hover { background: var(--border-light); }
+    .btn.ghost { background: transparent; color: var(--text-muted); border-color: transparent; }
+    .btn.ghost:hover { background: rgba(255,255,255,0.05); color: var(--text-main); }
+    .btn.danger { background: rgba(239,68,68,0.15); color: var(--danger); border-color: rgba(239,68,68,0.3); }
+    .btn.danger:hover { background: rgba(239,68,68,0.25); }
+    .btn.success { background: var(--success); color: #fff; }
+
+    /* PANELS & MODULES */
+    .pane {
+      background: var(--bg-panel); border: 1px solid var(--border);
+      border-radius: var(--radius); display: flex; flex-direction: column;
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .pane-header {
+      padding: 14px 18px; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0,0,0,0.02);
+    }
+    .pane-body { flex: 1; overflow: auto; padding: 20px; position: relative; }
+    
+    .module { display: none; height: 100%; flex-direction: column; gap: 20px; }
+    .module.active { display: flex; animation: fadeIn 0.2s; }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(5px);} to{opacity:1; transform:translateY(0);} }
+
+    /* READER */
+    .reader-card {
+      background: var(--bg-card); padding: 24px; border-radius: var(--radius);
+      border: 1px solid var(--border); display: flex; flex-direction: column; flex: 1;
+    }
+    #text-display {
+      flex: 1; overflow-y: auto; font-size: 26px; line-height: 1.6;
+      margin-bottom: 20px; white-space: pre-wrap; padding: 10px;
+    }
+    .word {
+      padding: 2px 4px; border-radius: 4px; cursor: pointer;
+      border-bottom: 2px solid transparent; transition: background 0.1s;
+    }
+    .word:hover { background: rgba(255,255,255,0.1); }
+    .word.active { background: var(--primary-light); border-bottom-color: var(--primary); }
+    .word.speaking { background: rgba(16, 185, 129, 0.2); border-bottom-color: var(--success); }
+
+    /* AVATAR */
+    .avatar {
+      width: 72px; height: 72px; background: #e2e8f0; border-radius: 50%;
+      position: relative; margin: 0 auto; border: 3px solid var(--border);
+      transition: transform 0.2s;
+    }
+    .avatar .eyes { position: absolute; top: 28px; width: 100%; display: flex; justify-content: center; gap: 14px; }
+    .avatar .eye { width: 8px; height: 8px; background: #334155; border-radius: 50%; }
+    .avatar .mouth {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 20px; height: 4px; background: var(--danger); border-radius: 4px; transition: 0.1s;
+    }
+    .avatar.talking .mouth {
+      height: 14px; width: 14px; border-radius: 50%; bottom: 18px;
+      animation: talk 0.15s infinite alternate;
+    }
+    @keyframes talk { from{transform:translateX(-50%) scaleY(0.6);} to{transform:translateX(-50%) scaleY(1.2);} }
+
+    /* NAVIGATION */
+    .nav-btn {
+      width: 100%; text-align: left; padding: 10px 12px; background: transparent;
+      color: var(--text-muted); border: 1px solid transparent; cursor: pointer;
+      border-radius: var(--radius); font-weight: 500; display: flex; align-items: center; gap: 10px;
+    }
+    .nav-btn:hover { background: rgba(255,255,255,0.03); color: var(--text-main); }
+    .nav-btn.active {
+      background: var(--primary-light); color: var(--primary);
+      border-color: rgba(99,102,241,0.2); font-weight: 600;
+    }
+
+    /* LIBRARY ITEMS */
+    .lib-item {
+      padding: 10px; border-radius: var(--radius); cursor: pointer;
+      color: var(--text-muted); margin-bottom: 6px; border: 1px solid transparent;
+      transition: all 0.1s;
+    }
+    .lib-item:hover { background: var(--bg-card); color: var(--text-main); }
+    .lib-item.active {
+      background: var(--bg-card); border-color: var(--primary);
+      color: var(--text-main); box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .lib-item strong { display: block; margin-bottom: 2px; }
+    .lib-item small { opacity: 0.7; font-size: 11px; }
+
+    /* UTILS */
+    .pill {
+      background: var(--bg-input); padding: 4px 10px; border-radius: 99px;
+      font-size: 11px; border: 1px solid var(--border); display: inline-flex;
+      align-items: center; gap: 6px; color: var(--text-muted);
+    }
+    .pill.active { border-color: var(--success); color: var(--success); }
+
+    /* MODAL */
+    .modal {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(4px); z-index: 2000;
+      display: flex; justify-content: center; align-items: center; padding: 20px;
+    }
+    .modal-box {
+      background: var(--bg-panel); padding: 24px; border-radius: 12px;
+      width: 100%; max-width: 500px; border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    /* TOAST */
+    #toasts { position: fixed; bottom: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; }
+    .toast {
+      background: var(--bg-panel); padding: 12px 16px; border-radius: var(--radius);
+      border: 1px solid var(--border); border-left: 4px solid var(--primary);
+      color: var(--text-main); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s; min-width: 250px;
+    }
+    @keyframes slideUp { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+    /* FLASHCARD FACE */
+    .card-face {
+      background: var(--bg-input); border: 2px solid var(--border);
+      border-radius: 12px; padding: 40px; text-align: center;
+      margin: 20px 0; font-size: 32px; font-weight: 700;
+      min-height: 220px; display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+    }
+    .card-face small {
+        position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
+        font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 400;
+    }
+
+    /* CONTENT PACK CARD */
+    .pack-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 15px; margin-bottom: 10px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .pack-card:hover { border-color: var(--primary); }
+
+    /* GAME CANVAS */
+    #gameCanvas {
+      display: block; width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #111926 0%, #000000 100%);
+    }
+    #game-container {
+      position: relative; width: 100%; height: 100%;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .workspace { grid-template-columns: 1fr; }
+      .pane.right { display: none; }
+      .pane.right.open { display: flex; position: fixed; inset: 20px; z-index: 100; box-shadow: 0 0 100px #000; }
+    }
+    @media (max-width: 768px) {
+      .sidebar { position: fixed; left: -290px; top: 0; bottom: 0; box-shadow: 10px 0 30px rgba(0,0,0,0.5); }
+      .sidebar.open { transform: translateX(290px); }
+    }
+  </style>
+</head>
+<body data-theme="pro">
+
+<div id="auth-modal" class="modal">
+  <div class="modal-box">
+    <h2 style="margin-top:0;">Polyglot Heaven</h2>
+    <p style="color:var(--text-muted); margin-bottom:20px;">
+      Welcome. Connect to Supabase for cloud sync, or proceed offline.
+    </p>
+    
+    <label style="display:block; margin-bottom:5px; font-size:12px;">Supabase Project URL</label>
+    <input class="input" style="width:100%; margin-bottom:15px;" type="text" id="sb-url" placeholder="https://..." />
+    
+    <label style="display:block; margin-bottom:5px; font-size:12px;">Anon Key</label>
+    <input class="input" style="width:100%; margin-bottom:20px;" type="password" id="sb-key" placeholder="eyJ..." />
+    
+    <div id="auth-error" style="color:var(--danger); font-size:12px; margin-bottom:15px; display:none;"></div>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn" onclick="connectDB()">Connect Cloud</button>
+      <button class="btn secondary" onclick="useOffline()">Start Offline</button>
+      <button class="btn ghost" onclick="quickDemo()">Load Demo Data</button>
+    </div>
+    
+    <div style="margin-top:20px; font-size:12px; color:var(--text-muted);">
+      <p>Tip: Go to Settings > Content Store to download language packs.</p>
+    </div>
+  </div>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <div style="padding-bottom:16px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+    <h3 style="margin:0; font-weight:800; letter-spacing:-0.5px;">Polyglot.</h3>
+    <button class="btn ghost" style="padding:4px;" onclick="openHelp()" title="Shortcuts">⌨️</button>
+  </div>
+  
+  <div class="avatar" id="avatar"><div class="eyes"><div class="eye"></div><div class="eye"></div></div><div class="mouth"></div></div>
+  
+  <div style="background:rgba(0,0,0,0.15); padding:12px; border-radius:var(--radius); border:1px solid var(--border);">
+    <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+      <span style="font-size:11px; color:var(--text-muted);">DAILY GOAL</span>
+      <span style="font-size:11px; font-weight:bold; color:var(--success);">Day <span id="streak-val">0</span></span>
+    </div>
+    <div style="font-size:20px; font-weight:800; color:var(--primary);">
+      <span id="daily-now">0</span> / <span id="daily-goal">50</span> XP
+    </div>
+    <div style="background:var(--bg-input); height:4px; border-radius:2px; margin-top:8px; overflow:hidden;">
+      <div id="daily-bar" style="width:0%; height:100%; background:var(--success); transition:width 0.3s;"></div>
+    </div>
+  </div>
+
+  <nav>
+    <button class="nav-btn active" onclick="switchTab('read', this)">📖 Read & Listen</button>
+    <button class="nav-btn" onclick="switchTab('speak', this)">🎤 Speaking Lab</button>
+    <button class="nav-btn" onclick="switchTab('quiz', this)">📝 Dictation Quiz</button>
+    <button class="nav-btn" onclick="switchTab('game', this)">🎮 Language Shooter</button>
+    <button class="nav-btn" onclick="switchTab('cards', this)">🎴 Flashcards (SRS)</button>
+    <button class="nav-btn" onclick="switchTab('vocab', this)">🧠 Vocabulary</button>
+    <button class="nav-btn" onclick="switchTab('tsi', this)">📊 TSI Analytics</button>
+    <button class="nav-btn" onclick="switchTab('stats', this)">📈 Statistics</button>
+    <button class="nav-btn" onclick="switchTab('settings', this)">⚙️ Settings / Store</button>
+  </nav>
+
+  <div style="margin-top:auto;">
+    <div style="font-size:11px; color:var(--text-muted); margin-bottom:5px; display:flex; justify-content:space-between;">
+      <span>Level <span id="lvl-val">1</span> Scholar</span>
+      <span><span id="xp-val">0</span> Total XP</span>
+    </div>
+    <div style="background:var(--bg-input); height:6px; border-radius:3px; overflow:hidden;">
+      <div id="xp-bar" style="background:var(--primary); width:0%; height:100%; transition:width 0.3s;"></div>
+    </div>
+  </div>
+  
+  <div style="display:flex; gap:10px;">
+    <button class="btn secondary" style="flex:1;" onclick="toggleLibrary()">Library</button>
+  </div>
+</aside>
+
+<main class="main-content">
+  <div class="topbar">
+    <div style="display:flex; gap:12px; align-items:center;">
+      <button class="btn ghost" style="display:none;" id="mobile-menu" onclick="toggleSidebar()">☰</button>
+      <select class="select" id="lang-select" style="min-width:140px; font-weight:600;">
+        <option value="es">Spanish 🇪🇸</option>
+        <option value="fr">French 🇫🇷</option>
+        <option value="de">German 🇩🇪</option>
+        <option value="it">Italian 🇮🇹</option>
+        <option value="pt">Portuguese 🇧🇷</option>
+        <option value="ru">Russian 🇷🇺</option>
+        <option value="ja">Japanese 🇯🇵</option>
+        <option value="zh">Chinese 🇨🇳</option>
+        <option value="ar">Arabic 🇸🇦</option>
+        <option value="ko">Korean 🇰🇷</option>
+      </select>
+      <div class="pill" id="status-pill"><span style="width:6px;height:6px;border-radius:50%;background:red;margin-right:4px;"></span> Offline</div>
+    </div>
+    
+    <div style="display:flex; gap:10px; align-items:center;">
+      <input class="input" id="quick-search" placeholder="Quick Search (Press /)" style="width:200px;" />
+      <button class="btn secondary" onclick="randomSentence()" title="Random Sentence">🎲</button>
+    </div>
+  </div>
+
+  <div class="workspace">
+    
+    <div class="pane">
+      <div class="pane-header">
+        <h2 id="pane-title" style="margin:0; font-size:16px;">Read & Listen</h2>
+        <div style="display:flex; gap:8px;">
+          <button class="btn ghost" onclick="bookmarkCurrent()" title="Bookmark">⭐</button>
+          <button class="btn ghost" onclick="toggleKnownCurrent()" title="Mark as Known">✅</button>
+        </div>
+      </div>
+      
+      <div class="pane-body">
+
+        <div id="mod-read" class="module active">
+          <div class="reader-card">
+            <div id="text-display">Loading sentences...</div>
+            <div style="margin-top:auto; padding-top:20px; border-top:1px solid var(--border); display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <button class="btn" onclick="playCurrent()">▶ Play</button>
+              <button class="btn secondary" onclick="stopSpeech()">Stop</button>
+              <div style="width:1px; height:24px; background:var(--border); margin:0 10px;"></div>
+              <button class="btn secondary" onclick="prevSent()">← Prev</button>
+              <button class="btn secondary" onclick="nextSent()">Next →</button>
+              <div style="flex:1;"></div>
+              <div class="pill">
+                Rate: <span id="rate-disp">1.0</span>
+                <input type="range" min="0.5" max="2" step="0.1" value="1" style="width:60px; margin-left:8px;" oninput="setRate(this.value)">
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg-card); padding:20px; border-radius:var(--radius); border:1px solid var(--border);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+              <div>
+                <div style="font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Selected Word</div>
+                <div id="sel-word" style="font-size:24px; font-weight:700; color:var(--accent);">—</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="btn secondary" id="btn-speak" disabled onclick="speakWord()">🔊</button>
+                <button class="btn success" id="btn-save" disabled onclick="saveVocab()">+ Save & Flashcard</button>
+              </div>
+            </div>
+            <textarea id="word-notes" style="width:100%; height:80px; resize:none;" placeholder="Add definition or notes (creates flashcard)..."></textarea>
+          </div>
+        </div>
+
+        <div id="mod-speak" class="module">
+          <div class="reader-card" style="text-align:center;">
+            <h3 style="color:var(--text-muted);">Pronunciation Lab</h3>
+            <div id="speak-target" style="font-size:22px; margin:30px 0; font-weight:600;"></div>
+            
+            <div style="display:flex; justify-content:center; gap:15px; margin-bottom:30px;">
+              <button class="btn secondary" onclick="playCurrent()">👂 Listen Target</button>
+              <button class="btn danger" id="btn-rec" onclick="startRec()">🔴 Record Voice</button>
+            </div>
+
+            <div style="background:var(--bg-input); padding:20px; border-radius:var(--radius); border:1px solid var(--border);">
+              <div style="font-size:12px; color:var(--text-muted); margin-bottom:5px;">TRANSCRIPT</div>
+              <div id="speak-res" style="font-size:18px; min-height:24px; font-style:italic;">...</div>
+            </div>
+
+            <div style="margin-top:20px;">
+              <div style="font-size:12px; color:var(--text-muted);">ACCURACY SCORE</div>
+              <div id="speak-score" style="font-size:48px; font-weight:800; color:var(--text-muted);">--%</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="mod-quiz" class="module">
+          <div class="reader-card">
+            <h3>Dictation Quiz</h3>
+            <p style="color:var(--text-muted);">Listen to the audio and type exactly what you hear.</p>
+            
+            <button class="btn" onclick="playCurrent()" style="align-self:flex-start; margin:20px 0;">▶ Play Audio</button>
+            
+            <textarea id="quiz-input" style="width:100%; height:100px; font-size:18px; padding:15px;" placeholder="Type here..."></textarea>
+            
+            <div style="display:flex; gap:10px; margin-top:15px;">
+              <button class="btn success" onclick="checkQuiz()">Check Answer</button>
+              <button class="btn secondary" onclick="hintQuiz()">Get Hint</button>
+              <div style="flex:1;"></div>
+              <button class="btn ghost" onclick="revealQuiz()">Reveal</button>
+            </div>
+            
+            <div id="quiz-feed" style="margin-top:20px; font-weight:bold; font-size:16px;"></div>
+          </div>
+        </div>
+
+        <div id="mod-game" class="module">
+          <div id="game-container" style="width:100%; height:600px; position:relative;">
+            <canvas id="gameCanvas"></canvas>
+            <div id="game-ui" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div style="display:flex; justify-content:space-between;">
+                <div style="background:rgba(0,0,0,0.6); padding:10px 20px; border-left:3px solid var(--primary);">
+                  <div style="font-size:10px; color:#888;">SCORE</div>
+                  <div style="font-size:24px; font-weight:700;" id="game-score">0</div>
+                </div>
+                <div style="background:rgba(0,0,0,0.6); padding:10px 20px; border-left:3px solid var(--warning);">
+                  <div style="font-size:10px; color:#888;">STREAK</div>
+                  <div style="font-size:24px; font-weight:700; color:var(--warning);" id="game-combo">1x</div>
+                </div>
+                <div style="background:rgba(0,0,0,0.6); padding:10px 20px; border-left:3px solid var(--danger);">
+                  <div style="font-size:10px; color:#888;">LIVES</div>
+                  <div style="font-size:24px; font-weight:700;" id="game-lives">100%</div>
+                </div>
+              </div>
+              <div style="align-self:center; width:600px; max-width:90%;">
+                <input type="text" id="game-input" placeholder="TRANSLATE & ENTER" style="width:100%; background:rgba(0,0,0,0.8); border:2px solid var(--primary); color:white; font-size:32px; padding:20px; text-align:center; border-radius:5px; pointer-events:auto;" autocomplete="off">
+              </div>
+            </div>
+            <div id="game-start-modal" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:var(--bg-panel); padding:40px; border:1px solid var(--border); border-radius:12px; text-align:center; pointer-events:auto; z-index:100;">
+              <h1 style="margin:0; font-size:48px; color:var(--primary);">Language Shooter</h1>
+              <p style="color:var(--text-muted); margin:20px 0;">Translate words as they fall. Build combos for higher scores!</p>
+              <button class="btn" onclick="startGame()" style="margin-top:20px;">START GAME</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mod-cards" class="module">
+          <div class="reader-card" style="text-align:center; justify-content:center;">
+             <div style="margin-bottom:20px;">
+               <h3>Spaced Repetition</h3>
+               <span class="pill">Due: <strong id="srs-due">0</strong></span>
+               <span class="pill">Total: <strong id="srs-total">0</strong></span>
+             </div>
+             
+             <div id="card-area" style="display:none; width:100%; max-width:500px; margin:0 auto;">
+                <div class="card-face" id="card-face-front">
+                   <small>Front</small>
+                   <div id="card-front" style="margin-top:10px;">Word</div>
+                </div>
+                <button class="btn secondary" id="btn-flip" onclick="flipCard()" style="width:100%;">Show Answer</button>
+                
+                <div id="card-back" style="display:none;">
+                   <div class="card-face" style="border-color:var(--accent); margin-top:10px;">
+                      <small style="color:var(--accent);">Back</small>
+                      <div id="card-back-text" style="margin-top:10px; font-weight:400; font-size:18px;">Definition</div>
+                   </div>
+                   <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:20px;">
+                      <button class="btn danger" onclick="rateCard(1)">Again</button>
+                      <button class="btn secondary" onclick="rateCard(2)">Hard</button>
+                      <button class="btn secondary" onclick="rateCard(3)">Good</button>
+                      <button class="btn success" onclick="rateCard(4)">Easy</button>
+                   </div>
+                </div>
+             </div>
+
+             <div id="card-empty">
+                <p style="font-size:18px; color:var(--text-muted); margin-bottom:20px;">No cards due right now.</p>
+                <div style="display:flex; justify-content:center; gap:10px;">
+                   <button class="btn secondary" onclick="buildDeck()">Rebuild Deck</button>
+                   <button class="btn" onclick="generateContentPack(app.lang)">Generate Starter Deck</button>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <div id="mod-vocab" class="module">
+          <div class="reader-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+              <h3>Vocabulary List</h3>
+              <div style="display:flex; gap:10px;">
+                <button class="btn secondary" onclick="loadVocab()">Refresh</button>
+                <button class="btn ghost" onclick="exportCSV()">Export CSV</button>
+              </div>
+            </div>
+            <div id="vocab-list" style="flex:1; overflow-y:auto; padding-right:10px;">
+              <div style="text-align:center; color:var(--text-muted); padding:20px;">Loading...</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="mod-tsi" class="module">
+          <div class="reader-card">
+            <h3>TSI Analytics Dashboard</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Track your vocabulary coverage and learning efficiency.</p>
+            
+            <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:15px; margin-bottom:20px;">
+              <div style="background:var(--bg-input); padding:15px; border-radius:var(--radius);">
+                <div style="font-size:11px; color:var(--text-muted);">ESTIMATED COVERAGE</div>
+                <div style="font-size:32px; font-weight:700;" id="tsi-coverage">—</div>
+              </div>
+              <div style="background:var(--bg-input); padding:15px; border-radius:var(--radius);">
+                <div style="font-size:11px; color:var(--text-muted);">KNOWN WORDS</div>
+                <div style="font-size:32px; font-weight:700;" id="tsi-known">—</div>
+              </div>
+            </div>
+
+            <div style="background:var(--bg-input); padding:20px; border-radius:var(--radius); margin-bottom:20px;">
+              <canvas id="tsi-chart" style="max-height:300px;"></canvas>
+            </div>
+
+            <div style="background:var(--bg-card); padding:15px; border-radius:var(--radius); border:1px solid var(--border);">
+              <div style="font-size:12px; color:var(--text-muted); margin-bottom:10px;">LEARNING INSIGHT</div>
+              <div id="tsi-insight" style="font-size:14px; line-height:1.6;">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="mod-stats" class="module">
+          <div class="reader-card">
+            <h3>Progress Statistics</h3>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:15px; margin-top:20px;">
+               <div style="background:var(--bg-input); padding:15px; border-radius:var(--radius);">
+                 <div style="font-size:11px; color:var(--text-muted);">SENTENCES LISTENED</div>
+                 <div style="font-size:24px; font-weight:700;" id="stat-listens">0</div>
+               </div>
+               <div style="background:var(--bg-input); padding:15px; border-radius:var(--radius);">
+                 <div style="font-size:11px; color:var(--text-muted);">SAVED WORDS</div>
+                 <div style="font-size:24px; font-weight:700;" id="stat-saved">0</div>
+               </div>
+               <div style="background:var(--bg-input); padding:15px; border-radius:var(--radius);">
+                 <div style="font-size:11px; color:var(--text-muted);">QUIZ ATTEMPTS</div>
+                 <div style="font-size:24px; font-weight:700;" id="stat-quizzes">0</div>
+               </div>
+               <div style="background:var(--bg-input); padding:15px; border-radius:var(--radius);">
+                 <div style="font-size:11px; color:var(--text-muted);">RECORDINGS</div>
+                 <div style="font-size:24px; font-weight:700;" id="stat-recs">0</div>
+               </div>
+            </div>
+
+            <div style="margin-top:30px;">
+               <h4>Data Management</h4>
+               <div style="display:flex; gap:10px; margin-top:10px;">
+                 <button class="btn secondary" onclick="downloadBackup()">Download JSON Backup</button>
+                 <label class="btn secondary">
+                   Restore JSON <input type="file" id="backup-input" style="display:none" onchange="restoreBackup(this)">
+                 </label>
+               </div>
+               <div style="margin-top:10px;">
+                 <button class="btn danger" onclick="nukeData()">Factory Reset App</button>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="mod-settings" class="module">
+          <div class="reader-card">
+            <h3>Content Store</h3>
+            <p style="color:var(--text-muted);">Download free starter packs to populate your library and flashcards.</p>
+            
+            <div id="store-area" style="margin-top:20px;">
+               </div>
+
+            <h3 style="margin-top:30px;">App Settings</h3>
+            
+            <div style="margin-top:20px;">
+              <label style="font-weight:600; display:block; margin-bottom:8px;">Visual Theme</label>
+              <select class="select" id="theme-select" style="width:100%;" onchange="setTheme(this.value)">
+                <option value="pro">Professional (Dark)</option>
+                <option value="light">Paper (Light)</option>
+                <option value="cyber">Cyberpunk (Neon)</option>
+              </select>
+            </div>
+
+            <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border);">
+               <label style="font-weight:600; display:block; margin-bottom:8px;">Native Voice Engine</label>
+               <div style="display:flex; gap:10px;">
+                  <select class="select" id="voice-select" style="flex:1;"></select>
+                  <button class="btn secondary" onclick="initVoices()">Find Voices</button>
+               </div>
+            </div>
+
+            <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border);">
+               <button class="btn ghost" onclick="logout()">Disconnect / Logout</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="pane right" id="lib-pane">
+      <div class="pane-header">
+        <h3>Library</h3>
+        <button class="btn ghost" onclick="toggleLibrary()">✕</button>
+      </div>
+      <div style="padding:15px; border-bottom:1px solid var(--border);">
+        <input class="input" id="lib-filter" placeholder="Filter..." style="width:100%;" oninput="renderLibrary()">
+        <div style="display:flex; gap:5px; margin-top:10px;">
+          <button class="btn secondary" style="flex:1; font-size:11px;" onclick="filterLib('all')">All</button>
+          <button class="btn secondary" style="flex:1; font-size:11px;" onclick="filterLib('fav')">⭐</button>
+          <button class="btn secondary" style="flex:1; font-size:11px;" onclick="filterLib('new')">New</button>
+        </div>
+      </div>
+      <div class="pane-body" id="lib-list" style="padding:10px;"></div>
+      <div style="padding:10px; border-top:1px solid var(--border); text-align:center;">
+        <button class="btn ghost" onclick="loadSentences()">Force Reload</button>
+      </div>
+    </div>
+  
+  </div>
+</main>
+
+<div id="help-modal" class="modal" style="display:none;">
+  <div class="modal-box">
+    <h3>Keyboard Shortcuts</h3>
+    <ul style="color:var(--text-muted); padding-left:20px; line-height:1.8;">
+      <li><strong>Space:</strong> Play / Stop Audio</li>
+      <li><strong>Left/Right Arrow:</strong> Prev / Next Sentence</li>
+      <li><strong>S:</strong> Save Selected Word</li>
+      <li><strong>W:</strong> Speak Selected Word</li>
+      <li><strong>/ :</strong> Focus Search</li>
+    </ul>
+    <button class="btn" style="width:100%; margin-top:20px;" onclick="closeHelp()">Close</button>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<script>
+/* =========================================
+   POLYGLOT HEAVEN: ULTIMATE EDITION
+   ========================================= */
+
+const $ = (id) => document.getElementById(id);
+const uuid = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
+
+/* --- MASSIVE CONTENT DATASET (Expanded with Chinese) --- */
+const CONTENT_PACKS = {
+  es: {
+    title: "Spanish Core 100",
+    sentences: [ "Hola, ¿cómo estás?", "Me llamo Juan.", "¿Dónde está el baño?", "Quiero una cerveza.", "El gato es negro.", "Mañana voy a trabajar.", "No entiendo.", "La vida es bella.", "¿Cuánto cuesta?", "Gracias amigo." ],
+    words: { "hola": "Hello", "gato": "Cat", "perro": "Dog", "vida": "Life", "agua": "Water", "comida": "Food", "dinero": "Money", "amor": "Love", "casa": "House", "coche": "Car" }
+  },
+  fr: {
+    title: "French Essentials",
+    sentences: [ "Bonjour, ça va ?", "Je m'appelle Marie.", "Où sont les toilettes ?", "Un café, s'il vous plaît.", "Le chat est noir.", "Je ne comprends pas.", "C'est la vie.", "Combien ça coûte ?", "J'aime Paris.", "Merci beaucoup." ],
+    words: { "bonjour": "Hello", "chat": "Cat", "chien": "Dog", "amour": "Love", "vin": "Wine", "pain": "Bread", "maison": "House", "voiture": "Car", "fromage": "Cheese" }
+  },
+  de: {
+    title: "German Basics",
+    sentences: [ "Hallo, wie geht's?", "Ich heiße Klaus.", "Wo ist der Bahnhof?", "Ein Bier, bitte.", "Ich verstehe nicht.", "Das ist gut.", "Was kostet das?", "Auf Wiedersehen.", "Ich liebe dich.", "Guten Morgen." ],
+    words: { "hallo": "Hello", "katze": "Cat", "hund": "Dog", "bier": "Beer", "brot": "Bread", "haus": "House", "auto": "Car", "liebe": "Love", "wasser": "Water" }
+  },
+  ja: {
+    title: "Japanese Starter",
+    sentences: [ "Konnichiwa.", "Genki desu ka?", "Watashi wa Tanaka desu.", "Toire wa doko?", "Arigato gozaimasu.", "Sayonara.", "Kore wa nan desu ka?", "Oishii desu.", "Wakarimasen.", "Mata ashita." ],
+    words: { "konnichiwa": "Hello", "neko": "Cat", "inu": "Dog", "sushi": "Sushi", "mizu": "Water", "arigato": "Thank you", "sayonara": "Goodbye", "hai": "Yes", "iie": "No" }
+  },
+  zh: {
+    title: "Chinese (Mandarin)",
+    sentences: [ "Ni hao.", "Wo jiao Li.", "Xie xie.", "Zai jian.", "Wo bu mingbai.", "Duo shao qian?", "Wo ai ni.", "Hen hao.", "Ce suo zai na li?", "Zao an.", "Ni chi fan le ma?", "Wo qu shang ban.", "Jin tian tian qi hen hao.", "Wo xiang mai dong xi.", "Zhe ge duo shao qian?" ],
+    words: { "ni hao": "Hello", "mao": "Cat", "gou": "Dog", "jia": "Home", "shui": "Water", "xie xie": "Thanks", "hao": "Good", "bu": "No", "shi": "Yes", "wo": "I/Me", "ni": "You", "ta": "He/She", "ren": "Person", "tian": "Day/Sky", "di": "Earth", "shu": "Book", "che": "Car", "fan": "Rice/Food", "shui guo": "Fruit" }
+  },
+  it: {
+    title: "Italian Basics",
+    sentences: ["Ciao, come stai?", "Mi chiamo Luca.", "Dov'è il bagno?", "Un caffè, per favore.", "Non capisco.", "Quanto costa?", "Grazie mille.", "Arrivederci.", "Ti amo.", "Buona notte."],
+    words: {"ciao": "Hello/Bye", "gatto": "Cat", "cane": "Dog", "amore": "Love", "vino": "Wine", "pizza": "Pizza", "casa": "House", "grazie": "Thanks"}
+  },
+  pt: {
+    title: "Portuguese (BR)",
+    sentences: ["Oi, tudo bem?", "Meu nome é João.", "Onde fica o banheiro?", "Uma cerveja, por favor.", "Não entendo.", "Quanto custa?", "Obrigado.", "Tchau.", "Eu te amo.", "Bom dia."],
+    words: {"oi": "Hi", "gato": "Cat", "cachorro": "Dog", "amor": "Love", "pão": "Bread", "casa": "House", "carro": "Car", "obrigado": "Thanks"}
+  },
+  ru: {
+    title: "Russian Starter",
+    sentences: ["Privet, kak dela?", "Menya zovut Ivan.", "Gde tualet?", "Spasibo.", "Ya ne ponimayu.", "Do svidaniya.", "Ochen horosho.", "Skolko eto stoit?", "Ya lyublyu tebya.", "Dobroe utro."],
+    words: {"privet": "Hi", "kot": "Cat", "sobaka": "Dog", "dom": "House", "mashina": "Car", "vodka": "Vodka", "spasibo": "Thanks", "da": "Yes", "net": "No"}
+  },
+  ko: {
+    title: "Korean Starter",
+    sentences: ["Annyeonghaseyo.", "Gamsahamnida.", "Ireumi mwoyeyo?", "Hwajangsil eodiye-yo?", "Saranghaeyo.", "Juseyo.", "Mollayo.", "Masisseoyo.", "Annyeong.", "Ne."],
+    words: {"annyeong": "Hello/Bye", "goyangi": "Cat", "gae": "Dog", "jip": "House", "mul": "Water", "bap": "Rice/Meal", "ne": "Yes", "aniyo": "No"}
+  },
+  ar: {
+    title: "Arabic Starter",
+    sentences: ["Marhaban.", "Kaifa haluka?", "Shukran.", "Ma ismuka?", "Ana la afham.", "Ayna al-hammam?", "Bikam hadha?", "Ma'a as-salama.", "Uhibbuka.", "Sabah al-khair."],
+    words: {"marhaban": "Hello", "qit": "Cat", "kalb": "Dog", "bait": "House", "shukran": "Thanks", "ma": "Water", "habibi": "My Love", "la": "No", "naam": "Yes"}
+  }
+};
+
+// Game word database (expanded with Chinese)
+const WordDB = {
+  easy: [
+    {w:"Le chat", en:"the cat", l:"French"}, {w:"Le chien", en:"the dog", l:"French"}, 
+    {w:"Rouge", en:"red", l:"French"}, {w:"Bleu", en:"blue", l:"French"}, 
+    {w:"El gato", en:"the cat", l:"Spanish"}, {w:"El perro", en:"the dog", l:"Spanish"},
+    {w:"Rojo", en:"red", l:"Spanish"}, {w:"Azul", en:"blue", l:"Spanish"},
+    {w:"Der Hund", en:"the dog", l:"German"}, {w:"Die Katze", en:"the cat", l:"German"},
+    {w:"Rot", en:"red", l:"German"}, {w:"Blau", en:"blue", l:"German"},
+    {w:"Ciao", en:"hello", l:"Italian"}, {w:"Grazie", en:"thank you", l:"Italian"},
+    {w:"Konnichiwa", en:"hello", l:"Japanese"}, {w:"Arigato", en:"thank you", l:"Japanese"},
+    {w:"Ni hao", en:"hello", l:"Chinese"}, {w:"Xie xie", en:"thank you", l:"Chinese"},
+    {w:"Mao", en:"cat", l:"Chinese"}, {w:"Gou", en:"dog", l:"Chinese"},
+    {w:"Hao", en:"good", l:"Chinese"}, {w:"Bu", en:"no", l:"Chinese"}
+  ],
+  medium: [
+    {w:"La voiture", en:"the car", l:"French"}, {w:"La maison", en:"the house", l:"French"}, 
+    {w:"Coche", en:"car", l:"Spanish"}, {w:"Casa", en:"house", l:"Spanish"},
+    {w:"Das Auto", en:"the car", l:"German"}, {w:"Macchina", en:"car", l:"Italian"},
+    {w:"Che", en:"car", l:"Chinese"}, {w:"Jia", en:"home", l:"Chinese"},
+    {w:"Shu", en:"book", l:"Chinese"}, {w:"Ren", en:"person", l:"Chinese"}
+  ],
+  hard: [
+    {w:"L'environnement", en:"the environment", l:"French"}, {w:"Connaissance", en:"knowledge", l:"French"},
+    {w:"Desarrollo", en:"development", l:"Spanish"}, {w:"Conocimiento", en:"knowledge", l:"Spanish"},
+    {w:"Krankenwagen", en:"ambulance", l:"German"}, {w:"Unabhängigkeit", en:"independence", l:"German"},
+    {w:"Xue xi", en:"study", l:"Chinese"}, {w:"Gong zuo", en:"work", l:"Chinese"}
+  ]
+};
+
+// --- GLOBAL STATE ---
+let db = null;
+const app = {
+  lang: "es", rate: 1.0, voiceURI: "", theme: "pro",
+  sentences: [], index: 0,
+  xp: 0, level: 1, daily: { date: new Date().toISOString().slice(0,10), xp: 0, streak: 0 },
+  stats: { listens:0, saved:0, quizzes:0, recs:0 },
+  bookmarks: new Set(), known: new Set(),
+  notes: {}, srs: [], // Cards
+  userWord: "", isOffline: false
+};
+
+// Game state
+let gameState = {
+  running: false,
+  score: 0,
+  combo: 0,
+  lives: 100,
+  enemies: [],
+  particles: [],
+  stars: [],
+  spawnTimer: 0
+};
+
+// --- INIT ---
+function init() {
+  const saved = localStorage.getItem("poly_state");
+  if(saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      Object.assign(app, parsed);
+      app.bookmarks = new Set(parsed.bookmarks);
+      app.known = new Set(parsed.known);
+      const today = new Date().toISOString().slice(0,10);
+      if(app.daily.date !== today) {
+         if(new Date(today) - new Date(app.daily.date) > 86400000) app.daily.streak = 0;
+         app.daily.date = today; app.daily.xp = 0;
+      }
+    } catch(e) { console.error("Save corrupted", e); }
+  }
+
+  document.body.setAttribute("data-theme", app.theme);
+  $("theme-select").value = app.theme;
+  $("lang-select").value = app.lang;
+  $("rate-disp").textContent = app.rate;
+  
+  updateXPUI(); updateStatsUI(); renderStore();
+
+  window.addEventListener("keydown", (e) => {
+    if(e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    if(e.key === " ") { e.preventDefault(); playCurrent(); }
+    if(e.key === "ArrowRight") nextSent();
+    if(e.key === "ArrowLeft") prevSent();
+    if(e.key === "s") saveVocab();
+    if(e.key === "w") speakWord();
+    if(e.key === "/") { e.preventDefault(); $("quick-search").focus(); }
+  });
+
+  const u = localStorage.getItem("sb_url");
+  const k = localStorage.getItem("sb_key");
+  if(u && k) { $("sb-url").value = u; $("sb-key").value = k; connectDB(); }
+
+  setTimeout(initVoices, 1000);
+  initTSI();
+}
+
+function saveState() {
+  localStorage.setItem("poly_state", JSON.stringify({...app, bookmarks: Array.from(app.bookmarks), known: Array.from(app.known)}));
+}
+
+// --- CONTENT GENERATOR ---
+function renderStore() {
+  const area = $("store-area");
+  area.innerHTML = "";
+  
+  const packs = [
+    {code: "es", name: "Spanish 🇪🇸", desc: "Core 100"},
+    {code: "fr", name: "French 🇫🇷", desc: "Essentials"},
+    {code: "de", name: "German 🇩🇪", desc: "Basics"},
+    {code: "it", name: "Italian 🇮🇹", desc: "Starter"},
+    {code: "ja", name: "Japanese 🇯🇵", desc: "Romaji"},
+    {code: "zh", name: "Chinese 🇨🇳", desc: "Pinyin"},
+    {code: "ru", name: "Russian 🇷🇺", desc: "Starter"},
+    {code: "ko", name: "Korean 🇰🇷", desc: "Romaji"},
+    {code: "ar", name: "Arabic 🇸🇦", desc: "Starter"},
+    {code: "pt", name: "Portuguese 🇧🇷", desc: "Basics"},
+  ];
+
+  packs.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "pack-card";
+    div.innerHTML = `
+      <div>
+        <strong style="font-size:16px;">${p.name}</strong>
+        <div style="font-size:12px; color:var(--text-muted);">${p.desc}</div>
+      </div>
+      <button class="btn success" onclick="installPack('${p.code}')">Install</button>
+    `;
+    area.appendChild(div);
+  });
+}
+
+function installPack(code) {
+  const pack = CONTENT_PACKS[code];
+  if(!pack) return alert("Pack not found for " + code);
+  
+  const existing = new Set(app.sentences);
+  let addedSent = 0;
+  pack.sentences.forEach(s => {
+    if(!existing.has(s)) { app.sentences.push(s); addedSent++; }
+  });
+  
+  let addedCards = 0;
+  Object.entries(pack.words).forEach(([word, def]) => {
+    const key = `${code}:${word.toLowerCase()}`;
+    if(!app.notes[key]) {
+      app.notes[key] = def;
+      addedCards++;
+    }
+  });
+  
+  buildDeck();
+  saveState();
+  toast(`Installed! +${addedSent} Sentences, +${addedCards} Flashcards.`);
+  
+  if(app.lang !== code) {
+    app.lang = code; $("lang-select").value = code; initVoices();
+  }
+  app.index = 0; renderAll();
+}
+
+function generateContentPack(langCode) {
+  if(CONTENT_PACKS[langCode]) {
+    installPack(langCode);
+  } else {
+    alert("No pack available for " + langCode);
+  }
+}
+
+// --- DATABASE ---
+async function connectDB() {
+  const u = $("sb-url").value.trim(); const k = $("sb-key").value.trim();
+  $("auth-error").style.display = "none";
+  if(!u || !k) { $("auth-error").textContent = "Missing Info"; $("auth-error").style.display = "block"; return; }
+  
+  // Cloud integration hook - Supabase connection
+  // TODO: Implement full Supabase integration when ready
+  try {
+    if(typeof window.supabase !== 'undefined') {
+      console.log('[Cloud] Connecting to Supabase...');
+      db = window.supabase.createClient(u, k);
+      const { data, error } = await db.from("sentences").select("text").limit(1);
+      
+      if(error) {
+        console.warn('[Cloud] Supabase error:', error.message);
+        // Fall back to offline mode
+        useOffline();
+        return;
+      }
+      
+      localStorage.setItem("sb_url", u); localStorage.setItem("sb_key", k);
+      $("auth-modal").style.display = "none";
+      $("status-pill").innerHTML = `<span style="width:6px;height:6px;border-radius:50%;background:lime;margin-right:4px;"></span> Cloud`;
+      toast("Connected to cloud");
+      app.isOffline = false;
+      loadSentences();
+    } else {
+      throw new Error("Supabase library not loaded. Using offline mode.");
+    }
+  } catch(e) { 
+    console.log('[Cloud] Connection failed, using offline mode:', e.message);
+    $("auth-error").textContent = "Cloud connection unavailable. Using offline mode.";
+    $("auth-error").style.display = "block";
+    setTimeout(() => useOffline(), 2000);
+  }
+}
+
+function useOffline() {
+  app.isOffline = true;
+  $("auth-modal").style.display = "none";
+  if(app.sentences.length === 0) installPack('es');
+}
+
+async function loadSentences() {
+  // Cloud integration hook - load sentences from Supabase
+  if(!app.isOffline && db) {
+    try {
+      console.log('[Cloud] Loading sentences from Supabase...');
+      const { data } = await db.from("sentences").select("text").eq("lang", app.lang).limit(1000);
+      if(data && data.length) {
+        app.sentences = data.map(x => x.text);
+        console.log(`[Cloud] Loaded ${app.sentences.length} sentences`);
+      }
+    } catch(e) {
+      console.warn('[Cloud] Failed to load sentences, using local data:', e);
+    }
+  }
+  // Fallback to local/demo data
+  if(app.sentences.length === 0) {
+    $("text-display").textContent = "Library empty. Go to Settings > Store to install language packs.";
+  } else { 
+    app.index = 0; 
+    renderAll(); 
+  }
+}
+
+function quickDemo() {
+  app.isOffline = true; $("auth-modal").style.display = "none"; installPack('es');
+}
+
+// --- RENDER ---
+function renderAll() { renderSentence(); renderLibrary(); }
+
+function renderSentence() {
+  if(!app.sentences.length) return;
+  const txt = app.sentences[app.index];
+  const disp = $("text-display");
+  disp.innerHTML = "";
+  disp.style.direction = app.lang === 'ar' ? 'rtl' : 'ltr';
+  
+  txt.split(/(\s+)/).forEach(chunk => {
+    if(chunk.trim()) {
+      const s = document.createElement("span");
+      s.className = "word"; s.textContent = chunk;
+      s.onclick = () => selectWord(chunk, s);
+      disp.appendChild(s);
+    } else disp.appendChild(document.createTextNode(chunk));
+  });
+
+  $("speak-target").textContent = txt;
+  document.querySelectorAll(".lib-item").forEach(el => el.classList.remove("active"));
+  const active = document.querySelector(`.lib-item[data-idx="${app.index}"]`);
+  if(active) active.classList.add("active");
+}
+
+function selectWord(raw, el) {
+  document.querySelectorAll(".word.active").forEach(e => e.classList.remove("active"));
+  el.classList.add("active");
+  const clean = raw.replace(/[^\p{L}\p{N}]/gu, "");
+  app.userWord = clean;
+  $("sel-word").textContent = clean;
+  $("btn-speak").disabled = false; $("btn-save").disabled = false;
+  $("word-notes").value = app.notes[`${app.lang}:${clean.toLowerCase()}`] || "";
+}
+
+// --- AUDIO ---
+const synth = window.speechSynthesis;
+let voices = [];
+function initVoices() {
+  voices = synth.getVoices();
+  const sel = $("voice-select"); sel.innerHTML = "";
+  const matches = voices.filter(v => v.lang.startsWith(app.lang));
+  if(matches.length > 0) {
+    matches.forEach(v => {
+      const opt = document.createElement("option"); opt.value = v.voiceURI; opt.textContent = v.name; sel.appendChild(opt);
+    });
+    if(!app.voiceURI) app.voiceURI = matches[0].voiceURI;
+    sel.value = app.voiceURI;
+  } else sel.innerHTML = "<option>System Default</option>";
+}
+if(synth.onvoiceschanged !== undefined) synth.onvoiceschanged = initVoices;
+
+function playCurrent() {
+  if(!app.sentences.length) return;
+  stopSpeech();
+  const u = new SpeechSynthesisUtterance(app.sentences[app.index]);
+  u.lang = app.lang; u.rate = app.rate;
+  if(app.voiceURI) { const v = voices.find(x => x.voiceURI === app.voiceURI); if(v) u.voice = v; }
+  u.onstart = () => $("avatar").classList.add("talking");
+  u.onend = () => { $("avatar").classList.remove("talking"); app.stats.listens++; addXP(1); updateStatsUI(); };
+  synth.speak(u);
+}
+
+function speakWord() {
+  if(!app.userWord) return;
+  stopSpeech();
+  const u = new SpeechSynthesisUtterance(app.userWord);
+  u.lang = app.lang;
+  if(app.voiceURI) { const v = voices.find(x => x.voiceURI === app.voiceURI); if(v) u.voice = v; }
+  synth.speak(u);
+}
+
+function stopSpeech() { synth.cancel(); $("avatar").classList.remove("talking"); }
+function setRate(v) { app.rate = parseFloat(v); $("rate-disp").textContent = v; saveState(); }
+
+// --- FLASHCARDS (SRS) ---
+function buildDeck() {
+  Object.keys(app.notes).forEach(key => {
+    if(key.startsWith(app.lang)) {
+      const word = key.split(":")[1];
+      const def = app.notes[key];
+      
+      if(!app.srs.find(c => c.front === word)) {
+        app.srs.push({ id: uuid(), front: word, back: def || "?", nextReview: Date.now(), interval: 0, ef: 2.5 });
+      }
+    }
+  });
+  saveState(); showNextCard();
+}
+
+let currentCard = null;
+function showNextCard() {
+  const now = Date.now();
+  const due = app.srs.filter(c => c.nextReview <= now);
+  $("srs-due").textContent = due.length; $("srs-total").textContent = app.srs.length;
+  
+  if(due.length === 0) {
+    $("card-area").style.display = "none"; $("card-empty").style.display = "block"; return;
+  }
+  $("card-area").style.display = "block"; $("card-empty").style.display = "none";
+  $("card-back").style.display = "none"; $("btn-flip").style.display = "inline-block";
+  
+  currentCard = due[0];
+  
+  const isRTL = app.lang === 'ar';
+  $("card-front").style.direction = isRTL ? 'rtl' : 'ltr';
+  $("card-front").textContent = currentCard.front;
+  $("card-back-text").textContent = currentCard.back;
+}
+
+function flipCard() { $("card-back").style.display = "block"; $("btn-flip").style.display = "none"; }
+
+function rateCard(q) {
+  let c = currentCard;
+  if(q < 3) { c.interval = 1; c.ef = Math.max(1.3, c.ef - 0.2); } 
+  else {
+    c.interval = c.interval === 0 ? 1 : c.interval === 1 ? 6 : Math.round(c.interval * c.ef);
+    c.ef = c.ef + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02));
+  }
+  c.nextReview = Date.now() + (c.interval * 24 * 60 * 60 * 1000);
+  addXP(q); saveState(); showNextCard();
+}
+
+// --- DATA ---
+$("word-notes").addEventListener("input", (e) => {
+  if(app.userWord) { app.notes[`${app.lang}:${app.userWord.toLowerCase()}`] = e.target.value; saveState(); }
+});
+
+async function saveVocab() {
+  if(!app.userWord) return;
+  
+  // Cloud integration hook - save vocabulary to Supabase
+  if(db && !app.isOffline) {
+    try {
+      console.log('[Cloud] Saving vocabulary to Supabase...');
+      const { error } = await db.from("vocab").insert({ lang: app.lang, word: app.userWord, sentence: app.sentences[app.index] });
+      if(error) console.warn('[Cloud] Failed to save vocab:', error);
+    } catch(e) {
+      console.warn('[Cloud] Error saving vocab:', e);
+    }
+  }
+  
+  // Always save locally
+  const key = `${app.lang}:${app.userWord.toLowerCase()}`;
+  if(!app.notes[key]) app.notes[key] = app.sentences[app.index];
+  app.stats.saved++; addXP(5); updateStatsUI(); toast("Word Saved!"); buildDeck();
+  saveState();
+}
+
+function loadVocab() {
+  const list = $("vocab-list"); list.innerHTML = "";
+  Object.keys(app.notes).filter(k => k.startsWith(app.lang)).forEach(k => {
+    const div = document.createElement("div"); div.className = "lib-item";
+    div.innerHTML = `<strong>${k.split(":")[1]}</strong><small>${app.notes[k]}</small>`;
+    list.appendChild(div);
+  });
+}
+
+function renderLibrary() {
+  const list = $("lib-list"); list.innerHTML = ""; const filter = $("lib-filter").value.toLowerCase();
+  app.sentences.forEach((s, i) => {
+    if(filter && !s.toLowerCase().includes(filter)) return;
+    const div = document.createElement("div"); div.className = "lib-item"; div.dataset.idx = i;
+    div.innerHTML = `<span>${s.substring(0, 50)}...</span>`;
+    div.onclick = () => { app.index = i; renderAll(); };
+    list.appendChild(div);
+  });
+}
+
+function startRec() {
+  const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!Rec) return alert("Browser does not support Speech Rec. Try Chrome.");
+  const r = new Rec(); r.lang = app.lang; $("btn-rec").textContent = "Listening...";
+  r.onresult = (e) => {
+    const transcript = e.results[0][0].transcript;
+    $("speak-res").textContent = transcript;
+    const score = Math.max(0, 100 - (levenshtein(app.sentences[app.index].toLowerCase(), transcript.toLowerCase()) * 10));
+    $("speak-score").textContent = score + "%";
+    app.stats.recs++; addXP(score > 80 ? 10 : 1); updateStatsUI();
+  };
+  r.onend = () => $("btn-rec").textContent = "🔴 Record Voice";
+  r.start();
+}
+
+function checkQuiz() {
+  const input = $("quiz-input").value.trim().toLowerCase();
+  const target = app.sentences[app.index].trim().toLowerCase();
+  if(input === target) {
+    $("quiz-feed").textContent = "Correct! +10 XP"; $("quiz-feed").style.color = "var(--success)";
+    addXP(10); app.stats.quizzes++; updateStatsUI();
+  } else {
+    $("quiz-feed").textContent = "Not quite."; $("quiz-feed").style.color = "var(--warning)";
+  }
+}
+function hintQuiz() { $("quiz-feed").textContent = "Starts with: " + app.sentences[app.index].substring(0, 5) + "..."; }
+function revealQuiz() { $("quiz-input").value = app.sentences[app.index]; }
+
+function addXP(n) {
+  app.xp += n; app.daily.xp += n;
+  if(Math.floor(app.xp/100)+1 > app.level) { app.level++; toast("Level Up!"); }
+  saveState(); updateXPUI();
+}
+
+function updateXPUI() {
+  $("xp-val").textContent = app.xp; $("lvl-val").textContent = app.level; $("xp-bar").style.width = (app.xp % 100) + "%";
+  $("daily-now").textContent = app.daily.xp; $("streak-val").textContent = app.daily.streak;
+  $("daily-bar").style.width = Math.min(100, (app.daily.xp / 50) * 100) + "%";
+}
+
+function updateStatsUI() {
+  $("stat-listens").textContent = app.stats.listens; $("stat-saved").textContent = app.stats.saved;
+  $("stat-quizzes").textContent = app.stats.quizzes; $("stat-recs").textContent = app.stats.recs;
+}
+
+function switchTab(id, btn) {
+  document.querySelectorAll(".module").forEach(e => e.classList.remove("active"));
+  document.getElementById("mod-" + id).classList.add("active");
+  document.querySelectorAll(".nav-btn").forEach(e => e.classList.remove("active"));
+  btn.classList.add("active");
+  $("pane-title").textContent = btn.textContent.trim();
+  if(id === 'cards') buildDeck();
+  if(id === 'vocab') loadVocab();
+  if(id === 'game') initGame();
+  if(id === 'tsi') updateTSI();
+}
+
+function setTheme(t) { app.theme = t; document.body.setAttribute("data-theme", t); saveState(); }
+function randomSentence() { if(app.sentences.length) { app.index = Math.floor(Math.random() * app.sentences.length); renderAll(); } }
+function toggleLibrary() { $("lib-pane").classList.toggle("open"); }
+function toggleSidebar() { $("sidebar").classList.toggle("open"); }
+function openHelp() { $("help-modal").style.display = "flex"; }
+function closeHelp() { $("help-modal").style.display = "none"; }
+function toast(msg) { const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; $("toasts").appendChild(t); setTimeout(() => t.remove(), 2500); }
+function downloadBackup() { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(app)], {type: "application/json"})); a.download = "backup.json"; a.click(); }
+function restoreBackup(input) { const r = new FileReader(); r.onload = (e) => { localStorage.setItem("poly_state", e.target.result); location.reload(); }; r.readAsText(input.files[0]); }
+function nukeData() { if(confirm("Reset All?")) { localStorage.clear(); location.reload(); } }
+function nextSent() { if(app.index < app.sentences.length - 1) { app.index++; renderAll(); } }
+function prevSent() { if(app.index > 0) { app.index--; renderAll(); } }
+function logout() { localStorage.removeItem("sb_url"); localStorage.removeItem("sb_key"); location.reload(); }
+function bookmarkCurrent() { app.bookmarks.add(app.index); saveState(); toast("Bookmarked!"); }
+function toggleKnownCurrent() { if(app.known.has(app.index)) app.known.delete(app.index); else app.known.add(app.index); saveState(); toast("Marked!"); }
+function filterLib(type) { renderLibrary(); }
+function exportCSV() { toast("Export feature coming soon!"); }
+
+function levenshtein(a, b) {
+  if(!a || !b) return (a || b).length;
+  const matrix = [];
+  for(let i=0; i<=b.length; i++) matrix[i] = [i];
+  for(let j=0; j<=a.length; j++) matrix[0][j] = j;
+  for(let i=1; i<=b.length; i++) {
+    for(let j=1; j<=a.length; j++) {
+      if(b.charAt(i-1) == a.charAt(j-1)) matrix[i][j] = matrix[i-1][j-1];
+      else matrix[i][j] = Math.min(matrix[i-1][j-1]+1, matrix[i][j-1]+1, matrix[i-1][j]+1);
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+// --- GAME LOGIC ---
+let gameCanvas, gameCtx;
+function initGame() {
+  gameCanvas = document.getElementById('gameCanvas');
+  gameCtx = gameCanvas.getContext('2d');
+  resizeGameCanvas();
+  window.addEventListener('resize', resizeGameCanvas);
+}
+
+function resizeGameCanvas() {
+  if(!gameCanvas) return;
+  const container = gameCanvas.parentElement;
+  gameCanvas.width = container.clientWidth;
+  gameCanvas.height = container.clientHeight;
+}
+
+function startGame() {
+  document.getElementById('game-start-modal').style.display = 'none';
+  gameState.running = true;
+  gameState.score = 0;
+  gameState.combo = 0;
+  gameState.lives = 100;
+  gameState.enemies = [];
+  gameState.particles = [];
+  gameState.stars = [];
+  gameState.spawnTimer = 0;
+  
+  for(let i=0; i<100; i++) {
+    gameState.stars.push({
+      x: Math.random() * gameCanvas.width,
+      y: Math.random() * gameCanvas.height,
+      size: Math.random() * 2,
+      speed: Math.random() * 0.5 + 0.2
+    });
+  }
+  
+  const gameInput = document.getElementById('game-input');
+  gameInput.value = "";
+  gameInput.focus();
+  
+  // Set up input handler once
+  gameInput.onkeydown = (e) => {
+    if(e.key === 'Enter') {
+      const typed = gameInput.value.toLowerCase().trim();
+      const idx = gameState.enemies.findIndex(en => en.en === typed);
+      if(idx !== -1) {
+        const enemy = gameState.enemies[idx];
+        gameState.score += Math.floor(100 * (1 + gameState.combo * 0.1));
+        gameState.combo++;
+        gameState.enemies.splice(idx, 1);
+        addXP(10);
+        gameInput.value = "";
+      } else {
+        gameState.combo = 0;
+      }
+    }
+  };
+  
+  gameLoop();
+}
+
+function gameLoop() {
+  if(!gameState.running) return;
+  
+  requestAnimationFrame(gameLoop);
+  
+  gameCtx.fillStyle = "rgba(5, 7, 10, 0.4)";
+  gameCtx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+  
+  // Stars
+  gameState.stars.forEach(s => {
+    s.y += s.speed;
+    if(s.y > gameCanvas.height) { s.y = 0; s.x = Math.random() * gameCanvas.width; }
+    gameCtx.fillStyle = `rgba(255, 255, 255, ${0.3 * s.size})`;
+    gameCtx.fillRect(s.x, s.y, s.size, s.size);
+  });
+  
+  // Spawn enemies
+  gameState.spawnTimer++;
+  if(gameState.spawnTimer > 60) {
+    spawnEnemy();
+    gameState.spawnTimer = 0;
+  }
+  
+  // Update enemies
+  const input = document.getElementById('game-input').value.toLowerCase().trim();
+  gameState.enemies.forEach((e, i) => {
+    e.y += e.speed;
+    
+    const targeted = input.length > 0 && e.en.startsWith(input);
+    
+    gameCtx.save();
+    gameCtx.shadowBlur = targeted ? 25 : 5;
+    gameCtx.shadowColor = e.color;
+    gameCtx.strokeStyle = targeted ? '#fff' : e.color;
+    gameCtx.fillStyle = e.color;
+    gameCtx.lineWidth = 2;
+    
+    // Draw octagon
+    gameCtx.beginPath();
+    const size = 35;
+    for (let j = 0; j < 8; j++) {
+      gameCtx.lineTo(e.x + size * Math.cos(j * 2 * Math.PI / 8), e.y + size * Math.sin(j * 2 * Math.PI / 8));
+    }
+    gameCtx.closePath();
+    gameCtx.stroke();
+    
+    gameCtx.font = "bold 18px Arial";
+    gameCtx.fillStyle = "white";
+    gameCtx.textAlign = "center";
+    gameCtx.textBaseline = "middle";
+    gameCtx.fillText(e.word, e.x, e.y - 10);
+    
+    gameCtx.restore();
+    
+    if(e.y > gameCanvas.height) {
+      gameState.lives -= 20;
+      gameState.enemies.splice(i, 1);
+      if(gameState.lives <= 0) {
+        gameState.running = false;
+        document.getElementById('game-start-modal').style.display = 'block';
+        document.getElementById('game-start-modal').innerHTML = `
+          <h1 style="margin:0; font-size:48px; color:var(--danger);">Game Over</h1>
+          <p style="color:var(--text-muted); margin:20px 0;">Final Score: ${gameState.score}</p>
+          <button class="btn" onclick="startGame()" style="margin-top:20px;">PLAY AGAIN</button>
+        `;
+      }
+    }
+  });
+  
+  // Update UI
+  document.getElementById('game-score').textContent = gameState.score;
+  document.getElementById('game-combo').textContent = (1 + gameState.combo * 0.1).toFixed(1) + "x";
+  document.getElementById('game-lives').textContent = gameState.lives + "%";
+  
+  // Input handler
+  const gameInput = document.getElementById('game-input');
+  gameInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') {
+      const typed = gameInput.value.toLowerCase().trim();
+      const idx = gameState.enemies.findIndex(en => en.en === typed);
+      if(idx !== -1) {
+        const enemy = gameState.enemies[idx];
+        gameState.score += Math.floor(100 * (1 + gameState.combo * 0.1));
+        gameState.combo++;
+        gameState.enemies.splice(idx, 1);
+        addXP(10);
+        gameInput.value = "";
+      } else {
+        gameState.combo = 0;
+      }
+    }
+  });
+}
+
+function spawnEnemy() {
+  const pools = [...WordDB.easy, ...WordDB.medium];
+  const word = pools[Math.floor(Math.random() * pools.length)];
+  if(!gameState.enemies.find(e => e.en === word.en)) {
+    const colors = {
+      "French": "#00f3ff",
+      "Spanish": "#ffaa00",
+      "German": "#ff0055",
+      "Italian": "#00ff66",
+      "Japanese": "#9b6bff",
+      "Chinese": "#ff6b6b"
+    };
+    gameState.enemies.push({
+      word: word.w,
+      en: word.en.toLowerCase(),
+      lang: word.l,
+      x: Math.random() * (gameCanvas.width - 250) + 125,
+      y: -60,
+      speed: 0.5 + Math.random() * 0.5,
+      color: colors[word.l] || "#fff"
+    });
+  }
+}
+
+// --- TSI ANALYTICS ---
+let tsiChart = null;
+function initTSI() {
+  const ctx = document.getElementById('tsi-chart');
+  if(!ctx) return;
+  
+  tsiChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Vocabulary Coverage',
+        data: [],
+        borderColor: 'var(--primary)',
+        backgroundColor: 'rgba(99, 102, 241, 0.1)',
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 100 }
+      }
+    }
+  });
+}
+
+function updateTSI() {
+  const known = Object.keys(app.notes).filter(k => k.startsWith(app.lang)).length;
+  const coverage = Math.min(95, 20 + (known * 0.5));
+  
+  document.getElementById('tsi-known').textContent = known;
+  document.getElementById('tsi-coverage').textContent = coverage.toFixed(1) + "%";
+  
+  if(tsiChart) {
+    const labels = Array.from({length: 30}, (_, i) => i + 1);
+    const data = labels.map(i => Math.min(95, 20 + (i * 0.5)));
+    tsiChart.data.labels = labels;
+    tsiChart.data.datasets[0].data = data;
+    tsiChart.update();
+  }
+  
+  const insight = known < 100 ? "Focus on high-frequency words for rapid coverage gains." :
+                 known < 500 ? "You're building a solid foundation. Keep practicing!" :
+                 "Excellent progress! Consider domain-specific vocabulary.";
+  document.getElementById('tsi-insight').textContent = insight;
+}
+
+$("lang-select").addEventListener("change", (e) => { app.lang = e.target.value; app.voiceURI = ""; initVoices(); loadSentences(); saveState(); });
+
+init();
+</script>
+</body>
+</html>
