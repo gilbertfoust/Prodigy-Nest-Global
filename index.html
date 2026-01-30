@@ -316,7 +316,7 @@
     .k-card{
       background: transparent;
       border: none;
-      border-radius: calc(var(--radius) * 0.7);
+      border-radius: calc(var(--radius) * 0.85);
       perspective: 1000px;
       aspect-ratio: 1;
       cursor: pointer;
@@ -342,9 +342,9 @@
       backface-visibility: hidden;
       background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(255,255,255,.70));
       border: 1px solid var(--line);
-      border-radius: calc(var(--radius) * 0.7);
-      padding: 6px;
-      box-shadow: 0 2px 6px rgba(10,22,40,.08);
+      border-radius: calc(var(--radius) * 0.85);
+      padding: 12px;
+      box-shadow: 0 3px 10px rgba(10,22,40,.08);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -355,42 +355,42 @@
       transform: rotateY(180deg);
       justify-content: flex-start;
       align-items: flex-start;
-      padding: 8px;
+      padding: 14px;
       overflow-y: auto;
     }
     .k-char{
-      font-size: 28px;
+      font-size: 42px;
       font-weight: 900;
       line-height: 1;
       color: var(--ink);
-      margin-bottom: 2px;
+      margin-bottom: 6px;
     }
     .k-meaning{
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--muted);
       line-height: 1.2;
     }
     .k-secret{
-      font-size: 9px;
-      line-height: 1.4;
+      font-size: 11px;
+      line-height: 1.5;
       color: var(--ink);
-      margin-top: 6px;
+      margin-top: 10px;
       text-align: left;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     .k-readings{
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 9px;
+      gap: 6px;
+      font-size: 11px;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 8px;
     }
     .k-readings span b{
       color: var(--accent);
-      margin-right: 3px;
-      font-size: 8px;
+      margin-right: 4px;
+      font-size: 10px;
     }
 
     /* Modal */
@@ -737,7 +737,7 @@
               <span class="mini">Compare with Chinese characters</span>
             </label>
           </div>
-          <div class="grid" id="kanjiGrid" style="grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap:8px; margin-top:16px;"></div>
+          <div class="grid" id="kanjiGrid" style="grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap:10px; margin-top:16px;"></div>
         </div>
       </div>
     </section>
@@ -754,7 +754,7 @@
             <label for="chineseSearch">Search characters</label>
             <input id="chineseSearch" type="search" placeholder="e.g., 休 • Rest • xiū • Person Tree" />
           </div>
-          <div class="grid" id="chineseGrid" style="grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap:8px; margin-top:16px;"></div>
+          <div class="grid" id="chineseGrid" style="grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap:10px; margin-top:16px;"></div>
         </div>
       </div>
     </section>
@@ -2654,8 +2654,8 @@
         
         if(chineseMatch){
           backContent += `
-            <div style="margin-top:8px; padding-top:8px; border-top:1px solid var(--line);">
-              <div class="mini" style="margin-bottom:3px; font-size:9px;"><b>Chinese:</b></div>
+            <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line);">
+              <div class="mini" style="margin-bottom:4px; font-size:10px;"><b>Chinese:</b></div>
               <div class="k-meaning">${chineseMatch.m}</div>
               <div class="k-readings">
                 <span><b>Pinyin:</b> ${chineseMatch.py}</span>
@@ -2668,7 +2668,7 @@
           <div class="k-card-inner">
             <div class="k-card-front">
               <div class="k-char">${k.c}</div>
-              ${chineseMatch ? `<div class="mini" style="margin-top:6px; font-size:9px;">🇯🇵 Kanji</div>` : ''}
+              ${chineseMatch ? `<div class="mini" style="margin-top:8px; font-size:10px;">🇯🇵 Kanji</div>` : ''}
             </div>
             <div class="k-card-back">
               ${backContent}
