@@ -343,7 +343,7 @@
       background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(255,255,255,.70));
       border: 1px solid var(--line);
       border-radius: calc(var(--radius) * 0.85);
-      padding: 12px;
+      padding: 24px;
       box-shadow: 0 3px 10px rgba(10,22,40,.08);
       display: flex;
       flex-direction: column;
@@ -355,42 +355,42 @@
       transform: rotateY(180deg);
       justify-content: flex-start;
       align-items: flex-start;
-      padding: 14px;
+      padding: 28px;
       overflow-y: auto;
     }
     .k-char{
-      font-size: 42px;
+      font-size: 84px;
       font-weight: 900;
       line-height: 1;
       color: var(--ink);
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
     .k-meaning{
-      font-size: 14px;
+      font-size: 28px;
       font-weight: 700;
       color: var(--muted);
       line-height: 1.2;
     }
     .k-secret{
-      font-size: 11px;
+      font-size: 22px;
       line-height: 1.5;
       color: var(--ink);
-      margin-top: 10px;
+      margin-top: 20px;
       text-align: left;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
     .k-readings{
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      font-size: 11px;
+      gap: 12px;
+      font-size: 22px;
       color: var(--muted);
-      margin-top: 8px;
+      margin-top: 16px;
     }
     .k-readings span b{
       color: var(--accent);
-      margin-right: 4px;
-      font-size: 10px;
+      margin-right: 8px;
+      font-size: 20px;
     }
 
     /* Modal */
@@ -737,7 +737,7 @@
               <span class="mini">Compare with Chinese characters</span>
             </label>
           </div>
-          <div class="grid" id="kanjiGrid" style="grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap:10px; margin-top:16px;"></div>
+          <div class="grid" id="kanjiGrid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:20px; margin-top:16px;"></div>
         </div>
       </div>
     </section>
@@ -754,7 +754,7 @@
             <label for="chineseSearch">Search characters</label>
             <input id="chineseSearch" type="search" placeholder="e.g., 休 • Rest • xiū • Person Tree" />
           </div>
-          <div class="grid" id="chineseGrid" style="grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap:10px; margin-top:16px;"></div>
+          <div class="grid" id="chineseGrid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:20px; margin-top:16px;"></div>
         </div>
       </div>
     </section>
@@ -2654,8 +2654,8 @@
         
         if(chineseMatch){
           backContent += `
-            <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line);">
-              <div class="mini" style="margin-bottom:4px; font-size:10px;"><b>Chinese:</b></div>
+            <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--line);">
+              <div class="mini" style="margin-bottom:8px; font-size:20px;"><b>Chinese:</b></div>
               <div class="k-meaning">${chineseMatch.m}</div>
               <div class="k-readings">
                 <span><b>Pinyin:</b> ${chineseMatch.py}</span>
@@ -2668,7 +2668,7 @@
           <div class="k-card-inner">
             <div class="k-card-front">
               <div class="k-char">${k.c}</div>
-              ${chineseMatch ? `<div class="mini" style="margin-top:8px; font-size:10px;">🇯🇵 Kanji</div>` : ''}
+              ${chineseMatch ? `<div class="mini" style="margin-top:16px; font-size:20px;">🇯🇵 Kanji</div>` : ''}
             </div>
             <div class="k-card-back">
               ${backContent}
