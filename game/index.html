@@ -24,13 +24,15 @@
             font-family: 'Orbitron', sans-serif;
             color: white;
             user-select: none;
+            -webkit-user-select: none; /* Safari / iOS */
         }
 
         /* --- CRT EFFECT LAYER --- */
         #crt-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
             background-size: 100% 2px, 3px 100%;
             pointer-events: none;
             z-index: 50;
@@ -79,11 +81,36 @@
             margin-bottom: 10px;
             transform: skew(-10deg);
             backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px); /* Safari / iOS */
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
         }
 
-        .stat-label { font-size: 10px; color: #888; display: block; font-family: 'Roboto Mono'; }
-        .stat-value { font-size: 24px; font-weight: 700; color: white; text-shadow: 0 0 10px var(--primary); }
+        /* variant for lives box */
+        .stat-box--integrity {
+            border-color: var(--secondary);
+        }
+
+        .stat-label { 
+            font-size: 10px; 
+            color: #888; 
+            display: block; 
+            font-family: 'Roboto Mono'; 
+        }
+
+        .stat-value { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: white; 
+            text-shadow: 0 0 10px var(--primary); 
+        }
+
+        .stat-value--small {
+            font-size: 18px;
+        }
+
+        .combo-value {
+            color: var(--warning);
+        }
 
         /* Combo Meter */
         #combo-box {
@@ -135,6 +162,12 @@
         input:focus { box-shadow: 0 0 50px rgba(0, 243, 255, 0.3); border-color: white; }
         input.error { border-color: var(--secondary); animation: shake 0.3s; }
         
+        .repair-input {
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
         /* Freeze Effect Overlay */
         #freeze-overlay {
             position: absolute;
@@ -157,15 +190,25 @@
             padding: 40px;
             width: 600px;
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Safari / iOS */
             z-index: 100;
             text-align: center;
             pointer-events: auto;
             box-shadow: 0 0 100px rgba(0,0,0,0.9);
         }
 
+        .modal--start-visible {
+            /* initial state; will also be toggled by JS */
+            display: block;
+        }
+
         h1 { margin: 0; font-size: 48px; color: var(--primary); text-shadow: 0 0 20px var(--primary); }
         h2 { color: white; margin-bottom: 30px; }
         p { font-family: 'Roboto Mono'; color: #ccc; line-height: 1.6; }
+
+        .start-warning {
+            color: var(--warning);
+        }
 
         .btn {
             background: var(--primary);
@@ -213,9 +256,22 @@
         #victory-modal { border-color: var(--success); }
         #victory-modal h1 { color: var(--success); text-shadow: 0 0 30px var(--success); }
 
+        /* Game Over Modal */
+        #game-over-modal h1 {
+            color: var(--secondary);
+        }
+
+        .final-score-text {
+            color: white;
+            font-size: 24px;
+        }
+
         @keyframes shake {
-            0% { transform: translateX(0); } 25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); } 75% { transform: translateX(-10px); } 100% { transform: translateX(0); }
+            0% { transform: translateX(0); } 
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); } 
+            75% { transform: translateX(-10px); } 
+            100% { transform: translateX(0); }
         }
 
         @keyframes screenShake {
@@ -243,12 +299,12 @@
                     </div>
                     <div class="stat-box" id="combo-box">
                         <span class="stat-label">STREAK</span>
-                        <span class="stat-value" id="combo-val" style="color: var(--warning)">1x</span>
+                        <span class="stat-value combo-value" id="combo-val">1x</span>
                     </div>
                 </div>
                 
                 <div class="level-container">
-                    <div class="stat-value" style="font-size: 18px;">LEVEL <span id="level-num">1</span></div>
+                    <div class="stat-value stat-value--small">LEVEL <span id="level-num">1</span></div>
                     <div class="stat-label" id="level-name">INITIATION</div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="level-bar"></div>
@@ -256,7 +312,7 @@
                 </div>
 
                 <div>
-                    <div class="stat-box" style="border-color: var(--secondary);">
+                    <div class="stat-box stat-box--integrity">
                         <span class="stat-label">SYSTEM INTEGRITY</span>
                         <span class="stat-value" id="lives">100%</span>
                     </div>
@@ -268,11 +324,11 @@
             </div>
         </div>
 
-        <div id="start-modal" class="modal" style="display: block;">
+        <div id="start-modal" class="modal modal--start-visible">
             <h1>NEBULA: ULTIMATE</h1>
             <p><strong>POLYGLOT PROTOCOL ACTIVATED</strong></p>
             <p>Intercept words from French, Spanish, German, and Italian.</p>
-            <p style="color: var(--warning)">NEW: Power-ups detected (NUKE, FREEZE, REPAIR)</p>
+            <p class="start-warning">NEW: Power-ups detected (NUKE, FREEZE, REPAIR)</p>
             <p>Build your Combo Streak for massive scores.</p>
             <button class="btn" onclick="Game.start()">INITIATE</button>
         </div>
@@ -289,14 +345,14 @@
             </div>
             
             <p>Type the English word below to repair hull:</p>
-            <input type="text" id="repair-input" style="font-size: 20px; padding: 10px; margin-top: 10px;" placeholder="Type here...">
+            <input type="text" id="repair-input" class="repair-input" placeholder="Type here...">
         </div>
 
         <div id="game-over-modal" class="modal">
-            <h1 style="color:var(--secondary)">CRITICAL FAILURE</h1>
+            <h1>CRITICAL FAILURE</h1>
             <h2>SYSTEM OFFLINE</h2>
             <p>Language Matrix Overwhelmed.</p>
-            <p>Final Score: <span id="final-score" style="color:white; font-size:24px;">0</span></p>
+            <p>Final Score: <span id="final-score" class="final-score-text">0</span></p>
             <button class="btn" onclick="Game.restart()">REBOOT</button>
         </div>
 
@@ -304,7 +360,7 @@
             <h1>SYSTEM SECURE</h1>
             <h2>OMNIGLOT STATUS: ACHIEVED</h2>
             <p>You have mastered the European vocabulary sector.</p>
-            <p>Final Score: <span id="vic-score" style="color:white; font-size:24px;">0</span></p>
+            <p>Final Score: <span id="vic-score" class="final-score-text">0</span></p>
             <button class="btn" onclick="Game.restart()">NEW GAME +</button>
         </div>
     </div>
@@ -635,6 +691,9 @@
                     repair.value = "";
                 }
             });
+
+            // ensure start modal visible on load
+            document.getElementById('start-modal').style.display = 'block';
 
             this.loop();
         },
