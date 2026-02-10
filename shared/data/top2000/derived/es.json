@@ -1,0 +1,1717 @@
+[
+  {
+    "rank": 1,
+    "token": "a",
+    "count": 17
+  },
+  {
+    "rank": 2,
+    "token": "por",
+    "count": 14
+  },
+  {
+    "rank": 3,
+    "token": "favor",
+    "count": 13
+  },
+  {
+    "rank": 4,
+    "token": "d",
+    "count": 12
+  },
+  {
+    "rank": 5,
+    "token": "est",
+    "count": 11
+  },
+  {
+    "rank": 6,
+    "token": "nde",
+    "count": 11
+  },
+  {
+    "rank": 7,
+    "token": "la",
+    "count": 11
+  },
+  {
+    "rank": 8,
+    "token": "í",
+    "count": 10
+  },
+  {
+    "rank": 9,
+    "token": "un",
+    "count": 9
+  },
+  {
+    "rank": 10,
+    "token": "qu",
+    "count": 8
+  },
+  {
+    "rank": 11,
+    "token": "puedo",
+    "count": 8
+  },
+  {
+    "rank": 12,
+    "token": "el",
+    "count": 7
+  },
+  {
+    "rank": 13,
+    "token": "de",
+    "count": 6
+  },
+  {
+    "rank": 14,
+    "token": "n",
+    "count": 6
+  },
+  {
+    "rank": 15,
+    "token": "puedes",
+    "count": 6
+  },
+  {
+    "rank": 16,
+    "token": "hora",
+    "count": 6
+  },
+  {
+    "rank": 17,
+    "token": "una",
+    "count": 6
+  },
+  {
+    "rank": 18,
+    "token": "s",
+    "count": 5
+  },
+  {
+    "rank": 19,
+    "token": "es",
+    "count": 5
+  },
+  {
+    "rank": 20,
+    "token": "cu",
+    "count": 5
+  },
+  {
+    "rank": 21,
+    "token": "no",
+    "count": 4
+  },
+  {
+    "rank": 22,
+    "token": "ís",
+    "count": 4
+  },
+  {
+    "rank": 23,
+    "token": "me",
+    "count": 4
+  },
+  {
+    "rank": 24,
+    "token": "m",
+    "count": 4
+  },
+  {
+    "rank": 25,
+    "token": "comprar",
+    "count": 4
+  },
+  {
+    "rank": 26,
+    "token": "to",
+    "count": 4
+  },
+  {
+    "rank": 27,
+    "token": "estar",
+    "count": 4
+  },
+  {
+    "rank": 28,
+    "token": "buenas",
+    "count": 3
+  },
+  {
+    "rank": 29,
+    "token": "c",
+    "count": 3
+  },
+  {
+    "rank": 30,
+    "token": "mo",
+    "count": 3
+  },
+  {
+    "rank": 31,
+    "token": "estoy",
+    "count": 3
+  },
+  {
+    "rank": 32,
+    "token": "necesito",
+    "count": 3
+  },
+  {
+    "rank": 33,
+    "token": "tengo",
+    "count": 3
+  },
+  {
+    "rank": 34,
+    "token": "ínto",
+    "count": 3
+  },
+  {
+    "rank": 35,
+    "token": "soy",
+    "count": 3
+  },
+  {
+    "rank": 36,
+    "token": "hay",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "encontrar",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "latin",
+    "count": 3
+  },
+  {
+    "rank": 39,
+    "token": "right",
+    "count": 3
+  },
+  {
+    "rank": 40,
+    "token": "left",
+    "count": 3
+  },
+  {
+    "rank": 41,
+    "token": "hola",
+    "count": 2
+  },
+  {
+    "rank": 42,
+    "token": "gracias",
+    "count": 2
+  },
+  {
+    "rank": 43,
+    "token": "perd",
+    "count": 2
+  },
+  {
+    "rank": 44,
+    "token": "lo",
+    "count": 2
+  },
+  {
+    "rank": 45,
+    "token": "siento",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "noches",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "bien",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "hablas",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "hablar",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "en",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "estaci",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "and",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "aqu",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "quisiera",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "check",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "tarjeta",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "al",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "pagar",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "wi",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "fi",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "íl",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "mi",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "llame",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "mapa",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "tomar",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "foto",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "alphabet",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "greek",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "some",
+    "count": 2
+  },
+  {
+    "rank": 70,
+    "token": "resemble",
+    "count": 2
+  },
+  {
+    "rank": 71,
+    "token": "by",
+    "count": 2
+  },
+  {
+    "rank": 72,
+    "token": "final",
+    "count": 2
+  },
+  {
+    "rank": 73,
+    "token": "letters",
+    "count": 2
+  },
+  {
+    "rank": 74,
+    "token": "ser",
+    "count": 2
+  },
+  {
+    "rank": 75,
+    "token": "tener",
+    "count": 2
+  },
+  {
+    "rank": 76,
+    "token": "hacer",
+    "count": 2
+  },
+  {
+    "rank": 77,
+    "token": "ir",
+    "count": 2
+  },
+  {
+    "rank": 78,
+    "token": "mirar",
+    "count": 2
+  },
+  {
+    "rank": 79,
+    "token": "querer",
+    "count": 2
+  },
+  {
+    "rank": 80,
+    "token": "esperar",
+    "count": 2
+  },
+  {
+    "rank": 81,
+    "token": "nada",
+    "count": 1
+  },
+  {
+    "rank": 82,
+    "token": "disculpe",
+    "count": 1
+  },
+  {
+    "rank": 83,
+    "token": "buenos",
+    "count": 1
+  },
+  {
+    "rank": 84,
+    "token": "as",
+    "count": 1
+  },
+  {
+    "rank": 85,
+    "token": "tardes",
+    "count": 1
+  },
+  {
+    "rank": 86,
+    "token": "adi",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "hasta",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "luego",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "te",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "llamas",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "llamoγç",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "ingl",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "espa",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "ol",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "entiendo",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "repetir",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "despacio",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "escr",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "belo",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "se",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "dice",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "palabra",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "idioma",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "significa",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "eso",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "ayudarme",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "int",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "rprete",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "mostrarme",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "hoy",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "ma",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "ana",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "ahora",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "tarde",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "espera",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "hambre",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "sed",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "íγç",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "perdido",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "izquierda",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "derecha",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "todo",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "recto",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "lejos",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "tardar",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "parada",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "autob",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "tren",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "metro",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "cercana",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "aeropuerto",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "billetes",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "billete",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "lugar",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "sale",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "llega",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "llamarme",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "taxi",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "pare",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "hotel",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "reserva",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "habitaci",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "noche",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "in",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "out",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "ascensor",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "llave",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "trae",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "men",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "agua",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "caf",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "t",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "vegetariano",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "vegano",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "rgico",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "rgeno",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "delicioso",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "cuenta",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "con",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "da",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "recibo",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "cuesta",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "demasiado",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "caro",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "descuento",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "esto",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "solo",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "mirando",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "tiene",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "otra",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "talla",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "prob",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "írmelo",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "contrase",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "del",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "cargar",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "tel",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "fono",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "sim",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "medicina",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "farmacia",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "cerca",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "hospital",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "ayuda",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "polic",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "dico",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "pasaporte",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "íalto",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "ífuego",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "íemergencia",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "tienes",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "conseguir",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "entrada",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "empieza",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "informaci",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "tomarnos",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "shared",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "base",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "for",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "romance",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "germanic",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "each",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "language",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "adds",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "diacritics",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "cyrillic",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "is",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "historically",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "related",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "shapes",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "typography",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "forms",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "ü",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "ú",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "ñ",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "change",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "shape",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "position",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "isolated",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "initial",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "medial",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "classical",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "letter",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "names",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "with",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "simple",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "romanization",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "hiragana",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "katakana",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "syllabaries",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "same",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "pronunciation",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "ancient",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "modern",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "cero",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "uno",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "dos",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "tres",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "cuatro",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "cinco",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "seis",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "siete",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "ocho",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "nueve",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "diez",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "veinte",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "treinta",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "cuarenta",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "cincuenta",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "sesenta",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "setenta",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "ochenta",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "noventa",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "cien",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "venir",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "decir",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "contar",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "ver",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "o",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "r",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "escuchar",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "saber",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "pensar",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "necesitar",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "poder",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "deber",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "trabajar",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "vivir",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "comer",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "beber",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "dormir",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "leer",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "escribir",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "aprender",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "ense",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "ar",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "estudiar",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "entender",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "recordar",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "olvidar",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "preguntar",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "responder",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "dar",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "obtener",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "poner",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "traer",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "enviar",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "vender",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "abrir",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "cerrar",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "empezar",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "terminar",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "parar",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "ayudar",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "usar",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "llamar",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "intentar",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "salir",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "llegar",
+    "count": 1
+  },
+  {
+    "rank": 300,
+    "token": "viajar",
+    "count": 1
+  },
+  {
+    "rank": 301,
+    "token": "mover",
+    "count": 1
+  },
+  {
+    "rank": 302,
+    "token": "quedarse",
+    "count": 1
+  },
+  {
+    "rank": 303,
+    "token": "caminar",
+    "count": 1
+  },
+  {
+    "rank": 304,
+    "token": "correr",
+    "count": 1
+  },
+  {
+    "rank": 305,
+    "token": "conducir",
+    "count": 1
+  },
+  {
+    "rank": 306,
+    "token": "montar",
+    "count": 1
+  },
+  {
+    "rank": 307,
+    "token": "volar",
+    "count": 1
+  },
+  {
+    "rank": 308,
+    "token": "nadar",
+    "count": 1
+  },
+  {
+    "rank": 309,
+    "token": "cocinar",
+    "count": 1
+  },
+  {
+    "rank": 310,
+    "token": "limpiar",
+    "count": 1
+  },
+  {
+    "rank": 311,
+    "token": "lavar",
+    "count": 1
+  },
+  {
+    "rank": 312,
+    "token": "construir",
+    "count": 1
+  },
+  {
+    "rank": 313,
+    "token": "romper",
+    "count": 1
+  },
+  {
+    "rank": 314,
+    "token": "reparar",
+    "count": 1
+  },
+  {
+    "rank": 315,
+    "token": "elegir",
+    "count": 1
+  },
+  {
+    "rank": 316,
+    "token": "cambiar",
+    "count": 1
+  },
+  {
+    "rank": 317,
+    "token": "jugar",
+    "count": 1
+  },
+  {
+    "rank": 318,
+    "token": "entrenar",
+    "count": 1
+  },
+  {
+    "rank": 319,
+    "token": "amar",
+    "count": 1
+  },
+  {
+    "rank": 320,
+    "token": "gustar",
+    "count": 1
+  },
+  {
+    "rank": 321,
+    "token": "odiar",
+    "count": 1
+  },
+  {
+    "rank": 322,
+    "token": "sentir",
+    "count": 1
+  },
+  {
+    "rank": 323,
+    "token": "planear",
+    "count": 1
+  },
+  {
+    "rank": 324,
+    "token": "acuerdo",
+    "count": 1
+  },
+  {
+    "rank": 325,
+    "token": "decidir",
+    "count": 1
+  },
+  {
+    "rank": 326,
+    "token": "creer",
+    "count": 1
+  },
+  {
+    "rank": 327,
+    "token": "explicar",
+    "count": 1
+  },
+  {
+    "rank": 328,
+    "token": "mostrar",
+    "count": 1
+  },
+  {
+    "rank": 329,
+    "token": "verificar",
+    "count": 1
+  },
+  {
+    "rank": 330,
+    "token": "compartir",
+    "count": 1
+  },
+  {
+    "rank": 331,
+    "token": "llevar",
+    "count": 1
+  },
+  {
+    "rank": 332,
+    "token": "sostener",
+    "count": 1
+  },
+  {
+    "rank": 333,
+    "token": "cortar",
+    "count": 1
+  },
+  {
+    "rank": 334,
+    "token": "girar",
+    "count": 1
+  },
+  {
+    "rank": 335,
+    "token": "sentarse",
+    "count": 1
+  },
+  {
+    "rank": 336,
+    "token": "pie",
+    "count": 1
+  },
+  {
+    "rank": 337,
+    "token": "despertarse",
+    "count": 1
+  },
+  {
+    "rank": 338,
+    "token": "caer",
+    "count": 1
+  },
+  {
+    "rank": 339,
+    "token": "ganar",
+    "count": 1
+  },
+  {
+    "rank": 340,
+    "token": "perder",
+    "count": 1
+  },
+  {
+    "rank": 341,
+    "token": "pedir",
+    "count": 1
+  },
+  {
+    "rank": 342,
+    "token": "reservar",
+    "count": 1
+  },
+  {
+    "rank": 343,
+    "token": "γçö",
+    "count": 1
+  }
+]

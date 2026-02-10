@@ -1,0 +1,1302 @@
+[
+  {
+    "rank": 1,
+    "token": "σ",
+    "count": 67
+  },
+  {
+    "rank": 2,
+    "token": "φ",
+    "count": 34
+  },
+  {
+    "rank": 3,
+    "token": "n",
+    "count": 27
+  },
+  {
+    "rank": 4,
+    "token": "é",
+    "count": 25
+  },
+  {
+    "rank": 5,
+    "token": "y",
+    "count": 23
+  },
+  {
+    "rank": 6,
+    "token": "sh",
+    "count": 21
+  },
+  {
+    "rank": 7,
+    "token": "ng",
+    "count": 20
+  },
+  {
+    "rank": 8,
+    "token": "d",
+    "count": 19
+  },
+  {
+    "rank": 9,
+    "token": "τ",
+    "count": 19
+  },
+  {
+    "rank": 10,
+    "token": "w",
+    "count": 18
+  },
+  {
+    "rank": 11,
+    "token": "ö",
+    "count": 15
+  },
+  {
+    "rank": 12,
+    "token": "áo",
+    "count": 14
+  },
+  {
+    "rank": 13,
+    "token": "xi",
+    "count": 13
+  },
+  {
+    "rank": 14,
+    "token": "z",
+    "count": 13
+  },
+  {
+    "rank": 15,
+    "token": "án",
+    "count": 13
+  },
+  {
+    "rank": 16,
+    "token": "æ",
+    "count": 13
+  },
+  {
+    "rank": 17,
+    "token": "k",
+    "count": 12
+  },
+  {
+    "rank": 18,
+    "token": "ái",
+    "count": 12
+  },
+  {
+    "rank": 19,
+    "token": "zh",
+    "count": 12
+  },
+  {
+    "rank": 20,
+    "token": "ì",
+    "count": 11
+  },
+  {
+    "rank": 21,
+    "token": "ü",
+    "count": 11
+  },
+  {
+    "rank": 22,
+    "token": "ji",
+    "count": 11
+  },
+  {
+    "rank": 23,
+    "token": "äo",
+    "count": 10
+  },
+  {
+    "rank": 24,
+    "token": "b",
+    "count": 10
+  },
+  {
+    "rank": 25,
+    "token": "ë",
+    "count": 10
+  },
+  {
+    "rank": 26,
+    "token": "m",
+    "count": 10
+  },
+  {
+    "rank": 27,
+    "token": "x",
+    "count": 10
+  },
+  {
+    "rank": 28,
+    "token": "ma",
+    "count": 9
+  },
+  {
+    "rank": 29,
+    "token": "h",
+    "count": 8
+  },
+  {
+    "rank": 30,
+    "token": "q",
+    "count": 8
+  },
+  {
+    "rank": 31,
+    "token": "ï",
+    "count": 8
+  },
+  {
+    "rank": 32,
+    "token": "ù",
+    "count": 8
+  },
+  {
+    "rank": 33,
+    "token": "l",
+    "count": 8
+  },
+  {
+    "rank": 34,
+    "token": "f",
+    "count": 8
+  },
+  {
+    "rank": 35,
+    "token": "g",
+    "count": 8
+  },
+  {
+    "rank": 36,
+    "token": "í",
+    "count": 8
+  },
+  {
+    "rank": 37,
+    "token": "ÿ",
+    "count": 7
+  },
+  {
+    "rank": 38,
+    "token": "çς",
+    "count": 7
+  },
+  {
+    "rank": 39,
+    "token": "shu",
+    "count": 7
+  },
+  {
+    "rank": 40,
+    "token": "ch",
+    "count": 7
+  },
+  {
+    "rank": 41,
+    "token": "σô",
+    "count": 7
+  },
+  {
+    "rank": 42,
+    "token": "än",
+    "count": 6
+  },
+  {
+    "rank": 43,
+    "token": "ün",
+    "count": 6
+  },
+  {
+    "rank": 44,
+    "token": "hu",
+    "count": 6
+  },
+  {
+    "rank": 45,
+    "token": "t",
+    "count": 6
+  },
+  {
+    "rank": 46,
+    "token": "σéù",
+    "count": 6
+  },
+  {
+    "rank": 47,
+    "token": "nme",
+    "count": 6
+  },
+  {
+    "rank": 48,
+    "token": "ç",
+    "count": 6
+  },
+  {
+    "rank": 49,
+    "token": "θçî",
+    "count": 6
+  },
+  {
+    "rank": 50,
+    "token": "å",
+    "count": 6
+  },
+  {
+    "rank": 51,
+    "token": "äl",
+    "count": 6
+  },
+  {
+    "rank": 52,
+    "token": "σà",
+    "count": 6
+  },
+  {
+    "rank": 53,
+    "token": "ó",
+    "count": 5
+  },
+  {
+    "rank": 54,
+    "token": "á",
+    "count": 5
+  },
+  {
+    "rank": 55,
+    "token": "ê",
+    "count": 5
+  },
+  {
+    "rank": 56,
+    "token": "σå",
+    "count": 5
+  },
+  {
+    "rank": 57,
+    "token": "ô",
+    "count": 5
+  },
+  {
+    "rank": 58,
+    "token": "äng",
+    "count": 5
+  },
+  {
+    "rank": 59,
+    "token": "üi",
+    "count": 4
+  },
+  {
+    "rank": 60,
+    "token": "éng",
+    "count": 4
+  },
+  {
+    "rank": 61,
+    "token": "γç",
+    "count": 4
+  },
+  {
+    "rank": 62,
+    "token": "íi",
+    "count": 4
+  },
+  {
+    "rank": 63,
+    "token": "áφâ",
+    "count": 4
+  },
+  {
+    "rank": 64,
+    "token": "di",
+    "count": 4
+  },
+  {
+    "rank": 65,
+    "token": "ín",
+    "count": 4
+  },
+  {
+    "rank": 66,
+    "token": "i",
+    "count": 4
+  },
+  {
+    "rank": 67,
+    "token": "j",
+    "count": 4
+  },
+  {
+    "rank": 68,
+    "token": "zu",
+    "count": 4
+  },
+  {
+    "rank": 69,
+    "token": "æu",
+    "count": 4
+  },
+  {
+    "rank": 70,
+    "token": "du",
+    "count": 4
+  },
+  {
+    "rank": 71,
+    "token": "u",
+    "count": 3
+  },
+  {
+    "rank": 72,
+    "token": "çφ",
+    "count": 3
+  },
+  {
+    "rank": 73,
+    "token": "le",
+    "count": 3
+  },
+  {
+    "rank": 74,
+    "token": "üo",
+    "count": 3
+  },
+  {
+    "rank": 75,
+    "token": "θ",
+    "count": 3
+  },
+  {
+    "rank": 76,
+    "token": "hou",
+    "count": 3
+  },
+  {
+    "rank": 77,
+    "token": "li",
+    "count": 3
+  },
+  {
+    "rank": 78,
+    "token": "áng",
+    "count": 3
+  },
+  {
+    "rank": 79,
+    "token": "qi",
+    "count": 3
+  },
+  {
+    "rank": 80,
+    "token": "s",
+    "count": 3
+  },
+  {
+    "rank": 81,
+    "token": "ñ",
+    "count": 3
+  },
+  {
+    "rank": 82,
+    "token": "â",
+    "count": 3
+  },
+  {
+    "rank": 83,
+    "token": "xu",
+    "count": 3
+  },
+  {
+    "rank": 84,
+    "token": "áσñ",
+    "count": 2
+  },
+  {
+    "rank": 85,
+    "token": "èσñ",
+    "count": 2
+  },
+  {
+    "rank": 86,
+    "token": "ngzi",
+    "count": 2
+  },
+  {
+    "rank": 87,
+    "token": "áς",
+    "count": 2
+  },
+  {
+    "rank": 88,
+    "token": "üφ",
+    "count": 2
+  },
+  {
+    "rank": 89,
+    "token": "ngy",
+    "count": 2
+  },
+  {
+    "rank": 90,
+    "token": "üny",
+    "count": 2
+  },
+  {
+    "rank": 91,
+    "token": "êæς",
+    "count": 2
+  },
+  {
+    "rank": 92,
+    "token": "ïσéù",
+    "count": 2
+  },
+  {
+    "rank": 93,
+    "token": "äå",
+    "count": 2
+  },
+  {
+    "rank": 94,
+    "token": "τä",
+    "count": 2
+  },
+  {
+    "rank": 95,
+    "token": "ánz",
+    "count": 2
+  },
+  {
+    "rank": 96,
+    "token": "ìτ",
+    "count": 2
+  },
+  {
+    "rank": 97,
+    "token": "ñθüô",
+    "count": 2
+  },
+  {
+    "rank": 98,
+    "token": "θù",
+    "count": 2
+  },
+  {
+    "rank": 99,
+    "token": "íng",
+    "count": 2
+  },
+  {
+    "rank": 100,
+    "token": "ñτ",
+    "count": 2
+  },
+  {
+    "rank": 101,
+    "token": "öσ",
+    "count": 2
+  },
+  {
+    "rank": 102,
+    "token": "τñ",
+    "count": 2
+  },
+  {
+    "rank": 103,
+    "token": "äi",
+    "count": 2
+  },
+  {
+    "rank": 104,
+    "token": "áod",
+    "count": 2
+  },
+  {
+    "rank": 105,
+    "token": "æθæ",
+    "count": 2
+  },
+  {
+    "rank": 106,
+    "token": "ìsh",
+    "count": 2
+  },
+  {
+    "rank": 107,
+    "token": "ä",
+    "count": 2
+  },
+  {
+    "rank": 108,
+    "token": "σìü",
+    "count": 2
+  },
+  {
+    "rank": 109,
+    "token": "σüü",
+    "count": 2
+  },
+  {
+    "rank": 110,
+    "token": "σä",
+    "count": 2
+  },
+  {
+    "rank": 111,
+    "token": "σé",
+    "count": 2
+  },
+  {
+    "rank": 112,
+    "token": "σû",
+    "count": 2
+  },
+  {
+    "rank": 113,
+    "token": "î",
+    "count": 2
+  },
+  {
+    "rank": 114,
+    "token": "σè",
+    "count": 2
+  },
+  {
+    "rank": 115,
+    "token": "à",
+    "count": 2
+  },
+  {
+    "rank": 116,
+    "token": "τé",
+    "count": 2
+  },
+  {
+    "rank": 117,
+    "token": "σù",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "óφ",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "xie",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "ìσ",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "ëô",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "är",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "äoshang",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "ïσìêσñ",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "áw",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "öüς",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "änshang",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "öüσ",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "σåìφ",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "áiji",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "σñ",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "áσå",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "êσéìσ",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "êæτüäσéìσ",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "de",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "φï",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "φñ",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "τå",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "τëöφ",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "íy",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "ÿäτö",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "ngb",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "θçìσñìς",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "ngf",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "àóς",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "çτé",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "σìòφ",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "çäς",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "êφ",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "öy",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "ünc",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "θéú",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "si",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "êæθ",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "üτ",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "êæτ",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "ïτ",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "ánkan",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "σçáτé",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "ÿäσñ",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "ngti",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "ìσéä",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "üoh",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "êæθñ",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "êæφ",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "üσñüθò",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "ìngji",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "τü",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "æch",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "θçîς",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "pi",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "σçöσç",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "σåæ",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "σçöσê",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "öσå",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "äge",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "ánt",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "êæσå",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "åσç",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "üng",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "öθçîσü",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "θàæσ",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "ùσ",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "ödi",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "öüσñüσ",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "σçöθçç",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "tu",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "ñτö",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "σìí",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "ÿσéù",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "êæ",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "ìuj",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "σñüσ",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "ëσìü",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "ünsh",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "üsh",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "σæèφ",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "áos",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "φâ",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "àθí",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "ñς",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "ìngzu",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "σéâ",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "σåö",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "òö",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "τéåφ",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "ú",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "éji",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "ÿφ",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "ángj",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "ùσê",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "áil",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "θçü",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "σìû",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "gu",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "çσ",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "üish",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "êé",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "ínch",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "σü",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "üngzh",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "τö",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "ò",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "σê",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "ùàφíî",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "üx",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "p",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "θú",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "ôi",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "uy",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "æng",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "ngji",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "θçá",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "ëôτá",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "äp",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "τéå",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "θçë",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "änz",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "σåÿ",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "äibi",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "θö",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "ánli",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "τê",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "éhu",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "änju",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "íσêæ",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "σéî",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "ju",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "üngx",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "úθçè",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "änsh",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "úç",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "änch",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "σêåς",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "ônxi",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "σêç",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "zhu",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "θåæ",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "äë",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "θóäφ",
+    "count": 1
+  }
+]

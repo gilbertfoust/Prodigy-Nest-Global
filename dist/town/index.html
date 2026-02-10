@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Town Day - Polyglot Heaven</title>
+  <style>
+    nav{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a{ color: var(--accent); text-decoration:none; font-weight:800; }
+    nav a:hover{ text-decoration: underline; }
+
+    .layout{
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(255,255,255,.60));
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    .title{
+      display:flex; justify-content:space-between; gap:10px; align-items:flex-start; flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .title h1{ margin:0; font-size: 22px; }
+    .sub{ color: var(--muted); font-size: 12px; }
+
+    .meters{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .meter{
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,.72);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .meter b{ color: var(--ink); }
+
+    .dialogue{
+      margin-top: 10px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+    .npc{ font-weight: 900; color: var(--accent); margin-bottom: 8px; }
+    .line{ font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
+
+    .taskTitle{ font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .options{ display:grid; gap:8px; }
+    .optBtn{
+      text-align:left;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(76,141,255,.22);
+      background: rgba(76,141,255,.10);
+      cursor:pointer;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .optBtn:hover{ background: rgba(76,141,255,.18); }
+
+    .typingRow{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .typingRow input{
+      flex: 1;
+      min-width: 220px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      font-size: 14px;
+      outline:none;
+    }
+    .typingRow input:focus{
+      border-color: rgba(76,141,255,.55);
+      box-shadow: 0 0 0 4px rgba(76,141,255,.16);
+    }
+
+    .result{
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
+    .ok{ border-left: 4px solid #10b981; }
+    .bad{ border-left: 4px solid #ef4444; }
+
+    .settings .row{ display:flex; justify-content:space-between; gap:10px; align-items:center; margin: 10px 0; }
+    .settings label{ font-size: 12px; color: var(--muted); font-weight: 800; }
+    .settings input[type=\"checkbox\"]{ transform: scale(1.1); }
+    .settings select{ width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.90); }
+
+    .mini{ font-size: 12px; color: var(--muted); line-height: 1.5; }
+  </style>
+  <script type="module" crossorigin src="/assets/town-S7ITZsEa.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/styles-BS2JhAY4.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">&#8592; Back to Main Hall</a>
+    <span style="margin-left:10px;color:var(--muted);font-size:12px;">Town Day (sandbox RPG language day)</span>
+  </nav>
+
+  <main class="wrap">
+    <div class="layout">
+      <section class="panel" id="mainPanel">
+        <div class="title">
+          <div>
+            <h1>Town Day</h1>
+            <div class="sub">Language follows your Main Hall selection. Progress is gated by communication.</div>
+          </div>
+          <div class="badge" id="sceneBadge">Scene</div>
+        </div>
+
+        <div class="meters">
+          <div class="meter">Language: <b id="langDisp"></b></div>
+          <div class="meter">Reputation: <b id="repDisp">0</b></div>
+          <div class="meter">Energy: <b id="energyDisp">100</b></div>
+        </div>
+
+        <div class="dialogue">
+          <div class="npc" id="npcName"></div>
+          <div class="line" id="npcLine"></div>
+          <div class="taskTitle" id="taskTitle"></div>
+
+          <div id="mcArea" style="display:none;">
+            <div class="options" id="mcOptions"></div>
+          </div>
+
+          <div id="typeArea" style="display:none;">
+            <div class="typingRow">
+              <input id="typeInput" placeholder="Type your reply…" />
+              <button class="btn btn-primary" id="typeSubmit">Submit</button>
+            </div>
+          </div>
+
+          <div id="resultBox" class="result" style="display:none;"></div>
+        </div>
+      </section>
+
+      <aside class="panel settings">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;">
+          <div style="font-weight:900;">Difficulty</div>
+          <button id="restartBtn" class="btn">Restart</button>
+        </div>
+
+        <div class="row">
+          <label for="answerMode">Answer mode</label>
+        </div>
+        <select id="answerMode">
+          <option value="mc">Multiple choice</option>
+          <option value="typing">Typing</option>
+          <option value="both">Both (MC + typing)</option>
+        </select>
+
+        <div class="row">
+          <label>Show romanization</label>
+          <input type="checkbox" id="showRoman" />
+        </div>
+        <div class="row">
+          <label>Show English gloss</label>
+          <input type="checkbox" id="showEnglish" />
+        </div>
+
+        <div class="row">
+          <label for="scenePick">Start scene</label>
+        </div>
+        <select id="scenePick"></select>
+
+        <div class="mini" style="margin-top:12px;">
+          v1 is a scaffold: two scenes (morning + bedtime). Next we expand to a full day loop (home → city → errands → home) and integrate top-2000 coverage pacing.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../shared/core.js"></script>
+  <script src="../shared/components.js"></script>
+</body>
+</html>
+

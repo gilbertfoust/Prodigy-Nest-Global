@@ -1,21 +1,942 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Language Shooter - Polyglot Heaven</title>
-  <link rel="stylesheet" href="../shared/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBULA: ULTIMATE EDITION</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap');
+
+        :root {
+            --primary: #00f3ff;
+            --secondary: #ff0055;
+            --success: #00ff66;
+            --warning: #ffaa00;
+            --purple: #bf00ff;
+            --bg: #05070a;
+            --glass: rgba(10, 20, 30, 0.95);
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: var(--bg);
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            user-select: none;
+        }
+
+        /* --- CRT EFFECT LAYER --- */
+        #crt-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, #111926 0%, #000000 100%);
+            transition: transform 0.1s;
+        }
+        
+        /* Shake Animation Class */
+        .shake-screen { animation: screenShake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- UI LAYER --- */
+        #ui-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 60;
+        }
+
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.6);
+            border-left: 3px solid var(--primary);
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            transform: skew(-10deg);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+        }
+
+        .stat-label { font-size: 10px; color: #888; display: block; font-family: 'Roboto Mono'; }
+        .stat-value { font-size: 24px; font-weight: 700; color: white; text-shadow: 0 0 10px var(--primary); }
+
+        /* Combo Meter */
+        #combo-box {
+            border-color: var(--warning);
+            text-align: right;
+            opacity: 0; 
+            transition: opacity 0.3s;
+        }
+        .combo-active { opacity: 1 !important; }
+
+        /* Level Progress Bar */
+        .level-container { width: 300px; text-align: center; }
+        .progress-bar {
+            width: 100%; height: 10px; background: #333;
+            margin-top: 5px; transform: skew(-20deg);
+            border: 1px solid #555;
+            position: relative;
+        }
+        .progress-fill {
+            height: 100%; background: var(--success);
+            width: 0%; transition: width 0.3s;
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        /* Input Area */
+        .input-wrapper {
+            pointer-events: auto;
+            align-self: center;
+            position: relative;
+            width: 600px;
+            margin-bottom: 40px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--primary);
+            color: white;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 32px;
+            padding: 20px;
+            text-align: center;
+            text-transform: lowercase;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            transition: 0.2s;
+        }
+        input:focus { box-shadow: 0 0 50px rgba(0, 243, 255, 0.3); border-color: white; }
+        input.error { border-color: var(--secondary); animation: shake 0.3s; }
+        
+        /* Freeze Effect Overlay */
+        #freeze-overlay {
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0, 243, 255, 0.1);
+            pointer-events: none;
+            display: none;
+            z-index: 40;
+            box-shadow: inset 0 0 100px var(--primary);
+        }
+
+        /* --- MODALS --- */
+        .modal {
+            display: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--glass);
+            border: 1px solid var(--primary);
+            padding: 40px;
+            width: 600px;
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            text-align: center;
+            pointer-events: auto;
+            box-shadow: 0 0 100px rgba(0,0,0,0.9);
+        }
+
+        h1 { margin: 0; font-size: 48px; color: var(--primary); text-shadow: 0 0 20px var(--primary); }
+        h2 { color: white; margin-bottom: 30px; }
+        p { font-family: 'Roboto Mono'; color: #ccc; line-height: 1.6; }
+
+        .btn {
+            background: var(--primary);
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            transition: 0.2s;
+        }
+        .btn:hover { background: white; transform: scale(1.05); }
+
+        /* Missed Word Modal Specifics */
+        #missed-modal { border-color: var(--secondary); }
+        #missed-modal h1 { color: var(--secondary); text-shadow: 0 0 20px var(--secondary); }
+        .learning-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .lang-badge {
+            display: inline-block;
+            background: var(--warning);
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-family: 'Roboto Mono';
+            letter-spacing: 1px;
+        }
+
+        .word-origin { display: block; font-size: 40px; color: var(--secondary); margin-bottom: 10px; }
+        .word-trans { display: block; font-size: 30px; color: var(--success); font-family: 'Roboto Mono'; font-weight: bold; }
+
+        /* Victory Modal */
+        #victory-modal { border-color: var(--success); }
+        #victory-modal h1 { color: var(--success); text-shadow: 0 0 30px var(--success); }
+
+        @keyframes shake {
+            0% { transform: translateX(0); } 25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); } 75% { transform: translateX(-10px); } 100% { transform: translateX(0); }
+        }
+
+        @keyframes screenShake {
+            10%, 90% { transform: translate3d(-5px, 0, 0); }
+            20%, 80% { transform: translate3d(5px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-5px, -5px, 0); }
+            40%, 60% { transform: translate3d(5px, 5px, 0); }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <a href="../index.html">← Back to Hub</a>
-  </nav>
-  <main>
-    <h1>Language Shooter</h1>
-    <p>TODO: Game layout goes here</p>
-    <p>This will be the gamified vocabulary learning wing with Language Shooter and future games.</p>
-  </main>
-  <script src="../shared/core.js"></script>
-  <script src="../shared/components.js"></script>
+
+    <div id="crt-overlay"></div>
+    <div id="freeze-overlay"></div>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <div class="hud-top">
+                <div>
+                    <div class="stat-box">
+                        <span class="stat-label">SCORE</span>
+                        <span class="stat-value" id="score">0</span>
+                    </div>
+                    <div class="stat-box" id="combo-box">
+                        <span class="stat-label">STREAK</span>
+                        <span class="stat-value" id="combo-val" style="color: var(--warning)">1x</span>
+                    </div>
+                </div>
+                
+                <div class="level-container">
+                    <div class="stat-value" style="font-size: 18px;">LEVEL <span id="level-num">1</span></div>
+                    <div class="stat-label" id="level-name">INITIATION</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="level-bar"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="stat-box" style="border-color: var(--secondary);">
+                        <span class="stat-label">SYSTEM INTEGRITY</span>
+                        <span class="stat-value" id="lives">100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="text" id="playerInput" placeholder="TRANSLATE & ENTER" autocomplete="off" autofocus>
+            </div>
+        </div>
+
+        <div id="start-modal" class="modal" style="display: block;">
+            <h1>NEBULA: ULTIMATE</h1>
+            <p><strong>POLYGLOT PROTOCOL ACTIVATED</strong></p>
+            <p>Intercept words from French, Spanish, German, and Italian.</p>
+            <p style="color: var(--warning)">NEW: Power-ups detected (NUKE, FREEZE, REPAIR)</p>
+            <p>Build your Combo Streak for massive scores.</p>
+            <button class="btn" onclick="Game.start()">INITIATE</button>
+        </div>
+
+        <div id="missed-modal" class="modal">
+            <h1>HULL BREACH</h1>
+            <p>Unknown vocabulary intercepted. Analysis complete:</p>
+            
+            <div class="learning-card">
+                <div class="lang-badge" id="missed-lang">SIGNAL ORIGIN: FRENCH</div>
+                <span class="word-origin" id="missed-fr">...</span>
+                <span style="font-size: 12px; color: #aaa;">TRANSLATES TO</span>
+                <span class="word-trans" id="missed-en">...</span>
+            </div>
+            
+            <p>Type the English word below to repair hull:</p>
+            <input type="text" id="repair-input" style="font-size: 20px; padding: 10px; margin-top: 10px;" placeholder="Type here...">
+        </div>
+
+        <div id="game-over-modal" class="modal">
+            <h1 style="color:var(--secondary)">CRITICAL FAILURE</h1>
+            <h2>SYSTEM OFFLINE</h2>
+            <p>Language Matrix Overwhelmed.</p>
+            <p>Final Score: <span id="final-score" style="color:white; font-size:24px;">0</span></p>
+            <button class="btn" onclick="Game.restart()">REBOOT</button>
+        </div>
+
+        <div id="victory-modal" class="modal">
+            <h1>SYSTEM SECURE</h1>
+            <h2>OMNIGLOT STATUS: ACHIEVED</h2>
+            <p>You have mastered the European vocabulary sector.</p>
+            <p>Final Score: <span id="vic-score" style="color:white; font-size:24px;">0</span></p>
+            <button class="btn" onclick="Game.restart()">NEW GAME +</button>
+        </div>
+    </div>
+
+<script>
+    /**
+     * MASSIVE WORD DATABASE
+     */
+    const WordDB = {
+        easy: [
+            {w:"Le chat", en:"the cat", l:"French"}, {w:"Le chien", en:"the dog", l:"French"}, 
+            {w:"Rouge", en:"red", l:"French"}, {w:"Bleu", en:"blue", l:"French"}, 
+            {w:"Vert", en:"green", l:"French"}, {w:"Oui", en:"yes", l:"French"},
+            {w:"Non", en:"no", l:"French"}, {w:"Un", en:"one", l:"French"}, 
+            {w:"Mère", en:"mother", l:"French"}, {w:"Père", en:"father", l:"French"},
+            {w:"Pain", en:"bread", l:"French"}, {w:"Eau", en:"water", l:"French"},
+            {w:"Merci", en:"thank you", l:"French"}, {w:"Salut", en:"hi", l:"French"},
+            {w:"El gato", en:"the cat", l:"Spanish"}, {w:"El perro", en:"the dog", l:"Spanish"},
+            {w:"Rojo", en:"red", l:"Spanish"}, {w:"Azul", en:"blue", l:"Spanish"},
+            {w:"Verde", en:"green", l:"Spanish"}, {w:"Si", en:"yes", l:"Spanish"},
+            {w:"Uno", en:"one", l:"Spanish"}, {w:"Dos", en:"two", l:"Spanish"},
+            {w:"Casa", en:"house", l:"Spanish"}, {w:"Agua", en:"water", l:"Spanish"},
+            {w:"Hola", en:"hello", l:"Spanish"}, {w:"Amigo", en:"friend", l:"Spanish"},
+            {w:"Sol", en:"sun", l:"Spanish"}, {w:"Luna", en:"moon", l:"Spanish"},
+            {w:"Der Hund", en:"the dog", l:"German"}, {w:"Die Katze", en:"the cat", l:"German"},
+            {w:"Ja", en:"yes", l:"German"}, {w:"Nein", en:"no", l:"German"},
+            {w:"Rot", en:"red", l:"German"}, {w:"Blau", en:"blue", l:"German"},
+            {w:"Danke", en:"thank you", l:"German"}, {w:"Hallo", en:"hello", l:"German"},
+            {w:"Brot", en:"bread", l:"German"}, {w:"Wasser", en:"water", l:"German"},
+            {w:"Mann", en:"man", l:"German"}, {w:"Frau", en:"woman", l:"German"},
+            {w:"Ciao", en:"hello", l:"Italian"}, {w:"Grazie", en:"thank you", l:"Italian"},
+            {w:"Pizza", en:"pizza", l:"Italian"}, {w:"Pasta", en:"pasta", l:"Italian"},
+            {w:"Uno", en:"one", l:"Italian"}, {w:"Vino", en:"wine", l:"Italian"},
+            {w:"Mare", en:"sea", l:"Italian"}, {w:"Sole", en:"sun", l:"Italian"}
+        ],
+        medium: [
+            {w:"La voiture", en:"the car", l:"French"}, {w:"La maison", en:"the house", l:"French"}, 
+            {w:"L'école", en:"the school", l:"French"}, {w:"Travailler", en:"to work", l:"French"}, 
+            {w:"Manger", en:"to eat", l:"French"}, {w:"L'ordinateur", en:"the computer", l:"French"},
+            {w:"Fenêtre", en:"window", l:"French"}, {w:"Jardin", en:"garden", l:"French"},
+            {w:"Maintenant", en:"now", l:"French"}, {w:"Demain", en:"tomorrow", l:"French"},
+            {w:"Toujours", en:"always", l:"French"}, {w:"Souvent", en:"often", l:"French"},
+            {w:"Fromage", en:"cheese", l:"French"}, {w:"Poulet", en:"chicken", l:"French"},
+            {w:"Coche", en:"car", l:"Spanish"}, {w:"Trabajo", en:"work", l:"Spanish"},
+            {w:"Comer", en:"to eat", l:"Spanish"}, {w:"Dormir", en:"to sleep", l:"Spanish"},
+            {w:"Escuela", en:"school", l:"Spanish"}, {w:"Libro", en:"book", l:"Spanish"},
+            {w:"Ciudad", en:"city", l:"Spanish"}, {w:"Playa", en:"beach", l:"Spanish"},
+            {w:"Tiempo", en:"time", l:"Spanish"}, {w:"Dinero", en:"money", l:"Spanish"},
+            {w:"Hoy", en:"today", l:"Spanish"}, {w:"Mañana", en:"tomorrow", l:"Spanish"},
+            {w:"Das Auto", en:"the car", l:"German"}, {w:"Arbeiten", en:"to work", l:"German"},
+            {w:"Schlafen", en:"to sleep", l:"German"}, {w:"Buch", en:"book", l:"German"},
+            {w:"Schule", en:"school", l:"German"}, {w:"Fenster", en:"window", l:"German"},
+            {w:"Heute", en:"today", l:"German"}, {w:"Morgen", en:"tomorrow", l:"German"},
+            {w:"Geld", en:"money", l:"German"}, {w:"Freund", en:"friend", l:"German"},
+            {w:"Musik", en:"music", l:"German"}, {w:"Garten", en:"garden", l:"German"},
+            {w:"Lavoro", en:"work", l:"Italian"}, {w:"Libro", en:"book", l:"Italian"},
+            {w:"Mangiare", en:"to eat", l:"Italian"}, {w:"Dormire", en:"to sleep", l:"Italian"},
+            {w:"Macchina", en:"car", l:"Italian"}, {w:"Scuola", en:"school", l:"Italian"},
+            {w:"Città", en:"city", l:"Italian"}, {w:"Tempo", en:"time", l:"Italian"},
+            {w:"Uomo", en:"man", l:"Italian"}, {w:"Donna", en:"woman", l:"Italian"}
+        ],
+        hard: [
+            {w:"L'environnement", en:"the environment", l:"French"}, {w:"Heureusement", en:"fortunately", l:"French"},
+            {w:"Malheureusement", en:"unfortunately", l:"French"}, {w:"Développer", en:"to develop", l:"French"},
+            {w:"Connaissance", en:"knowledge", l:"French"}, {w:"Gouvernement", en:"government", l:"French"},
+            {w:"Indépendant", en:"independent", l:"French"}, {w:"Dangereux", en:"dangerous", l:"French"},
+            {w:"Liberté", en:"freedom", l:"French"}, {w:"Égalité", en:"equality", l:"French"},
+            {w:"Immédiatement", en:"immediately", l:"French"}, {w:"Responsabilité", en:"responsibility", l:"French"},
+            {w:"Bibliothèque", en:"library", l:"French"}, {w:"Actuellement", en:"currently", l:"French"},
+            {w:"Desarrollo", en:"development", l:"Spanish"}, {w:"Conocimiento", en:"knowledge", l:"Spanish"},
+            {w:"Gobierno", en:"government", l:"Spanish"}, {w:"Independiente", en:"independent", l:"Spanish"},
+            {w:"Peligroso", en:"dangerous", l:"Spanish"}, {w:"Libertad", en:"freedom", l:"Spanish"},
+            {w:"Igualdad", en:"equality", l:"Spanish"}, {w:"Inmediatamente", en:"immediately", l:"Spanish"},
+            {w:"Responsabilidad", en:"responsibility", l:"Spanish"}, {w:"Estadounidense", en:"american", l:"Spanish"},
+            {w:"Krankenwagen", en:"ambulance", l:"German"}, {w:"Schmetterling", en:"butterfly", l:"German"},
+            {w:"Naturwissenschaft", en:"science", l:"German"}, {w:"Sehenswürdigkeit", en:"sight", l:"German"},
+            {w:"Unabhängigkeit", en:"independence", l:"German"}, {w:"Geschwindigkeit", en:"speed", l:"German"},
+            {w:"Entschuldigung", en:"sorry", l:"German"}, {w:"Kugelschreiber", en:"pen", l:"German"},
+            {w:"Handschuhe", en:"gloves", l:"German"}, {w:"Schildkröte", en:"turtle", l:"German"},
+            {w:"Flugzeug", en:"airplane", l:"German"}, {w:"Kühlschrank", en:"fridge", l:"German"},
+            {w:"Meraviglioso", en:"wonderful", l:"Italian"}, {w:"Pomeriggio", en:"afternoon", l:"Italian"},
+            {w:"Arrivederci", en:"goodbye", l:"Italian"}, {w:"Informazione", en:"information", l:"Italian"},
+            {w:"Dimenticare", en:"to forget", l:"Italian"}, {w:"Sviluppo", en:"development", l:"Italian"}
+        ]
+    };
+
+    /**
+     * AUDIO SYSTEM
+     */
+    const AudioSys = {
+        ctx: null,
+        init: function() {
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            this.ctx = new AudioContext();
+        },
+        play: function(type, freqStart, freqEnd, duration, vol=0.1) {
+            if (!this.ctx) this.init();
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freqStart, this.ctx.currentTime);
+            if(freqEnd) osc.frequency.exponentialRampToValueAtTime(freqEnd, this.ctx.currentTime + duration);
+            
+            gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start();
+            osc.stop(this.ctx.currentTime + duration);
+        },
+        shoot: () => AudioSys.play('square', 600, 200, 0.1, 0.05),
+        hit: () => AudioSys.play('sawtooth', 150, 50, 0.4, 0.1),
+        error: () => AudioSys.play('triangle', 100, 50, 0.3, 0.1),
+        powerup: () => AudioSys.play('sine', 800, 1200, 0.4, 0.1),
+        nuke: () => {
+             AudioSys.play('sawtooth', 100, 10, 1.0, 0.5);
+             AudioSys.play('square', 200, 50, 1.0, 0.3);
+        },
+        levelUp: () => {
+            setTimeout(()=> AudioSys.play('sine', 440, null, 0.1), 0);
+            setTimeout(()=> AudioSys.play('sine', 554, null, 0.1), 100);
+            setTimeout(()=> AudioSys.play('sine', 659, null, 0.4), 200);
+        },
+        win: () => {
+             [440, 554, 659, 880, 659, 554, 440].forEach((f, i) => {
+                 setTimeout(() => AudioSys.play('triangle', f, null, 0.3, 0.1), i * 120);
+             });
+        }
+    };
+
+    /**
+     * VISUALS
+     */
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Star {
+        constructor() { this.reset(); this.y = Math.random() * canvas.height; }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = 0;
+            this.z = Math.random() * 2 + 0.5; 
+            this.size = Math.random() * 2;
+        }
+        update(speed) {
+            this.y += speed * this.z;
+            if(this.y > canvas.height) this.reset();
+        }
+        draw() {
+            ctx.fillStyle = `rgba(255, 255, 255, ${0.3 * this.z})`;
+            ctx.fillRect(this.x, this.y, this.size, this.size);
+        }
+    }
+
+    class Particle {
+        constructor(x, y, color) {
+            this.x = x; this.y = y;
+            this.color = color;
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 4 + 1;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+            this.life = 1.0;
+            this.decay = Math.random() * 0.03 + 0.01;
+            this.size = Math.random() * 3 + 2;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.life -= this.decay;
+            this.size *= 0.95;
+        }
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.globalAlpha = Math.max(0, this.life);
+            ctx.fillRect(this.x, this.y, this.size, this.size);
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    class Enemy {
+        constructor(wordObj, speed) {
+            this.word = wordObj.w;
+            this.en = wordObj.en.toLowerCase();
+            this.lang = wordObj.l;
+            this.baseSpeed = speed;
+            this.speed = speed;
+            this.x = Math.random() * (canvas.width - 250) + 125;
+            this.y = -60;
+            
+            if(this.lang === "French") this.color = "#00f3ff"; // Cyan
+            else if(this.lang === "Spanish") this.color = "#ffaa00"; // Orange
+            else if(this.lang === "German") this.color = "#ff0055"; // Pink/Red
+            else this.color = "#00ff66"; // Green (Italian)
+        }
+        update(timeScale) { this.y += this.speed * timeScale; }
+        draw(isTargeted) {
+            ctx.save();
+            ctx.shadowBlur = isTargeted ? 25 : 5;
+            ctx.shadowColor = this.color;
+            ctx.strokeStyle = isTargeted ? '#fff' : this.color;
+            ctx.fillStyle = this.color;
+            ctx.lineWidth = 2;
+            
+            // Draw Octagon
+            ctx.beginPath();
+            const size = 35;
+            for (let i = 0; i < 8; i++) {
+                ctx.lineTo(this.x + size * Math.cos(i * 2 * Math.PI / 8), this.y + size * Math.sin(i * 2 * Math.PI / 8));
+            }
+            ctx.closePath();
+            ctx.stroke();
+
+            // Text
+            ctx.font = "bold 18px Orbitron";
+            ctx.fillStyle = "white";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(this.word, this.x, this.y - 10);
+            
+            // Language Tag
+            if(isTargeted || this.y > canvas.height / 2) {
+                ctx.font = "10px Roboto Mono";
+                ctx.fillStyle = this.color;
+                ctx.fillText(this.lang.toUpperCase(), this.x, this.y + 20);
+            }
+            ctx.restore();
+        }
+    }
+
+    class PowerUp {
+        constructor(type) {
+            this.type = type; // "NUKE", "FREEZE", "REPAIR"
+            this.x = Math.random() * (canvas.width - 200) + 100;
+            this.y = -50;
+            this.speed = 1.0;
+            this.color = "#bf00ff"; // Purple
+            this.en = type.toLowerCase();
+        }
+        update(timeScale) { this.y += this.speed * timeScale; }
+        draw(isTargeted) {
+            ctx.save();
+            ctx.shadowBlur = 20;
+            ctx.shadowColor = this.color;
+            ctx.strokeStyle = isTargeted ? '#fff' : this.color;
+            ctx.fillStyle = isTargeted ? '#fff' : this.color;
+            ctx.lineWidth = 3;
+            
+            // Draw Diamond
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y - 25);
+            ctx.lineTo(this.x + 25, this.y);
+            ctx.lineTo(this.x, this.y + 25);
+            ctx.lineTo(this.x - 25, this.y);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.font = "bold 14px Orbitron";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("SUPPLY", this.x, this.y - 10);
+            ctx.fillText("[" + this.type + "]", this.x, this.y + 10);
+            ctx.restore();
+        }
+    }
+
+    /**
+     * GAME LOGIC
+     */
+    const Game = {
+        state: 'menu',
+        level: 1,
+        score: 0,
+        lives: 100,
+        combo: 0,
+        timeScale: 1.0,
+        freezeTimer: 0,
+        
+        enemies: [],
+        particles: [],
+        powerups: [],
+        stars: [],
+        
+        wordsClearedInLevel: 0,
+        wordsPerLevel: 10,
+        spawnTimer: 0,
+        powerupTimer: 0,
+        
+        levelConfig: [
+            { speed: 0.3, rate: 3000, pool: 'easy', name: "Initiation" }, 
+            { speed: 0.4, rate: 2800, pool: 'easy', name: "Basic Vocab" }, 
+            { speed: 0.6, rate: 2600, pool: 'easy', name: "Acceleration" }, 
+            { speed: 0.7, rate: 2500, pool: 'medium', name: "Intermediate" }, 
+            { speed: 0.9, rate: 2300, pool: 'medium', name: "Conjugation" }, 
+            { speed: 1.1, rate: 2100, pool: 'medium', name: "Hyper Drive" }, 
+            { speed: 1.3, rate: 2000, pool: 'hard', name: "Advanced" }, 
+            { speed: 1.6, rate: 1800, pool: 'hard', name: "Expert" }, 
+            { speed: 2.0, rate: 1500, pool: 'hard', name: "Polyglot" }, 
+            { speed: 2.5, rate: 1200, pool: 'hard', name: "LINGUA GOD" } 
+        ],
+
+        init: function() {
+            for(let i=0; i<150; i++) this.stars.push(new Star());
+            
+            const input = document.getElementById('playerInput');
+            input.addEventListener('input', (e) => {
+                this.inputBuffer = e.target.value.toLowerCase().trim();
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    this.checkWord(input.value.toLowerCase().trim());
+                    input.value = "";
+                    this.inputBuffer = "";
+                }
+            });
+
+            const repair = document.getElementById('repair-input');
+            repair.addEventListener('input', (e) => {
+                const val = e.target.value.toLowerCase().trim();
+                const target = document.getElementById('missed-en').innerText.toLowerCase();
+                if(val === target) {
+                    this.resumeFromLearning();
+                    repair.value = "";
+                }
+            });
+
+            this.loop();
+        },
+
+        start: function() {
+            document.getElementById('start-modal').style.display = 'none';
+            document.getElementById('game-over-modal').style.display = 'none';
+            document.getElementById('victory-modal').style.display = 'none';
+            AudioSys.init();
+            
+            this.level = 1;
+            this.score = 0;
+            this.lives = 100;
+            this.combo = 0;
+            this.wordsClearedInLevel = 0;
+            this.enemies = [];
+            this.powerups = [];
+            this.particles = [];
+            this.state = 'playing';
+            this.updateUI();
+            document.getElementById('playerInput').focus();
+        },
+
+        restart: function() { this.start(); },
+
+        spawnEnemy: function() {
+            const config = this.levelConfig[this.level - 1];
+            let pool = [];
+            
+            if(config.pool === 'easy') pool = WordDB.easy;
+            if(config.pool === 'medium') pool = [...WordDB.medium, ...WordDB.easy];
+            if(config.pool === 'hard') pool = [...WordDB.hard, ...WordDB.medium];
+
+            const word = pool[Math.floor(Math.random() * pool.length)];
+            if(!this.enemies.find(e => e.en === word.en)) {
+                this.enemies.push(new Enemy(word, config.speed));
+            }
+        },
+
+        spawnPowerUp: function() {
+            const types = ["NUKE", "FREEZE", "REPAIR"];
+            const type = types[Math.floor(Math.random() * types.length)];
+            this.powerups.push(new PowerUp(type));
+        },
+
+        createExplosion: function(x, y, color) {
+            for(let i=0; i<20; i++) {
+                this.particles.push(new Particle(x, y, color));
+            }
+        },
+
+        shakeScreen: function() {
+            const container = document.getElementById('game-container');
+            container.classList.remove('shake-screen');
+            void container.offsetWidth; // trigger reflow
+            container.classList.add('shake-screen');
+        },
+
+        checkWord: function(typed) {
+            if(this.state !== 'playing') return;
+
+            // 1. Check Enemies
+            const idx = this.enemies.findIndex(e => e.en === typed);
+            if(idx !== -1) {
+                const e = this.enemies[idx];
+                this.createExplosion(e.x, e.y, e.color);
+                this.enemies.splice(idx, 1);
+                
+                // Score Calculation with Combo
+                this.combo++;
+                const multiplier = 1 + (this.combo * 0.1);
+                this.score += Math.floor(100 * this.level * multiplier);
+                
+                this.wordsClearedInLevel++;
+                AudioSys.shoot();
+                this.checkLevelProgression();
+                this.updateUI();
+                return;
+            } 
+            
+            // 2. Check Powerups
+            const pIdx = this.powerups.findIndex(p => p.en === typed);
+            if(pIdx !== -1) {
+                const p = this.powerups[pIdx];
+                this.activatePowerUp(p.type);
+                this.createExplosion(p.x, p.y, p.color);
+                this.powerups.splice(pIdx, 1);
+                this.combo++;
+                this.updateUI();
+                return;
+            }
+
+            // 3. Miss
+            AudioSys.error();
+            this.combo = 0;
+            const inp = document.getElementById('playerInput');
+            inp.classList.add('error');
+            setTimeout(() => inp.classList.remove('error'), 300);
+            this.updateUI();
+        },
+
+        activatePowerUp: function(type) {
+            AudioSys.powerup();
+            if(type === "REPAIR") {
+                this.lives = Math.min(100, this.lives + 25);
+            } else if(type === "FREEZE") {
+                this.timeScale = 0.2;
+                this.freezeTimer = 300; // Frames (approx 5 sec)
+                document.getElementById('freeze-overlay').style.display = 'block';
+            } else if(type === "NUKE") {
+                AudioSys.nuke();
+                this.shakeScreen();
+                this.enemies.forEach(e => this.createExplosion(e.x, e.y, e.color));
+                this.score += this.enemies.length * 100;
+                this.enemies = [];
+            }
+        },
+
+        checkLevelProgression: function() {
+            if(this.wordsClearedInLevel >= this.wordsPerLevel) {
+                if(this.level < 10) {
+                    this.level++;
+                    this.wordsClearedInLevel = 0;
+                    this.lives = Math.min(100, this.lives + 20);
+                    AudioSys.levelUp();
+                } else {
+                    this.triggerVictory();
+                }
+            }
+        },
+
+        triggerMissedWord: function(enemy) {
+            this.state = 'learning';
+            this.combo = 0;
+            AudioSys.hit();
+            this.shakeScreen();
+            
+            // Populate Modal
+            const modal = document.getElementById('missed-modal');
+            document.getElementById('missed-fr').innerText = enemy.word;
+            document.getElementById('missed-en').innerText = enemy.en.toUpperCase();
+            
+            const langBadge = document.getElementById('missed-lang');
+            langBadge.innerText = "SIGNAL ORIGIN: " + enemy.lang.toUpperCase();
+            
+            if(enemy.lang === "French") langBadge.style.backgroundColor = "#00f3ff";
+            else if(enemy.lang === "Spanish") langBadge.style.backgroundColor = "#ffaa00";
+            else if(enemy.lang === "German") langBadge.style.backgroundColor = "#ff0055";
+            else langBadge.style.backgroundColor = "#00ff66";
+
+            modal.style.display = 'block';
+            setTimeout(() => document.getElementById('repair-input').focus(), 100);
+
+            this.lives -= 20;
+            if(this.lives <= 0) {
+                modal.style.display = 'none';
+                this.triggerGameOver();
+            }
+            this.updateUI();
+        },
+
+        resumeFromLearning: function() {
+            document.getElementById('missed-modal').style.display = 'none';
+            this.state = 'playing';
+            document.getElementById('playerInput').focus();
+            this.enemies = this.enemies.filter(e => e.y < canvas.height); 
+        },
+
+        triggerGameOver: function() {
+            this.state = 'gameover';
+            document.getElementById('final-score').innerText = this.score;
+            document.getElementById('game-over-modal').style.display = 'block';
+        },
+
+        triggerVictory: function() {
+            this.state = 'victory';
+            document.getElementById('vic-score').innerText = this.score;
+            document.getElementById('victory-modal').style.display = 'block';
+            AudioSys.win();
+        },
+
+        updateUI: function() {
+            document.getElementById('score').innerText = this.score;
+            document.getElementById('lives').innerText = this.lives + "%";
+            document.getElementById('level-num').innerText = this.level;
+            
+            // Combo UI
+            const comboEl = document.getElementById('combo-box');
+            if(this.combo > 1) {
+                comboEl.classList.add('combo-active');
+                document.getElementById('combo-val').innerText = (1 + (this.combo * 0.1)).toFixed(1) + "x";
+            } else {
+                comboEl.classList.remove('combo-active');
+            }
+
+            const config = this.levelConfig[this.level - 1];
+            if(config) document.getElementById('level-name').innerText = config.name;
+
+            const pct = (this.wordsClearedInLevel / this.wordsPerLevel) * 100;
+            document.getElementById('level-bar').style.width = pct + "%";
+            
+            const livesEl = document.getElementById('lives').parentElement;
+            livesEl.style.borderColor = this.lives <= 30 ? "red" : "#ff0055";
+        },
+
+        loop: function() {
+            requestAnimationFrame(() => Game.loop());
+            
+            // Clear
+            ctx.fillStyle = "rgba(5, 7, 10, 0.4)"; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Stars
+            const starSpeed = this.state === 'playing' ? (this.level * 0.5 * this.timeScale) : 0.2;
+            this.stars.forEach(s => { s.update(starSpeed); s.draw(); });
+
+            // Particles (Always update)
+            for(let i=this.particles.length-1; i>=0; i--) {
+                this.particles[i].update();
+                this.particles[i].draw();
+                if(this.particles[i].life <= 0) this.particles.splice(i, 1);
+            }
+
+            if(this.state !== 'playing') return;
+
+            // Handle Freeze Timer
+            if(this.freezeTimer > 0) {
+                this.freezeTimer--;
+                if(this.freezeTimer <= 0) {
+                    this.timeScale = 1.0;
+                    document.getElementById('freeze-overlay').style.display = 'none';
+                }
+            }
+
+            // Spawning
+            this.spawnTimer += 16;
+            const config = this.levelConfig[this.level - 1];
+            if(this.spawnTimer > config.rate / this.timeScale) { // Adjust spawn rate by freeze
+                this.spawnEnemy();
+                this.spawnTimer = 0;
+            }
+
+            // Powerup Spawning (Rare)
+            this.powerupTimer += 16;
+            if(this.powerupTimer > 15000) { // Every 15s approx
+                if(Math.random() > 0.5) this.spawnPowerUp();
+                this.powerupTimer = 0;
+            }
+
+            // Updates
+            const inp = document.getElementById('playerInput').value.toLowerCase().trim();
+
+            // Enemies
+            for (let i = this.enemies.length - 1; i >= 0; i--) {
+                let e = this.enemies[i];
+                e.update(this.timeScale);
+                let targeted = inp.length > 0 && e.en.startsWith(inp);
+                e.draw(targeted);
+
+                if (e.y > canvas.height) {
+                    this.triggerMissedWord(e);
+                    this.enemies.splice(i, 1);
+                }
+            }
+
+            // Powerups
+            for (let i = this.powerups.length - 1; i >= 0; i--) {
+                let p = this.powerups[i];
+                p.update(this.timeScale);
+                let targeted = inp.length > 0 && p.en.startsWith(inp);
+                p.draw(targeted);
+                if (p.y > canvas.height) this.powerups.splice(i, 1);
+            }
+
+            // Player Turret
+            ctx.save();
+            ctx.translate(canvas.width/2, canvas.height - 40);
+            ctx.fillStyle = "#333";
+            ctx.beginPath(); ctx.arc(0,0, 30, 0, Math.PI, true); ctx.fill();
+            
+            let targetAngle = -Math.PI / 2;
+            // Aim at matching Enemy OR Powerup
+            const targetE = this.enemies.find(e => inp.length > 0 && e.en.startsWith(inp));
+            const targetP = this.powerups.find(p => inp.length > 0 && p.en.startsWith(inp));
+            const target = targetE || targetP;
+
+            if(target) {
+                const dx = target.x - (canvas.width/2);
+                const dy = target.y - (canvas.height - 40);
+                targetAngle = Math.atan2(dy, dx);
+            }
+
+            ctx.rotate(targetAngle);
+            ctx.fillStyle = target ? (target.color || "#bf00ff") : "#00f3ff";
+            ctx.shadowBlur = 15; ctx.shadowColor = ctx.fillStyle;
+            ctx.fillRect(0, -5, 40, 10);
+            ctx.restore();
+        }
+    };
+
+    Game.init();
+
+</script>
 </body>
 </html>

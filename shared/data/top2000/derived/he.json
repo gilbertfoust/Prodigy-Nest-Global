@@ -1,0 +1,1527 @@
+[
+  {
+    "rank": 1,
+    "token": "ö",
+    "count": 320
+  },
+  {
+    "rank": 2,
+    "token": "ò",
+    "count": 129
+  },
+  {
+    "rank": 3,
+    "token": "é",
+    "count": 110
+  },
+  {
+    "rank": 4,
+    "token": "æ",
+    "count": 99
+  },
+  {
+    "rank": 5,
+    "token": "á",
+    "count": 47
+  },
+  {
+    "rank": 6,
+    "token": "ñ",
+    "count": 42
+  },
+  {
+    "rank": 7,
+    "token": "ù",
+    "count": 41
+  },
+  {
+    "rank": 8,
+    "token": "ó",
+    "count": 41
+  },
+  {
+    "rank": 9,
+    "token": "ô",
+    "count": 36
+  },
+  {
+    "rank": 10,
+    "token": "û",
+    "count": 28
+  },
+  {
+    "rank": 11,
+    "token": "í",
+    "count": 25
+  },
+  {
+    "rank": 12,
+    "token": "ÿ",
+    "count": 24
+  },
+  {
+    "rank": 13,
+    "token": "ani",
+    "count": 18
+  },
+  {
+    "rank": 14,
+    "token": "bevakasha",
+    "count": 13
+  },
+  {
+    "rank": 15,
+    "token": "ü",
+    "count": 12
+  },
+  {
+    "rank": 16,
+    "token": "efshar",
+    "count": 12
+  },
+  {
+    "rank": 17,
+    "token": "ze",
+    "count": 11
+  },
+  {
+    "rank": 18,
+    "token": "eifo",
+    "count": 11
+  },
+  {
+    "rank": 19,
+    "token": "yesh",
+    "count": 8
+  },
+  {
+    "rank": 20,
+    "token": "et",
+    "count": 6
+  },
+  {
+    "rank": 21,
+    "token": "ma",
+    "count": 5
+  },
+  {
+    "rank": 22,
+    "token": "ata",
+    "count": 5
+  },
+  {
+    "rank": 23,
+    "token": "yakhol",
+    "count": 5
+  },
+  {
+    "rank": 24,
+    "token": "yakar",
+    "count": 5
+  },
+  {
+    "rank": 25,
+    "token": "lo",
+    "count": 4
+  },
+  {
+    "rank": 26,
+    "token": "tov",
+    "count": 4
+  },
+  {
+    "rank": 27,
+    "token": "γç",
+    "count": 4
+  },
+  {
+    "rank": 28,
+    "token": "kama",
+    "count": 4
+  },
+  {
+    "rank": 29,
+    "token": "liknot",
+    "count": 4
+  },
+  {
+    "rank": 30,
+    "token": "mata",
+    "count": 4
+  },
+  {
+    "rank": 31,
+    "token": "lekabel",
+    "count": 4
+  },
+  {
+    "rank": 32,
+    "token": "wi",
+    "count": 4
+  },
+  {
+    "rank": 33,
+    "token": "fi",
+    "count": 4
+  },
+  {
+    "rank": 34,
+    "token": "li",
+    "count": 3
+  },
+  {
+    "rank": 35,
+    "token": "tzarikh",
+    "count": 3
+  },
+  {
+    "rank": 36,
+    "token": "tachanat",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "ú",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "lehazmin",
+    "count": 3
+  },
+  {
+    "rank": 39,
+    "token": "la",
+    "count": 3
+  },
+  {
+    "rank": 40,
+    "token": "lalechet",
+    "count": 3
+  },
+  {
+    "rank": 41,
+    "token": "toda",
+    "count": 2
+  },
+  {
+    "rank": 42,
+    "token": "achar",
+    "count": 2
+  },
+  {
+    "rank": 43,
+    "token": "kach",
+    "count": 2
+  },
+  {
+    "rank": 44,
+    "token": "eikh",
+    "count": 2
+  },
+  {
+    "rank": 45,
+    "token": "lecha",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "medaber",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "ledaber",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "la'azor",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "lehar'ot",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "echad",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "le",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "kan",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "rotze",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "ha",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "check",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "leshalem",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "tzricha",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "beit",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "mapa",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "limtso",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "letzalem",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "lihyot",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "l",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "la'asot",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "lirtzot",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "lilmod",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "le'ehov",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "γçö",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "shalom",
+    "count": 1
+  },
+  {
+    "rank": 70,
+    "token": "hai",
+    "count": 1
+  },
+  {
+    "rank": 71,
+    "token": "ken",
+    "count": 1
+  },
+  {
+    "rank": 72,
+    "token": "slicha",
+    "count": 1
+  },
+  {
+    "rank": 73,
+    "token": "mitztaγçöer",
+    "count": 1
+  },
+  {
+    "rank": 74,
+    "token": "mitztaγçöeret",
+    "count": 1
+  },
+  {
+    "rank": 75,
+    "token": "boker",
+    "count": 1
+  },
+  {
+    "rank": 76,
+    "token": "tzohorayim",
+    "count": 1
+  },
+  {
+    "rank": 77,
+    "token": "tovim",
+    "count": 1
+  },
+  {
+    "rank": 78,
+    "token": "erev",
+    "count": 1
+  },
+  {
+    "rank": 79,
+    "token": "laila",
+    "count": 1
+  },
+  {
+    "rank": 80,
+    "token": "lehitraot",
+    "count": 1
+  },
+  {
+    "rank": 81,
+    "token": "nitra'e",
+    "count": 1
+  },
+  {
+    "rank": 82,
+    "token": "shlomkha",
+    "count": 1
+  },
+  {
+    "rank": 83,
+    "token": "beseder",
+    "count": 1
+  },
+  {
+    "rank": 84,
+    "token": "korim",
+    "count": 1
+  },
+  {
+    "rank": 85,
+    "token": "lach",
+    "count": 1
+  },
+  {
+    "rank": 86,
+    "token": "shmi",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "anglit",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "sfaradit",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "mevin",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "mevina",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "lachzor",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "al",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "yoter",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "leat",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "tikhtov",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "tikhtvi",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "omrim",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "mila",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "be",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "safa",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "omer",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "meturgeman",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "hasha'a",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "hayom",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "machar",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "achshav",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "yode'a",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "yoda'at",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "chake",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "chaki",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "ra'ev",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "ra'eva",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "tzame",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "tzme'a",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "avud",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "avuda",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "smol",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "yamin",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "yashar",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "rachok",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "zman",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "yikach",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "ha'otobus",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "harakevet",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "hametro",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "hakrova",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "sde",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "hate'ufa",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "kartisim",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "kartis",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "makom",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "yotze",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "magia",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "eize",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "ratsif",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "monit",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "bishvili",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "ta'atzor",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "hamalon",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "hazmana",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "cheder",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "lalayla",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "in",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "out",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "hama'alit",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "hamafteach",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "hakartis",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "hataprit",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "mayim",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "kafe",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "teh",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "tzimhoni",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "tzimhoni't",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "tiv'oni",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "tiv'onit",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "alergi",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "t",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "alergen",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "ta'im",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "hacheshbon",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "bekartis",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "kabala",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "oleh",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "hanacha",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "rak",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "mistakel",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "mistakelet",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "bemida",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "acheret",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "limdod",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "hasisma",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "leha'tin",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "hatelefon",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "sheli",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "sim",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "margish",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "margisha",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "trufa",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "merkachat",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "karov",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "hacholim",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "ezra",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "titkasher",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "titkashri",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "lamishtara",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "tikra",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "tikri",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "l'rofe",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "ibadti",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "hadarkon",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "atzor",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "esh",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "cheirum",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "dmei",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "haknisa",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "be'eizo",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "sha'a",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "matchil",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "yekhola",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "mada",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "otanu",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "efes",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "shnayim",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "shlosha",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "arbaγçÿa",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "chamisha",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "shisha",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "shivγçÿa",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "shmone",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "tishγçÿa",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "eser",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "esrim",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "shloshim",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "arbaγçÿim",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "chamishim",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "shishim",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "shivγçÿim",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "shmonim",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "tishγçÿim",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "meγçöa",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "lavo",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "lomar",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "lesaper",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "lir'ot",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "lehistakel",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "lishmoa",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "lehakshiv",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "lada",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "at",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "lachshov",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "le'hizdakek",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "tsarikh",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "avod",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "lichyot",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "le'echol",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "lishtot",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "lishon",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "likro",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "lichtov",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "lelamed",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "lehavin",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "lizkor",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "lishkoach",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "lish'ol",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "anot",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "latet",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "lakachat",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "lasim",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "lehavi",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "lishloach",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "limkor",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "liftoach",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "lisgor",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "lehat'chil",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "lesayem",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "la'atzor",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "lekhakot",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "lehishtamesh",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "lifgosh",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "lehitkasher",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "lenasot",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "la'azov",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "lehagia",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "letayel",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "linso'a",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "lazuz",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "lehisha'er",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "larutz",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "linhog",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "lirkov",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "latus",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "lishchot",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "levashel",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "lenakot",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "lishtof",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "livnot",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "lishbor",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "letaken",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "livchor",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "leshanot",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "litzpot",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "lesachek",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "lehit'amen",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "lechabev",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "lisno",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "lehargish",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "lekavot",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "letakhnen",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "lehaskim",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "lehachlit",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "leha'amin",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "lehasbir",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "livdok",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "leshatef",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "laset",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "lehachzik",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "lachtokh",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "lesovev",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "lashevet",
+    "count": 1
+  },
+  {
+    "rank": 300,
+    "token": "la'amod",
+    "count": 1
+  },
+  {
+    "rank": 301,
+    "token": "lehit'orer",
+    "count": 1
+  },
+  {
+    "rank": 302,
+    "token": "lipol",
+    "count": 1
+  },
+  {
+    "rank": 303,
+    "token": "lenatzeach",
+    "count": 1
+  },
+  {
+    "rank": 304,
+    "token": "lehafsid",
+    "count": 1
+  },
+  {
+    "rank": 305,
+    "token": "leshayen",
+    "count": 1
+  }
+]

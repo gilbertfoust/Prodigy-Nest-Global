@@ -1,0 +1,1502 @@
+[
+  {
+    "rank": 1,
+    "token": "ich",
+    "count": 28
+  },
+  {
+    "rank": 2,
+    "token": "sie",
+    "count": 15
+  },
+  {
+    "rank": 3,
+    "token": "bitte",
+    "count": 13
+  },
+  {
+    "rank": 4,
+    "token": "ist",
+    "count": 13
+  },
+  {
+    "rank": 5,
+    "token": "es",
+    "count": 11
+  },
+  {
+    "rank": 6,
+    "token": "das",
+    "count": 11
+  },
+  {
+    "rank": 7,
+    "token": "wo",
+    "count": 11
+  },
+  {
+    "rank": 8,
+    "token": "wie",
+    "count": 10
+  },
+  {
+    "rank": 9,
+    "token": "kann",
+    "count": 8
+  },
+  {
+    "rank": 10,
+    "token": "k",
+    "count": 7
+  },
+  {
+    "rank": 11,
+    "token": "die",
+    "count": 7
+  },
+  {
+    "rank": 12,
+    "token": "eine",
+    "count": 7
+  },
+  {
+    "rank": 13,
+    "token": "mir",
+    "count": 5
+  },
+  {
+    "rank": 14,
+    "token": "nnen",
+    "count": 5
+  },
+  {
+    "rank": 15,
+    "token": "einen",
+    "count": 5
+  },
+  {
+    "rank": 16,
+    "token": "habe",
+    "count": 5
+  },
+  {
+    "rank": 17,
+    "token": "wann",
+    "count": 5
+  },
+  {
+    "rank": 18,
+    "token": "f",
+    "count": 5
+  },
+  {
+    "rank": 19,
+    "token": "karte",
+    "count": 5
+  },
+  {
+    "rank": 20,
+    "token": "haben",
+    "count": 5
+  },
+  {
+    "rank": 21,
+    "token": "sprechen",
+    "count": 4
+  },
+  {
+    "rank": 22,
+    "token": "der",
+    "count": 4
+  },
+  {
+    "rank": 23,
+    "token": "kaufen",
+    "count": 4
+  },
+  {
+    "rank": 24,
+    "token": "ein",
+    "count": 4
+  },
+  {
+    "rank": 25,
+    "token": "in",
+    "count": 4
+  },
+  {
+    "rank": 26,
+    "token": "machen",
+    "count": 4
+  },
+  {
+    "rank": 27,
+    "token": "guten",
+    "count": 3
+  },
+  {
+    "rank": 28,
+    "token": "auf",
+    "count": 3
+  },
+  {
+    "rank": 29,
+    "token": "sp",
+    "count": 3
+  },
+  {
+    "rank": 30,
+    "token": "nicht",
+    "count": 3
+  },
+  {
+    "rank": 31,
+    "token": "brauche",
+    "count": 3
+  },
+  {
+    "rank": 32,
+    "token": "mich",
+    "count": 3
+  },
+  {
+    "rank": 33,
+    "token": "rufen",
+    "count": 3
+  },
+  {
+    "rank": 34,
+    "token": "bin",
+    "count": 3
+  },
+  {
+    "rank": 35,
+    "token": "bekommen",
+    "count": 3
+  },
+  {
+    "rank": 36,
+    "token": "gibt",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "m",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "ren",
+    "count": 3
+  },
+  {
+    "rank": 39,
+    "token": "danke",
+    "count": 2
+  },
+  {
+    "rank": 40,
+    "token": "gern",
+    "count": 2
+  },
+  {
+    "rank": 41,
+    "token": "morgen",
+    "count": 2
+  },
+  {
+    "rank": 42,
+    "token": "nacht",
+    "count": 2
+  },
+  {
+    "rank": 43,
+    "token": "ñter",
+    "count": 2
+  },
+  {
+    "rank": 44,
+    "token": "gehtγçös",
+    "count": 2
+  },
+  {
+    "rank": 45,
+    "token": "gut",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "hei",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "en",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "nnten",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "schreiben",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "helfen",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "zeigen",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "warten",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "n",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "hier",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "h",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "viel",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "check",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "bezahlen",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "wlan",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "foto",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "drei",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "sein",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "gehen",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "ñhlen",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "wollen",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "hallo",
+    "count": 1
+  },
+  {
+    "rank": 67,
+    "token": "hi",
+    "count": 1
+  },
+  {
+    "rank": 68,
+    "token": "geschehen",
+    "count": 1
+  },
+  {
+    "rank": 69,
+    "token": "ja",
+    "count": 1
+  },
+  {
+    "rank": 70,
+    "token": "nein",
+    "count": 1
+  },
+  {
+    "rank": 71,
+    "token": "entschuldigen",
+    "count": 1
+  },
+  {
+    "rank": 72,
+    "token": "tut",
+    "count": 1
+  },
+  {
+    "rank": 73,
+    "token": "leid",
+    "count": 1
+  },
+  {
+    "rank": 74,
+    "token": "tag",
+    "count": 1
+  },
+  {
+    "rank": 75,
+    "token": "abend",
+    "count": 1
+  },
+  {
+    "rank": 76,
+    "token": "gute",
+    "count": 1
+  },
+  {
+    "rank": 77,
+    "token": "wiedersehen",
+    "count": 1
+  },
+  {
+    "rank": 78,
+    "token": "bis",
+    "count": 1
+  },
+  {
+    "rank": 79,
+    "token": "eγç",
+    "count": 1
+  },
+  {
+    "rank": 80,
+    "token": "englisch",
+    "count": 1
+  },
+  {
+    "rank": 81,
+    "token": "spanisch",
+    "count": 1
+  },
+  {
+    "rank": 82,
+    "token": "verstehe",
+    "count": 1
+  },
+  {
+    "rank": 83,
+    "token": "wiederholen",
+    "count": 1
+  },
+  {
+    "rank": 84,
+    "token": "langsamer",
+    "count": 1
+  },
+  {
+    "rank": 85,
+    "token": "sagt",
+    "count": 1
+  },
+  {
+    "rank": 86,
+    "token": "man",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "wort",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "sprache",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "was",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "bedeutet",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "dolmetscher",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "ñt",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "heute",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "jetzt",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "wei",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "hunger",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "durst",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "istγç",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "verirrt",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "links",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "rechts",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "geradeaus",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "weit",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "lange",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "dauert",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "bushaltestelle",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "bahnhof",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "ñchste",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "u",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "bahn",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "station",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "flughafen",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "tickets",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "fahrkarte",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "nach",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "ort",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "ñhrt",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "ab",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "kommt",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "an",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "welches",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "gleis",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "taxi",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "anhalten",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "hotel",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "reservierung",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "ñtte",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "zimmer",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "pro",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "out",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "aufzug",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "den",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "schl",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "ssel",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "speisekarte",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "wasser",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "kaffee",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "tee",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "vegetarier",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "vegan",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "allergisch",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "gegen",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "allergen",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "lecker",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "rechnung",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "mit",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "quittung",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "kostet",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "zu",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "teuer",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "rabatt",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "chte",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "sehe",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "nur",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "um",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "einer",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "anderen",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "gr",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "e",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "anprobieren",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "lautet",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "passwort",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "mein",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "handy",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "aufladen",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "sim",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "hle",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "medizin",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "apotheke",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "ñhe",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "krankenhaus",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "hilfe",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "polizei",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "arzt",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "meinen",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "pass",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "verloren",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "stopp",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "feuer",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "notfall",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "hoch",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "eintrittsgeb",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "hr",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "beginnt",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "finde",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "informationen",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "darf",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "von",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "uns",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "null",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "eins",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "zwei",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "vier",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "nf",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "sechs",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "sieben",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "acht",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "neun",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "zehn",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "zwanzig",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "ig",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "vierzig",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "nfzig",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "sechzig",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "siebzig",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "achtzig",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "neunzig",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "hundert",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "kommen",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "sagen",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "erz",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "sehen",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "schauen",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "zuh",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "wissen",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "denken",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "brauchen",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "ssen",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "arbeiten",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "leben",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "essen",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "trinken",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "schlafen",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "lesen",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "lernen",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "lehren",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "studieren",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "verstehen",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "sich",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "erinnern",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "vergessen",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "fragen",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "antworten",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "geben",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "nehmen",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "legen",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "stellen",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "bringen",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "senden",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "verkaufen",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "ffnen",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "schlie",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "anfangen",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "beenden",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "aufh",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "benutzen",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "finden",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "treffen",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "anrufen",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "versuchen",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "verlassen",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "ankommen",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "reisen",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "bewegen",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "bleiben",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "laufen",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "rennen",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "fahren",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "reiten",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "fliegen",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "schwimmen",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "kochen",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "reinigen",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "waschen",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "bauen",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "brechen",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "reparieren",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "w",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "ñndern",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "anschauen",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "spielen",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "trainieren",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "lieben",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "gen",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "hassen",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "hlen",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "hoffen",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "planen",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "zustimmen",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "entscheiden",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "glauben",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "erkl",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "ñren",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "pr",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "fen",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "teilen",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "tragen",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "halten",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "schneiden",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "drehen",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "sitzen",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "stehen",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "aufwachen",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "fallen",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "gewinnen",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "verlieren",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "bestellen",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "reservieren",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "γçö",
+    "count": 1
+  },
+  {
+    "rank": 300,
+    "token": "table",
+    "count": 1
+  }
+]

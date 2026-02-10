@@ -1,0 +1,1512 @@
+[
+  {
+    "rank": 1,
+    "token": "vous",
+    "count": 24
+  },
+  {
+    "rank": 2,
+    "token": "je",
+    "count": 23
+  },
+  {
+    "rank": 3,
+    "token": "t",
+    "count": 16
+  },
+  {
+    "rank": 4,
+    "token": "est",
+    "count": 12
+  },
+  {
+    "rank": 5,
+    "token": "sγçöil",
+    "count": 11
+  },
+  {
+    "rank": 6,
+    "token": "pla",
+    "count": 11
+  },
+  {
+    "rank": 7,
+    "token": "o",
+    "count": 11
+  },
+  {
+    "rank": 8,
+    "token": "a",
+    "count": 10
+  },
+  {
+    "rank": 9,
+    "token": "une",
+    "count": 10
+  },
+  {
+    "rank": 10,
+    "token": "de",
+    "count": 8
+  },
+  {
+    "rank": 11,
+    "token": "ç",
+    "count": 8
+  },
+  {
+    "rank": 12,
+    "token": "puis",
+    "count": 8
+  },
+  {
+    "rank": 13,
+    "token": "r",
+    "count": 7
+  },
+  {
+    "rank": 14,
+    "token": "jγçöai",
+    "count": 7
+  },
+  {
+    "rank": 15,
+    "token": "un",
+    "count": 7
+  },
+  {
+    "rank": 16,
+    "token": "quelle",
+    "count": 6
+  },
+  {
+    "rank": 17,
+    "token": "heure",
+    "count": 6
+  },
+  {
+    "rank": 18,
+    "token": "la",
+    "count": 6
+  },
+  {
+    "rank": 19,
+    "token": "suis",
+    "count": 5
+  },
+  {
+    "rank": 20,
+    "token": "d",
+    "count": 5
+  },
+  {
+    "rank": 21,
+    "token": "ne",
+    "count": 5
+  },
+  {
+    "rank": 22,
+    "token": "pouvez",
+    "count": 5
+  },
+  {
+    "rank": 23,
+    "token": "carte",
+    "count": 5
+  },
+  {
+    "rank": 24,
+    "token": "avoir",
+    "count": 5
+  },
+  {
+    "rank": 25,
+    "token": "e",
+    "count": 4
+  },
+  {
+    "rank": 26,
+    "token": "plus",
+    "count": 4
+  },
+  {
+    "rank": 27,
+    "token": "besoin",
+    "count": 4
+  },
+  {
+    "rank": 28,
+    "token": "il",
+    "count": 4
+  },
+  {
+    "rank": 29,
+    "token": "acheter",
+    "count": 4
+  },
+  {
+    "rank": 30,
+    "token": "le",
+    "count": 4
+  },
+  {
+    "rank": 31,
+    "token": "comment",
+    "count": 3
+  },
+  {
+    "rank": 32,
+    "token": "appelez",
+    "count": 3
+  },
+  {
+    "rank": 33,
+    "token": "pas",
+    "count": 3
+  },
+  {
+    "rank": 34,
+    "token": "combien",
+    "count": 3
+  },
+  {
+    "rank": 35,
+    "token": "m",
+    "count": 3
+  },
+  {
+    "rank": 36,
+    "token": "quel",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "arr",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "v",
+    "count": 3
+  },
+  {
+    "rank": 39,
+    "token": "y",
+    "count": 3
+  },
+  {
+    "rank": 40,
+    "token": "prendre",
+    "count": 3
+  },
+  {
+    "rank": 41,
+    "token": "quatre",
+    "count": 3
+  },
+  {
+    "rank": 42,
+    "token": "dix",
+    "count": 3
+  },
+  {
+    "rank": 43,
+    "token": "tre",
+    "count": 3
+  },
+  {
+    "rank": 44,
+    "token": "se",
+    "count": 3
+  },
+  {
+    "rank": 45,
+    "token": "bonjour",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "merci",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "moi",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "s",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "nuit",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "au",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "tard",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "bien",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "parlez",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "ter",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "parler",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "veuillez",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "crire",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "mot",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "dire",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "te",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "me",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "montrer",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "perdu",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "cγçöest",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "des",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "pour",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "part",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "appeler",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "tez",
+    "count": 2
+  },
+  {
+    "rank": 70,
+    "token": "ici",
+    "count": 2
+  },
+  {
+    "rank": 71,
+    "token": "lγçöh",
+    "count": 2
+  },
+  {
+    "rank": 72,
+    "token": "voudrais",
+    "count": 2
+  },
+  {
+    "rank": 73,
+    "token": "par",
+    "count": 2
+  },
+  {
+    "rank": 74,
+    "token": "payer",
+    "count": 2
+  },
+  {
+    "rank": 75,
+    "token": "peux",
+    "count": 2
+  },
+  {
+    "rank": 76,
+    "token": "wi",
+    "count": 2
+  },
+  {
+    "rank": 77,
+    "token": "fi",
+    "count": 2
+  },
+  {
+    "rank": 78,
+    "token": "mon",
+    "count": 2
+  },
+  {
+    "rank": 79,
+    "token": "obtenir",
+    "count": 2
+  },
+  {
+    "rank": 80,
+    "token": "trouver",
+    "count": 2
+  },
+  {
+    "rank": 81,
+    "token": "photo",
+    "count": 2
+  },
+  {
+    "rank": 82,
+    "token": "vingt",
+    "count": 2
+  },
+  {
+    "rank": 83,
+    "token": "soixante",
+    "count": 2
+  },
+  {
+    "rank": 84,
+    "token": "faire",
+    "count": 2
+  },
+  {
+    "rank": 85,
+    "token": "aller",
+    "count": 2
+  },
+  {
+    "rank": 86,
+    "token": "regarder",
+    "count": 2
+  },
+  {
+    "rank": 87,
+    "token": "vouloir",
+    "count": 2
+  },
+  {
+    "rank": 88,
+    "token": "aimer",
+    "count": 2
+  },
+  {
+    "rank": 89,
+    "token": "tenir",
+    "count": 2
+  },
+  {
+    "rank": 90,
+    "token": "salut",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "rien",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "oui",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "non",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "excusez",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "sol",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "bon",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "apr",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "midi",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "bonsoir",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "bonne",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "revoir",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "va",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "vais",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "mγçöappelleγç",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "anglais",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "espagnol",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "comprends",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "p",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "lentement",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "lγçö",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "dit",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "on",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "en",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "langue",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "quγçöest",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "ce",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "que",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "veut",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "mγçöaider",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "dγçöun",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "interpr",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "aujourdγçöhui",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "demain",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "maintenant",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "sais",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "patienter",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "faim",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "soif",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "estγç",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "gauche",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "droite",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "tout",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "droit",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "loin",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "ça",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "prend",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "temps",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "lγçöarr",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "bus",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "gare",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "station",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "tro",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "proche",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "lγçöa",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "roport",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "billets",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "billet",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "lieu",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "arrive",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "quai",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "taxi",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "tel",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "servation",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "chambre",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "lγçöenregistrement",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "lγçöascenseur",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "cl",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "menu",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "lγçöeau",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "caf",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "th",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "g",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "tarien",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "gan",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "allergique",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "á",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "allerg",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "licieux",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "lγçöaddition",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "re",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "u",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "co",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "trop",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "cher",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "duction",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "regarde",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "seulement",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "lγçöavez",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "dans",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "autre",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "taille",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "lγçöessayer",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "du",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "passe",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "recharger",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "l",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "phone",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "sim",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "sens",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "dicaments",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "pharmacie",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "pr",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "dγçöici",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "pital",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "dγçöaide",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "police",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "decin",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "passeport",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "feu",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "urgence",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "avez",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "tarif",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "dγçöentr",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "commence",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "informations",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "pourriez",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "nous",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "z",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "ro",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "deux",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "trois",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "cinq",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "six",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "sept",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "huit",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "neuf",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "trente",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "quarante",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "cinquante",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "vingts",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "cent",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "venir",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "raconter",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "voir",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "entendre",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "couter",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "savoir",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "penser",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "pouvoir",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "devoir",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "travailler",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "vivre",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "manger",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "boire",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "dormir",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "lire",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "apprendre",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "enseigner",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "tudier",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "comprendre",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "souvenir",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "oublier",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "demander",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "pondre",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "donner",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "mettre",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "apporter",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "envoyer",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "vendre",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "ouvrir",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "fermer",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "commencer",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "finir",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "attendre",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "aider",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "utiliser",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "rencontrer",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "essayer",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "partir",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "arriver",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "voyager",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "bouger",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "rester",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "marcher",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "courir",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "conduire",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "monter",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "voler",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "nager",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "cuisiner",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "nettoyer",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "laver",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "construire",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "casser",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "parer",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "choisir",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "changer",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "jouer",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "s'entra",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "ner",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "tester",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "sentir",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "esp",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "rer",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "planifier",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "d'accord",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "cider",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "croire",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "expliquer",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "rifier",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "partager",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "porter",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "couper",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "tourner",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "s'asseoir",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "veiller",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "tomber",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "gagner",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "perdre",
+    "count": 1
+  },
+  {
+    "rank": 300,
+    "token": "commander",
+    "count": 1
+  },
+  {
+    "rank": 301,
+    "token": "server",
+    "count": 1
+  },
+  {
+    "rank": 302,
+    "token": "γçö",
+    "count": 1
+  }
+]

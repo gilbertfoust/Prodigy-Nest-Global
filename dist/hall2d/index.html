@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Hall (2D Fallback) - Polyglot Heaven</title>
+  <style>
+    /* Main Hall specific styles */
+    body {
+      overflow: hidden;
+    }
+
+    #main-hall-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(180deg, #87ceeb 0%, #e0f6ff 50%, #f0f8ff 100%);
+    }
+
+    /* Side-scroller world */
+    #hall-world {
+      position: absolute;
+      width: 4000px; /* Wide enough for side-scrolling */
+      height: 100%;
+      transition: transform 0.3s ease-out;
+      will-change: transform;
+    }
+
+    /* Floor/ground */
+    .hall-floor {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(to top, #8b7355 0%, #a0826d 100%);
+      border-top: 3px solid #6b5d4f;
+    }
+
+    /* Player character */
+    #player {
+      position: absolute;
+      bottom: 120px;
+      left: 200px;
+      width: 40px;
+      height: 60px;
+      background: linear-gradient(135deg, #4c8dff, #9b6bff);
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+      transition: left 0.2s ease, bottom 0.2s ease;
+      z-index: 10;
+    }
+
+    #player::before {
+      content: '👤';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+    }
+
+    /* NPCs */
+    .npc {
+      position: absolute;
+      bottom: 120px;
+      width: 50px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,.15);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .npc:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      z-index: 15;
+    }
+
+    .npc.talked {
+      opacity: 0.7;
+      border-color: var(--accent);
+    }
+
+    /* Gates */
+    .gate {
+      position: absolute;
+      bottom: 120px;
+      width: 80px;
+      height: 140px;
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.85));
+      border: 3px solid var(--accent);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(76,141,255,.3);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .gate.locked {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(0.5);
+      border-color: var(--muted);
+    }
+
+    .gate:hover:not(.locked) {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(76,141,255,.4);
+    }
+
+    .gate-icon {
+      font-size: 36px;
+    }
+
+    .gate-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    /* UI Overlay */
+    #ui-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    #ui-overlay > * {
+      pointer-events: auto;
+    }
+
+    /* Language selector */
+    #lang-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: var(--shadow);
+      min-width: 200px;
+    }
+
+    #lang-selector label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    #lang-selector select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* HUD */
+    #hud {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,.95);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hud-stat {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hud-stat b {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    /* Dialogue box */
+    #dialogue-box {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(600px, 90vw);
+      background: rgba(255,255,255,.98);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.2);
+      display: none;
+      z-index: 200;
+    }
+
+    #dialogue-box.show {
+      display: block;
+    }
+
+    .dialogue-speaker {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .dialogue-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .dialogue-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .dialogue-option {
+      padding: 10px 14px;
+      background: rgba(76,141,255,.1);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      font-size: 14px;
+    }
+
+    .dialogue-option:hover {
+      background: rgba(76,141,255,.2);
+    }
+
+    /* Instructions */
+    #instructions {
+      position: absolute;
+      bottom: 160px;
+      left: 20px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 250px;
+      box-shadow: var(--shadow);
+    }
+
+    #instructions kbd {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+  </style>
+  <link rel="stylesheet" crossorigin href="/assets/styles-BS2JhAY4.css">
+</head>
+<body>
+  <div id="main-hall-container">
+    <div id="hall-world">
+      <div class="hall-floor"></div>
+      
+      <!-- Player -->
+      <div id="player"></div>
+
+      <!-- NPCs (TSI Method guides) -->
+      <div class="npc" data-npc="zipf" style="left: 500px;" title="Talk to learn about Zipf's Law">
+        📊
+      </div>
+      <div class="npc" data-npc="cognates" style="left: 800px;" title="Talk to learn about Cognates">
+        🔗
+      </div>
+      <div class="npc" data-npc="clusters" style="left: 1100px;" title="Talk to learn about Word Clusters">
+        🧩
+      </div>
+      <div class="npc" data-npc="immersion" style="left: 1400px;" title="Talk to learn about Immersion">
+        🌊
+      </div>
+      <div class="npc" data-npc="srs" style="left: 1700px;" title="Talk to learn about Spaced Repetition">
+        🔁
+      </div>
+
+      <!-- Gates to wings -->
+      <div class="gate" data-gate="training" style="left: 2200px;" data-href="../training/index.html">
+        <div class="gate-icon">📚</div>
+        <div class="gate-label">Training<br/>Grounds</div>
+      </div>
+      <div class="gate locked" data-gate="town" style="left: 2400px;" data-href="../town/index.html">
+        <div class="gate-icon">🏘️</div>
+        <div class="gate-label">Town Day</div>
+      </div>
+      <div class="gate locked" data-gate="game" style="left: 2600px;" data-href="../game/index.html">
+        <div class="gate-icon">🎮</div>
+        <div class="gate-label">Language<br/>Shooter</div>
+      </div>
+      <div class="gate locked" data-gate="reader" style="left: 2800px;" data-href="../reader/index.html">
+        <div class="gate-icon">📖</div>
+        <div class="gate-label">Reader</div>
+      </div>
+      <div class="gate locked" data-gate="speak" style="left: 3000px;" data-href="../speak/index.html">
+        <div class="gate-icon">🎤</div>
+        <div class="gate-label">Speaking</div>
+      </div>
+      <div class="gate locked" data-gate="heaven" style="left: 3200px;" data-href="../heaven/index.html">
+        <div class="gate-icon">🌌</div>
+        <div class="gate-label">Heaven<br/>Universe</div>
+      </div>
+      <div class="gate locked" data-gate="tsi" style="left: 3400px;" data-href="../tsi/index.html">
+        <div class="gate-icon">📊</div>
+        <div class="gate-label">TSI<br/>Analytics</div>
+      </div>
+      <div class="gate locked" data-gate="cards" style="left: 3600px;" data-href="../cards/index.html">
+        <div class="gate-icon">🎴</div>
+        <div class="gate-label">Flashcards</div>
+      </div>
+      <div class="gate locked" data-gate="vocab" style="left: 3800px;" data-href="../vocab/index.html">
+        <div class="gate-icon">🧠</div>
+        <div class="gate-label">Vocabulary</div>
+      </div>
+      <div class="gate" data-gate="hall3d" style="left: 3920px;" data-href="../index.html">
+        <div class="gate-icon">🏛️</div>
+        <div class="gate-label">3D Main<br/>Hall</div>
+      </div>
+    </div>
+
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+      <div id="hud">
+        <div class="hud-stat">Level: <b id="hud-level">1</b></div>
+        <div class="hud-stat">XP: <b id="hud-xp">0</b></div>
+        <div class="hud-stat">Streak: <b id="hud-streak">0</b> days</div>
+      </div>
+
+      <div id="lang-selector">
+        <label for="lang-select">Choose Language</label>
+        <select id="lang-select"></select>
+      </div>
+
+      <div id="instructions">
+        <strong>Controls:</strong><br/>
+        <kbd>←</kbd> <kbd>→</kbd> Move<br/>
+        <kbd>Space</kbd> Interact<br/>
+        Talk to NPCs to unlock gates!
+      </div>
+    </div>
+
+    <!-- Dialogue Box -->
+    <div id="dialogue-box">
+      <div class="dialogue-speaker" id="dialogue-speaker"></div>
+      <div class="dialogue-text" id="dialogue-text"></div>
+      <div class="dialogue-options" id="dialogue-options"></div>
+    </div>
+  </div>
+
+  <script src="../shared/core.js"></script>
+  <script src="../shared/components.js"></script>
+  <script>
+    // Main Hall game logic
+    (function() {
+      const player = document.getElementById('player');
+      const world = document.getElementById('hall-world');
+      const dialogueBox = document.getElementById('dialogue-box');
+      const langSelect = document.getElementById('lang-select');
+      
+      let playerX = 200; // Starting position
+      let worldOffset = 0;
+      const worldWidth = 4000;
+      const viewportWidth = window.innerWidth;
+      const gridSize = 50; // Grid step size
+      
+      // NPC dialogue content
+      const npcDialogues = {
+        zipf: {
+          name: "Zipf Scholar 📊",
+          messages: [
+            {
+              text: "Welcome! I teach about Zipf's Law. Did you know that in any language, the most common word appears twice as often as the second most common?",
+              options: [
+                { text: "Tell me more!", next: 1 },
+                { text: "How does this help learning?", next: 2 },
+                { text: "Thanks, I'll explore more.", action: "close" }
+              ]
+            },
+            {
+              text: "By focusing on the top 2000 words, you cover about 80% of everyday communication! That's why our Town Day experience uses these high-frequency words.",
+              options: [
+                { text: "That's efficient!", action: "unlock", gate: "town" },
+                { text: "Go back", next: 0 }
+              ]
+            },
+            {
+              text: "Instead of memorizing random words, learn the most frequent ones first. You'll understand conversations faster and build confidence quickly!",
+              options: [
+                { text: "Makes sense!", action: "unlock", gate: "town" },
+                { text: "Go back", next: 0 }
+              ]
+            }
+          ]
+        },
+        cognates: {
+          name: "Cognate Master 🔗",
+          messages: [
+            {
+              text: "Hello! I specialize in cognates - words that look similar across languages. For example, 'hospital' is 'hospital' in Spanish, 'hôpital' in French!",
+              options: [
+                { text: "Show me more examples", next: 1 },
+                { text: "How do I use this?", next: 2 },
+                { text: "Thanks!", action: "close" }
+              ]
+            },
+            {
+              text: "Many languages share roots. 'Telephone', 'radio', 'computer' - these are often similar! Recognizing patterns accelerates learning.",
+              options: [
+                { text: "That's powerful!", action: "unlock", gate: "reader" },
+                { text: "Go back", next: 0 }
+              ]
+            },
+            {
+              text: "When you see a word that looks familiar, it often means the same thing. Use this to decode new languages faster!",
+              options: [
+                { text: "I'll try this!", action: "unlock", gate: "reader" },
+                { text: "Go back", next: 0 }
+              ]
+            }
+          ]
+        },
+        clusters: {
+          name: "Cluster Expert 🧩",
+          messages: [
+            {
+              text: "Hi! I teach word clusters - groups of related words learned together. Instead of 'eat' alone, learn 'eat', 'food', 'hungry', 'restaurant' together!",
+              options: [
+                { text: "Why clusters?", next: 1 },
+                { text: "Give me an example", next: 2 },
+                { text: "Got it, thanks!", action: "close" }
+              ]
+            },
+            {
+              text: "Your brain remembers things better when they're connected. Learning related words together creates stronger memory networks!",
+              options: [
+                { text: "That's smart!", action: "unlock", gate: "vocab" },
+                { text: "Go back", next: 0 }
+              ]
+            },
+            {
+              text: "Example: 'morning' cluster = 'good morning', 'breakfast', 'coffee', 'wake up', 'sunrise'. See how they connect?",
+              options: [
+                { text: "I see the pattern!", action: "unlock", gate: "vocab" },
+                { text: "Go back", next: 0 }
+              ]
+            }
+          ]
+        },
+        immersion: {
+          name: "Immersion Guide 🌊",
+          messages: [
+            {
+              text: "Welcome! Immersion means surrounding yourself with the language. But structured immersion - like our Town Day - is even better!",
+              options: [
+                { text: "What's structured immersion?", next: 1 },
+                { text: "Tell me about Town Day", next: 2 },
+                { text: "Thanks!", action: "close" }
+              ]
+            },
+            {
+              text: "Structured immersion uses high-frequency words in realistic scenarios. You practice real conversations, not random sentences!",
+              options: [
+                { text: "That sounds effective!", action: "unlock", gate: "town" },
+                { text: "Go back", next: 0 }
+              ]
+            },
+            {
+              text: "Town Day takes you through a full day - morning greetings, shopping, conversations. Every interaction uses the 2000 most common words!",
+              options: [
+                { text: "I want to try it!", action: "unlock", gate: "town" },
+                { text: "Go back", next: 0 }
+              ]
+            }
+          ]
+        },
+        srs: {
+          name: "SRS Master 🔁",
+          messages: [
+            {
+              text: "Hello! I teach Spaced Repetition Systems (SRS). Review words at increasing intervals - today, tomorrow, in 3 days, in a week...",
+              options: [
+                { text: "Why does this work?", next: 1 },
+                { text: "Where can I use SRS?", next: 2 },
+                { text: "Thanks!", action: "close" }
+              ]
+            },
+            {
+              text: "Your brain forgets things on a curve. SRS reviews words right before you'd forget them, making memories stick permanently!",
+              options: [
+                { text: "That's clever!", action: "unlock", gate: "cards" },
+                { text: "Go back", next: 0 }
+              ]
+            },
+            {
+              text: "Check out our Flashcards wing! It uses SRS algorithms to optimize your review schedule. Maximize learning, minimize time!",
+              options: [
+                { text: "I'll check it out!", action: "unlock", gate: "cards" },
+                { text: "Go back", next: 0 }
+              ]
+            }
+          ]
+        }
+      };
+
+      let currentDialogue = null;
+      let currentMessageIndex = 0;
+
+      // Initialize language selector
+      function initLangSelector() {
+        // #region agent log
+        fetch('http://127.0.0.1:7243/ingest/6d3079c4-27f5-45f2-9588-dd7e95747891',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.html:541',message:'initLangSelector called',data:{hasLANGS:typeof LANGS,hasApp:typeof app,hasGetCurrentLang:typeof getCurrentLang,hasToast:typeof toast,hasSaveState:typeof saveState},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+        // #endregion
+        LANGS.forEach(lang => {
+          const option = document.createElement('option');
+          option.value = lang.key;
+          option.textContent = `${lang.flag} ${lang.label}`;
+          if (lang.key === app.lang) option.selected = true;
+          langSelect.appendChild(option);
+        });
+
+        langSelect.addEventListener('change', (e) => {
+          // #region agent log
+          fetch('http://127.0.0.1:7243/ingest/6d3079c4-27f5-45f2-9588-dd7e95747891',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.html:550',message:'Language changed',data:{newLang:e.target.value,hasGetCurrentLang:typeof getCurrentLang,hasToast:typeof toast},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+          // #endregion
+          app.lang = e.target.value;
+          saveState();
+          toast(`Language changed to ${getCurrentLang().label}`, 'info');
+        });
+      }
+
+      // Update HUD
+      function updateHUD() {
+        document.getElementById('hud-level').textContent = app.level;
+        document.getElementById('hud-xp').textContent = app.xp;
+        document.getElementById('hud-streak').textContent = app.daily.streak;
+      }
+
+      // Camera follow player
+      function updateCamera() {
+        const centerX = playerX - viewportWidth / 2;
+        const clampedX = Math.max(0, Math.min(centerX, worldWidth - viewportWidth));
+        worldOffset = -clampedX;
+        world.style.transform = `translateX(${worldOffset}px)`;
+      }
+
+      // Move player
+      function movePlayer(deltaX) {
+        const newX = Math.max(0, Math.min(playerX + deltaX, worldWidth - 40));
+        playerX = newX;
+        player.style.left = `${playerX}px`;
+        updateCamera();
+      }
+
+      // Check if player is near an NPC or gate
+      function getNearbyInteractable() {
+        const npcs = document.querySelectorAll('.npc');
+        const gates = document.querySelectorAll('.gate:not(.locked)');
+        
+        for (const npc of npcs) {
+          const npcX = parseInt(npc.style.left);
+          if (Math.abs(playerX - npcX) < 80) {
+            return { type: 'npc', element: npc, id: npc.dataset.npc };
+          }
+        }
+
+        for (const gate of gates) {
+          const gateX = parseInt(gate.style.left);
+          if (Math.abs(playerX - gateX) < 100) {
+            return { type: 'gate', element: gate, href: gate.dataset.href };
+          }
+        }
+
+        return null;
+      }
+
+      // Show dialogue
+      function showDialogue(npcId) {
+        const dialogue = npcDialogues[npcId];
+        if (!dialogue) return;
+
+        currentDialogue = dialogue;
+        currentMessageIndex = 0;
+        showMessage(0);
+        dialogueBox.classList.add('show');
+      }
+
+      function showMessage(index) {
+        const message = currentDialogue.messages[index];
+        if (!message) {
+          closeDialogue();
+          return;
+        }
+
+        document.getElementById('dialogue-speaker').textContent = currentDialogue.name;
+        document.getElementById('dialogue-text').textContent = message.text;
+        
+        const optionsDiv = document.getElementById('dialogue-options');
+        optionsDiv.innerHTML = '';
+
+        message.options.forEach((option, i) => {
+          const btn = document.createElement('div');
+          btn.className = 'dialogue-option';
+          btn.textContent = option.text;
+          btn.addEventListener('click', () => {
+            if (option.action === 'close') {
+              closeDialogue();
+            } else if (option.action === 'unlock') {
+              unlockGate(option.gate);
+              markNPCTalked(currentDialogue.name);
+              closeDialogue();
+            } else if (option.next !== undefined) {
+              showMessage(option.next);
+            }
+          });
+          optionsDiv.appendChild(btn);
+        });
+      }
+
+      function closeDialogue() {
+        dialogueBox.classList.remove('show');
+        currentDialogue = null;
+      }
+
+      function unlockGate(gateId) {
+        const gate = document.querySelector(`[data-gate="${gateId}"]`);
+        if (gate) {
+          gate.classList.remove('locked');
+          app.mainHall.gatesUnlocked.push(gateId);
+          saveState();
+          toast(`Gate unlocked: ${gate.querySelector('.gate-label').textContent.trim()}`, 'success');
+        }
+      }
+
+      function markNPCTalked(npcName) {
+        // #region agent log
+        fetch('http://127.0.0.1:7243/ingest/6d3079c4-27f5-45f2-9588-dd7e95747891',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.html:660',message:'markNPCTalked called',data:{npcName,appMainHall:app.mainHall,hasSaveState:typeof saveState},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+        // #endregion
+        if (!app.mainHall.npcsTalkedTo.includes(npcName)) {
+          app.mainHall.npcsTalkedTo.push(npcName);
+          saveState();
+        }
+        // Mark NPC visually
+        const npcs = document.querySelectorAll('.npc');
+        npcs.forEach(npc => {
+          // #region agent log
+          fetch('http://127.0.0.1:7243/ingest/6d3079c4-27f5-45f2-9588-dd7e95747891',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.html:668',message:'Checking NPC dialogue',data:{npcId:npc.dataset.npc,hasNpcDialogues:typeof npcDialogues,hasNpccDialogues:typeof npccDialogues},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+          // #endregion
+          if (npcDialogues[npc.dataset.npc]?.name === npcName) {
+            npc.classList.add('talked');
+          }
+        });
+      }
+
+      // Keyboard controls
+      document.addEventListener('keydown', (e) => {
+        if (dialogueBox.classList.contains('show')) {
+          if (e.key === 'Escape') closeDialogue();
+          return;
+        }
+
+        switch(e.key) {
+          case 'ArrowLeft':
+            e.preventDefault();
+            movePlayer(-gridSize);
+            break;
+          case 'ArrowRight':
+            e.preventDefault();
+            movePlayer(gridSize);
+            break;
+          case ' ':
+          case 'Enter':
+            e.preventDefault();
+            const interactable = getNearbyInteractable();
+            if (interactable) {
+              if (interactable.type === 'npc') {
+                showDialogue(interactable.id);
+              } else if (interactable.type === 'gate') {
+                window.location.href = interactable.href;
+              }
+            }
+            break;
+        }
+      });
+
+      // Click gates
+      document.querySelectorAll('.gate:not(.locked)').forEach(gate => {
+        gate.addEventListener('click', () => {
+          window.location.href = gate.dataset.href;
+        });
+      });
+
+      // Click NPCs
+      document.querySelectorAll('.npc').forEach(npc => {
+        npc.addEventListener('click', () => {
+          const npcX = parseInt(npc.style.left);
+          if (Math.abs(playerX - npcX) < 150) {
+            showDialogue(npc.dataset.npc);
+          } else {
+            // Move player closer
+            playerX = npcX - 60;
+            player.style.left = `${playerX}px`;
+            updateCamera();
+            setTimeout(() => showDialogue(npc.dataset.npc), 300);
+          }
+        });
+      });
+
+      // Restore unlocked gates from state
+      function restoreGateStates() {
+        // Training grounds always unlocked
+        if (!app.mainHall.gatesUnlocked.includes('training')) {
+          app.mainHall.gatesUnlocked.push('training');
+        }
+        // 3D hall prototype always unlocked
+        if (!app.mainHall.gatesUnlocked.includes('hall3d')) {
+          app.mainHall.gatesUnlocked.push('hall3d');
+        }
+        
+        app.mainHall.gatesUnlocked.forEach(gateId => {
+          const gate = document.querySelector(`[data-gate="${gateId}"]`);
+          if (gate) {
+            gate.classList.remove('locked');
+          }
+        });
+      }
+
+      // Mark talked NPCs
+      function restoreNPCTalked() {
+        const npcs = document.querySelectorAll('.npc');
+        npcs.forEach(npc => {
+          const dialogue = npcDialogues[npc.dataset.npc];
+          if (dialogue && app.mainHall.npcsTalkedTo.includes(dialogue.name)) {
+            npc.classList.add('talked');
+          }
+        });
+      }
+
+      // Initialize
+      // #region agent log
+      fetch('http://127.0.0.1:7243/ingest/6d3079c4-27f5-45f2-9588-dd7e95747891',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.html:754',message:'Initialization start',data:{hasApp:typeof app,appMainHall:app?.mainHall,hasLANGS:typeof LANGS},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+      // #endregion
+      initLangSelector();
+      updateHUD();
+      updateCamera();
+      restoreGateStates();
+      restoreNPCTalked();
+      // #region agent log
+      fetch('http://127.0.0.1:7243/ingest/6d3079c4-27f5-45f2-9588-dd7e95747891',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.html:760',message:'Initialization complete',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+      // #endregion
+    })();
+  </script>
+</body>
+</html>

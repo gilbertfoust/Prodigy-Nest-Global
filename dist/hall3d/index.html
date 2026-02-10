@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>3D Main Hall (Prototype) - Polyglot Heaven</title>
+  <style>
+    html, body { height: 100%; }
+    body { margin: 0; overflow: hidden; background: #0b1b2a; }
+
+    #hud {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 10;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.92);
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height: 1.4;
+      max-width: 520px;
+    }
+
+    #hud b { color: #fff; }
+
+    #topbar {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.92);
+      font-family: var(--sans);
+      font-size: 12px;
+    }
+
+    #topbar a { color: #a9d7ff; text-decoration: none; font-weight: 800; }
+    #topbar a:hover { text-decoration: underline; }
+
+    #topbar select {
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 10px;
+      padding: 6px 8px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #0b1b2a;
+      outline: none;
+      cursor: pointer;
+    }
+
+    #canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #prompt {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 12;
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.92);
+      font-family: var(--sans);
+      font-size: 13px;
+      display: none;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #prompt.show { display: inline-flex; }
+    #prompt kbd {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #fff;
+    }
+
+    #feedback {
+      position: fixed;
+      top: 80px;
+      right: 12px;
+      z-index: 15;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(76,141,255,.95);
+      color: white;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      max-width: 280px;
+      animation: feedbackSlideIn 0.3s ease-out;
+      pointer-events: none;
+    }
+    #feedback.show { display: block; }
+    #feedback.correct { background: rgba(34,197,94,.95); }
+    #feedback.wrong { background: rgba(239,68,68,.95); }
+    @keyframes feedbackSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    #dialogue {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 20;
+      width: min(720px, 94vw);
+      background: rgba(255,255,255,.96);
+      border: 2px solid rgba(76,141,255,.7);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      overflow: hidden;
+      display: none;
+    }
+    #dialogue.show { display: block; }
+    #dialogue .head {
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(20,40,60,.12);
+      background: linear-gradient(135deg, rgba(76,141,255,.14), rgba(155,107,255,.12));
+      font-family: var(--sans);
+    }
+    #dialogue .head b { color: var(--ink); }
+    #dialogue .close {
+      border: 1px solid rgba(20,40,60,.12);
+      background: rgba(255,255,255,.75);
+      border-radius: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+    #dialogue .body {
+      padding: 14px;
+      font-family: var(--sans);
+      color: var(--ink);
+    }
+    #dialogue .text {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    #dialogue .opts {
+      display: grid;
+      gap: 8px;
+    }
+    #dialogue .opt {
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(76,141,255,.22);
+      background: rgba(76,141,255,.10);
+      cursor: pointer;
+      transition: background .15s ease;
+      font-weight: 650;
+      color: var(--ink);
+    }
+    #dialogue .opt:hover { background: rgba(76,141,255,.18); }
+  </style>
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="/assets/hall3d-ChI4CWQz.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-BS2JhAY4.css">
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <div id="hud">
+    <div><b>3D Main Hall (Prototype)</b></div>
+    <div style="opacity:.85;margin-top:6px;">
+      WASD/Arrows to move, mouse drag to orbit camera.<br/>
+      This is the new realistic 3D hall foundation; assets will be swapped in later.
+    </div>
+  </div>
+
+  <div id="topbar">
+    <a href="../index.html">&#8592; Back to Main Hall (2D)</a>
+    <label for="lang3d" style="opacity:.9;">Language</label>
+    <select id="lang3d"></select>
+  </div>
+
+  <div id="prompt"></div>
+  
+  <div id="feedback" style="display: none;"></div>
+
+  <div id="dialogue">
+    <div class="head">
+      <b id="dlgSpeaker"></b>
+      <button class="close" id="dlgClose">Close</button>
+    </div>
+    <div class="body">
+      <div class="text" id="dlgText"></div>
+      <div class="opts" id="dlgOpts"></div>
+    </div>
+  </div>
+
+  <script src="../shared/core.js"></script>
+  <script src="../shared/components.js"></script>
+</body>
+</html>
+

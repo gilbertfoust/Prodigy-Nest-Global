@@ -1,0 +1,1492 @@
+[
+  {
+    "rank": 1,
+    "token": "òre",
+    "count": 32
+  },
+  {
+    "rank": 2,
+    "token": "üre",
+    "count": 29
+  },
+  {
+    "rank": 3,
+    "token": "est",
+    "count": 16
+  },
+  {
+    "rank": 4,
+    "token": "ôre",
+    "count": 14
+  },
+  {
+    "rank": 5,
+    "token": "quaeso",
+    "count": 13
+  },
+  {
+    "rank": 6,
+    "token": "ubi",
+    "count": 11
+  },
+  {
+    "rank": 7,
+    "token": "re",
+    "count": 11
+  },
+  {
+    "rank": 8,
+    "token": "possumne",
+    "count": 7
+  },
+  {
+    "rank": 9,
+    "token": "mihi",
+    "count": 6
+  },
+  {
+    "rank": 10,
+    "token": "potesne",
+    "count": 6
+  },
+  {
+    "rank": 11,
+    "token": "quando",
+    "count": 5
+  },
+  {
+    "rank": 12,
+    "token": "sum",
+    "count": 4
+  },
+  {
+    "rank": 13,
+    "token": "facere",
+    "count": 4
+  },
+  {
+    "rank": 14,
+    "token": "non",
+    "count": 3
+  },
+  {
+    "rank": 15,
+    "token": "hoc",
+    "count": 3
+  },
+  {
+    "rank": 16,
+    "token": "opus",
+    "count": 3
+  },
+  {
+    "rank": 17,
+    "token": "statio",
+    "count": 3
+  },
+  {
+    "rank": 18,
+    "token": "emere",
+    "count": 3
+  },
+  {
+    "rank": 19,
+    "token": "possum",
+    "count": 3
+  },
+  {
+    "rank": 20,
+    "token": "estne",
+    "count": 3
+  },
+  {
+    "rank": 21,
+    "token": "esse",
+    "count": 3
+  },
+  {
+    "rank": 22,
+    "token": "d",
+    "count": 3
+  },
+  {
+    "rank": 23,
+    "token": "sc",
+    "count": 3
+  },
+  {
+    "rank": 24,
+    "token": "gratias",
+    "count": 2
+  },
+  {
+    "rank": 25,
+    "token": "me",
+    "count": 2
+  },
+  {
+    "rank": 26,
+    "token": "bonum",
+    "count": 2
+  },
+  {
+    "rank": 27,
+    "token": "postea",
+    "count": 2
+  },
+  {
+    "rank": 28,
+    "token": "quomodo",
+    "count": 2
+  },
+  {
+    "rank": 29,
+    "token": "bene",
+    "count": 2
+  },
+  {
+    "rank": 30,
+    "token": "nomen",
+    "count": 2
+  },
+  {
+    "rank": 31,
+    "token": "estγç",
+    "count": 2
+  },
+  {
+    "rank": 32,
+    "token": "loquerisne",
+    "count": 2
+  },
+  {
+    "rank": 33,
+    "token": "quae",
+    "count": 2
+  },
+  {
+    "rank": 34,
+    "token": "quam",
+    "count": 2
+  },
+  {
+    "rank": 35,
+    "token": "ad",
+    "count": 2
+  },
+  {
+    "rank": 36,
+    "token": "hic",
+    "count": 2
+  },
+  {
+    "rank": 37,
+    "token": "siste",
+    "count": 2
+  },
+  {
+    "rank": 38,
+    "token": "quanti",
+    "count": 2
+  },
+  {
+    "rank": 39,
+    "token": "hospitii",
+    "count": 2
+  },
+  {
+    "rank": 40,
+    "token": "tabulam",
+    "count": 2
+  },
+  {
+    "rank": 41,
+    "token": "habesne",
+    "count": 2
+  },
+  {
+    "rank": 42,
+    "token": "wi",
+    "count": 2
+  },
+  {
+    "rank": 43,
+    "token": "fi",
+    "count": 2
+  },
+  {
+    "rank": 44,
+    "token": "tessera",
+    "count": 2
+  },
+  {
+    "rank": 45,
+    "token": "voca",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "imaginem",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "hab",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "velle",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "salve",
+    "count": 1
+  },
+  {
+    "rank": 50,
+    "token": "heus",
+    "count": 1
+  },
+  {
+    "rank": 51,
+    "token": "libenter",
+    "count": 1
+  },
+  {
+    "rank": 52,
+    "token": "ita",
+    "count": 1
+  },
+  {
+    "rank": 53,
+    "token": "ignosce",
+    "count": 1
+  },
+  {
+    "rank": 54,
+    "token": "paenitet",
+    "count": 1
+  },
+  {
+    "rank": 55,
+    "token": "mane",
+    "count": 1
+  },
+  {
+    "rank": 56,
+    "token": "post",
+    "count": 1
+  },
+  {
+    "rank": 57,
+    "token": "meridiem",
+    "count": 1
+  },
+  {
+    "rank": 58,
+    "token": "bonam",
+    "count": 1
+  },
+  {
+    "rank": 59,
+    "token": "vesperam",
+    "count": 1
+  },
+  {
+    "rank": 60,
+    "token": "bona",
+    "count": 1
+  },
+  {
+    "rank": 61,
+    "token": "nox",
+    "count": 1
+  },
+  {
+    "rank": 62,
+    "token": "vale",
+    "count": 1
+  },
+  {
+    "rank": 63,
+    "token": "te",
+    "count": 1
+  },
+  {
+    "rank": 64,
+    "token": "videbo",
+    "count": 1
+  },
+  {
+    "rank": 65,
+    "token": "es",
+    "count": 1
+  },
+  {
+    "rank": 66,
+    "token": "quod",
+    "count": 1
+  },
+  {
+    "rank": 67,
+    "token": "tibi",
+    "count": 1
+  },
+  {
+    "rank": 68,
+    "token": "anglice",
+    "count": 1
+  },
+  {
+    "rank": 69,
+    "token": "hispanice",
+    "count": 1
+  },
+  {
+    "rank": 70,
+    "token": "intellego",
+    "count": 1
+  },
+  {
+    "rank": 71,
+    "token": "repetere",
+    "count": 1
+  },
+  {
+    "rank": 72,
+    "token": "loqui",
+    "count": 1
+  },
+  {
+    "rank": 73,
+    "token": "lentius",
+    "count": 1
+  },
+  {
+    "rank": 74,
+    "token": "scribe",
+    "count": 1
+  },
+  {
+    "rank": 75,
+    "token": "dicitur",
+    "count": 1
+  },
+  {
+    "rank": 76,
+    "token": "verbum",
+    "count": 1
+  },
+  {
+    "rank": 77,
+    "token": "in",
+    "count": 1
+  },
+  {
+    "rank": 78,
+    "token": "lingua",
+    "count": 1
+  },
+  {
+    "rank": 79,
+    "token": "quid",
+    "count": 1
+  },
+  {
+    "rank": 80,
+    "token": "significat",
+    "count": 1
+  },
+  {
+    "rank": 81,
+    "token": "adiuvare",
+    "count": 1
+  },
+  {
+    "rank": 82,
+    "token": "interpretem",
+    "count": 1
+  },
+  {
+    "rank": 83,
+    "token": "ostendere",
+    "count": 1
+  },
+  {
+    "rank": 84,
+    "token": "hora",
+    "count": 1
+  },
+  {
+    "rank": 85,
+    "token": "hodie",
+    "count": 1
+  },
+  {
+    "rank": 86,
+    "token": "cras",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "nunc",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "nescio",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "exspecta",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "esurio",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "sitio",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "erravi",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "sinistra",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "dextra",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "recta",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "longe",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "diu",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "durabit",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "autobusi",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "traminis",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "metropolitana",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "proxima",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "portus",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "a",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "rius",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "tesseras",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "unam",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "tesseram",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "locum",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "discedit",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "advenit",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "quis",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "suggestus",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "taxi",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "vocare",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "deversorium",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "reservationem",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "habeo",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "cubiculum",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "cupio",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "per",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "noctem",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "initium",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "exitus",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "ascensor",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "clavem",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "aquam",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "caffeam",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "theam",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "vegetarius",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "veganus",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "allergicus",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "allergen",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "deliciosum",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "rationem",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "solvere",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "charta",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "accipere",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "receptum",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "constat",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "nimis",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "carum",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "infractio",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "volo",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "tantum",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "specto",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "alia",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "magnitudine",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "experiri",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "telephonum",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "meum",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "onerare",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "chartulam",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "sim",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "sentio",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "medicamentum",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "pharmacopolium",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "prope",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "valetudinarium",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "auxilio",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "egeo",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "vigilas",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "medicum",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "peregrinationis",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "perdita",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "ignis",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "subito",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "auxilium",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "chartam",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "habere",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "quot",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "vectigal",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "ingressus",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "incipit",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "invenire",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "informationem",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "nostri",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "nulla",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "unus",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "duo",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "tres",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "quattuor",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "quinque",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "sex",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "septem",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "octo",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "novem",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "decem",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "viginti",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "triginta",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "quadraginta",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "quinquaginta",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "sexaginta",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "septuaginta",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "octoginta",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "nonaginta",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "centum",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "ven",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "cere",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "narr",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "vid",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "spect",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "aud",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "auscult",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "loqu",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "cogit",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "posse",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "ôb",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "labor",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "v",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "vere",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "ed",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "bib",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "dorm",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "leg",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "scr",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "b",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "disc",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "doc",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "stud",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "intelleg",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "meminisse",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "obliv",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "rog",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "respond",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "dare",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "cap",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "accip",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "pon",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "ferre",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "mitt",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "em",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "vend",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "solv",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "aper",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "claud",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "incip",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "f",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "n",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "desin",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "exspect",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "adiuv",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "t",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "inven",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "occurr",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "voc",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "tempt",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "relinqu",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "perven",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "peregrin",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "ür",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "mov",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "man",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "ambul",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "curr",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "gubern",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "equit",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "vol",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "nat",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "coqu",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "mund",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "lav",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "aedific",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "frang",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "refic",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "elig",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "mut",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "observ",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "l",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "exerc",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "am",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "plac",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "odisse",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "sent",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "sp",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "ôr",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "par",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "assent",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "r",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "decern",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "cred",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "explic",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "ostend",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "inspic",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "communic",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "port",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "ten",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "sec",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "vert",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "sed",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "st",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "experg",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "cad",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "vinc",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "perd",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "iub",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "reserv",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "γçö",
+    "count": 1
+  }
+]

@@ -1,0 +1,1537 @@
+[
+  {
+    "rank": 1,
+    "token": "é",
+    "count": 253
+  },
+  {
+    "rank": 2,
+    "token": "î",
+    "count": 158
+  },
+  {
+    "rank": 3,
+    "token": "ç",
+    "count": 132
+  },
+  {
+    "rank": 4,
+    "token": "ü",
+    "count": 124
+  },
+  {
+    "rank": 5,
+    "token": "å",
+    "count": 57
+  },
+  {
+    "rank": 6,
+    "token": "â",
+    "count": 45
+  },
+  {
+    "rank": 7,
+    "token": "ï",
+    "count": 33
+  },
+  {
+    "rank": 8,
+    "token": "ä",
+    "count": 16
+  },
+  {
+    "rank": 9,
+    "token": "æ",
+    "count": 15
+  },
+  {
+    "rank": 10,
+    "token": "í",
+    "count": 13
+  },
+  {
+    "rank": 11,
+    "token": "pozhaluysta",
+    "count": 13
+  },
+  {
+    "rank": 12,
+    "token": "ê",
+    "count": 12
+  },
+  {
+    "rank": 13,
+    "token": "ya",
+    "count": 12
+  },
+  {
+    "rank": 14,
+    "token": "à",
+    "count": 11
+  },
+  {
+    "rank": 15,
+    "token": "ô",
+    "count": 11
+  },
+  {
+    "rank": 16,
+    "token": "gde",
+    "count": 11
+  },
+  {
+    "rank": 17,
+    "token": "skol'ko",
+    "count": 9
+  },
+  {
+    "rank": 18,
+    "token": "mne",
+    "count": 7
+  },
+  {
+    "rank": 19,
+    "token": "mozhno",
+    "count": 7
+  },
+  {
+    "rank": 20,
+    "token": "ö",
+    "count": 6
+  },
+  {
+    "rank": 21,
+    "token": "yest",
+    "count": 6
+  },
+  {
+    "rank": 22,
+    "token": "mozhte",
+    "count": 5
+  },
+  {
+    "rank": 23,
+    "token": "vo",
+    "count": 5
+  },
+  {
+    "rank": 24,
+    "token": "kak",
+    "count": 4
+  },
+  {
+    "rank": 25,
+    "token": "ì",
+    "count": 4
+  },
+  {
+    "rank": 26,
+    "token": "ò",
+    "count": 4
+  },
+  {
+    "rank": 27,
+    "token": "wi",
+    "count": 4
+  },
+  {
+    "rank": 28,
+    "token": "fi",
+    "count": 4
+  },
+  {
+    "rank": 29,
+    "token": "ne",
+    "count": 3
+  },
+  {
+    "rank": 30,
+    "token": "do",
+    "count": 3
+  },
+  {
+    "rank": 31,
+    "token": "menya",
+    "count": 3
+  },
+  {
+    "rank": 32,
+    "token": "γç",
+    "count": 3
+  },
+  {
+    "rank": 33,
+    "token": "vy",
+    "count": 3
+  },
+  {
+    "rank": 34,
+    "token": "eto",
+    "count": 3
+  },
+  {
+    "rank": 35,
+    "token": "kupit",
+    "count": 3
+  },
+  {
+    "rank": 36,
+    "token": "ú",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "u",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "ù",
+    "count": 2
+  },
+  {
+    "rank": 39,
+    "token": "spasibo",
+    "count": 2
+  },
+  {
+    "rank": 40,
+    "token": "za",
+    "count": 2
+  },
+  {
+    "rank": 41,
+    "token": "dobryy",
+    "count": 2
+  },
+  {
+    "rank": 42,
+    "token": "vas",
+    "count": 2
+  },
+  {
+    "rank": 43,
+    "token": "zovut",
+    "count": 2
+  },
+  {
+    "rank": 44,
+    "token": "govorite",
+    "count": 2
+  },
+  {
+    "rank": 45,
+    "token": "po",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "govorit",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "skazat",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "na",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "nuzhen",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "pit",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "mogu",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "odin",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "zdes",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "karta",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "stoit",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "a",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "sim",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "kartu",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "vyzovite",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "sfotografirovat",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "byt",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "imet",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "delat",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "idti",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "smotret",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "khotet",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "γçö",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "zdravstvuyte",
+    "count": 1
+  },
+  {
+    "rank": 69,
+    "token": "privet",
+    "count": 1
+  },
+  {
+    "rank": 70,
+    "token": "chto",
+    "count": 1
+  },
+  {
+    "rank": 71,
+    "token": "da",
+    "count": 1
+  },
+  {
+    "rank": 72,
+    "token": "net",
+    "count": 1
+  },
+  {
+    "rank": 73,
+    "token": "ÿ",
+    "count": 1
+  },
+  {
+    "rank": 74,
+    "token": "izvinite",
+    "count": 1
+  },
+  {
+    "rank": 75,
+    "token": "prostite",
+    "count": 1
+  },
+  {
+    "rank": 76,
+    "token": "dobroye",
+    "count": 1
+  },
+  {
+    "rank": 77,
+    "token": "utro",
+    "count": 1
+  },
+  {
+    "rank": 78,
+    "token": "den",
+    "count": 1
+  },
+  {
+    "rank": 79,
+    "token": "vecher",
+    "count": 1
+  },
+  {
+    "rank": 80,
+    "token": "spokoynoy",
+    "count": 1
+  },
+  {
+    "rank": 81,
+    "token": "nochi",
+    "count": 1
+  },
+  {
+    "rank": 82,
+    "token": "svidaniya",
+    "count": 1
+  },
+  {
+    "rank": 83,
+    "token": "vstrechi",
+    "count": 1
+  },
+  {
+    "rank": 84,
+    "token": "dela",
+    "count": 1
+  },
+  {
+    "rank": 85,
+    "token": "vsyo",
+    "count": 1
+  },
+  {
+    "rank": 86,
+    "token": "khorosho",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "éγç",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "angliyski",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "ispanski",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "ponimayu",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "povtorit",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "medlennee",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "napishite",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "slovo",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "yazyk",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "shto",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "znachit",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "mozhete",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "pomoch",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "perevodchik",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "pokazat",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "kotoryy",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "chas",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "segodnya",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "zavtra",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "seychas",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "pozzhe",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "znayu",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "podozhdite",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "goloden",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "golodna",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "khochu",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "poteryalsya",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "poteryalas",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "nalevo",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "napravo",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "pryamo",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "daleko",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "vremeni",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "zaymyot",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "avtobusnaya",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "ostanovka",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "vokzal",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "blizhayshaya",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "stantsiya",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "metro",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "aeroport",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "bilety",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "bilet",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "mesto",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "otpravlyaetsya",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "pribyvayet",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "s",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "kakogo",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "puti",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "vyzvat",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "taksi",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "ostanovite",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "otel",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "bron",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "nomer",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "noch",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "zaezd",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "vyezd",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "lift",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "klyuch",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "menyu",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "vody",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "kofe",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "chay",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "vegetarianets",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "ka",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "vegan",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "allergiya",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "allergen",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "ochen",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "vkusno",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "schyot",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "oplatit",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "kartoy",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "poluchit",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "chek",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "slishkom",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "dorogo",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "skidka",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "hotel",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "by",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "prosto",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "smotryu",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "drugoy",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "razmer",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "primerit",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "kakoy",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "parol",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "zaryadit",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "telefon",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "plokho",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "nuzhno",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "lekarstvo",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "apteka",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "ryadom",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "bol'nitsa",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "ë",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "nuzhna",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "pomoshch",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "politsiyu",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "vracha",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "poteryal",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "pasport",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "stoy",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "pozhar",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "srochno",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "vkhod",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "nachinayetsya",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "nayti",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "informatsiyu",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "nas",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "nol",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "dva",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "tri",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "chetyre",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "pyat",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "shest",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "sem",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "vosem",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "devyat",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "desyat",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "dvadtsat",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "tridtsat",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "sorok",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "pyat'desyat",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "shest'desyat",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "sem'desyat",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "vosem'desyat",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "devyanosto",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "sto",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "prikhodit",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "rasskazyvat",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "videt",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "slyshat",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "slushat",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "znat",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "dumat",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "nuzhdat'sya",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "moch",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "dolzhen",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "rabotat",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "zhit",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "spat",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "chitat",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "pisat",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "uchit'sya",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "uchit",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "izuchat",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "ponimat",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "pomnit",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "zabyvat",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "sprashivat",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "otvechat",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "davat",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "brat",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "poluchat",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "klast",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "prinosit",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "otpravlyat",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "pokupat",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "prodavat",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "platit",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "otkryvat",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "zakryvat",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "nachinat",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "zakanchivat",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "ostanavlivat'sya",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "zhdat",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "pomogat",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "ispol'zovat",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "nakhodit",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "vstrechat",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "zvonit",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "pytat'sya",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "ukhodit",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "pribyvat",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "puteshestvovat",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "dvigat'sya",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "ostavat'sya",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "khodit",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "begat",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "vodit",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "ezdit",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "letat",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "plavat",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "gotovit",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "chistit",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "myt",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "stroit",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "lomat",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "chinit",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "vybirat",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "menyat",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "igrat",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "trenirovat'sya",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "lyubit",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "nravit'sya",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "nenavidet",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "chuvstvovat",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "nadeyat'sya",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "planirovat",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "soglashat'sya",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "reshat",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "verit",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "è",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "ob'yasnyat",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "pokazyvat",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "proveryat",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "delit'sya",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "nosit",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "derzhat",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "rezat",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "povorachivat",
+    "count": 1
+  },
+  {
+    "rank": 300,
+    "token": "sidet",
+    "count": 1
+  },
+  {
+    "rank": 301,
+    "token": "stoyat",
+    "count": 1
+  },
+  {
+    "rank": 302,
+    "token": "prosypat'sya",
+    "count": 1
+  },
+  {
+    "rank": 303,
+    "token": "padat",
+    "count": 1
+  },
+  {
+    "rank": 304,
+    "token": "vyigryvat",
+    "count": 1
+  },
+  {
+    "rank": 305,
+    "token": "proigryvat",
+    "count": 1
+  },
+  {
+    "rank": 306,
+    "token": "zakazyvat",
+    "count": 1
+  },
+  {
+    "rank": 307,
+    "token": "bronirovat",
+    "count": 1
+  }
+]

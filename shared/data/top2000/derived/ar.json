@@ -1,0 +1,1687 @@
+[
+  {
+    "rank": 1,
+    "token": "ä",
+    "count": 150
+  },
+  {
+    "rank": 2,
+    "token": "è",
+    "count": 111
+  },
+  {
+    "rank": 3,
+    "token": "à",
+    "count": 105
+  },
+  {
+    "rank": 4,
+    "token": "å",
+    "count": 100
+  },
+  {
+    "rank": 5,
+    "token": "â",
+    "count": 72
+  },
+  {
+    "rank": 6,
+    "token": "ü",
+    "count": 63
+  },
+  {
+    "rank": 7,
+    "token": "ú",
+    "count": 53
+  },
+  {
+    "rank": 8,
+    "token": "ê",
+    "count": 48
+  },
+  {
+    "rank": 9,
+    "token": "ç",
+    "count": 40
+  },
+  {
+    "rank": 10,
+    "token": "é",
+    "count": 38
+  },
+  {
+    "rank": 11,
+    "token": "al",
+    "count": 27
+  },
+  {
+    "rank": 12,
+    "token": "ë",
+    "count": 21
+  },
+  {
+    "rank": 13,
+    "token": "hal",
+    "count": 20
+  },
+  {
+    "rank": 14,
+    "token": "min",
+    "count": 14
+  },
+  {
+    "rank": 15,
+    "token": "fadlak",
+    "count": 13
+  },
+  {
+    "rank": 16,
+    "token": "a",
+    "count": 12
+  },
+  {
+    "rank": 17,
+    "token": "ayn",
+    "count": 11
+  },
+  {
+    "rank": 18,
+    "token": "yumkinuni",
+    "count": 10
+  },
+  {
+    "rank": 19,
+    "token": "ß",
+    "count": 10
+  },
+  {
+    "rank": 20,
+    "token": "í",
+    "count": 9
+  },
+  {
+    "rank": 21,
+    "token": "n",
+    "count": 9
+  },
+  {
+    "rank": 22,
+    "token": "æ",
+    "count": 9
+  },
+  {
+    "rank": 23,
+    "token": "ala",
+    "count": 7
+  },
+  {
+    "rank": 24,
+    "token": "ana",
+    "count": 7
+  },
+  {
+    "rank": 25,
+    "token": "ñ",
+    "count": 7
+  },
+  {
+    "rank": 26,
+    "token": "yumkinuka",
+    "count": 6
+  },
+  {
+    "rank": 27,
+    "token": "mata",
+    "count": 6
+  },
+  {
+    "rank": 28,
+    "token": "la",
+    "count": 5
+  },
+  {
+    "rank": 29,
+    "token": "ma",
+    "count": 5
+  },
+  {
+    "rank": 30,
+    "token": "kam",
+    "count": 5
+  },
+  {
+    "rank": 31,
+    "token": "ó",
+    "count": 4
+  },
+  {
+    "rank": 32,
+    "token": "khayr",
+    "count": 4
+  },
+  {
+    "rank": 33,
+    "token": "γç",
+    "count": 4
+  },
+  {
+    "rank": 34,
+    "token": "fi",
+    "count": 4
+  },
+  {
+    "rank": 35,
+    "token": "ad",
+    "count": 4
+  },
+  {
+    "rank": 36,
+    "token": "ña",
+    "count": 4
+  },
+  {
+    "rank": 37,
+    "token": "aß",
+    "count": 4
+  },
+  {
+    "rank": 38,
+    "token": "γçö",
+    "count": 4
+  },
+  {
+    "rank": 39,
+    "token": "s",
+    "count": 3
+  },
+  {
+    "rank": 40,
+    "token": "as",
+    "count": 3
+  },
+  {
+    "rank": 41,
+    "token": "ahtaj",
+    "count": 3
+  },
+  {
+    "rank": 42,
+    "token": "husul",
+    "count": 3
+  },
+  {
+    "rank": 43,
+    "token": "q",
+    "count": 3
+  },
+  {
+    "rank": 44,
+    "token": "üra",
+    "count": 3
+  },
+  {
+    "rank": 45,
+    "token": "shukran",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "ar",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "sa'a",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "masa",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "araka",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "kayfa",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "î",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "bikhayr",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "tatahaddath",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "at",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "hatha",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "ila",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "mahattat",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "shira",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "huna",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "ladayya",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "awaddu",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "tasjil",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "dukhul",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "bitaqa",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "nabati",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "bil",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "wi",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "sim",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "ittasil",
+    "count": 2
+  },
+  {
+    "rank": 70,
+    "token": "kharita",
+    "count": 2
+  },
+  {
+    "rank": 71,
+    "token": "hiya",
+    "count": 2
+  },
+  {
+    "rank": 72,
+    "token": "iltiqat",
+    "count": 2
+  },
+  {
+    "rank": 73,
+    "token": "sura",
+    "count": 2
+  },
+  {
+    "rank": 74,
+    "token": "w",
+    "count": 2
+  },
+  {
+    "rank": 75,
+    "token": "ün",
+    "count": 2
+  },
+  {
+    "rank": 76,
+    "token": "thal",
+    "count": 2
+  },
+  {
+    "rank": 77,
+    "token": "tham",
+    "count": 2
+  },
+  {
+    "rank": 78,
+    "token": "naß",
+    "count": 2
+  },
+  {
+    "rank": 79,
+    "token": "ôara",
+    "count": 2
+  },
+  {
+    "rank": 80,
+    "token": "üda",
+    "count": 2
+  },
+  {
+    "rank": 81,
+    "token": "allama",
+    "count": 2
+  },
+  {
+    "rank": 82,
+    "token": "úala",
+    "count": 2
+  },
+  {
+    "rank": 83,
+    "token": "waß",
+    "count": 2
+  },
+  {
+    "rank": 84,
+    "token": "taß",
+    "count": 2
+  },
+  {
+    "rank": 85,
+    "token": "sh",
+    "count": 2
+  },
+  {
+    "rank": 86,
+    "token": "marhaban",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "ahlan",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "rahb",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "wa",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "na'am",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "afwan",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "asif",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "sabah",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "tusbih",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "ma'a",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "salama",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "ï",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "iqan",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "haluk",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "ismuk",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "ismi",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "ingliziyya",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "isbaniyya",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "afham",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "i'ada",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "tahadduth",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "bibut",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "uktubha",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "taqul",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "kalima",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "lughah",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "madha",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "ya'ni",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "musa'adati",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "mutarjim",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "an",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "turini",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "yawm",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "ghadan",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "aan",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "lahikan",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "a'rif",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "intazir",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "ja'i",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "atshan",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "ta'ih",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "yasar",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "yamin",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "mustaqim",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "yab'ud",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "sayastaghriq",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "mawqif",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "hafila",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "qitar",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "aqrab",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "metro",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "matar",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "tadhakir",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "tadhkira",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "makan",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "yugh",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "yughadir",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "yasil",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "ayy",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "rasiif",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "talab",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "taksi",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "li",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "qif",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "funduq",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "hajz",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "ghurfa",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "layla",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "khuruj",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "mis'ad",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "miftah",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "qa'ima",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "qahwa",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "shay",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "sirf",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "hasasiyya",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "musabbib",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "ladhidh",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "hisab",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "daf",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "isal",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "si'r",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "ghali",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "jiddan",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "hunaka",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "khasm",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "shira'a",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "faqat",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "anzur",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "ladaykum",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "maqas",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "akhar",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "tajribatuhu",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "yujad",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "kalimat",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "murur",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "shahn",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "hatifi",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "shariha",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "ashur",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "dawa",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "saydaliyya",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "qariba",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "mustashfa",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "musa'ada",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "shurta",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "bi",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "tabib",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "faqadtu",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "jawaz",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "safari",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "tawaqqaf",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "hariq",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "tawari",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "ladayka",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "dukhol",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "yabda",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "uthur",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "ma'lumat",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "lana",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "úifr",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "üß",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "ñid",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "ithn",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "ütha",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "arbaγçÿa",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "khamsa",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "sitta",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "sabγçÿa",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "üniya",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "tisγçÿa",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "γçÿashara",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "γçÿishr",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "üth",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "arbaγçÿ",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "khams",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "sitt",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "sabγçÿ",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "tisγçÿ",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "miγçöa",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "k",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "üna",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "malaka",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "fa",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "dhahaba",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "j",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "ü'a",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "üla",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "akhbara",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "ra",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "sami",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "istama",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "takallama",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "arafa",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "fakkara",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "iß",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "ñt",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "üja",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "istaß",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "yajibu",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "amila",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "üsha",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "akala",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "shariba",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "üma",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "qara'a",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "kataba",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "ta",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "darasa",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "fahima",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "tadhakkara",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "nasiya",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "sa'ala",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "aj",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "üba",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "akhadha",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "ñaß",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "ìa",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "jalaba",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "arsala",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "ishtar",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "b",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "dafa",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "fataß",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "aghlaka",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "bada'a",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "anh",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "tawaqqafa",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "intaß",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "ada",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "istakhdama",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "wajada",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "übala",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "ittasala",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "üwala",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "gh",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "üdara",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "üfara",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "ñarraka",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "baqiya",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "mash",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "rakada",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "rakiba",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "sabaß",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "abakha",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "ôß",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "ôafa",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "ghasala",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "ban",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "kasara",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "úlaß",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "ikht",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "ghayyara",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "ühada",
+    "count": 1
+  },
+  {
+    "rank": 300,
+    "token": "iba",
+    "count": 1
+  },
+  {
+    "rank": 301,
+    "token": "tamarrana",
+    "count": 1
+  },
+  {
+    "rank": 302,
+    "token": "ñabba",
+    "count": 1
+  },
+  {
+    "rank": 303,
+    "token": "jaba",
+    "count": 1
+  },
+  {
+    "rank": 304,
+    "token": "kariha",
+    "count": 1
+  },
+  {
+    "rank": 305,
+    "token": "sha",
+    "count": 1
+  },
+  {
+    "rank": 306,
+    "token": "ara",
+    "count": 1
+  },
+  {
+    "rank": 307,
+    "token": "raj",
+    "count": 1
+  },
+  {
+    "rank": 308,
+    "token": "khaß",
+    "count": 1
+  },
+  {
+    "rank": 309,
+    "token": "üfaqa",
+    "count": 1
+  },
+  {
+    "rank": 310,
+    "token": "qarrara",
+    "count": 1
+  },
+  {
+    "rank": 311,
+    "token": "ümana",
+    "count": 1
+  },
+  {
+    "rank": 312,
+    "token": "sharaß",
+    "count": 1
+  },
+  {
+    "rank": 313,
+    "token": "ôhara",
+    "count": 1
+  },
+  {
+    "rank": 314,
+    "token": "ñaqqaqa",
+    "count": 1
+  },
+  {
+    "rank": 315,
+    "token": "üraka",
+    "count": 1
+  },
+  {
+    "rank": 316,
+    "token": "ñamala",
+    "count": 1
+  },
+  {
+    "rank": 317,
+    "token": "amsaka",
+    "count": 1
+  },
+  {
+    "rank": 318,
+    "token": "qaß",
+    "count": 1
+  },
+  {
+    "rank": 319,
+    "token": "d",
+    "count": 1
+  },
+  {
+    "rank": 320,
+    "token": "jalasa",
+    "count": 1
+  },
+  {
+    "rank": 321,
+    "token": "waqafa",
+    "count": 1
+  },
+  {
+    "rank": 322,
+    "token": "istayqaß",
+    "count": 1
+  },
+  {
+    "rank": 323,
+    "token": "ôa",
+    "count": 1
+  },
+  {
+    "rank": 324,
+    "token": "saqaß",
+    "count": 1
+  },
+  {
+    "rank": 325,
+    "token": "f",
+    "count": 1
+  },
+  {
+    "rank": 326,
+    "token": "üza",
+    "count": 1
+  },
+  {
+    "rank": 327,
+    "token": "khasira",
+    "count": 1
+  },
+  {
+    "rank": 328,
+    "token": "alaba",
+    "count": 1
+  },
+  {
+    "rank": 329,
+    "token": "ñajaza",
+    "count": 1
+  },
+  {
+    "rank": 330,
+    "token": "no",
+    "count": 1
+  },
+  {
+    "rank": 331,
+    "token": "present",
+    "count": 1
+  },
+  {
+    "rank": 332,
+    "token": "copula",
+    "count": 1
+  },
+  {
+    "rank": 333,
+    "token": "yamliku",
+    "count": 1
+  },
+  {
+    "rank": 334,
+    "token": "yadhhabu",
+    "count": 1
+  },
+  {
+    "rank": 335,
+    "token": "yafγçÿalu",
+    "count": 1
+  },
+  {
+    "rank": 336,
+    "token": "yur",
+    "count": 1
+  },
+  {
+    "rank": 337,
+    "token": "du",
+    "count": 1
+  }
+]

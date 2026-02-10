@@ -1,0 +1,1307 @@
+[
+  {
+    "rank": 1,
+    "token": "ä",
+    "count": 110
+  },
+  {
+    "rank": 2,
+    "token": "ë",
+    "count": 83
+  },
+  {
+    "rank": 3,
+    "token": "ü",
+    "count": 78
+  },
+  {
+    "rank": 4,
+    "token": "ç",
+    "count": 71
+  },
+  {
+    "rank": 5,
+    "token": "â",
+    "count": 41
+  },
+  {
+    "rank": 6,
+    "token": "à",
+    "count": 17
+  },
+  {
+    "rank": 7,
+    "token": "á",
+    "count": 17
+  },
+  {
+    "rank": 8,
+    "token": "ì",
+    "count": 16
+  },
+  {
+    "rank": 9,
+    "token": "no",
+    "count": 14
+  },
+  {
+    "rank": 10,
+    "token": "î",
+    "count": 13
+  },
+  {
+    "rank": 11,
+    "token": "å",
+    "count": 13
+  },
+  {
+    "rank": 12,
+    "token": "ío",
+    "count": 11
+  },
+  {
+    "rank": 13,
+    "token": "p",
+    "count": 10
+  },
+  {
+    "rank": 14,
+    "token": "to",
+    "count": 9
+  },
+  {
+    "rank": 15,
+    "token": "e",
+    "count": 9
+  },
+  {
+    "rank": 16,
+    "token": "na",
+    "count": 9
+  },
+  {
+    "rank": 17,
+    "token": "ra",
+    "count": 8
+  },
+  {
+    "rank": 18,
+    "token": "o",
+    "count": 8
+  },
+  {
+    "rank": 19,
+    "token": "po",
+    "count": 8
+  },
+  {
+    "rank": 20,
+    "token": "zo",
+    "count": 8
+  },
+  {
+    "rank": 21,
+    "token": "nai",
+    "count": 7
+  },
+  {
+    "rank": 22,
+    "token": "ñ",
+    "count": 7
+  },
+  {
+    "rank": 23,
+    "token": "l",
+    "count": 7
+  },
+  {
+    "rank": 24,
+    "token": "í",
+    "count": 6
+  },
+  {
+    "rank": 25,
+    "token": "ízo",
+    "count": 6
+  },
+  {
+    "rank": 26,
+    "token": "é",
+    "count": 5
+  },
+  {
+    "rank": 27,
+    "token": "te",
+    "count": 5
+  },
+  {
+    "rank": 28,
+    "token": "ti",
+    "count": 5
+  },
+  {
+    "rank": 29,
+    "token": "cho",
+    "count": 5
+  },
+  {
+    "rank": 30,
+    "token": "vo",
+    "count": 5
+  },
+  {
+    "rank": 31,
+    "token": "go",
+    "count": 4
+  },
+  {
+    "rank": 32,
+    "token": "parakal",
+    "count": 4
+  },
+  {
+    "rank": 33,
+    "token": "æ",
+    "count": 4
+  },
+  {
+    "rank": 34,
+    "token": "s",
+    "count": 4
+  },
+  {
+    "rank": 35,
+    "token": "mil",
+    "count": 4
+  },
+  {
+    "rank": 36,
+    "token": "bore",
+    "count": 4
+  },
+  {
+    "rank": 37,
+    "token": "ízomai",
+    "count": 4
+  },
+  {
+    "rank": 38,
+    "token": "so",
+    "count": 4
+  },
+  {
+    "rank": 39,
+    "token": "bor",
+    "count": 4
+  },
+  {
+    "rank": 40,
+    "token": "k",
+    "count": 4
+  },
+  {
+    "rank": 41,
+    "token": "letters",
+    "count": 3
+  },
+  {
+    "rank": 42,
+    "token": "me",
+    "count": 3
+  },
+  {
+    "rank": 43,
+    "token": "arg",
+    "count": 3
+  },
+  {
+    "rank": 44,
+    "token": "íte",
+    "count": 3
+  },
+  {
+    "rank": 45,
+    "token": "ö",
+    "count": 3
+  },
+  {
+    "rank": 46,
+    "token": "a",
+    "count": 3
+  },
+  {
+    "rank": 47,
+    "token": "ro",
+    "count": 3
+  },
+  {
+    "rank": 48,
+    "token": "st",
+    "count": 3
+  },
+  {
+    "rank": 49,
+    "token": "f",
+    "count": 3
+  },
+  {
+    "rank": 50,
+    "token": "tr",
+    "count": 3
+  },
+  {
+    "rank": 51,
+    "token": "íno",
+    "count": 3
+  },
+  {
+    "rank": 52,
+    "token": "pa",
+    "count": 3
+  },
+  {
+    "rank": 53,
+    "token": "rno",
+    "count": 3
+  },
+  {
+    "rank": 54,
+    "token": "latin",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "aramaic",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "syriac",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "arabic",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "hebrew",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "russian",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "japanese",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "greek",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "basic",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "be",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "have",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "do",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "want",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "ô",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "geia",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "ò",
+    "count": 2
+  },
+  {
+    "rank": 70,
+    "token": "ú",
+    "count": 2
+  },
+  {
+    "rank": 71,
+    "token": "kalisp",
+    "count": 2
+  },
+  {
+    "rank": 72,
+    "token": "tera",
+    "count": 2
+  },
+  {
+    "rank": 73,
+    "token": "γç",
+    "count": 2
+  },
+  {
+    "rank": 74,
+    "token": "den",
+    "count": 2
+  },
+  {
+    "rank": 75,
+    "token": "katalava",
+    "count": 2
+  },
+  {
+    "rank": 76,
+    "token": "xi",
+    "count": 2
+  },
+  {
+    "rank": 77,
+    "token": "chrei",
+    "count": 2
+  },
+  {
+    "rank": 78,
+    "token": "mou",
+    "count": 2
+  },
+  {
+    "rank": 79,
+    "token": "de",
+    "count": 2
+  },
+  {
+    "rank": 80,
+    "token": "x",
+    "count": 2
+  },
+  {
+    "rank": 81,
+    "token": "perim",
+    "count": 2
+  },
+  {
+    "rank": 82,
+    "token": "agor",
+    "count": 2
+  },
+  {
+    "rank": 83,
+    "token": "ft",
+    "count": 2
+  },
+  {
+    "rank": 84,
+    "token": "kal",
+    "count": 2
+  },
+  {
+    "rank": 85,
+    "token": "m",
+    "count": 2
+  },
+  {
+    "rank": 86,
+    "token": "stamat",
+    "count": 2
+  },
+  {
+    "rank": 87,
+    "token": "check",
+    "count": 2
+  },
+  {
+    "rank": 88,
+    "token": "out",
+    "count": 2
+  },
+  {
+    "rank": 89,
+    "token": "plir",
+    "count": 2
+  },
+  {
+    "rank": 90,
+    "token": "nta",
+    "count": 2
+  },
+  {
+    "rank": 91,
+    "token": "piga",
+    "count": 2
+  },
+  {
+    "rank": 92,
+    "token": "bl",
+    "count": 2
+  },
+  {
+    "rank": 93,
+    "token": "ako",
+    "count": 2
+  },
+  {
+    "rank": 94,
+    "token": "th",
+    "count": 2
+  },
+  {
+    "rank": 95,
+    "token": "lo",
+    "count": 2
+  },
+  {
+    "rank": 96,
+    "token": "ímai",
+    "count": 2
+  },
+  {
+    "rank": 97,
+    "token": "krat",
+    "count": 2
+  },
+  {
+    "rank": 98,
+    "token": "english",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "romanian",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "italian",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "french",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "portuguese",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "spanish",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "german",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "chinese",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "aγçôz",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "cyrillic",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "γçö",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "kana",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "make",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "sas",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "efcharist",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "chi",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "syngn",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "mi",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "kalim",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "kalin",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "chta",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "ant",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "ta",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "sai",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "se",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "ne",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "neγç",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "anglik",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "ispanik",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "epanal",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "ívete",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "pio",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "sta",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "gl",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "ssa",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "sima",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "nei",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "aft",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "diermin",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "xete",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "ívrio",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "t",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "nete",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "pein",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "naiγç",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "ê",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "chath",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "arister",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "dexi",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "euthe",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "tha",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "írei",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "i",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "ísi",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "leofor",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "ou",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "stathm",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "aerodr",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "mio",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "íso",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "eisit",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "ria",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "vei",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "ínei",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "poia",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "plattf",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "rma",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "sete",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "tax",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "gia",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "ste",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "ed",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "xenodoche",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "an",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "vr",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "ídy",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "írta",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "ap",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "deixi",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "kost",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "zei",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "nte",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "okt",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "tri",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "ínta",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "ex",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "ogd",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "mai",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "rchomai",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "koit",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "sk",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "ftomai",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "pr",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "pei",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "doul",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "koim",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "diav",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "gr",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "ífo",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "matha",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "did",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "ísko",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "melet",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "thym",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "xechn",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "rot",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "apant",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "d",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "v",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "lno",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "poul",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "ano",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "kle",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "arch",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "telei",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "voith",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "chrisimopoi",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "br",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "sko",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "synant",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "prospath",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "vgo",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "taxid",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "kin",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "perpat",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "odig",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "kaval",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "pet",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "kolymp",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "mageir",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "kathar",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "pl",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "cht",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "sp",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "diorth",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "epil",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "all",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "gymn",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "agap",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "ar",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "sei",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "mis",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "aisth",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "ínomai",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "elp",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "schedi",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "symfon",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "apofas",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "pist",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "exig",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "chno",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "el",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "ncho",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "moir",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "metaf",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "gyr",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "íthomai",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "komai",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "xypn",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "fto",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "nik",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "ch",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "parang",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "llo",
+    "count": 1
+  }
+]

@@ -1,0 +1,1497 @@
+[
+  {
+    "rank": 1,
+    "token": "a",
+    "count": 113
+  },
+  {
+    "rank": 2,
+    "token": "â",
+    "count": 60
+  },
+  {
+    "rank": 3,
+    "token": "rog",
+    "count": 13
+  },
+  {
+    "rank": 4,
+    "token": "te",
+    "count": 11
+  },
+  {
+    "rank": 5,
+    "token": "unde",
+    "count": 11
+  },
+  {
+    "rank": 6,
+    "token": "o",
+    "count": 11
+  },
+  {
+    "rank": 7,
+    "token": "i",
+    "count": 10
+  },
+  {
+    "rank": 8,
+    "token": "este",
+    "count": 10
+  },
+  {
+    "rank": 9,
+    "token": "pot",
+    "count": 10
+  },
+  {
+    "rank": 10,
+    "token": "m",
+    "count": 9
+  },
+  {
+    "rank": 11,
+    "token": "la",
+    "count": 9
+  },
+  {
+    "rank": 12,
+    "token": "de",
+    "count": 9
+  },
+  {
+    "rank": 13,
+    "token": "c",
+    "count": 9
+  },
+  {
+    "rank": 14,
+    "token": "ce",
+    "count": 8
+  },
+  {
+    "rank": 15,
+    "token": "am",
+    "count": 8
+  },
+  {
+    "rank": 16,
+    "token": "s",
+    "count": 7
+  },
+  {
+    "rank": 17,
+    "token": "e",
+    "count": 7
+  },
+  {
+    "rank": 18,
+    "token": "po",
+    "count": 6
+  },
+  {
+    "rank": 19,
+    "token": "bun",
+    "count": 5
+  },
+  {
+    "rank": 20,
+    "token": "mai",
+    "count": 5
+  },
+  {
+    "rank": 21,
+    "token": "n",
+    "count": 5
+  },
+  {
+    "rank": 22,
+    "token": "mi",
+    "count": 5
+  },
+  {
+    "rank": 23,
+    "token": "ót",
+    "count": 5
+  },
+  {
+    "rank": 24,
+    "token": "or",
+    "count": 5
+  },
+  {
+    "rank": 25,
+    "token": "fi",
+    "count": 5
+  },
+  {
+    "rank": 26,
+    "token": "pl",
+    "count": 4
+  },
+  {
+    "rank": 27,
+    "token": "nu",
+    "count": 4
+  },
+  {
+    "rank": 28,
+    "token": "sunt",
+    "count": 4
+  },
+  {
+    "rank": 29,
+    "token": "se",
+    "count": 4
+  },
+  {
+    "rank": 30,
+    "token": "nevoie",
+    "count": 4
+  },
+  {
+    "rank": 31,
+    "token": "un",
+    "count": 4
+  },
+  {
+    "rank": 32,
+    "token": "sta",
+    "count": 4
+  },
+  {
+    "rank": 33,
+    "token": "cump",
+    "count": 4
+  },
+  {
+    "rank": 34,
+    "token": "v",
+    "count": 4
+  },
+  {
+    "rank": 35,
+    "token": "g",
+    "count": 4
+  },
+  {
+    "rank": 36,
+    "token": "r",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "t",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "cheam",
+    "count": 3
+  },
+  {
+    "rank": 39,
+    "token": "öti",
+    "count": 3
+  },
+  {
+    "rank": 40,
+    "token": "asta",
+    "count": 3
+  },
+  {
+    "rank": 41,
+    "token": "âra",
+    "count": 3
+  },
+  {
+    "rank": 42,
+    "token": "âti",
+    "count": 3
+  },
+  {
+    "rank": 43,
+    "token": "vrea",
+    "count": 3
+  },
+  {
+    "rank": 44,
+    "token": "avea",
+    "count": 3
+  },
+  {
+    "rank": 45,
+    "token": "merge",
+    "count": 3
+  },
+  {
+    "rank": 46,
+    "token": "mul",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "umesc",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "cu",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "da",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "ämi",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "noapte",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "ne",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "órziu",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "faci",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "bine",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "cum",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "vorbe",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "vorbi",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "scrie",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "spune",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "ajuta",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "ar",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "pierdut",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "ia",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "ajunge",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "opri",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "aici",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "ö",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "cost",
+    "count": 2
+  },
+  {
+    "rank": 70,
+    "token": "pe",
+    "count": 2
+  },
+  {
+    "rank": 71,
+    "token": "check",
+    "count": 2
+  },
+  {
+    "rank": 72,
+    "token": "cardul",
+    "count": 2
+  },
+  {
+    "rank": 73,
+    "token": "nota",
+    "count": 2
+  },
+  {
+    "rank": 74,
+    "token": "exist",
+    "count": 2
+  },
+  {
+    "rank": 75,
+    "token": "wi",
+    "count": 2
+  },
+  {
+    "rank": 76,
+    "token": "care",
+    "count": 2
+  },
+  {
+    "rank": 77,
+    "token": "sim",
+    "count": 2
+  },
+  {
+    "rank": 78,
+    "token": "hart",
+    "count": 2
+  },
+  {
+    "rank": 79,
+    "token": "ncepe",
+    "count": 2
+  },
+  {
+    "rank": 80,
+    "token": "âsi",
+    "count": 2
+  },
+  {
+    "rank": 81,
+    "token": "poz",
+    "count": 2
+  },
+  {
+    "rank": 82,
+    "token": "nou",
+    "count": 2
+  },
+  {
+    "rank": 83,
+    "token": "âzeci",
+    "count": 2
+  },
+  {
+    "rank": 84,
+    "token": "face",
+    "count": 2
+  },
+  {
+    "rank": 85,
+    "token": "privi",
+    "count": 2
+  },
+  {
+    "rank": 86,
+    "token": "öi",
+    "count": 2
+  },
+  {
+    "rank": 87,
+    "token": "ine",
+    "count": 2
+  },
+  {
+    "rank": 88,
+    "token": "âl",
+    "count": 2
+  },
+  {
+    "rank": 89,
+    "token": "jos",
+    "count": 2
+  },
+  {
+    "rank": 90,
+    "token": "salut",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "âcere",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "scuz",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "pare",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "âu",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "diminea",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "ziua",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "seara",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "revedere",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "vedem",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "numescγç",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "englez",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "spaniol",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "eleg",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "repeta",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "ncet",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "cuv",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "ónt",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "limba",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "nseamn",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "interpret",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "ceasul",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "azi",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "óine",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "acum",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "ötiu",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "öteapt",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "foame",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "sete",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "esteγç",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "st",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "ónga",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "dreapta",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "änainte",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "departe",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "va",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "dura",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "autobuz",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "gara",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "cea",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "apropiat",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "ie",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "metrou",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "aeroportul",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "bilete",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "bilet",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "p",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "ón",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "loc",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "pleac",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "peron",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "chema",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "taxi",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "pentru",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "mine",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "hotelul",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "rezervare",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "dori",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "camer",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "in",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "out",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "liftul",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "cheia",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "meniul",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "ap",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "cafea",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "ceai",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "vegetarian",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "vegan",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "alergic",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "alergen",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "delicios",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "primi",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "chitan",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "prea",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "scump",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "reducere",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "âr",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "doar",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "uit",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "ave",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "alt",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "ârime",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "l",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "ncerc",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "parola",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "nc",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "ârca",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "telefonul",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "cartel",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "simt",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "medicamente",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "farmacie",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "apropiere",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "spitalul",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "ajutor",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "poli",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "doctor",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "pa",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "öaportul",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "opre",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "öte",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "foc",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "urgen",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "ai",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "taxa",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "intrare",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "informa",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "ii",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "fac",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "zero",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "unu",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "doi",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "trei",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "patru",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "cinci",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "öase",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "öapte",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "opt",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "zece",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "dou",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "treizeci",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "patruzeci",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "cincizeci",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "öaizeci",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "öaptezeci",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "optzeci",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "sut",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "veni",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "povesti",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "vedea",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "auzi",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "asculta",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "óndi",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "putea",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "trebui",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "lucra",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "tr",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "âi",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "ónca",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "bea",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "dormi",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "citi",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "nv",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "preda",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "studia",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "elege",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "aminti",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "uita",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "ntreba",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "âspunde",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "lua",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "ob",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "pune",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "aduce",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "trimite",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "vinde",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "deschide",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "nchide",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "termina",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "ötepta",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "folosi",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "nt",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "ólni",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "suna",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "ncerca",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "pleca",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "âtori",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "öca",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "âm",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "óne",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "alerga",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "conduce",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "âri",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "zbura",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "cur",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "sp",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "âla",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "construi",
+    "count": 1
+  },
+  {
+    "rank": 269,
+    "token": "rupe",
+    "count": 1
+  },
+  {
+    "rank": 270,
+    "token": "repara",
+    "count": 1
+  },
+  {
+    "rank": 271,
+    "token": "alege",
+    "count": 1
+  },
+  {
+    "rank": 272,
+    "token": "schimba",
+    "count": 1
+  },
+  {
+    "rank": 273,
+    "token": "juca",
+    "count": 1
+  },
+  {
+    "rank": 274,
+    "token": "antrena",
+    "count": 1
+  },
+  {
+    "rank": 275,
+    "token": "iubi",
+    "count": 1
+  },
+  {
+    "rank": 276,
+    "token": "âcea",
+    "count": 1
+  },
+  {
+    "rank": 277,
+    "token": "ur",
+    "count": 1
+  },
+  {
+    "rank": 278,
+    "token": "spera",
+    "count": 1
+  },
+  {
+    "rank": 279,
+    "token": "planifica",
+    "count": 1
+  },
+  {
+    "rank": 280,
+    "token": "acord",
+    "count": 1
+  },
+  {
+    "rank": 281,
+    "token": "decide",
+    "count": 1
+  },
+  {
+    "rank": 282,
+    "token": "crede",
+    "count": 1
+  },
+  {
+    "rank": 283,
+    "token": "explica",
+    "count": 1
+  },
+  {
+    "rank": 284,
+    "token": "âta",
+    "count": 1
+  },
+  {
+    "rank": 285,
+    "token": "verifica",
+    "count": 1
+  },
+  {
+    "rank": 286,
+    "token": "mp",
+    "count": 1
+  },
+  {
+    "rank": 287,
+    "token": "ârt",
+    "count": 1
+  },
+  {
+    "rank": 288,
+    "token": "purta",
+    "count": 1
+  },
+  {
+    "rank": 289,
+    "token": "âia",
+    "count": 1
+  },
+  {
+    "rank": 290,
+    "token": "ntoarce",
+    "count": 1
+  },
+  {
+    "rank": 291,
+    "token": "picioare",
+    "count": 1
+  },
+  {
+    "rank": 292,
+    "token": "trezi",
+    "count": 1
+  },
+  {
+    "rank": 293,
+    "token": "âdea",
+    "count": 1
+  },
+  {
+    "rank": 294,
+    "token": "ó",
+    "count": 1
+  },
+  {
+    "rank": 295,
+    "token": "ötiga",
+    "count": 1
+  },
+  {
+    "rank": 296,
+    "token": "pierde",
+    "count": 1
+  },
+  {
+    "rank": 297,
+    "token": "comanda",
+    "count": 1
+  },
+  {
+    "rank": 298,
+    "token": "rezerva",
+    "count": 1
+  },
+  {
+    "rank": 299,
+    "token": "γçö",
+    "count": 1
+  }
+]

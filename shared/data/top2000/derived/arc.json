@@ -1,0 +1,1342 @@
+[
+  {
+    "rank": 1,
+    "token": "é",
+    "count": 244
+  },
+  {
+    "rank": 2,
+    "token": "í",
+    "count": 90
+  },
+  {
+    "rank": 3,
+    "token": "æ",
+    "count": 83
+  },
+  {
+    "rank": 4,
+    "token": "ó",
+    "count": 79
+  },
+  {
+    "rank": 5,
+    "token": "á",
+    "count": 71
+  },
+  {
+    "rank": 6,
+    "token": "ü",
+    "count": 62
+  },
+  {
+    "rank": 7,
+    "token": "ñ",
+    "count": 51
+  },
+  {
+    "rank": 8,
+    "token": "ú",
+    "count": 42
+  },
+  {
+    "rank": 9,
+    "token": "ÿ",
+    "count": 41
+  },
+  {
+    "rank": 10,
+    "token": "ò",
+    "count": 39
+  },
+  {
+    "rank": 11,
+    "token": "ß",
+    "count": 28
+  },
+  {
+    "rank": 12,
+    "token": "ù",
+    "count": 19
+  },
+  {
+    "rank": 13,
+    "token": "ö",
+    "count": 18
+  },
+  {
+    "rank": 14,
+    "token": "ana",
+    "count": 14
+  },
+  {
+    "rank": 15,
+    "token": "ba'ith",
+    "count": 12
+  },
+  {
+    "rank": 16,
+    "token": "ayka",
+    "count": 11
+  },
+  {
+    "rank": 17,
+    "token": "ô",
+    "count": 9
+  },
+  {
+    "rank": 18,
+    "token": "it",
+    "count": 9
+  },
+  {
+    "rank": 19,
+    "token": "matsa",
+    "count": 8
+  },
+  {
+    "rank": 20,
+    "token": "n",
+    "count": 8
+  },
+  {
+    "rank": 21,
+    "token": "li",
+    "count": 7
+  },
+  {
+    "rank": 22,
+    "token": "b",
+    "count": 7
+  },
+  {
+    "rank": 23,
+    "token": "la",
+    "count": 6
+  },
+  {
+    "rank": 24,
+    "token": "taba",
+    "count": 6
+  },
+  {
+    "rank": 25,
+    "token": "kama",
+    "count": 6
+  },
+  {
+    "rank": 26,
+    "token": "γçö",
+    "count": 6
+  },
+  {
+    "rank": 27,
+    "token": "ant",
+    "count": 5
+  },
+  {
+    "rank": 28,
+    "token": "ba'ina",
+    "count": 5
+  },
+  {
+    "rank": 29,
+    "token": "d",
+    "count": 5
+  },
+  {
+    "rank": 30,
+    "token": "amti",
+    "count": 5
+  },
+  {
+    "rank": 31,
+    "token": "γç",
+    "count": 4
+  },
+  {
+    "rank": 32,
+    "token": "shlama",
+    "count": 3
+  },
+  {
+    "rank": 33,
+    "token": "mana",
+    "count": 3
+  },
+  {
+    "rank": 34,
+    "token": "mamallel",
+    "count": 3
+  },
+  {
+    "rank": 35,
+    "token": "ñawi",
+    "count": 3
+  },
+  {
+    "rank": 36,
+    "token": "zban",
+    "count": 3
+  },
+  {
+    "rank": 37,
+    "token": "l",
+    "count": 3
+  },
+  {
+    "rank": 38,
+    "token": "qri",
+    "count": 3
+  },
+  {
+    "rank": 39,
+    "token": "ñza",
+    "count": 3
+  },
+  {
+    "rank": 40,
+    "token": "ñam",
+    "count": 3
+  },
+  {
+    "rank": 41,
+    "token": "psaq",
+    "count": 3
+  },
+  {
+    "rank": 42,
+    "token": "tawda",
+    "count": 2
+  },
+  {
+    "rank": 43,
+    "token": "lelya",
+    "count": 2
+  },
+  {
+    "rank": 44,
+    "token": "batar",
+    "count": 2
+  },
+  {
+    "rank": 45,
+    "token": "ayk",
+    "count": 2
+  },
+  {
+    "rank": 46,
+    "token": "qariba",
+    "count": 2
+  },
+  {
+    "rank": 47,
+    "token": "maß",
+    "count": 2
+  },
+  {
+    "rank": 48,
+    "token": "takartisa",
+    "count": 2
+  },
+  {
+    "rank": 49,
+    "token": "ñad",
+    "count": 2
+  },
+  {
+    "rank": 50,
+    "token": "a",
+    "count": 2
+  },
+  {
+    "rank": 51,
+    "token": "qum",
+    "count": 2
+  },
+  {
+    "rank": 52,
+    "token": "harka",
+    "count": 2
+  },
+  {
+    "rank": 53,
+    "token": "ña",
+    "count": 2
+  },
+  {
+    "rank": 54,
+    "token": "akhel",
+    "count": 2
+  },
+  {
+    "rank": 55,
+    "token": "aß",
+    "count": 2
+  },
+  {
+    "rank": 56,
+    "token": "wi",
+    "count": 2
+  },
+  {
+    "rank": 57,
+    "token": "fi",
+    "count": 2
+  },
+  {
+    "rank": 58,
+    "token": "sim",
+    "count": 2
+  },
+  {
+    "rank": 59,
+    "token": "asma",
+    "count": 2
+  },
+  {
+    "rank": 60,
+    "token": "karta",
+    "count": 2
+  },
+  {
+    "rank": 61,
+    "token": "shra",
+    "count": 2
+  },
+  {
+    "rank": 62,
+    "token": "tl",
+    "count": 2
+  },
+  {
+    "rank": 63,
+    "token": "üß",
+    "count": 2
+  },
+  {
+    "rank": 64,
+    "token": "arbaγçÿ",
+    "count": 2
+  },
+  {
+    "rank": 65,
+    "token": "íabγçÿ",
+    "count": 2
+  },
+  {
+    "rank": 66,
+    "token": "tmany",
+    "count": 2
+  },
+  {
+    "rank": 67,
+    "token": "te",
+    "count": 2
+  },
+  {
+    "rank": 68,
+    "token": "íγçÿ",
+    "count": 2
+  },
+  {
+    "rank": 69,
+    "token": "γçÿesr",
+    "count": 2
+  },
+  {
+    "rank": 70,
+    "token": "hw",
+    "count": 2
+  },
+  {
+    "rank": 71,
+    "token": "ç",
+    "count": 2
+  },
+  {
+    "rank": 72,
+    "token": "bad",
+    "count": 2
+  },
+  {
+    "rank": 73,
+    "token": "azal",
+    "count": 2
+  },
+  {
+    "rank": 74,
+    "token": "shma",
+    "count": 2
+  },
+  {
+    "rank": 75,
+    "token": "úba",
+    "count": 2
+  },
+  {
+    "rank": 76,
+    "token": "mß",
+    "count": 2
+  },
+  {
+    "rank": 77,
+    "token": "qra",
+    "count": 2
+  },
+  {
+    "rank": 78,
+    "token": "gmar",
+    "count": 2
+  },
+  {
+    "rank": 79,
+    "token": "shkakh",
+    "count": 2
+  },
+  {
+    "rank": 80,
+    "token": "sbar",
+    "count": 2
+  },
+  {
+    "rank": 81,
+    "token": "yeteb",
+    "count": 2
+  },
+  {
+    "rank": 82,
+    "token": "eyn",
+    "count": 1
+  },
+  {
+    "rank": 83,
+    "token": "shbuq",
+    "count": 1
+  },
+  {
+    "rank": 84,
+    "token": "sliha",
+    "count": 1
+  },
+  {
+    "rank": 85,
+    "token": "safra",
+    "count": 1
+  },
+  {
+    "rank": 86,
+    "token": "yoma",
+    "count": 1
+  },
+  {
+    "rank": 87,
+    "token": "ramshe",
+    "count": 1
+  },
+  {
+    "rank": 88,
+    "token": "neß",
+    "count": 1
+  },
+  {
+    "rank": 89,
+    "token": "ñzik",
+    "count": 1
+  },
+  {
+    "rank": 90,
+    "token": "î",
+    "count": 1
+  },
+  {
+    "rank": 91,
+    "token": "shmakh",
+    "count": 1
+  },
+  {
+    "rank": 92,
+    "token": "shmi",
+    "count": 1
+  },
+  {
+    "rank": 93,
+    "token": "anglisi",
+    "count": 1
+  },
+  {
+    "rank": 94,
+    "token": "spanaya",
+    "count": 1
+  },
+  {
+    "rank": 95,
+    "token": "saklet",
+    "count": 1
+  },
+  {
+    "rank": 96,
+    "token": "emar",
+    "count": 1
+  },
+  {
+    "rank": 97,
+    "token": "tub",
+    "count": 1
+  },
+  {
+    "rank": 98,
+    "token": "itiya",
+    "count": 1
+  },
+  {
+    "rank": 99,
+    "token": "ktob",
+    "count": 1
+  },
+  {
+    "rank": 100,
+    "token": "h",
+    "count": 1
+  },
+  {
+    "rank": 101,
+    "token": "üda",
+    "count": 1
+  },
+  {
+    "rank": 102,
+    "token": "amrin",
+    "count": 1
+  },
+  {
+    "rank": 103,
+    "token": "malta",
+    "count": 1
+  },
+  {
+    "rank": 104,
+    "token": "leshana",
+    "count": 1
+  },
+  {
+    "rank": 105,
+    "token": "peshqe",
+    "count": 1
+  },
+  {
+    "rank": 106,
+    "token": "adar",
+    "count": 1
+  },
+  {
+    "rank": 107,
+    "token": "metargmana",
+    "count": 1
+  },
+  {
+    "rank": 108,
+    "token": "sha'ta",
+    "count": 1
+  },
+  {
+    "rank": 109,
+    "token": "yomana",
+    "count": 1
+  },
+  {
+    "rank": 110,
+    "token": "meß",
+    "count": 1
+  },
+  {
+    "rank": 111,
+    "token": "ñar",
+    "count": 1
+  },
+  {
+    "rank": 112,
+    "token": "hasha",
+    "count": 1
+  },
+  {
+    "rank": 113,
+    "token": "yda't",
+    "count": 1
+  },
+  {
+    "rank": 114,
+    "token": "ñakki",
+    "count": 1
+  },
+  {
+    "rank": 115,
+    "token": "kafna",
+    "count": 1
+  },
+  {
+    "rank": 116,
+    "token": "úahya",
+    "count": 1
+  },
+  {
+    "rank": 117,
+    "token": "a'it",
+    "count": 1
+  },
+  {
+    "rank": 118,
+    "token": "semala",
+    "count": 1
+  },
+  {
+    "rank": 119,
+    "token": "yamina",
+    "count": 1
+  },
+  {
+    "rank": 120,
+    "token": "qadma",
+    "count": 1
+  },
+  {
+    "rank": 121,
+    "token": "rhiq",
+    "count": 1
+  },
+  {
+    "rank": 122,
+    "token": "zavn",
+    "count": 1
+  },
+  {
+    "rank": 123,
+    "token": "qumta",
+    "count": 1
+  },
+  {
+    "rank": 124,
+    "token": "otobus",
+    "count": 1
+  },
+  {
+    "rank": 125,
+    "token": "stasyon",
+    "count": 1
+  },
+  {
+    "rank": 126,
+    "token": "rakba",
+    "count": 1
+  },
+  {
+    "rank": 127,
+    "token": "metro",
+    "count": 1
+  },
+  {
+    "rank": 128,
+    "token": "r",
+    "count": 1
+  },
+  {
+    "rank": 129,
+    "token": "atra",
+    "count": 1
+  },
+  {
+    "rank": 130,
+    "token": "nafeq",
+    "count": 1
+  },
+  {
+    "rank": 131,
+    "token": "ayna",
+    "count": 1
+  },
+  {
+    "rank": 132,
+    "token": "peron",
+    "count": 1
+  },
+  {
+    "rank": 133,
+    "token": "taksi",
+    "count": 1
+  },
+  {
+    "rank": 134,
+    "token": "hotil",
+    "count": 1
+  },
+  {
+    "rank": 135,
+    "token": "ñuzy",
+    "count": 1
+  },
+  {
+    "rank": 136,
+    "token": "ñadra",
+    "count": 1
+  },
+  {
+    "rank": 137,
+    "token": "alin",
+    "count": 1
+  },
+  {
+    "rank": 138,
+    "token": "nafqin",
+    "count": 1
+  },
+  {
+    "rank": 139,
+    "token": "asansor",
+    "count": 1
+  },
+  {
+    "rank": 140,
+    "token": "maftß",
+    "count": 1
+  },
+  {
+    "rank": 141,
+    "token": "kartisa",
+    "count": 1
+  },
+  {
+    "rank": 142,
+    "token": "hav",
+    "count": 1
+  },
+  {
+    "rank": 143,
+    "token": "menyu",
+    "count": 1
+  },
+  {
+    "rank": 144,
+    "token": "maya",
+    "count": 1
+  },
+  {
+    "rank": 145,
+    "token": "qahwa",
+    "count": 1
+  },
+  {
+    "rank": 146,
+    "token": "teya",
+    "count": 1
+  },
+  {
+    "rank": 147,
+    "token": "zar'a",
+    "count": 1
+  },
+  {
+    "rank": 148,
+    "token": "besra",
+    "count": 1
+  },
+  {
+    "rank": 149,
+    "token": "w",
+    "count": 1
+  },
+  {
+    "rank": 150,
+    "token": "ñelba",
+    "count": 1
+  },
+  {
+    "rank": 151,
+    "token": "alergya",
+    "count": 1
+  },
+  {
+    "rank": 152,
+    "token": "men",
+    "count": 1
+  },
+  {
+    "rank": 153,
+    "token": "mdem",
+    "count": 1
+  },
+  {
+    "rank": 154,
+    "token": "basim",
+    "count": 1
+  },
+  {
+    "rank": 155,
+    "token": "ñashbana",
+    "count": 1
+  },
+  {
+    "rank": 156,
+    "token": "defa",
+    "count": 1
+  },
+  {
+    "rank": 157,
+    "token": "kard",
+    "count": 1
+  },
+  {
+    "rank": 158,
+    "token": "qabltha",
+    "count": 1
+  },
+  {
+    "rank": 159,
+    "token": "hu",
+    "count": 1
+  },
+  {
+    "rank": 160,
+    "token": "damayh",
+    "count": 1
+  },
+  {
+    "rank": 161,
+    "token": "yaqir",
+    "count": 1
+  },
+  {
+    "rank": 162,
+    "token": "saggi",
+    "count": 1
+  },
+  {
+    "rank": 163,
+    "token": "zula",
+    "count": 1
+  },
+  {
+    "rank": 164,
+    "token": "dezban",
+    "count": 1
+  },
+  {
+    "rank": 165,
+    "token": "hana",
+    "count": 1
+  },
+  {
+    "rank": 166,
+    "token": "lß",
+    "count": 1
+  },
+  {
+    "rank": 167,
+    "token": "ñud",
+    "count": 1
+  },
+  {
+    "rank": 168,
+    "token": "mshokhta",
+    "count": 1
+  },
+  {
+    "rank": 169,
+    "token": "ñrta",
+    "count": 1
+  },
+  {
+    "rank": 170,
+    "token": "denasa",
+    "count": 1
+  },
+  {
+    "rank": 171,
+    "token": "password",
+    "count": 1
+  },
+  {
+    "rank": 172,
+    "token": "demale",
+    "count": 1
+  },
+  {
+    "rank": 173,
+    "token": "telfoni",
+    "count": 1
+  },
+  {
+    "rank": 174,
+    "token": "beth",
+    "count": 1
+  },
+  {
+    "rank": 175,
+    "token": "aspaß",
+    "count": 1
+  },
+  {
+    "rank": 176,
+    "token": "alya",
+    "count": 1
+  },
+  {
+    "rank": 177,
+    "token": "adra",
+    "count": 1
+  },
+  {
+    "rank": 178,
+    "token": "polis",
+    "count": 1
+  },
+  {
+    "rank": 179,
+    "token": "asya",
+    "count": 1
+  },
+  {
+    "rank": 180,
+    "token": "avdet",
+    "count": 1
+  },
+  {
+    "rank": 181,
+    "token": "pasporti",
+    "count": 1
+  },
+  {
+    "rank": 182,
+    "token": "nura",
+    "count": 1
+  },
+  {
+    "rank": 183,
+    "token": "agl",
+    "count": 1
+  },
+  {
+    "rank": 184,
+    "token": "dmay",
+    "count": 1
+  },
+  {
+    "rank": 185,
+    "token": "alla",
+    "count": 1
+  },
+  {
+    "rank": 186,
+    "token": "ashkakh",
+    "count": 1
+  },
+  {
+    "rank": 187,
+    "token": "yed'ata",
+    "count": 1
+  },
+  {
+    "rank": 188,
+    "token": "tsalam",
+    "count": 1
+  },
+  {
+    "rank": 189,
+    "token": "tsalman",
+    "count": 1
+  },
+  {
+    "rank": 190,
+    "token": "sifr",
+    "count": 1
+  },
+  {
+    "rank": 191,
+    "token": "tr",
+    "count": 1
+  },
+  {
+    "rank": 192,
+    "token": "ôn",
+    "count": 1
+  },
+  {
+    "rank": 193,
+    "token": "íeß",
+    "count": 1
+  },
+  {
+    "rank": 194,
+    "token": "íett",
+    "count": 1
+  },
+  {
+    "rank": 195,
+    "token": "meγçö",
+    "count": 1
+  },
+  {
+    "rank": 196,
+    "token": "ata",
+    "count": 1
+  },
+  {
+    "rank": 197,
+    "token": "amar",
+    "count": 1
+  },
+  {
+    "rank": 198,
+    "token": "mallal",
+    "count": 1
+  },
+  {
+    "rank": 199,
+    "token": "yda",
+    "count": 1
+  },
+  {
+    "rank": 200,
+    "token": "ñshab",
+    "count": 1
+  },
+  {
+    "rank": 201,
+    "token": "ba",
+    "count": 1
+  },
+  {
+    "rank": 202,
+    "token": "úa",
+    "count": 1
+  },
+  {
+    "rank": 203,
+    "token": "ñayav",
+    "count": 1
+  },
+  {
+    "rank": 204,
+    "token": "plakh",
+    "count": 1
+  },
+  {
+    "rank": 205,
+    "token": "ñya",
+    "count": 1
+  },
+  {
+    "rank": 206,
+    "token": "akal",
+    "count": 1
+  },
+  {
+    "rank": 207,
+    "token": "shta",
+    "count": 1
+  },
+  {
+    "rank": 208,
+    "token": "dmakh",
+    "count": 1
+  },
+  {
+    "rank": 209,
+    "token": "ktav",
+    "count": 1
+  },
+  {
+    "rank": 210,
+    "token": "yalf",
+    "count": 1
+  },
+  {
+    "rank": 211,
+    "token": "alp",
+    "count": 1
+  },
+  {
+    "rank": 212,
+    "token": "sakal",
+    "count": 1
+  },
+  {
+    "rank": 213,
+    "token": "dkar",
+    "count": 1
+  },
+  {
+    "rank": 214,
+    "token": "sha'al",
+    "count": 1
+  },
+  {
+    "rank": 215,
+    "token": "na",
+    "count": 1
+  },
+  {
+    "rank": 216,
+    "token": "yahav",
+    "count": 1
+  },
+  {
+    "rank": 217,
+    "token": "nasab",
+    "count": 1
+  },
+  {
+    "rank": 218,
+    "token": "ayti",
+    "count": 1
+  },
+  {
+    "rank": 219,
+    "token": "shadar",
+    "count": 1
+  },
+  {
+    "rank": 220,
+    "token": "mazben",
+    "count": 1
+  },
+  {
+    "rank": 221,
+    "token": "pra",
+    "count": 1
+  },
+  {
+    "rank": 222,
+    "token": "pthaß",
+    "count": 1
+  },
+  {
+    "rank": 223,
+    "token": "sakar",
+    "count": 1
+  },
+  {
+    "rank": 224,
+    "token": "dar",
+    "count": 1
+  },
+  {
+    "rank": 225,
+    "token": "shamesh",
+    "count": 1
+  },
+  {
+    "rank": 226,
+    "token": "pga",
+    "count": 1
+  },
+  {
+    "rank": 227,
+    "token": "nas",
+    "count": 1
+  },
+  {
+    "rank": 228,
+    "token": "shbaq",
+    "count": 1
+  },
+  {
+    "rank": 229,
+    "token": "rda",
+    "count": 1
+  },
+  {
+    "rank": 230,
+    "token": "zua",
+    "count": 1
+  },
+  {
+    "rank": 231,
+    "token": "halakh",
+    "count": 1
+  },
+  {
+    "rank": 232,
+    "token": "rhaß",
+    "count": 1
+  },
+  {
+    "rank": 233,
+    "token": "dbar",
+    "count": 1
+  },
+  {
+    "rank": 234,
+    "token": "rkab",
+    "count": 1
+  },
+  {
+    "rank": 235,
+    "token": "praß",
+    "count": 1
+  },
+  {
+    "rank": 236,
+    "token": "sß",
+    "count": 1
+  },
+  {
+    "rank": 237,
+    "token": "bshal",
+    "count": 1
+  },
+  {
+    "rank": 238,
+    "token": "dka",
+    "count": 1
+  },
+  {
+    "rank": 239,
+    "token": "bna",
+    "count": 1
+  },
+  {
+    "rank": 240,
+    "token": "tbar",
+    "count": 1
+  },
+  {
+    "rank": 241,
+    "token": "taqan",
+    "count": 1
+  },
+  {
+    "rank": 242,
+    "token": "gba",
+    "count": 1
+  },
+  {
+    "rank": 243,
+    "token": "ñlap",
+    "count": 1
+  },
+  {
+    "rank": 244,
+    "token": "naß",
+    "count": 1
+  },
+  {
+    "rank": 245,
+    "token": "ar",
+    "count": 1
+  },
+  {
+    "rank": 246,
+    "token": "shß",
+    "count": 1
+  },
+  {
+    "rank": 247,
+    "token": "ñaq",
+    "count": 1
+  },
+  {
+    "rank": 248,
+    "token": "rß",
+    "count": 1
+  },
+  {
+    "rank": 249,
+    "token": "ñabab",
+    "count": 1
+  },
+  {
+    "rank": 250,
+    "token": "sna",
+    "count": 1
+  },
+  {
+    "rank": 251,
+    "token": "ñsh",
+    "count": 1
+  },
+  {
+    "rank": 252,
+    "token": "traß",
+    "count": 1
+  },
+  {
+    "rank": 253,
+    "token": "askem",
+    "count": 1
+  },
+  {
+    "rank": 254,
+    "token": "haymen",
+    "count": 1
+  },
+  {
+    "rank": 255,
+    "token": "pshaq",
+    "count": 1
+  },
+  {
+    "rank": 256,
+    "token": "baqar",
+    "count": 1
+  },
+  {
+    "rank": 257,
+    "token": "shutaf",
+    "count": 1
+  },
+  {
+    "rank": 258,
+    "token": "shqal",
+    "count": 1
+  },
+  {
+    "rank": 259,
+    "token": "ñed",
+    "count": 1
+  },
+  {
+    "rank": 260,
+    "token": "hapakh",
+    "count": 1
+  },
+  {
+    "rank": 261,
+    "token": "qam",
+    "count": 1
+  },
+  {
+    "rank": 262,
+    "token": "ur",
+    "count": 1
+  },
+  {
+    "rank": 263,
+    "token": "nafal",
+    "count": 1
+  },
+  {
+    "rank": 264,
+    "token": "zkh",
+    "count": 1
+  },
+  {
+    "rank": 265,
+    "token": "avad",
+    "count": 1
+  },
+  {
+    "rank": 266,
+    "token": "lab",
+    "count": 1
+  },
+  {
+    "rank": 267,
+    "token": "ñz",
+    "count": 1
+  },
+  {
+    "rank": 268,
+    "token": "booking",
+    "count": 1
+  }
+]

@@ -1,22 +1,866 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>TSI Analytics - Polyglot Heaven</title>
-  <link rel="stylesheet" href="../shared/styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSI Method™ - Transfer-Based Scaffolded Immersion</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Charts (Dashboards) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+
+    <style>
+        /* Small extras to make dashboards feel "instrument panel" like, without fighting your CSS file */
+        .tsi-card { border: 1px solid rgba(15,23,42,.08); }
+        .tsi-kpi { background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.90)); }
+        .tsi-gridline { background-image: linear-gradient(to right, rgba(2,6,23,.05) 1px, transparent 1px),
+                                         linear-gradient(to bottom, rgba(2,6,23,.05) 1px, transparent 1px);
+                        background-size: 28px 28px; }
+        .tsi-badge { font-variant-numeric: tabular-nums; }
+        canvas { max-height: 360px; }
+    </style>
 </head>
-<body>
-  <nav>
-    <a href="../index.html">← Back to Hub</a>
-  </nav>
-  <main>
-    <h1>TSI Analytics Wing</h1>
-    <p>TODO: TSI Analytics layout goes here</p>
-    <p>This will be the TSI Method analytics lab with charts and learning efficiency metrics.</p>
-  </main>
-  <script src="../shared/core.js"></script>
-  <script src="../shared/components.js"></script>
+<body class="bg-gray-50 font-sans antialiased">
+    <custom-navbar></custom-navbar>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">TSI Method™</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6">Transfer-Based Scaffolded Immersion</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">A structured, research-informed framework for accelerated, measurable language acquisition.</p>
+            <p class="max-w-2xl mx-auto text-blue-100">Designed to move learners from foundation to conversation through positive transfer, frequency-driven vocabulary, task-based application, and scaffolded immersion.</p>
+            <div class="mt-12">
+                <img src="http://static.photos/education/1024x576/1" alt="Language Learning Diagram" class="mx-auto rounded-lg shadow-xl w-full max-w-3xl">
+            </div>
+        </div>
+    </section>
+    <!-- What Is TSI Method -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What Is the TSI Method™</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg mb-6 text-gray-700">TSI Method™ is a language learning framework, not a single app or textbook. It combines established second-language acquisition research with practical implementation.</p>
+                <p class="text-lg mb-6 text-gray-700">It is designed to be measurable, scalable, and adaptable across languages and learner backgrounds.</p>
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                    <p class="text-lg font-medium text-gray-800">The TSI Method™ focuses on how adults actually acquire language: by leveraging what they already know, prioritizing what is most useful, applying language in meaningful contexts, and entering immersion with preparation rather than guesswork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- TSI Visual -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">TSI Visual Overview</h2>
+
+    <div class="max-w-5xl mx-auto">
+      <img
+        src="docs/pics/Untitled%20design%20%282%29.png"
+        alt="TSI visual"
+        loading="lazy"
+        decoding="async"
+        class="mx-auto rounded-2xl shadow-xl w-full"
+      />
+    </div>
+  </div>
+</section>
+
+    <!-- TSI Architecture -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">The TSI™ Learning Architecture</h2>
+            <div class="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                <!-- Stage 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <i data-feather="layers" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Positive Transfer</h3>
+                    <p class="text-gray-600">Leveraging cognates, derivatives, and structural similarities between languages to reduce cognitive load and accelerate early comprehension.</p>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <i data-feather="book" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Frequency-Based Lexicon</h3>
+                    <p class="text-gray-600">Prioritizing the most common words and verb structures that account for the majority of real-world usage.</p>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <i data-feather="code" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Functional Grammar</h3>
+                    <p class="text-gray-600">Teaching grammar as usable patterns, not abstract rules, enabling early sentence formation.</p>
+                </div>
+
+                <!-- Stage 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <i data-feather="film" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Task-Based Application</h3>
+                    <p class="text-gray-600">Applying language through media and structured real-world tasks that reinforce comprehension and cultural context.</p>
+                </div>
+
+                <!-- Stage 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-blue-600 mb-4">
+                        <i data-feather="globe" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Scaffolded Immersion</h3>
+                    <p class="text-gray-600">Transitioning into immersive environments after learners have built a functional linguistic foundation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science of Leverage -->
+    <section id="science" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">The Science of “Leverage” in Learning</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                If learning is designed around transfer, frequency, and retrieval, progress would often look less like “memorizing everything”
+                and more like compounding returns: early gains are large because high-frequency material carries a disproportionate share of real usage.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="p-6 rounded-xl shadow-sm tsi-card bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3 text-blue-700">
+                        <i data-feather="shuffle" class="w-6 h-6"></i>
+                        <h3 class="text-lg font-semibold">Transfer</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        New forms can be learned faster when they map onto existing structures (cognates, familiar morphemes, shared syntax).
+                        Transfer can be positive, although it can also mislead when patterns look similar but behave differently.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl shadow-sm tsi-card bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3 text-blue-700">
+                        <i data-feather="grid" class="w-6 h-6"></i>
+                        <h3 class="text-lg font-semibold">Chunking</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        High-frequency sequences become single units over time. When a chunk is automatic, working memory is freed for meaning,
+                        nuance, and interaction.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl shadow-sm tsi-card bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3 text-blue-700">
+                        <i data-feather="refresh-cw" class="w-6 h-6"></i>
+                        <h3 class="text-lg font-semibold">Retrieval + Spacing</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Durable learning is often shaped by repeated retrieval across time and contexts. Spaced practice can make forgetting slower,
+                        and feedback can correct errors before they harden.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl shadow-sm tsi-card bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3 text-blue-700">
+                        <i data-feather="trending-up" class="w-6 h-6"></i>
+                        <h3 class="text-lg font-semibold">Frequency</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Natural language is steeply uneven. A small number of words account for a large share of daily tokens.
+                        That is why frequency-first vocabulary selection can produce fast jumps in usable comprehension.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-10 max-w-5xl mx-auto bg-indigo-50 border border-indigo-100 rounded-xl p-6">
+                <div class="flex items-start gap-4">
+                    <div class="mt-1 text-indigo-700">
+                        <i data-feather="info" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Why “few words” can cover “many words”</h3>
+                        <p class="text-gray-700">
+                            Coverage is usually measured on running words (tokens), not unique dictionary entries (types). If the top ranks dominate token use,
+                            then learning the top ranks first would raise real-world comprehension quickly, even though you have learned only a small slice of the dictionary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Dashboards -->
+    <section id="dashboards" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Dashboards: Leverage, Coverage, and Diminishing Returns</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-3">
+                    These dashboards visualize a simple idea: early vocabulary has outsized impact because language use is uneven.
+                    The presets are estimates (corpus thresholds differ by domain), but the shape of the curve is the point.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
+                <!-- Controls + KPIs -->
+                <div class="lg:col-span-4">
+                    <div class="bg-white rounded-2xl shadow-sm tsi-card p-6 sticky top-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Controls</h3>
+                            <span class="text-xs tsi-badge px-2 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200">Interactive</span>
+                        </div>
+
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Preset context</label>
+                        <select id="presetContext" class="w-full rounded-lg border border-gray-200 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="spoken">Everyday spoken (estimate)</option>
+                            <option value="written">General written (estimate)</option>
+                            <option value="podcast">Podcasts / captions (estimate)</option>
+                        </select>
+
+                        <div class="mt-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="block text-sm font-medium text-gray-700">Known word families</label>
+                                <span id="knownWordsLabel" class="text-sm font-semibold text-gray-800">1500</span>
+                            </div>
+                            <input id="knownWords" type="range" min="0" max="9000" step="50" value="1500" class="w-full">
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>0</span><span>2k</span><span>4k</span><span>6k</span><span>9k</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="block text-sm font-medium text-gray-700">Transfer boost (optional)</label>
+                                <span id="transferLabel" class="text-sm font-semibold text-gray-800">10%</span>
+                            </div>
+                            <input id="transferBoost" type="range" min="0" max="40" step="1" value="10" class="w-full">
+                            <p class="text-xs text-gray-500 mt-2">
+                                If your first language shares cognates or morphology, early recognition could behave like “extra” usable vocabulary.
+                                This slider is a conceptual lens, not a guarantee.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 border-t pt-5">
+                            <h4 class="text-sm font-semibold text-gray-800 mb-3">Key indicators</h4>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="tsi-kpi rounded-xl p-4 border border-gray-100">
+                                    <div class="text-xs text-gray-500">Estimated coverage</div>
+                                    <div id="kpiCoverage" class="text-2xl font-bold text-gray-900">—</div>
+                                    <div class="text-xs text-gray-500 mt-1">tokens understood</div>
+                                </div>
+
+                                <div class="tsi-kpi rounded-xl p-4 border border-gray-100">
+                                    <div class="text-xs text-gray-500">Unknown per 100</div>
+                                    <div id="kpiUnknown100" class="text-2xl font-bold text-gray-900">—</div>
+                                    <div class="text-xs text-gray-500 mt-1">approx tokens</div>
+                                </div>
+
+                                <div class="tsi-kpi rounded-xl p-4 border border-gray-100">
+                                    <div class="text-xs text-gray-500">+100 words adds</div>
+                                    <div id="kpiMarginal" class="text-2xl font-bold text-gray-900">—</div>
+                                    <div class="text-xs text-gray-500 mt-1">coverage points</div>
+                                </div>
+
+                                <div class="tsi-kpi rounded-xl p-4 border border-gray-100">
+                                    <div class="text-xs text-gray-500">Next milestone</div>
+                                    <div id="kpiMilestone" class="text-lg font-bold text-gray-900 leading-tight">—</div>
+                                    <div class="text-xs text-gray-500 mt-1">practical target</div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                                <div class="flex items-start gap-3">
+                                    <i data-feather="activity" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                                    <p id="insightLine" class="text-sm text-gray-700">
+                                        —
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex gap-2">
+                                <button id="resetDash" class="w-1/2 rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium hover:bg-gray-50">
+                                    Reset
+                                </button>
+                                <button id="exportPng" class="w-1/2 rounded-lg bg-blue-600 text-white px-3 py-2 text-sm font-medium hover:bg-blue-700">
+                                    Export charts
+                                </button>
+                            </div>
+                            <p class="text-[11px] text-gray-500 mt-2">
+                                Export saves chart images locally using your browser. If pop-ups are blocked, you may need to allow downloads.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="lg:col-span-8">
+                    <div class="grid gap-6">
+                        <div class="bg-white rounded-2xl shadow-sm tsi-card p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-semibold text-gray-800">Coverage Curve</h3>
+                                <span class="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">Cumulative</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">
+                                Coverage rises quickly early on because high-frequency items dominate token usage.
+                                Later, the curve bends: you still grow, but each additional word tends to buy less coverage.
+                            </p>
+                            <div class="tsi-gridline rounded-xl p-4 border border-gray-100">
+                                <canvas id="coverageChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-2xl shadow-sm tsi-card p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-semibold text-gray-800">Marginal Returns</h3>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">Δ Coverage</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4">
+                                    How much +100 word families would add at different points. Early gains are larger; later gains tighten.
+                                </p>
+                                <div class="tsi-gridline rounded-xl p-4 border border-gray-100">
+                                    <canvas id="marginalChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl shadow-sm tsi-card p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-semibold text-gray-800">Zipf Demo</h3>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">Rank 1–30</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4">
+                                    A toy Zipf-style distribution (1/r). It shows why “top-ranked” words dominate daily tokens.
+                                </p>
+                                <div class="tsi-gridline rounded-xl p-4 border border-gray-100">
+                                    <canvas id="zipfChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-sm tsi-card p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-semibold text-gray-800">Diminishing Discovery (Heaps-style)</h3>
+                                <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200">New types per exposure</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">
+                                As exposure grows, you keep encountering new words, but the rate of “new discoveries” usually falls.
+                                This is why early study can feel like a sprint and later study can feel more selective.
+                            </p>
+                            <div class="tsi-gridline rounded-xl p-4 border border-gray-100">
+                                <canvas id="heapsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
+                            <div class="flex items-start gap-3">
+                                <i data-feather="message-circle" class="w-6 h-6 text-indigo-700 mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-1">How this fits TSI™</h4>
+                                    <p class="text-gray-700">
+                                        If your goal is “usable communication fast,” the dashboards suggest a strategy: learn what carries the most tokens,
+                                        anchor it to transfer when available, and practice retrieval in tasks. Then immersion becomes reinforcement rather than a guessing game.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Different -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Why TSI™ Is Different</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="book-open" class="text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Traditional Instruction</h3>
+                    <p class="text-gray-600">Grammar-first approach often delays practical communication</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="smartphone" class="text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">App-Based Learning</h3>
+                    <p class="text-gray-600">Gamification without structured progression</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="droplet" class="text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sink-or-Swim</h3>
+                    <p class="text-gray-600">Immersion without preparation leads to frustration</p>
+                </div>
+            </div>
+            <div class="mt-12 bg-indigo-50 p-6 rounded-lg max-w-3xl mx-auto text-center">
+                <p class="text-lg font-medium text-gray-800">TSI Method™ sits between traditional instruction and immersion, combining structure with adaptability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Measurable Outcomes -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">How Progress Is Measured</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg mb-8 text-gray-700">TSI Method™ does not rely on vague "fluency" claims. It tracks concrete metrics aligned with CEFR standards:</p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-600">Vocabulary Benchmarks</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>A2: ~1,000 active words</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>B1: ~2,000 active words</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>B2: ~2,500–3,000 active words</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-600">Skill Development</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Active vocabulary size</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Passive vocabulary recognition</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Time-on-task (hours of exposure)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-center">FSI Time Expectations</h3>
+                    <div class="flex justify-between items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600">600-750 hrs</div>
+                            <div class="text-sm text-gray-500">Category I Languages</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600">1100 hrs</div>
+                            <div class="text-sm text-gray-500">Category IV Languages</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Who This Framework Is Designed For</h2>
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">Learner Profiles</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="user" class="text-blue-500 mr-2 mt-1"></i>
+                            <span>Adult learners seeking structured progress</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="briefcase" class="text-blue-500 mr-2 mt-1"></i>
+                            <span>Professionals needing measurable results</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">Institutional Use</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="users" class="text-blue-500 mr-2 mt-1"></i>
+                            <span>Educators and curriculum designers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="home" class="text-blue-500 mr-2 mt-1"></i>
+                            <span>Organizations and institutions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="clipboard" class="text-blue-500 mr-2 mt-1"></i>
+                            <span>Programs requiring accountability</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-600 max-w-2xl mx-auto">Initially designed for English speakers learning Romance, Germanic, Semitic, Asian, and African languages, with expansion planned for all learner-language combinations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Foundation -->
+    <section class="py-20 bg-blue-800 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Research-Informed by Design</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Pedagogical Foundations</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="bookmark" class="text-blue-200 mr-2 mt-1"></i>
+                            <span>Second Language Acquisition (SLA) research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="bar-chart-2" class="text-blue-200 mr-2 mt-1"></i>
+                            <span>Lexical frequency research</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="clock" class="text-blue-200 mr-2 mt-1"></i>
+                            <span>Spaced repetition science</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Methodological Approaches</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="target" class="text-blue-200 mr-2 mt-1"></i>
+                            <span>Task-based learning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="award" class="text-blue-200 mr-2 mt-1"></i>
+                            <span>CEFR benchmarks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="flag" class="text-blue-200 mr-2 mt-1"></i>
+                            <span>FSI standards</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Framework Integrity & Governance</h2>
+            <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg">
+                <div class="flex items-start mb-6">
+                    <i data-feather="lock" class="text-blue-500 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Trademark Protection</h3>
+                        <p class="text-gray-600">TSI Method™ is a trademarked framework name (™). The method is open in principle, while the brand and structure are protected.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <i data-feather="shield" class="text-blue-500 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Usage Authorization</h3>
+                        <p class="text-gray-600">Use of the TSI Method™ name and framework in educational materials or programs requires formal authorization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">Next Steps</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-gray-600">Explore how the TSI Method™ can transform your language learning approach or curriculum design.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">Request Implementation Guide</a>
+                <a href="#" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg border border-blue-600 transition-colors">Contact for Partnership</a>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        // ---------- Dashboard logic (no external backend required) ----------
+        const presetCurves = {
+            // These are intentionally "anchored estimates" to show the shape of the curve.
+            // Different corpora + counting methods (types/lemmas/families) will shift exact numbers.
+            spoken: [
+                {x:0,y:0},{x:500,y:78},{x:1000,y:88},{x:2000,y:94},{x:3000,y:95.5},{x:6000,y:98.0},{x:7000,y:98.3},{x:9000,y:99.0}
+            ],
+            written: [
+                {x:0,y:0},{x:500,y:62},{x:1000,y:75},{x:2000,y:84},{x:3000,y:88},{x:5000,y:95.0},{x:8000,y:98.0},{x:9000,y:98.3}
+            ],
+            podcast: [
+                {x:0,y:0},{x:500,y:70},{x:1000,y:86},{x:2000,y:90},{x:3000,y:95},{x:6000,y:98.0},{x:7000,y:98.3},{x:9000,y:99.0}
+            ]
+        };
+
+        function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+        function interpCoverage(known, curve){
+            const pts = curve.slice().sort((a,b)=>a.x-b.x);
+            if (known <= pts[0].x) return pts[0].y;
+            if (known >= pts[pts.length-1].x) return pts[pts.length-1].y;
+
+            for (let i=0;i<pts.length-1;i++){
+                const a = pts[i], b = pts[i+1];
+                if (known >= a.x && known <= b.x){
+                    const t = (known - a.x) / (b.x - a.x);
+                    return a.y + t*(b.y - a.y);
+                }
+            }
+            return pts[pts.length-1].y;
+        }
+
+        function buildCoverageSeries(curve){
+            // Create a smooth-ish series for charting
+            const xs = [];
+            for (let x=0; x<=9000; x+=250) xs.push(x);
+            const ys = xs.map(x => interpCoverage(x, curve));
+            return {xs, ys};
+        }
+
+        function marginalSeries(curve){
+            const xs = [];
+            const ys = [];
+            for (let x=0; x<=9000; x+=250){
+                const y1 = interpCoverage(x, curve);
+                const y2 = interpCoverage(x+100, curve);
+                xs.push(x);
+                ys.push(Math.max(0, y2 - y1));
+            }
+            return {xs, ys};
+        }
+
+        function zipfSeries(n=30){
+            // toy model: p(r) = (1/r) / sum(1/k)
+            let denom = 0;
+            for (let r=1;r<=n;r++) denom += 1/r;
+            const labels = [];
+            const values = [];
+            for (let r=1;r<=n;r++){
+                labels.push(String(r));
+                values.push((1/r)/denom * 100);
+            }
+            return {labels, values};
+        }
+
+        function heapsSeries(){
+            // Heaps-style curve: V = K * N^beta, and discovery rate ~ dV/dN
+            // Here we visualize "new types per 1,000 tokens" dropping as N rises.
+            const K = 40;     // schematic
+            const beta = 0.5; // schematic (often ~0.4–0.6 in English corpora)
+            const xs = [];
+            const ys = [];
+            for (let N=1000; N<=200000; N+=5000){
+                const V = K * Math.pow(N, beta);
+                const V2 = K * Math.pow(N+1000, beta);
+                const newPer1k = Math.max(0, V2 - V);
+                xs.push(N);
+                ys.push(newPer1k);
+            }
+            return {xs, ys};
+        }
+
+        function milestoneFor(coverage, context){
+            if (context === 'written'){
+                if (coverage < 85) return "Aim for ~2,000 families";
+                if (coverage < 90) return "Aim for ~3,000 families";
+                if (coverage < 95) return "Aim for ~5,000 families";
+                if (coverage < 98) return "Aim for ~8,000 families";
+                return "Refine domain vocabulary";
+            } else {
+                if (coverage < 90) return "Aim for ~1,000–2,000 families";
+                if (coverage < 95) return "Aim for ~2,000–3,000 families";
+                if (coverage < 98) return "Aim for ~6,000–7,000 families";
+                return "Refine domains + collocations";
+            }
+        }
+
+        let coverageChart, marginalChart, zipfChart, heapsChart;
+
+        function initCharts(){
+            const ctxCov = document.getElementById('coverageChart');
+            const ctxMar = document.getElementById('marginalChart');
+            const ctxZip = document.getElementById('zipfChart');
+            const ctxHea = document.getElementById('heapsChart');
+
+            const z = zipfSeries(30);
+            const h = heapsSeries();
+
+            coverageChart = new Chart(ctxCov, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: 'Coverage (%)', data: [], tension: 0.25, pointRadius: 0 },
+                        { label: 'Your position', data: [], type: 'scatter', pointRadius: 5 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: true } },
+                    scales: {
+                        x: { title: { display: true, text: 'Known word families (estimate scale)' } },
+                        y: { title: { display: true, text: 'Estimated token coverage (%)' }, min: 0, max: 100 }
+                    }
+                }
+            });
+
+            marginalChart = new Chart(ctxMar, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{ label: '+100 words → coverage gain (points)', data: [], tension: 0.25, pointRadius: 0 }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: true } },
+                    scales: {
+                        x: { title: { display: true, text: 'Known word families' } },
+                        y: { title: { display: true, text: 'Coverage points gained' }, min: 0 }
+                    }
+                }
+            });
+
+            zipfChart = new Chart(ctxZip, {
+                type: 'bar',
+                data: {
+                    labels: z.labels,
+                    datasets: [{ label: 'Share of tokens by rank (%)', data: z.values }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: true } },
+                    scales: {
+                        x: { title: { display: true, text: 'Rank (1 = most frequent)' } },
+                        y: { title: { display: true, text: 'Percent of tokens (toy model)' }, min: 0 }
+                    }
+                }
+            });
+
+            heapsChart = new Chart(ctxHea, {
+                type: 'line',
+                data: {
+                    labels: h.xs,
+                    datasets: [{ label: 'New types per +1,000 tokens (schematic)', data: h.ys, tension: 0.25, pointRadius: 0 }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: true } },
+                    scales: {
+                        x: { title: { display: true, text: 'Total tokens encountered' } },
+                        y: { title: { display: true, text: 'New types per 1,000 tokens' }, min: 0 }
+                    }
+                }
+            });
+        }
+
+        function updateDash(){
+            const context = document.getElementById('presetContext').value;
+            const knownBase = Number(document.getElementById('knownWords').value);
+            const transfer = Number(document.getElementById('transferBoost').value);
+
+            document.getElementById('knownWordsLabel').textContent = knownBase.toLocaleString();
+            document.getElementById('transferLabel').textContent = transfer + "%";
+
+            // "Effective" known after optional transfer lens
+            const effectiveKnown = clamp(Math.round(knownBase * (1 + transfer/100)), 0, 12000);
+            const curve = presetCurves[context];
+
+            const coverage = interpCoverage(effectiveKnown, curve);
+            const coverageNext = interpCoverage(clamp(effectiveKnown+100,0,12000), curve);
+            const marginal = Math.max(0, coverageNext - coverage);
+
+            const unknownPer100 = Math.max(0, (100 - coverage));
+
+            document.getElementById('kpiCoverage').textContent = coverage.toFixed(1) + "%";
+            document.getElementById('kpiUnknown100').textContent = unknownPer100.toFixed(1);
+            document.getElementById('kpiMarginal').textContent = marginal.toFixed(2);
+            document.getElementById('kpiMilestone').textContent = milestoneFor(coverage, context);
+
+            const insight = (() => {
+                if (coverage < 85) return "You are in the steep part of the curve: frequent words should move comprehension quickly if you keep retrieval active.";
+                if (coverage < 95) return "You are approaching practical coverage. Tasks and chunks would matter more than adding rare vocabulary.";
+                if (coverage < 98) return "You are in the “diminishing returns” band. Domain-specific vocabulary and collocations would be efficient next steps.";
+                return "You are near high coverage. Improvement would likely come from precision: idioms, register, speed, and domain exposure.";
+            })();
+
+            document.getElementById('insightLine').textContent =
+                `With an effective vocabulary of ~${effectiveKnown.toLocaleString()} families in "${context}", estimated coverage is ${coverage.toFixed(1)}%. ${insight}`;
+
+            // Update charts
+            const series = buildCoverageSeries(curve);
+            coverageChart.data.labels = series.xs;
+            coverageChart.data.datasets[0].data = series.ys;
+            coverageChart.data.datasets[1].data = [{x: effectiveKnown, y: coverage}];
+            coverageChart.update();
+
+            const m = marginalSeries(curve);
+            marginalChart.data.labels = m.xs;
+            marginalChart.data.datasets[0].data = m.ys;
+            marginalChart.update();
+        }
+
+        function exportCharts(){
+            const charts = [
+                {chart: coverageChart, name: 'TSI-Coverage'},
+                {chart: marginalChart, name: 'TSI-Marginal'},
+                {chart: zipfChart, name: 'TSI-Zipf'},
+                {chart: heapsChart, name: 'TSI-Heaps'}
+            ];
+            charts.forEach(({chart, name}) => {
+                const a = document.createElement('a');
+                a.href = chart.toBase64Image();
+                a.download = name + '.png';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            updateDash();
+
+            document.getElementById('presetContext').addEventListener('change', updateDash);
+            document.getElementById('knownWords').addEventListener('input', updateDash);
+            document.getElementById('transferBoost').addEventListener('input', updateDash);
+
+            document.getElementById('resetDash').addEventListener('click', () => {
+                document.getElementById('presetContext').value = 'spoken';
+                document.getElementById('knownWords').value = 1500;
+                document.getElementById('transferBoost').value = 10;
+                updateDash();
+            });
+
+            document.getElementById('exportPng').addEventListener('click', exportCharts);
+
+            feather.replace();
+        });
+    </script>
+
 </body>
 </html>
+
+
