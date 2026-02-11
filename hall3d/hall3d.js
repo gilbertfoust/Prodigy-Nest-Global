@@ -1,6 +1,8 @@
-// Use browser-ready ES modules for GitHub Pages
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+// Use browser-ready ES modules for GitHub Pages.
+// esm.sh rewrites internal bare specifiers (e.g. "three"),
+// preventing production-only import failures on static hosts.
+import * as THREE from 'https://esm.sh/three@0.160.0';
+import { GLTFLoader } from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 
 import { ThirdPersonController } from './controller/thirdPersonController.js';
 import { hall3dLayout, getPersonById } from './content/hallContent.js';
@@ -146,9 +148,10 @@ const controller = new ThirdPersonController({
 
 async function tryLoadCharacterGLB() {
   const loader = new GLTFLoader();
+  const characterUrl = new URL('./assets/character.glb', import.meta.url).href;
   return new Promise((resolve) => {
     loader.load(
-      './assets/character.glb',
+      characterUrl,
       (gltf) => resolve({ ok: true, gltf }),
       undefined,
       (err) => resolve({ ok: false, err })
@@ -1324,4 +1327,3 @@ function animate(now) {
   requestAnimationFrame(animate);
 }
 requestAnimationFrame(animate);
-
