@@ -1,5 +1,7 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// Use browser-ready ES modules for GitHub Pages
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+
 import { ThirdPersonController } from './controller/thirdPersonController.js';
 import { hall3dLayout, getPersonById } from './content/hallContent.js';
 import { tsiHallDialogues } from '../shared/rpg/tsi_hall_content.js';
@@ -13,7 +15,7 @@ const dlgSpeakerEl = document.getElementById('dlgSpeaker');
 const dlgTextEl = document.getElementById('dlgText');
 const dlgOptsEl = document.getElementById('dlgOpts');
 const dlgCloseEl = document.getElementById('dlgClose');
-
+const feedbackEl = document.getElementById('feedback');
 // Ensure shared state structures exist
 if (typeof app !== 'undefined') {
   app.mainHall = app.mainHall || { npcsTalkedTo: [], gatesUnlocked: [], riddlesSolved: {}, conversationState: {} };
