@@ -214,27 +214,15 @@ const controller = new ThirdPersonController({
 
 async function tryLoadCharacterGLB() {
   const loader = new GLTFLoader();
-  const candidates = [
-    './assets/character.glb',
-    './assets/player.glb',
-    './assets/avatar.glb',
-  ];
-
-  for (const relPath of candidates) {
-    const modelUrl = new URL(relPath, import.meta.url).href;
-    // eslint-disable-next-line no-await-in-loop
-    const loaded = await new Promise((resolve) => {
-      loader.load(
-        modelUrl,
-        (gltf) => resolve({ ok: true, gltf, modelUrl }),
-        undefined,
-        () => resolve({ ok: false })
-      );
-    });
-    if (loaded.ok) return loaded;
-  }
-
-  return { ok: false };
+  const characterUrl = new URL('./assets/character.glb', import.meta.url).href;
+  return new Promise((resolve) => {
+    loader.load(
+      characterUrl,
+      (gltf) => resolve({ ok: true, gltf }),
+      undefined,
+      (err) => resolve({ ok: false, err })
+    );
+  });
 }
 
 function pickClip(clips, keywords) {
