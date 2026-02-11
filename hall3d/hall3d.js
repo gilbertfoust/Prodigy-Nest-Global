@@ -1,6 +1,8 @@
-// Use browser-ready ES modules for GitHub Pages
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+// Use browser-ready ES modules for GitHub Pages.
+// esm.sh rewrites internal bare specifiers (e.g. "three"),
+// preventing production-only import failures on static hosts.
+import * as THREE from 'https://esm.sh/three@0.160.0';
+import { GLTFLoader } from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 
 import { ThirdPersonController } from './controller/thirdPersonController.js';
 import { hall3dLayout, getPersonById } from './content/hallContent.js';
@@ -28,8 +30,8 @@ if (typeof app !== 'undefined') {
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#0b1b2a');
-scene.fog = new THREE.Fog('#0b1b2a', 10, 120);
+scene.background = new THREE.Color('#cfe6ff');
+scene.fog = new THREE.Fog('#dff0ff', 22, 155);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -50,24 +52,31 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-// Lighting (placeholder realistic-ish baseline)
-const hemi = new THREE.HemisphereLight(0xa9d7ff, 0x0b1b2a, 0.45);
+// Lighting (heaven-like: bright marble room + warm gold highlights)
+const hemi = new THREE.HemisphereLight(0xf3f9ff, 0xbfd5ee, 1.05);
 scene.add(hemi);
 
-const key = new THREE.DirectionalLight(0xffffff, 1.2);
-key.position.set(6, 10, 4);
+const key = new THREE.DirectionalLight(0xffffff, 1.45);
+key.position.set(10, 16, 6);
 key.castShadow = false;
 scene.add(key);
 
-const fill = new THREE.DirectionalLight(0x9b6bff, 0.35);
-fill.position.set(-6, 6, -8);
+const fill = new THREE.DirectionalLight(0xffefcf, 0.68);
+fill.position.set(-8, 9, -10);
 scene.add(fill);
 
+const rim = new THREE.DirectionalLight(0x9b6bff, 0.24);
+rim.position.set(0, 7, -18);
+scene.add(rim);
+
 // --- Rotunda floor + walls (circular / octagonal vibe) ---
-const floorMat = new THREE.MeshStandardMaterial({
-  color: 0x152534,
-  roughness: 0.86,
+const floorMat = new THREE.MeshPhysicalMaterial({
+  color: 0xf7f7fb,
+  roughness: 0.2,
   metalness: 0.03,
+  clearcoat: 0.75,
+  clearcoatRoughness: 0.18,
+  reflectivity: 0.7,
 });
 const floor = new THREE.Mesh(new THREE.CircleGeometry(28, 64), floorMat);
 floor.rotation.x = -Math.PI / 2;
@@ -77,18 +86,61 @@ scene.add(floor);
 // Inner “marble” disc
 const inner = new THREE.Mesh(
   new THREE.CircleGeometry(10.5, 48),
-  new THREE.MeshStandardMaterial({ color: 0x24384c, roughness: 0.65, metalness: 0.02 })
+  new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.17, metalness: 0.02, clearcoat: 0.62, clearcoatRoughness: 0.2 })
 );
 inner.rotation.x = -Math.PI / 2;
 inner.position.y = 0.01;
 scene.add(inner);
 
-const wallMat = new THREE.MeshStandardMaterial({
-  color: 0x24384c,
-  roughness: 0.52,
-  metalness: 0.06,
-  emissive: new THREE.Color(0x0b1b2a),
-  emissiveIntensity: 0.15,
+const centerGoldRing = new THREE.Mesh(
+  new THREE.TorusGeometry(10.7, 0.16, 14, 120),
+  new THREE.MeshStandardMaterial({ color: 0xe8c97a, roughness: 0.3, metalness: 0.88 })
+);
+centerGoldRing.rotation.x = Math.PI / 2;
+centerGoldRing.position.y = 0.03;
+scene.add(centerGoldRing);
+
+const outerGoldRing = new THREE.Mesh(
+  new THREE.TorusGeometry(22.15, 0.14, 14, 140),
+  new THREE.MeshStandardMaterial({ color: 0xe4c27a, roughness: 0.32, metalness: 0.86 })
+);
+outerGoldRing.rotation.x = Math.PI / 2;
+outerGoldRing.position.y = 0.025;
+scene.add(outerGoldRing);
+
+function buildHeavenColumns({ count = 14, radius = 20.7, height = 6.1 }) {
+  const colMat = new THREE.MeshPhysicalMaterial({
+    color: 0xfcfcff,
+    roughness: 0.34,
+    metalness: 0.02,
+    clearcoat: 0.45,
+    clearcoatRoughness: 0.35,
+  });
+
+  const colGeom = new THREE.CylinderGeometry(0.65, 0.72, height, 24);
+  for (let i = 0; i < count; i++) {
+    const a = (i / count) * Math.PI * 2;
+    const c = new THREE.Mesh(colGeom, colMat);
+    c.position.set(Math.cos(a) * radius, height / 2, Math.sin(a) * radius);
+    scene.add(c);
+
+    const capTop = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.9, 0.9, 0.18, 24),
+      new THREE.MeshStandardMaterial({ color: 0xe1bf71, roughness: 0.3, metalness: 0.85 })
+    );
+    capTop.position.set(c.position.x, height + 0.08, c.position.z);
+    scene.add(capTop);
+  }
+}
+
+const wallMat = new THREE.MeshPhysicalMaterial({
+  color: 0xf8f8fb,
+  roughness: 0.38,
+  metalness: 0.02,
+  clearcoat: 0.42,
+  clearcoatRoughness: 0.32,
+  emissive: new THREE.Color(0xe9eef6),
+  emissiveIntensity: 0.12,
 });
 
 function buildRotundaWalls({ gateAngles, wallRadius = 22.0, height = 6.0 }) {
@@ -115,14 +167,30 @@ function buildRotundaWalls({ gateAngles, wallRadius = 22.0, height = 6.0 }) {
     scene.add(m);
   }
 
-  // Ceiling ring
+  // Gold trim + luminous crown ring
   const ring = new THREE.Mesh(
-    new THREE.TorusGeometry(wallRadius - 1.6, 0.28, 18, 80),
-    new THREE.MeshStandardMaterial({ color: 0x9b6bff, roughness: 0.35, metalness: 0.25, emissive: new THREE.Color(0x2a8bff), emissiveIntensity: 0.22 })
+    new THREE.TorusGeometry(wallRadius - 1.6, 0.24, 18, 110),
+    new THREE.MeshStandardMaterial({ color: 0xe8c97a, roughness: 0.28, metalness: 0.9, emissive: new THREE.Color(0xffe7b3), emissiveIntensity: 0.14 })
   );
-  ring.position.set(0, height + 0.15, 0);
+  ring.position.set(0, height + 0.22, 0);
   ring.rotation.x = Math.PI / 2;
   scene.add(ring);
+
+  const upperBand = new THREE.Mesh(
+    new THREE.TorusGeometry(wallRadius - 0.6, 0.08, 10, 120),
+    new THREE.MeshStandardMaterial({ color: 0xd6b56d, roughness: 0.35, metalness: 0.85 })
+  );
+  upperBand.position.set(0, height - 0.5, 0);
+  upperBand.rotation.x = Math.PI / 2;
+  scene.add(upperBand);
+
+  const lowerBand = new THREE.Mesh(
+    new THREE.TorusGeometry(wallRadius - 0.45, 0.08, 10, 120),
+    new THREE.MeshStandardMaterial({ color: 0xd6b56d, roughness: 0.35, metalness: 0.85 })
+  );
+  lowerBand.position.set(0, 0.6, 0);
+  lowerBand.rotation.x = Math.PI / 2;
+  scene.add(lowerBand);
 }
 
 // Player placeholder (capsule-like)
@@ -146,14 +214,27 @@ const controller = new ThirdPersonController({
 
 async function tryLoadCharacterGLB() {
   const loader = new GLTFLoader();
-  return new Promise((resolve) => {
-    loader.load(
-      './assets/character.glb',
-      (gltf) => resolve({ ok: true, gltf }),
-      undefined,
-      (err) => resolve({ ok: false, err })
-    );
-  });
+  const candidates = [
+    './assets/character.glb',
+    './assets/player.glb',
+    './assets/avatar.glb',
+  ];
+
+  for (const relPath of candidates) {
+    const modelUrl = new URL(relPath, import.meta.url).href;
+    // eslint-disable-next-line no-await-in-loop
+    const loaded = await new Promise((resolve) => {
+      loader.load(
+        modelUrl,
+        (gltf) => resolve({ ok: true, gltf, modelUrl }),
+        undefined,
+        () => resolve({ ok: false })
+      );
+    });
+    if (loaded.ok) return loaded;
+  }
+
+  return { ok: false };
 }
 
 function pickClip(clips, keywords) {
@@ -162,18 +243,37 @@ function pickClip(clips, keywords) {
     const hit = lowered.find((x) => x.n.includes(kw));
     if (hit) return hit.c;
   }
-  return clips[0] || null;
+  return null;
+}
+
+function fitCharacterToHall(model) {
+  const box = new THREE.Box3().setFromObject(model);
+  if (box.isEmpty()) return;
+
+  const size = new THREE.Vector3();
+  box.getSize(size);
+  const height = Math.max(size.y, 0.0001);
+  const targetHeight = 2.3;
+  const uniformScale = targetHeight / height;
+  model.scale.setScalar(uniformScale);
+
+  const boxAfterScale = new THREE.Box3().setFromObject(model);
+  model.position.y -= boxAfterScale.min.y;
 }
 
 // Load character if present; otherwise keep placeholder capsule
 (async () => {
   const res = await tryLoadCharacterGLB();
-  if (!res.ok) return;
+  if (!res.ok) {
+    console.info('[hall3d] No character GLB found in /hall3d/assets (character|player|avatar). Using capsule placeholder.');
+    return;
+  }
 
   // Swap player object
   scene.remove(player);
   player = res.gltf.scene;
-  player.position.set(0, 0, 4);
+  fitCharacterToHall(player);
+  player.position.set(0, player.position.y, 4);
   scene.add(player);
   controller.target = player;
 
@@ -181,14 +281,16 @@ function pickClip(clips, keywords) {
   const clips = res.gltf.animations || [];
   if (clips.length) {
     const mixer = new THREE.AnimationMixer(player);
-    const idleClip = pickClip(clips, ['idle', 'stand']);
-    const walkClip = pickClip(clips, ['walk']);
+    const idleClip = pickClip(clips, ['idle', 'stand', 'breath', 'rest']) || clips[0] || null;
+    const walkClip = pickClip(clips, ['walk', 'run', 'jog']) || clips[0] || null;
     controller.setAnimationMixer(mixer);
     controller.setActions({
       idle: idleClip ? mixer.clipAction(idleClip) : null,
       walk: walkClip ? mixer.clipAction(walkClip) : null,
     });
   }
+
+  console.info(`[hall3d] Loaded player model: ${res.modelUrl}`);
 })();
 
 // --- Interactables (NPCs + Gates) ---
@@ -260,41 +362,140 @@ function createNpcMarker(npc) {
 }
 
 function createGateMarker(gate, position) {
-  const g = new THREE.BoxGeometry(1.4, 2.6, 0.45);
-  const m = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    roughness: 0.35,
-    metalness: 0.05,
-    emissive: new THREE.Color(0x2a8bff),
-    emissiveIntensity: 0.45,
-  });
-  const box = new THREE.Mesh(g, m);
-  box.position.set(position.x, 1.3, position.z);
-  box.lookAt(0, 1.3, 0);
-  scene.add(box);
-  gateMeshes.set(gate.id, box);
+  const gateGroup = new THREE.Group();
+
+  const glowHalo = new THREE.Mesh(
+    new THREE.TorusGeometry(1.18, 0.11, 14, 64),
+    new THREE.MeshStandardMaterial({ color: 0xfff2d1, roughness: 0.28, metalness: 0.65, emissive: new THREE.Color(0xffe5a1), emissiveIntensity: 0.33 })
+  );
+  glowHalo.rotation.x = Math.PI / 2;
+  glowHalo.position.y = 2.75;
+  gateGroup.add(glowHalo);
+
+  const frameMat = new THREE.MeshStandardMaterial({ color: 0xd9b466, roughness: 0.22, metalness: 0.92 });
+  const leftPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 2.9, 16), frameMat);
+  leftPillar.position.set(-0.72, 1.45, 0.02);
+  gateGroup.add(leftPillar);
+  const rightPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 2.9, 16), frameMat);
+  rightPillar.position.set(0.72, 1.45, 0.02);
+  gateGroup.add(rightPillar);
+  const lintel = new THREE.Mesh(new THREE.BoxGeometry(1.68, 0.24, 0.26), frameMat);
+  lintel.position.set(0, 2.86, 0.03);
+  gateGroup.add(lintel);
+
+  const portal = new THREE.Mesh(
+    new THREE.BoxGeometry(1.26, 2.5, 0.2),
+    new THREE.MeshPhysicalMaterial({
+      color: 0xfff8eb,
+      roughness: 0.08,
+      metalness: 0.08,
+      transparent: true,
+      opacity: 0.94,
+      transmission: 0.08,
+      emissive: new THREE.Color(0xb8deff),
+      emissiveIntensity: 0.55,
+    })
+  );
+  portal.position.set(0, 1.35, 0);
+  gateGroup.add(portal);
+
+  const cloudBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.05, 1.2, 0.22, 24),
+    new THREE.MeshStandardMaterial({ color: 0xf8fbff, roughness: 0.58, metalness: 0.02 })
+  );
+  cloudBase.position.y = 0.1;
+  gateGroup.add(cloudBase);
+
+  gateGroup.position.set(position.x, 0, position.z);
+  gateGroup.lookAt(0, 1.3, 0);
+  scene.add(gateGroup);
+
+  gateMeshes.set(gate.id, portal);
   setGateVisual(gate.id, isGateUnlocked(gate.id));
-  interactables.push({ type: 'gate', id: gate.id, label: gate.label, href: gate.href, object: box, radius: hall3dLayout.interactRadius.gate });
+  interactables.push({ type: 'gate', id: gate.id, label: gate.label, href: gate.href, object: gateGroup, radius: hall3dLayout.interactRadius.gate });
 }
 
 function createHostMarker({ hostId, gateId, label, position }) {
-  // Host = simple “docent” statue (capsule + head)
+  // Host = tall "language angel" roughly matching gate height.
   const host = new THREE.Group();
-  const torso = new THREE.Mesh(
-    new THREE.CapsuleGeometry(0.35, 0.9, 6, 12),
-    new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.35, metalness: 0.08, emissive: new THREE.Color(0x9b6bff), emissiveIntensity: 0.25 })
-  );
-  torso.position.y = 1.05;
+
+  const robeMat = new THREE.MeshPhysicalMaterial({
+    color: 0xf8fbff,
+    roughness: 0.34,
+    metalness: 0.02,
+    clearcoat: 0.24,
+    emissive: new THREE.Color(0xd7e9ff),
+    emissiveIntensity: 0.16,
+  });
+  const goldMat = new THREE.MeshStandardMaterial({ color: 0xe3c074, roughness: 0.26, metalness: 0.9 });
+  const wingMat = new THREE.MeshPhysicalMaterial({
+    color: 0xf2f6ff,
+    roughness: 0.22,
+    metalness: 0.04,
+    transparent: true,
+    opacity: 0.92,
+    emissive: new THREE.Color(0xb9d9ff),
+    emissiveIntensity: 0.22,
+  });
+
+  // Main body (tall robe/statue)
+  const torso = new THREE.Mesh(new THREE.CapsuleGeometry(0.34, 1.82, 8, 14), robeMat);
+  torso.position.y = 1.65;
   host.add(torso);
+
   const head = new THREE.Mesh(
-    new THREE.SphereGeometry(0.22, 18, 14),
-    new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.45, metalness: 0.05, emissive: new THREE.Color(0x2a8bff), emissiveIntensity: 0.18 })
+    new THREE.SphereGeometry(0.22, 20, 16),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, metalness: 0.06, emissive: new THREE.Color(0xcde2ff), emissiveIntensity: 0.16 })
   );
-  head.position.y = 1.75;
+  head.position.y = 2.86;
   host.add(head);
 
+  // Halo
+  const halo = new THREE.Mesh(
+    new THREE.TorusGeometry(0.28, 0.045, 12, 44),
+    new THREE.MeshStandardMaterial({ color: 0xfbe6ad, roughness: 0.2, metalness: 0.92, emissive: new THREE.Color(0xffe6a8), emissiveIntensity: 0.24 })
+  );
+  halo.position.y = 3.2;
+  halo.rotation.x = Math.PI / 2;
+  host.add(halo);
+
+  // Wings (stylized feather planes)
+  const wingGeom = new THREE.BoxGeometry(0.22, 1.35, 0.78);
+  const leftWing = new THREE.Mesh(wingGeom, wingMat);
+  leftWing.position.set(-0.56, 2.0, -0.1);
+  leftWing.rotation.z = 0.42;
+  leftWing.rotation.y = 0.2;
+  host.add(leftWing);
+
+  const rightWing = new THREE.Mesh(wingGeom, wingMat);
+  rightWing.position.set(0.56, 2.0, -0.1);
+  rightWing.rotation.z = -0.42;
+  rightWing.rotation.y = -0.2;
+  host.add(rightWing);
+
+  // Staff/scepter to emphasize gate guardian role
+  const staff = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, 2.2, 12), goldMat);
+  staff.position.set(0.32, 1.45, 0.24);
+  staff.rotation.z = 0.12;
+  host.add(staff);
+
+  const staffOrb = new THREE.Mesh(
+    new THREE.SphereGeometry(0.09, 16, 12),
+    new THREE.MeshStandardMaterial({ color: 0xe8f4ff, roughness: 0.28, metalness: 0.2, emissive: new THREE.Color(0xa6d1ff), emissiveIntensity: 0.5 })
+  );
+  staffOrb.position.set(0.43, 2.52, 0.3);
+  host.add(staffOrb);
+
+  // Plinth/base cloud
+  const baseCloud = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.44, 0.5, 0.2, 16),
+    new THREE.MeshStandardMaterial({ color: 0xf7fbff, roughness: 0.62, metalness: 0.02 })
+  );
+  baseCloud.position.y = 0.12;
+  host.add(baseCloud);
+
   host.position.set(position.x, 0, position.z);
-  host.lookAt(0, 1.1, 0);
+  host.lookAt(0, 1.9, 0);
   scene.add(host);
 
   // store torso as highlight target
@@ -343,6 +544,7 @@ const N = hall3dLayout.gates.length;
 const gateAngles = [];
 for (let i = 0; i < N; i++) gateAngles.push((i / N) * Math.PI * 2);
 buildRotundaWalls({ gateAngles, wallRadius: 22.0, height: 6.0 });
+buildHeavenColumns({ count: 14, radius: 20.7, height: 6.1 });
 
 // Restore unlock state from solved riddles (authoritative)
 const hostToGate = new Map();
@@ -1324,4 +1526,3 @@ function animate(now) {
   requestAnimationFrame(animate);
 }
 requestAnimationFrame(animate);
-
