@@ -181,6 +181,7 @@
     .lang-grid{ display:grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap:8px; }
     @media (max-width: 1100px){ .lang-grid{ grid-template-columns: repeat(5, minmax(0,1fr)); } }
     @media (max-width: 680px){ .lang-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    .lang-actions{ display:flex; gap:10px; flex-wrap:wrap; }
     .lang-pill{
       display:flex; gap:8px; align-items:center;
       padding:8px 10px;
@@ -534,6 +535,10 @@
         </div>
 
         <div class="lang-grid" id="langGrid"></div>
+        <div class="lang-actions">
+          <button id="checkAllLangs" type="button">Check all languages</button>
+          <button id="uncheckAllLangs" type="button">Uncheck all languages</button>
+        </div>
 
         <div class="actions">
           <div class="btns">
@@ -817,6 +822,8 @@
       { key:"pt",  label:"Portuguese", flag:"🇵🇹", script:"Latin" },
       { key:"es",  label:"Spanish",    flag:"🇪🇸", script:"Latin" },
       { key:"de",  label:"German",     flag:"🇩🇪", script:"Latin" },
+      { key:"pl",  label:"Polish",     flag:"🇵🇱", script:"Latin" },
+      { key:"tl",  label:"Tagalog",    flag:"🇵🇭", script:"Latin" },
       { key:"arc", label:"Aramaic (Syriac)", flag:"🕎", script:"Syriac" },
       { key:"ar",  label:"Arabic",     flag:"🇸🇦", script:"Arabic" },
       { key:"he",  label:"Hebrew",     flag:"🇮🇱", script:"Hebrew" },
@@ -828,17 +835,29 @@
 
     const P = (t, r) => ({t, r});
     const isObj = v => v && typeof v === "object" && ("t" in v || "r" in v);
+    const LANG_FALLBACKS = {};
+
+    function getValueByLang(item, key){
+      const primary = item ? item[key] : undefined;
+      if(primary !== undefined && primary !== null && primary !== "") return primary;
+      const fallbacks = LANG_FALLBACKS[key] || [];
+      for(const fb of fallbacks){
+        const candidate = item ? item[fb] : undefined;
+        if(candidate !== undefined && candidate !== null && candidate !== "") return candidate;
+      }
+      return primary;
+    }
 
     function getText(item, key){
       if(key === "en") return item.en || "";
-      const v = item[key];
+      const v = getValueByLang(item, key);
       if(isObj(v)) return v.t || "";
       return v || "";
     }
     function getRom(item, key){
       if(key === "en") return item.en || "";
-      const v = item[key];
-      if(isObj(v)) return v.r || "";
+      const v = getValueByLang(item, key);
+      if(isObj(v)) return v.r || v.t || "";
       return (v || "");
     }
     function normalize(s){
@@ -1275,6 +1294,18 @@
           {ref:"Ch", name:"Χ χ (chi)", val:"ch/kh"},{ref:"Ps", name:"Ψ ψ (psi)", val:"ps"},{ref:"O", name:"Ω ω (omega)", val:"o"},
         ],
         chart: "Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω"
+      },
+      polish_latin: {
+        label: "Polish (Latin + diacritics)",
+        notes: "Polish uses Latin letters with additional diacritics and digraphs.",
+        rows: "A Ą B C Ć D E Ę F G H I J K L Ł M N Ń O Ó P R S Ś T U W Y Z Ź Ż".split(" ").map(ch=>({ref:ch, name:ch, val:ch.toLowerCase()})),
+        chart: "A Ą B C Ć D E Ę F G H I J K L Ł M N Ń O Ó P R S Ś T U W Y Z Ź Ż"
+      },
+      tagalog_latin: {
+        label: "Tagalog / Filipino (Modern Latin)",
+        notes: "Modern Tagalog uses the 28-letter Filipino alphabet (including Ñ and Ng).",
+        rows: "A B C D E F G H I J K L M N Ñ NG O P Q R S T U V W X Y Z".split(" ").map(ch=>({ref:ch, name:ch, val:ch.toLowerCase()})),
+        chart: "A B C D E F G H I J K L M N Ñ NG O P Q R S T U V W X Y Z"
       }
     };
 
@@ -2159,6 +2190,17 @@
        Language toggles
        ========================= */
     const langGrid = $("#langGrid");
+    function setLanguageVisibility(checked){
+      for(const lang of LANGS){
+        state.visible[lang.key] = lang.key === "en" ? true : checked;
+      }
+      renderLanguageToggles();
+      renderPhrases();
+      renderNumbers();
+      renderVerbLemmaTable();
+      renderVerbConj();
+    }
+
     function renderLanguageToggles(){
       langGrid.innerHTML = "";
       for(const lang of LANGS){
@@ -2400,17 +2442,15 @@
         const tds = [];
         tds.push(`<td class="mono"><b>${row.n}</b></td>`);
         for(const lang of cols){
-          const v = row[lang.key];
-          if(isObj(v)){
-            const t = v.t || "—";
-            const r = v.r || "";
-            const showR = state.showRoman && state.mode!=="compact";
-            tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${r || t}</div>`:""}</div></td>`);
-          }else{
-            const t = v || "—";
-            const showR = state.showRoman && state.mode!=="compact";
+          const showR = state.showRoman && state.mode!=="compact";
+          if(lang.key === "en"){
+            const t = String(row.n);
             tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${t}</div>`:""}</div></td>`);
+            continue;
           }
+          const t = getText(row, lang.key) || "—";
+          const r = getRom(row, lang.key) || "";
+          tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${r && r!==t ? r : (r||t)}</div>`:""}</div></td>`);
         }
         tr.innerHTML = tds.join("");
         numBody.appendChild(tr);
@@ -2572,6 +2612,85 @@
         verbBody.appendChild(tr);
       });
     }
+
+    function ensureLanguageCoverage(){
+      const numberOverrides = {
+        pl: {"0":"zero","1":"jeden","2":"dwa","3":"trzy","4":"cztery","5":"pięć","6":"sześć","7":"siedem","8":"osiem","9":"dziewięć","10":"dziesięć","20":"dwadzieścia","30":"trzydzieści","40":"czterdzieści","50":"pięćdziesiąt","60":"sześćdziesiąt","70":"siedemdziesiąt","80":"osiemdziesiąt","90":"dziewięćdziesiąt","100":"sto"},
+        tl: {"0":"sero","1":"isa","2":"dalawa","3":"tatlo","4":"apat","5":"lima","6":"anim","7":"pito","8":"walo","9":"siyam","10":"sampu","20":"dalawampu","30":"tatlumpu","40":"apatnapu","50":"limampu","60":"animnapu","70":"pitumpu","80":"walumpu","90":"siyamnapu","100":"isandaan"}
+      };
+
+      const phraseOverrides = {
+        pl: {
+          "Hello":"Cześć",
+          "Hi":"Cześć",
+          "Thank you":"Dziękuję",
+          "Please":"Proszę",
+          "Yes":"Tak",
+          "No":"Nie",
+          "I don’t understand":"Nie rozumiem",
+          "How much is this?":"Ile to kosztuje?",
+          "Where is the bathroom?":"Gdzie jest łazienka?",
+          "I would like…":"Poproszę…",
+          "Good morning":"Dzień dobry",
+          "Good night":"Dobranoc"
+        },
+        tl: {
+          "Hello":"Kamusta",
+          "Hi":"Hi",
+          "Thank you":"Salamat",
+          "Please":"Pakiusap",
+          "Yes":"Oo",
+          "No":"Hindi",
+          "I don’t understand":"Hindi ko naiintindihan",
+          "How much is this?":"Magkano ito?",
+          "Where is the bathroom?":"Saan ang banyo?",
+          "I would like…":"Gusto ko ng…",
+          "Good morning":"Magandang umaga",
+          "Good night":"Magandang gabi"
+        }
+      };
+
+      for(const p of PHRASES){
+        if(!p.pl) p.pl = phraseOverrides.pl[p.en] || "—";
+        if(!p.tl) p.tl = phraseOverrides.tl[p.en] || "—";
+      }
+
+      for(const n of NUMBERS){
+        const k = String(n.n);
+        if(!n.pl) n.pl = numberOverrides.pl[k] || "—";
+        if(!n.tl) n.tl = numberOverrides.tl[k] || "—";
+      }
+
+      const verbOverrides = {
+        pl: {
+          be:"być", have:"mieć", do:"robić", say:"powiedzieć", go:"iść", know:"wiedzieć", think:"myśleć", see:"widzieć", come:"przyjść", want:"chcieć", give:"dać", take:"wziąć", eat:"jeść", drink:"pić", read:"czytać", write:"pisać", learn:"uczyć się", teach:"uczyć", speak:"mówić", understand:"rozumieć"
+        },
+        tl: {
+          be:"maging", have:"mayroon", do:"gawin", say:"sabihin", go:"pumunta", know:"alam", think:"isipin", see:"makita", come:"dumating", want:"gusto", give:"ibigay", take:"kunin", eat:"kumain", drink:"uminom", read:"magbasa", write:"sumulat", learn:"matuto", teach:"magturo", speak:"magsalita", understand:"umunawa"
+        }
+      };
+
+      for(const v of VERB_LEMMAS){
+        if(!v.pl) v.pl = verbOverrides.pl[v.en] || "—";
+        if(!v.tl) v.tl = verbOverrides.tl[v.en] || "—";
+      }
+
+      for(const conj of VERB_CONJ){
+        if(conj.infinitives){
+          if(!conj.infinitives.pl) conj.infinitives.pl = verbOverrides.pl[conj.id] || "—";
+          if(!conj.infinitives.tl) conj.infinitives.tl = verbOverrides.tl[conj.id] || "—";
+        }
+        ["present","past","future"].forEach(tense=>{
+          if(!conj[tense]) return;
+          if(!conj[tense].pl) conj[tense].pl = [];
+          if(!conj[tense].tl) conj[tense].tl = [];
+          while(conj[tense].pl.length < PRON.length) conj[tense].pl.push("—");
+          while(conj[tense].tl.length < PRON.length) conj[tense].tl.push("—");
+        });
+      }
+    }
+
+    ensureLanguageCoverage();
 
     /* =========================
        CHINESE RENDERER
@@ -2795,6 +2914,8 @@
     $("#stickyCats").addEventListener("change", e=>{ state.stickyCats = e.target.checked; renderPhrases(); });
     $("#mode").addEventListener("change", e=>{ state.mode = e.target.value; renderPhrases(); renderNumbers(); renderVerbLemmaTable(); renderVerbConj(); });
     $("#sort").addEventListener("change", e=>{ state.sortKey = e.target.value; renderPhrases(); });
+    $("#checkAllLangs").addEventListener("click", ()=> setLanguageVisibility(true));
+    $("#uncheckAllLangs").addEventListener("click", ()=> setLanguageVisibility(false));
 
     $("#exportCsv").addEventListener("click", ()=>{
       const rows = currentPhrases();
