@@ -850,6 +850,7 @@
       { key:"ru",  label:"Russian",    flag:"🇷🇺", script:"Cyrillic" },
       { key:"ja",  label:"Japanese",   flag:"🇯🇵", script:"Kana/Kanji" },
       { key:"zh",  label:"Chinese",    flag:"🇨🇳", script:"Hanzi/Pinyin" },
+      { key:"km",  label:"Khmer (Cambodian)", flag:"🇰🇭", script:"Khmer" },
       { key:"el",  label:"Greek",      flag:"🇬🇷", script:"Greek" },
     ];
 
@@ -1315,6 +1316,22 @@
         ],
         chart: "Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω"
       },
+      khmer: {
+        label: "Khmer (Cambodian)",
+        notes: "Khmer script with independent vowels and common consonants for beginner literacy.",
+        rows: [
+          {ref:"A", name:"អ (â) / អា (aa)", val:"a/aa"},{ref:"I", name:"ឥ (ĕ) / ឦ (ii)", val:"i/ii"},{ref:"U", name:"ឧ (ŏ) / ឩ (uu)", val:"u/uu"},
+          {ref:"E", name:"ឯ (ae)", val:"ae"},{ref:"O", name:"ឱ (ao) / ឲ (ao)", val:"ao"},{ref:"K", name:"ក (kâ)", val:"k"},
+          {ref:"Kh", name:"ខ (khâ)", val:"kh"},{ref:"Ng", name:"ង (ngâ)", val:"ng"},{ref:"Ch", name:"ច (châ)", val:"ch"},
+          {ref:"J", name:"ជ (chô)", val:"j"},{ref:"N", name:"ញ (nhô)", val:"nh"},{ref:"D", name:"ដ (dâ)", val:"d"},
+          {ref:"T", name:"ត (tâ)", val:"t"},{ref:"Th", name:"ថ (thâ)", val:"th"},{ref:"B", name:"ប (bâ)", val:"b"},
+          {ref:"P", name:"ព (pô)", val:"p"},{ref:"Ph", name:"ភ (phô)", val:"ph"},{ref:"M", name:"ម (mô)", val:"m"},
+          {ref:"Y", name:"យ (yô)", val:"y"},{ref:"R", name:"រ (rô)", val:"r"},{ref:"L", name:"ល (lô)", val:"l"},
+          {ref:"V", name:"វ (vô)", val:"v/w"},{ref:"S", name:"ស (sâ)", val:"s"},{ref:"H", name:"ហ (hâ)", val:"h"},
+          {ref:"A2", name:"អ (’â)", val:"glottal carrier"}
+        ],
+        chart: "Independent vowels: អ ឥ ឦ ឧ ឩ ឯ ឱ ឲ | Consonants: ក ខ គ ឃ ង ច ឆ ជ ឈ ញ ដ ឋ ឌ ឍ ណ ត ថ ទ ធ ន ប ផ ព ភ ម យ រ ល វ ស ហ អ"
+      },
       polish_latin: {
         label: "Polish (Latin + diacritics)",
         notes: "Polish uses Latin letters with additional diacritics and digraphs.",
@@ -1335,7 +1352,8 @@
       syriac: {A:"ܐ", B:"ܒ", C:"ܟ/ܣ", D:"ܕ", E:"ܗ", F:"ܦ", G:"ܓ", H:"ܗ/ܚ", I:"ܝ", J:"ܝ", K:"ܟ", L:"ܠ", M:"ܡ", N:"ܢ", O:"ܘ", P:"ܦ", Q:"ܩ", R:"ܪ", S:"ܣ/ܫ", T:"ܬ", U:"ܘ", V:"ܒ/ܘ", W:"ܘ", X:"ܟܣ", Y:"ܝ", Z:"ܙ"},
       russian: {A:"А", B:"Б", C:"С", D:"Д", E:"Е", F:"Ф", G:"Г", H:"Х", I:"И", J:"Й", K:"К", L:"Л", M:"М", N:"Н", O:"О", P:"П", Q:"К", R:"Р", S:"С", T:"Т", U:"У", V:"В", W:"В", X:"КС", Y:"Ы/Й", Z:"З"},
       greek: {A:"Α", B:"Β", C:"Γ/Κ", D:"Δ", E:"Ε", F:"Φ", G:"Γ", H:"Η", I:"Ι", J:"Ι", K:"Κ", L:"Λ", M:"Μ", N:"Ν", O:"Ο", P:"Π", Q:"Κ", R:"Ρ", S:"Σ", T:"Τ", U:"Υ", V:"Β", W:"Ω", X:"Ξ", Y:"Υ", Z:"Ζ"},
-      chinese: {A:"啊", B:"不", C:"从", D:"的", E:"而", F:"发", G:"个", H:"和", I:"一", J:"就", K:"可", L:"了", M:"们", N:"你", O:"哦", P:"片", Q:"去", R:"人", S:"是", T:"他", U:"有", V:"为", W:"我", X:"想", Y:"也", Z:"在"}
+      chinese: {A:"啊", B:"不", C:"从", D:"的", E:"而", F:"发", G:"个", H:"和", I:"一", J:"就", K:"可", L:"了", M:"们", N:"你", O:"哦", P:"片", Q:"去", R:"人", S:"是", T:"他", U:"有", V:"为", W:"我", X:"想", Y:"也", Z:"在"},
+      khmer: {A:"អ", B:"ប", C:"ក/ច", D:"ដ/ឌ", E:"អេ", F:"ហ្វ", G:"គ", H:"ហ", I:"អិ", J:"ជ", K:"ក", L:"ល", M:"ម", N:"ន", O:"អូ", P:"ព", Q:"គ", R:"រ", S:"ស", T:"ត", U:"អុ", V:"វ", W:"វ", X:"ក្ស", Y:"យ", Z:"ស"}
     };
 
     /* =========================
@@ -2426,6 +2444,7 @@
       if(alphaCompare.value === "cyrillic_ru") map = ALPHA_MAPS.russian;
       if(alphaCompare.value === "greek") map = ALPHA_MAPS.greek;
       if(alphaCompare.value === "chinese") map = ALPHA_MAPS.chinese;
+      if(alphaCompare.value === "khmer") map = ALPHA_MAPS.khmer;
 
       baseRows.forEach(row=>{
         const guess = map ? (map[row.ref] || "—") : "—";
@@ -2700,6 +2719,92 @@
     }
 
     ensureLanguageCoverage();
+
+    function ensureKhmerCoverage(){
+      const kmPhraseMap = {
+        "Hello":"សួស្តី","Hi":"សួស្តី","Thank you":"អរគុណ","You’re welcome":"មិនអីទេ","Please":"សូម","Yes":"បាទ/ចាស","No":"ទេ",
+        "Excuse me":"សូមអភ័យទោស","I’m sorry":"ខ្ញុំសុំទោស","Good morning":"អរុណសួស្តី","Good afternoon":"ទិវាសួស្តី","Good evening":"សាយ័ណ្ហសួស្តី","Good night":"រាត្រីសួស្តី",
+        "Goodbye":"លាហើយ","See you later":"ជួបគ្នាពេលក្រោយ","How are you?":"សុខសប្បាយទេ?","I’m fine, thank you":"ខ្ញុំសុខសប្បាយ អរគុណ","What is your name?":"ឈ្មោះអ្វី?","My name is…":"ខ្ញុំឈ្មោះ…",
+        "Do you speak English?":"អ្នកនិយាយភាសាអង់គ្លេសបានទេ?","Do you speak Spanish?":"អ្នកនិយាយភាសាអេស្ប៉ាញបានទេ?","I don’t understand":"ខ្ញុំមិនយល់ទេ","Could you repeat that?":"សូមនិយាយម្ដងទៀតបានទេ?",
+        "Could you speak more slowly?":"សូមនិយាយយឺតៗបានទេ?","Please write it down":"សូមសរសេរឲ្យខ្ញុំ","How do you say [word] in [language]?":"តើនិយាយ [word] ជា [language] យ៉ាងដូចម្តេច?",
+        "What does that mean?":"វាមានន័យអ្វី?","Can you help me?":"អ្នកអាចជួយខ្ញុំបានទេ?","I need an interpreter":"ខ្ញុំត្រូវការអ្នកបកប្រែ","Can you show me?":"អ្នកអាចបង្ហាញខ្ញុំបានទេ?",
+        "What time is it?":"ម៉ោងប៉ុន្មានហើយ?","Today":"ថ្ងៃនេះ","Tomorrow":"ថ្ងៃស្អែក","Now":"ឥឡូវនេះ","Later":"ពេលក្រោយ","I don’t know":"ខ្ញុំមិនដឹងទេ","Please wait":"សូមរង់ចាំ",
+        "I’m hungry":"ខ្ញុំឃ្លាន","I’m thirsty":"ខ្ញុំស្រេកទឹក","Where is…?":"…នៅឯណា?","I’m lost":"ខ្ញុំវង្វេងផ្លូវ","Left":"ឆ្វេង","Right":"ស្តាំ","Straight ahead":"ត្រង់ទៅមុខ",
+        "How far is it?":"វាឆ្ងាយប៉ុណ្ណា?","How long will it take?":"វាចំណាយពេលប៉ុន្មាន?","Where is the bus stop?":"ចំណតឡានក្រុងនៅឯណា?","Where is the train station?":"ស្ថានីយរថភ្លើងនៅឯណា?",
+        "Where is the nearest metro station?":"ស្ថានីយម៉េត្រូជិតបំផុតនៅឯណា?","Where is the airport?":"ព្រលានយន្តហោះនៅឯណា?","Where can I buy tickets?":"ខ្ញុំអាចទិញសំបុត្រនៅឯណា?",
+        "One ticket to [place], please":"សូមសំបុត្រមួយទៅ [place]","What time does it leave?":"វាចេញម៉ោងប៉ុន្មាន?","What time does it arrive?":"វាមកដល់ម៉ោងប៉ុន្មាន?","Which platform?":"វេទិកាណា?",
+        "Can you call a taxi for me?":"អ្នកអាចហៅតាក់ស៊ីឲ្យខ្ញុំបានទេ?","Stop here, please":"សូមឈប់នៅទីនេះ","Where is the hotel?":"សណ្ឋាគារនៅឯណា?","I have a reservation":"ខ្ញុំមានការកក់ទុក",
+        "I’d like a room":"ខ្ញុំចង់បានបន្ទប់មួយ","How much per night?":"មួយយប់ថ្លៃប៉ុន្មាន?","What time is check-in?":"ចូលស្នាក់នៅម៉ោងប៉ុន្មាន?","What time is check-out?":"ចេញពីបន្ទប់ម៉ោងប៉ុន្មាន?",
+        "Where is the elevator?":"ជណ្តើរយន្តនៅឯណា?","The key/card, please":"សូមកូនសោ/កាត","Can I have the menu, please?":"សូមមឺនុយមួយ","Water, please":"សូមទឹកមួយ","Coffee, please":"សូមកាហ្វេមួយ",
+        "Tea, please":"សូមតែមួយ","I’m vegetarian":"ខ្ញុំបួស","I’m vegan":"ខ្ញុំបួសសុទ្ធ","I’m allergic to [allergen]":"ខ្ញុំមានអាឡែស៊ីចំពោះ [allergen]","It’s delicious":"ឆ្ងាញ់ណាស់",
+        "The bill/check, please":"សូមគិតលុយ","Can I pay by card?":"ខ្ញុំអាចបង់ដោយកាតបានទេ?","Can I have a receipt?":"សូមវិក័យប័ត្រមួយ","How much does it cost?":"វាថ្លៃប៉ុន្មាន?","Too expensive":"ថ្លៃពេក",
+        "Is there a discount?":"មានបញ្ចុះតម្លៃទេ?","I would like to buy this":"ខ្ញុំចង់ទិញនេះ","I’m just looking":"ខ្ញុំមើលសិន","Do you have this in a different size?":"មានទំហំផ្សេងទៀតទេ?","Can I try this on?":"ខ្ញុំអាចសាកពាក់បានទេ?",
+        "Is there Wi-Fi?":"មានវ៉ាយហ្វាយទេ?","What is the Wi-Fi password?":"ពាក្យសម្ងាត់វ៉ាយហ្វាយអ្វី?","Can I charge my phone here?":"ខ្ញុំអាចសាកទូរស័ព្ទនៅទីនេះបានទេ?","Where can I buy a SIM card?":"ខ្ញុំអាចទិញស៊ីមកាតនៅឯណា?",
+        "I don’t feel well":"ខ្ញុំមិនស្រួលខ្លួនទេ","I need medicine":"ខ្ញុំត្រូវការថ្នាំ","Is there a pharmacy nearby?":"មានឱសថស្ថាននៅជិតនេះទេ?","Where is the hospital?":"មន្ទីរពេទ្យនៅឯណា?","I need help":"ខ្ញុំត្រូវការជំនួយ",
+        "Call the police, please":"សូមហៅប៉ូលិស","Call a doctor, please":"សូមហៅគ្រូពេទ្យ","I lost my passport":"ខ្ញុំបាត់លិខិតឆ្លងដែន","Stop!":"ឈប់!","Fire!":"ភ្លើងឆេះ!","Emergency!":"បន្ទាន់!",
+        "Do you have a map?":"អ្នកមានផែនទីទេ?","Can I get a map?":"ខ្ញុំអាចយកផែនទីមួយបានទេ?","What’s the entrance fee?":"ថ្លៃចូលប៉ុន្មាន?","What time does it start?":"វាចាប់ផ្តើមម៉ោងប៉ុន្មាន?",
+        "Where can I find information?":"ខ្ញុំអាចរកព័ត៌មាននៅឯណា?","Can I take a photo?":"ខ្ញុំអាចថតរូបបានទេ?","Could you take a picture of us?":"អ្នកអាចថតរូបឲ្យពួកយើងបានទេ?"
+      };
+
+      const kmNumberMap = {
+        "0":"សូន្យ","1":"មួយ","2":"ពីរ","3":"បី","4":"បួន","5":"ប្រាំ","6":"ប្រាំមួយ","7":"ប្រាំពីរ","8":"ប្រាំបី","9":"ប្រាំបួន","10":"ដប់",
+        "20":"ម្ភៃ","30":"សាមសិប","40":"សែសិប","50":"ហាសិប","60":"ហុកសិប","70":"ចិតសិប","80":"ប៉ែតសិប","90":"កៅសិប","100":"មួយរយ"
+      };
+
+      const kmVerbMap = {
+        "be":"ជា","have":"មាន","do / make":"ធ្វើ","go":"ទៅ","come":"មក","say":"និយាយ","tell":"ប្រាប់","see":"ឃើញ","look":"មើល","hear":"ឮ","listen":"ស្តាប់","speak":"និយាយ",
+        "know":"ដឹង","think":"គិត","want":"ចង់","need":"ត្រូវការ","can":"អាច","must":"ត្រូវ","work":"ធ្វើការ","live":"រស់នៅ","eat":"ញ៉ាំ","drink":"ផឹក","sleep":"ដេក","read":"អាន",
+        "write":"សរសេរ","learn":"រៀន","teach":"បង្រៀន","study":"សិក្សា","understand":"យល់","remember":"ចងចាំ","forget":"ភ្លេច","ask":"សួរ","answer":"ឆ្លើយ","give":"ឲ្យ","take":"យក",
+        "get":"ទទួល","put":"ដាក់","bring":"នាំមក","send":"ផ្ញើ","buy":"ទិញ","sell":"លក់","pay":"បង់","open":"បើក","close":"បិទ","start":"ចាប់ផ្តើម","finish":"បញ្ចប់","stop":"ឈប់",
+        "wait":"រង់ចាំ","help":"ជួយ","use":"ប្រើ","find":"រកឃើញ","meet":"ជួប","call":"ហៅ","try":"សាកល្បង","leave":"ចាកចេញ","arrive":"មកដល់","travel":"ធ្វើដំណើរ","move":"ផ្លាស់ទី",
+        "stay":"ស្នាក់នៅ","walk":"ដើរ","run":"រត់","drive":"បើកបរ","ride":"ជិះ","fly":"ហោះ","swim":"ហែលទឹក","cook":"ចម្អិន","clean":"សម្អាត","wash":"លាង","build":"សាងសង់",
+        "break":"បំបែក","fix":"ជួសជុល","choose":"ជ្រើសរើស","change":"ផ្លាស់ប្តូរ","watch":"មើល","play":"លេង","work out":"ហាត់ប្រាណ","love":"ស្រឡាញ់","like":"ចូលចិត្ត","hate":"ស្អប់",
+        "feel":"មានអារម្មណ៍","hope":"សង្ឃឹម","plan":"រៀបចំផែនការ","agree":"យល់ព្រម","decide":"សម្រេចចិត្ត","believe":"ជឿ","explain":"ពន្យល់","show":"បង្ហាញ","check":"ពិនិត្យ","share":"ចែករំលែក",
+        "carry":"កាន់","hold":"កាន់ទុក","cut":"កាត់","turn":"បត់","sit":"អង្គុយ","stand":"ឈរ","wake":"ភ្ញាក់","fall":"ធ្លាក់","win":"ឈ្នះ","lose":"ចាញ់","order":"បញ្ជាទិញ","reserve":"កក់"
+      };
+
+      const kmLemmaByEn = Object.fromEntries(VERB_LEMMAS.map(v => [v.en, v.km || kmVerbMap[v.en] || "—"]));
+
+      for(const p of PHRASES){
+        if(!("km" in p)) p.km = "—";
+        if(!p.km || p.km === "—") p.km = kmPhraseMap[p.en] || "—";
+      }
+
+      for(const n of NUMBERS){
+        if(!("km" in n)) n.km = "—";
+        if(!n.km || n.km === "—") n.km = kmNumberMap[String(n.n)] || "—";
+      }
+
+      for(const v of VERB_LEMMAS){
+        if(!("km" in v)) v.km = "—";
+        if(!v.km || v.km === "—") v.km = kmVerbMap[v.en] || "—";
+        kmLemmaByEn[v.en] = v.km;
+      }
+
+      const kmPronouns = ["ខ្ញុំ", "អ្នក", "គាត់", "នាង", "យើង", "ពួកគេ"];
+      for(const conj of VERB_CONJ){
+        if(!conj.infinitives) conj.infinitives = {};
+        if(!conj.infinitives.km || conj.infinitives.km === "—") conj.infinitives.km = kmLemmaByEn[conj.id] || "—";
+
+        const base = (conj.infinitives.km && conj.infinitives.km !== "—") ? conj.infinitives.km : (kmLemmaByEn[conj.id] || "—");
+        const kmByTense = {
+          present: kmPronouns.map(pr => `${pr} ${base}`),
+          past: kmPronouns.map(pr => `${pr} បាន ${base}`),
+          future: kmPronouns.map(pr => `${pr} នឹង ${base}`)
+        };
+
+        ["present","past","future"].forEach(tense=>{
+          if(!conj[tense]) return;
+          if(!Array.isArray(conj[tense].km) || conj[tense].km.length === 0 || conj[tense].km.every(v => !v || v === "—")){
+            conj[tense].km = kmByTense[tense].slice();
+          }
+          while(conj[tense].km.length < PRON.length) conj[tense].km.push("—");
+          if(conj[tense].km.length > PRON.length) conj[tense].km = conj[tense].km.slice(0, PRON.length);
+        });
+      }
+    }
+
+    ensureKhmerCoverage();
 
     /* =========================
        CHINESE RENDERER
