@@ -2635,7 +2635,8 @@
       verbHead.innerHTML = `<th>Person</th>` + cols.map(l=>{
         const inf = conj.infinitives[l.key];
         const infText = isObj(inf) ? inf.t : (inf || "—");
-        const infRom  = isObj(inf) ? (inf.r || "") : (inf || "");
+        let infRom  = isObj(inf) ? (inf.r || "") : (inf || "");
+        if(l.key === "km" && !isObj(inf)) infRom = transliterateKhmer(infText);
         const showR = state.showRoman && state.mode!=="compact";
         return `<th>${l.flag} ${l.label}<span class="th-sub">${infText}${showR && infRom && infRom!==infText ? ` • ${infRom}` : ""}</span></th>`;
       }).join("");
@@ -2657,7 +2658,8 @@
           }else{
             const t = cell || "—";
             const showR = state.showRoman && state.mode!=="compact";
-            tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${t}</div>`:""}</div></td>`);
+            const r = (l.key === "km") ? transliterateKhmer(t) : t;
+            tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${r}</div>`:""}</div></td>`);
           }
         });
 
@@ -2669,7 +2671,9 @@
     function ensureLanguageCoverage(){
       const numberOverrides = {
         pl: {"0":"zero","1":"jeden","2":"dwa","3":"trzy","4":"cztery","5":"pięć","6":"sześć","7":"siedem","8":"osiem","9":"dziewięć","10":"dziesięć","20":"dwadzieścia","30":"trzydzieści","40":"czterdzieści","50":"pięćdziesiąt","60":"sześćdziesiąt","70":"siedemdziesiąt","80":"osiemdziesiąt","90":"dziewięćdziesiąt","100":"sto"},
-        tl: {"0":"sero","1":"isa","2":"dalawa","3":"tatlo","4":"apat","5":"lima","6":"anim","7":"pito","8":"walo","9":"siyam","10":"sampu","20":"dalawampu","30":"tatlumpu","40":"apatnapu","50":"limampu","60":"animnapu","70":"pitumpu","80":"walumpu","90":"siyamnapu","100":"isandaan"}
+        tl: {"0":"sero","1":"isa","2":"dalawa","3":"tatlo","4":"apat","5":"lima","6":"anim","7":"pito","8":"walo","9":"siyam","10":"sampu","20":"dalawampu","30":"tatlumpu","40":"apatnapu","50":"limampu","60":"animnapu","70":"pitumpu","80":"walumpu","90":"siyamnapu","100":"isandaan"},
+        zh: {"0":P("零","líng"),"1":P("一","yī"),"2":P("二","èr"),"3":P("三","sān"),"4":P("四","sì"),"5":P("五","wǔ"),"6":P("六","liù"),"7":P("七","qī"),"8":P("八","bā"),"9":P("九","jiǔ"),"10":P("十","shí"),"20":P("二十","èrshí"),"30":P("三十","sānshí"),"40":P("四十","sìshí"),"50":P("五十","wǔshí"),"60":P("六十","liùshí"),"70":P("七十","qīshí"),"80":P("八十","bāshí"),"90":P("九十","jiǔshí"),"100":P("一百","yībǎi")},
+        el: {"0":P("μηδέν","miden"),"1":P("ένα","éna"),"2":P("δύο","dýo"),"3":P("τρία","tría"),"4":P("τέσσερα","téssera"),"5":P("πέντε","pénte"),"6":P("έξι","éxi"),"7":P("επτά","eptá"),"8":P("οκτώ","októ"),"9":P("εννέα","ennéa"),"10":P("δέκα","déka"),"20":P("είκοσι","eíkosi"),"30":P("τριάντα","triánta"),"40":P("σαράντα","saránta"),"50":P("πενήντα","penínta"),"60":P("εξήντα","exínta"),"70":P("εβδομήντα","evdomínta"),"80":P("ογδόντα","ogdónta"),"90":P("ενενήντα","enenínta"),"100":P("εκατό","ekató")}
       };
 
       const phraseOverrides = {
@@ -2686,6 +2690,8 @@
         const k = String(n.n);
         if(!n.pl || n.pl === "—") n.pl = numberOverrides.pl[k] || "—";
         if(!n.tl || n.tl === "—") n.tl = numberOverrides.tl[k] || "—";
+        if(!n.zh || n.zh === "—") n.zh = numberOverrides.zh[k] || n.zh || "—";
+        if(!n.el || n.el === "—") n.el = numberOverrides.el[k] || n.el || "—";
       }
 
       const verbOverrides = {
