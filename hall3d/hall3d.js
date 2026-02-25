@@ -30,8 +30,8 @@ if (typeof app !== 'undefined') {
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#cfe6ff');
-scene.fog = new THREE.Fog('#dff0ff', 22, 155);
+scene.background = new THREE.Color('#f0ece3');
+scene.fog = new THREE.Fog('#ebe3d4', 28, 160);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -51,6 +51,143 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+function makeCanvasTexture(drawFn, size = 1024) {
+  const c = document.createElement('canvas');
+  c.width = size;
+  c.height = size;
+  const ctx = c.getContext('2d');
+  drawFn(ctx, size);
+  const tex = new THREE.CanvasTexture(c);
+  tex.wrapS = THREE.RepeatWrapping;
+  tex.wrapT = THREE.RepeatWrapping;
+  tex.anisotropy = 8;
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+
+const marbleTexture = makeCanvasTexture((ctx, size) => {
+  ctx.fillStyle = '#f3f2f4';
+  ctx.fillRect(0, 0, size, size);
+  for (let i = 0; i < 380; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const len = size * (0.04 + Math.random() * 0.18);
+    const ang = (Math.random() * 0.8) - 0.4;
+    ctx.strokeStyle = `rgba(145, 150, 160, ${0.05 + Math.random() * 0.07})`;
+    ctx.lineWidth = 1 + Math.random() * 2.8;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.quadraticCurveTo(x + len * 0.5, y + Math.sin(ang) * len * 0.55, x + len, y + Math.cos(ang) * len * 0.2);
+    ctx.stroke();
+  }
+  for (let i = 0; i < 1100; i++) {
+    const g = 242 + Math.floor(Math.random() * 12);
+    ctx.fillStyle = `rgba(${g}, ${g}, ${g + 3}, ${0.03 + Math.random() * 0.05})`;
+    ctx.fillRect(Math.random() * size, Math.random() * size, 2 + Math.random() * 5, 2 + Math.random() * 5);
+  }
+}, 1024);
+marbleTexture.repeat.set(7, 7);
+
+const wallTexture = makeCanvasTexture((ctx, size) => {
+  const grad = ctx.createLinearGradient(0, 0, 0, size);
+  grad.addColorStop(0, '#e4e6ea');
+  grad.addColorStop(1, '#d4d8de');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, size, size);
+
+  ctx.strokeStyle = 'rgba(173, 145, 93, .34)';
+  ctx.lineWidth = 5;
+  for (let y = size * 0.15; y < size; y += size * 0.2) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(size, y);
+    ctx.stroke();
+  }
+
+  for (let i = 0; i < 280; i++) {
+    ctx.strokeStyle = `rgba(142, 148, 158, ${0.05 + Math.random() * 0.05})`;
+    ctx.lineWidth = 1 + Math.random() * 1.8;
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const len = 28 + Math.random() * 180;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.bezierCurveTo(x + len * 0.2, y + len * 0.05, x + len * 0.55, y - len * 0.04, x + len, y + len * 0.03);
+    ctx.stroke();
+  }
+}, 1024);
+wallTexture.repeat.set(5, 2);
+
+const backdropMarbleTexture = makeCanvasTexture((ctx, size) => {
+  ctx.fillStyle = '#e9e8e6';
+  ctx.fillRect(0, 0, size, size);
+
+  for (let i = 0; i < 460; i++) {
+    const x = Math.random() * size;
+    const y = Math.random() * size;
+    const len = 50 + Math.random() * 210;
+    const drift = (Math.random() - 0.5) * 80;
+    ctx.strokeStyle = `rgba(136, 141, 150, ${0.06 + Math.random() * 0.08})`;
+    ctx.lineWidth = 1 + Math.random() * 2.4;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.bezierCurveTo(x + len * 0.28, y + drift * 0.2, x + len * 0.65, y - drift * 0.12, x + len, y + drift * 0.05);
+    ctx.stroke();
+  }
+
+  for (let i = 0; i < 1200; i++) {
+    const c = 232 + Math.floor(Math.random() * 20);
+    ctx.fillStyle = `rgba(${c}, ${c}, ${c + 2}, ${0.03 + Math.random() * 0.04})`;
+    ctx.fillRect(Math.random() * size, Math.random() * size, 2 + Math.random() * 6, 2 + Math.random() * 6);
+  }
+}, 1024);
+backdropMarbleTexture.repeat.set(7, 1.3);
+
+const flutedColumnTexture = makeCanvasTexture((ctx, size) => {
+  const stripeW = size / 28;
+  for (let i = 0; i < 28; i++) {
+    const x = i * stripeW;
+    const center = x + stripeW * 0.5;
+    const grad = ctx.createLinearGradient(x, 0, x + stripeW, 0);
+    grad.addColorStop(0, '#d8dbe0');
+    grad.addColorStop(0.4, '#fdfdff');
+    grad.addColorStop(0.55, '#eceff4');
+    grad.addColorStop(1, '#cfd5df');
+    ctx.fillStyle = grad;
+    ctx.fillRect(x, 0, stripeW, size);
+
+    ctx.strokeStyle = 'rgba(172, 177, 186, .28)';
+    ctx.lineWidth = 1.1;
+    ctx.beginPath();
+    ctx.moveTo(center, 0);
+    ctx.lineTo(center, size);
+    ctx.stroke();
+  }
+}, 1024);
+flutedColumnTexture.repeat.set(1, 1);
+
+const ceilingTexture = makeCanvasTexture((ctx, size) => {
+  const grad = ctx.createRadialGradient(size * 0.5, size * 0.5, size * 0.15, size * 0.5, size * 0.5, size * 0.5);
+  grad.addColorStop(0, '#fffdf8');
+  grad.addColorStop(0.65, '#efe7d8');
+  grad.addColorStop(1, '#dccdaf');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, size, size);
+
+  for (let i = 0; i < 24; i++) {
+    const a = (i / 24) * Math.PI * 2;
+    const r1 = size * 0.28;
+    const r2 = size * 0.48;
+    ctx.strokeStyle = 'rgba(162, 122, 50, .28)';
+    ctx.lineWidth = 7;
+    ctx.beginPath();
+    ctx.moveTo(size * 0.5 + Math.cos(a) * r1, size * 0.5 + Math.sin(a) * r1);
+    ctx.lineTo(size * 0.5 + Math.cos(a) * r2, size * 0.5 + Math.sin(a) * r2);
+    ctx.stroke();
+  }
+}, 1024);
+ceilingTexture.repeat.set(1, 1);
 
 // Lighting (heaven-like: bright marble room + warm gold highlights)
 const hemi = new THREE.HemisphereLight(0xf3f9ff, 0xbfd5ee, 1.05);
@@ -72,11 +209,12 @@ scene.add(rim);
 // --- Rotunda floor + walls (circular / octagonal vibe) ---
 const floorMat = new THREE.MeshPhysicalMaterial({
   color: 0xf7f7fb,
-  roughness: 0.2,
+  map: marbleTexture,
+  roughness: 0.18,
   metalness: 0.03,
-  clearcoat: 0.75,
-  clearcoatRoughness: 0.18,
-  reflectivity: 0.7,
+  clearcoat: 0.78,
+  clearcoatRoughness: 0.16,
+  reflectivity: 0.75,
 });
 const floor = new THREE.Mesh(new THREE.CircleGeometry(28, 64), floorMat);
 floor.rotation.x = -Math.PI / 2;
@@ -86,7 +224,7 @@ scene.add(floor);
 // Inner “marble” disc
 const inner = new THREE.Mesh(
   new THREE.CircleGeometry(10.5, 48),
-  new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.17, metalness: 0.02, clearcoat: 0.62, clearcoatRoughness: 0.2 })
+  new THREE.MeshPhysicalMaterial({ color: 0xffffff, map: marbleTexture, roughness: 0.16, metalness: 0.02, clearcoat: 0.64, clearcoatRoughness: 0.18 })
 );
 inner.rotation.x = -Math.PI / 2;
 inner.position.y = 0.01;
@@ -111,10 +249,11 @@ scene.add(outerGoldRing);
 function buildHeavenColumns({ count = 14, radius = 20.7, height = 6.1 }) {
   const colMat = new THREE.MeshPhysicalMaterial({
     color: 0xfcfcff,
-    roughness: 0.34,
+    map: flutedColumnTexture,
+    roughness: 0.3,
     metalness: 0.02,
-    clearcoat: 0.45,
-    clearcoatRoughness: 0.35,
+    clearcoat: 0.5,
+    clearcoatRoughness: 0.25,
   });
 
   const colGeom = new THREE.CylinderGeometry(0.65, 0.72, height, 24);
@@ -130,18 +269,43 @@ function buildHeavenColumns({ count = 14, radius = 20.7, height = 6.1 }) {
     );
     capTop.position.set(c.position.x, height + 0.08, c.position.z);
     scene.add(capTop);
+
+    const capBase = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.96, 1.02, 0.2, 24),
+      new THREE.MeshStandardMaterial({ color: 0xd7b262, roughness: 0.34, metalness: 0.8 })
+    );
+    capBase.position.set(c.position.x, 0.1, c.position.z);
+    scene.add(capBase);
   }
 }
 
 const wallMat = new THREE.MeshPhysicalMaterial({
   color: 0xf8f8fb,
-  roughness: 0.38,
+  map: wallTexture,
+  roughness: 0.35,
   metalness: 0.02,
-  clearcoat: 0.42,
-  clearcoatRoughness: 0.32,
+  clearcoat: 0.46,
+  clearcoatRoughness: 0.3,
   emissive: new THREE.Color(0xe9eef6),
-  emissiveIntensity: 0.12,
+  emissiveIntensity: 0.09,
 });
+
+function buildExteriorMarbleBackdrop({ radius = 27.0, height = 10.0 }) {
+  const shell = new THREE.Mesh(
+    new THREE.CylinderGeometry(radius, radius, height, 96, 1, true),
+    new THREE.MeshPhysicalMaterial({
+      color: 0xf1efeb,
+      map: backdropMarbleTexture,
+      roughness: 0.44,
+      metalness: 0.02,
+      clearcoat: 0.28,
+      clearcoatRoughness: 0.4,
+      side: THREE.BackSide,
+    })
+  );
+  shell.position.y = height / 2 - 0.2;
+  scene.add(shell);
+}
 
 function buildRotundaWalls({ gateAngles, wallRadius = 22.0, height = 6.0 }) {
   const segments = 56;
@@ -191,6 +355,37 @@ function buildRotundaWalls({ gateAngles, wallRadius = 22.0, height = 6.0 }) {
   lowerBand.position.set(0, 0.6, 0);
   lowerBand.rotation.x = Math.PI / 2;
   scene.add(lowerBand);
+
+  const ceilingBowl = new THREE.Mesh(
+    new THREE.SphereGeometry(wallRadius - 1.4, 64, 32, 0, Math.PI * 2, 0, Math.PI * 0.46),
+    new THREE.MeshPhysicalMaterial({
+      color: 0xf6efdf,
+      map: ceilingTexture,
+      roughness: 0.34,
+      metalness: 0.03,
+      clearcoat: 0.4,
+      clearcoatRoughness: 0.3,
+      side: THREE.BackSide,
+    })
+  );
+  ceilingBowl.position.y = height + 3.6;
+  scene.add(ceilingBowl);
+
+  const oculus = new THREE.Mesh(
+    new THREE.CircleGeometry(4.5, 64),
+    new THREE.MeshBasicMaterial({ color: 0xd9efff, transparent: true, opacity: 0.72 })
+  );
+  oculus.rotation.x = -Math.PI / 2;
+  oculus.position.y = height + 7.45;
+  scene.add(oculus);
+
+  const oculusRing = new THREE.Mesh(
+    new THREE.TorusGeometry(4.55, 0.2, 16, 64),
+    new THREE.MeshStandardMaterial({ color: 0xe2bd71, roughness: 0.3, metalness: 0.88 })
+  );
+  oculusRing.rotation.x = Math.PI / 2;
+  oculusRing.position.y = height + 7.42;
+  scene.add(oculusRing);
 }
 
 // Player placeholder (capsule-like)
@@ -284,9 +479,58 @@ function fitCharacterToHall(model) {
 // --- Interactables (NPCs + Gates) ---
 const interactables = [];
 const gateMeshes = new Map();
+const gateVisuals = new Map();
 const npcMeshes = new Map();
 const ambientCrowd = [];
 let gateToHost = new Map(); // filled after layout is built
+
+
+const gateDoorTexture = makeCanvasTexture((ctx, size) => {
+  const grad = ctx.createLinearGradient(0, 0, 0, size);
+  grad.addColorStop(0, '#f6d88e');
+  grad.addColorStop(0.5, '#d6a54b');
+  grad.addColorStop(1, '#b9862d');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, size, size);
+
+  ctx.strokeStyle = 'rgba(124, 80, 20, .42)';
+  ctx.lineWidth = 8;
+  ctx.strokeRect(size * 0.08, size * 0.07, size * 0.84, size * 0.86);
+
+  const panelW = size * 0.34;
+  const panelH = size * 0.64;
+  const top = size * 0.2;
+  const gap = size * 0.05;
+  const left = size * 0.14;
+  for (let i = 0; i < 2; i++) {
+    const x = left + i * (panelW + gap);
+    const pg = ctx.createLinearGradient(x, 0, x + panelW, 0);
+    pg.addColorStop(0, '#f2cf80');
+    pg.addColorStop(0.5, '#c8943d');
+    pg.addColorStop(1, '#f1cf81');
+    ctx.fillStyle = pg;
+    ctx.fillRect(x, top, panelW, panelH);
+    ctx.strokeStyle = 'rgba(112, 72, 19, .55)';
+    ctx.lineWidth = 5;
+    ctx.strokeRect(x, top, panelW, panelH);
+  }
+
+  for (let i = 0; i < 220; i++) {
+    const c = 205 + Math.floor(Math.random() * 35);
+    ctx.fillStyle = `rgba(${c}, ${c - 20}, ${80 + Math.floor(Math.random() * 30)}, ${0.03 + Math.random() * 0.07})`;
+    ctx.fillRect(Math.random() * size, Math.random() * size, 3 + Math.random() * 6, 2 + Math.random() * 5);
+  }
+}, 1024);
+gateDoorTexture.repeat.set(1, 1);
+
+const gateGlowTexture = makeCanvasTexture((ctx, size) => {
+  const g = ctx.createRadialGradient(size * 0.5, size * 0.5, size * 0.08, size * 0.5, size * 0.5, size * 0.5);
+  g.addColorStop(0, "rgba(255,248,214,1)");
+  g.addColorStop(0.45, "rgba(255,223,140,.8)");
+  g.addColorStop(1, "rgba(255,223,140,0)");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, size, size);
+}, 512);
 
 function isGateUnlocked(gateId) {
   if (typeof app === 'undefined') return false;
@@ -300,11 +544,29 @@ function setGateVisual(gateId, unlocked) {
   const mesh = gateMeshes.get(gateId);
   if (!mesh) return;
   const mat = mesh.material;
-  mat.opacity = unlocked ? 1.0 : 0.45;
+  mat.opacity = unlocked ? 1.0 : 0.9;
   mat.transparent = !unlocked;
-  mat.emissive = new THREE.Color(unlocked ? 0x2a8bff : 0x222222);
-  mat.emissiveIntensity = unlocked ? 0.45 : 0.1;
+  mat.color = new THREE.Color(unlocked ? 0xf8d980 : 0xd8ac58);
+  mat.emissive = new THREE.Color(unlocked ? 0x9b6a20 : 0x5f3d12);
+  mat.emissiveIntensity = unlocked ? 0.62 : 0.32;
   mat.needsUpdate = true;
+
+  const fx = gateVisuals.get(gateId);
+  if (!fx) return;
+  if (fx.haloMat) {
+    fx.haloMat.emissiveIntensity = unlocked ? 0.9 : 0.62;
+    fx.haloMat.color = new THREE.Color(unlocked ? 0xffedb8 : 0xf1ca83);
+    fx.haloMat.needsUpdate = true;
+  }
+  if (fx.auraMat) {
+    fx.auraMat.opacity = unlocked ? 0.52 : 0.34;
+    fx.auraMat.color = new THREE.Color(unlocked ? 0xffe6a6 : 0xe4be78);
+    fx.auraMat.needsUpdate = true;
+  }
+  if (fx.light) {
+    fx.light.intensity = unlocked ? 2.2 : 1.35;
+    fx.light.distance = unlocked ? 10.5 : 8.4;
+  }
 }
 
 function unlockGate(gateId) {
@@ -352,53 +614,109 @@ function createNpcMarker(npc) {
 function createGateMarker(gate, position) {
   const gateGroup = new THREE.Group();
 
-  const glowHalo = new THREE.Mesh(
-    new THREE.TorusGeometry(1.18, 0.11, 14, 64),
-    new THREE.MeshStandardMaterial({ color: 0xfff2d1, roughness: 0.28, metalness: 0.65, emissive: new THREE.Color(0xffe5a1), emissiveIntensity: 0.33 })
+  const haloMat = new THREE.MeshStandardMaterial({ color: 0xffe4a3, roughness: 0.2, metalness: 0.9, emissive: new THREE.Color(0xffdd93), emissiveIntensity: 0.75 });
+  const halo = new THREE.Mesh(
+    new THREE.TorusGeometry(1.36, 0.12, 16, 72),
+    haloMat
   );
-  glowHalo.rotation.x = Math.PI / 2;
-  glowHalo.position.y = 2.75;
-  gateGroup.add(glowHalo);
+  halo.rotation.x = Math.PI / 2;
+  halo.position.y = 3.2;
+  gateGroup.add(halo);
 
-  const frameMat = new THREE.MeshStandardMaterial({ color: 0xd9b466, roughness: 0.22, metalness: 0.92 });
-  const leftPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 2.9, 16), frameMat);
-  leftPillar.position.set(-0.72, 1.45, 0.02);
-  gateGroup.add(leftPillar);
-  const rightPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.16, 2.9, 16), frameMat);
-  rightPillar.position.set(0.72, 1.45, 0.02);
-  gateGroup.add(rightPillar);
-  const lintel = new THREE.Mesh(new THREE.BoxGeometry(1.68, 0.24, 0.26), frameMat);
-  lintel.position.set(0, 2.86, 0.03);
-  gateGroup.add(lintel);
+  const frameMat = new THREE.MeshStandardMaterial({ color: 0xd3a24b, roughness: 0.2, metalness: 0.93 });
+
+  const archFrame = new THREE.Mesh(
+    new THREE.ShapeGeometry((() => {
+      const sh = new THREE.Shape();
+      sh.moveTo(-1.05, 0);
+      sh.lineTo(-1.05, 2.7);
+      sh.quadraticCurveTo(-1.05, 3.55, 0, 3.62);
+      sh.quadraticCurveTo(1.05, 3.55, 1.05, 2.7);
+      sh.lineTo(1.05, 0);
+      sh.lineTo(0.82, 0);
+      sh.lineTo(0.82, 2.66);
+      sh.quadraticCurveTo(0.82, 3.2, 0, 3.28);
+      sh.quadraticCurveTo(-0.82, 3.2, -0.82, 2.66);
+      sh.lineTo(-0.82, 0);
+      sh.closePath();
+      return sh;
+    })()),
+    frameMat
+  );
+  archFrame.position.set(0, 0.2, 0.13);
+  gateGroup.add(archFrame);
+
+  const leftColumn = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 3.0, 18), frameMat);
+  leftColumn.position.set(-1.0, 1.5, 0.08);
+  gateGroup.add(leftColumn);
+  const rightColumn = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.16, 3.0, 18), frameMat);
+  rightColumn.position.set(1.0, 1.5, 0.08);
+  gateGroup.add(rightColumn);
+
+  const pediment = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.2, 1.05, 0.32, 32, 1, false, 0, Math.PI),
+    frameMat
+  );
+  pediment.rotation.z = Math.PI / 2;
+  pediment.rotation.y = Math.PI / 2;
+  pediment.position.set(0, 3.72, 0.12);
+  gateGroup.add(pediment);
 
   const portal = new THREE.Mesh(
-    new THREE.BoxGeometry(1.26, 2.5, 0.2),
+    new THREE.BoxGeometry(1.55, 2.95, 0.17),
     new THREE.MeshPhysicalMaterial({
-      color: 0xfff8eb,
-      roughness: 0.08,
-      metalness: 0.08,
-      transparent: true,
-      opacity: 0.94,
-      transmission: 0.08,
-      emissive: new THREE.Color(0xb8deff),
-      emissiveIntensity: 0.55,
+      color: 0xf2cb72,
+      map: gateDoorTexture,
+      roughness: 0.17,
+      metalness: 0.85,
+      clearcoat: 0.42,
+      clearcoatRoughness: 0.2,
+      emissive: new THREE.Color(0x543813),
+      emissiveIntensity: 0.24,
     })
   );
-  portal.position.set(0, 1.35, 0);
+  portal.position.set(0, 1.62, 0);
   gateGroup.add(portal);
 
-  const cloudBase = new THREE.Mesh(
-    new THREE.CylinderGeometry(1.05, 1.2, 0.22, 24),
-    new THREE.MeshStandardMaterial({ color: 0xf8fbff, roughness: 0.58, metalness: 0.02 })
+  const seam = new THREE.Mesh(
+    new THREE.BoxGeometry(0.04, 2.7, 0.2),
+    new THREE.MeshStandardMaterial({ color: 0x8f631f, roughness: 0.35, metalness: 0.75 })
   );
-  cloudBase.position.y = 0.1;
+  seam.position.set(0, 1.62, 0.095);
+  gateGroup.add(seam);
+
+
+
+  const auraMat = new THREE.SpriteMaterial({
+    map: gateGlowTexture,
+    color: 0xffe9b3,
+    transparent: true,
+    depthWrite: false,
+    opacity: 0.45,
+    blending: THREE.AdditiveBlending,
+  });
+  const aura = new THREE.Sprite(auraMat);
+  aura.position.set(0, 1.9, 0.28);
+  aura.scale.set(3.2, 5.1, 1);
+  gateGroup.add(aura);
+
+  const gateLight = new THREE.PointLight(0xffd488, 1.8, 9.6, 2.0);
+  gateLight.position.set(0, 2.0, 0.45);
+  gateGroup.add(gateLight);
+
+  const cloudBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.15, 1.35, 0.24, 26),
+    new THREE.MeshStandardMaterial({ color: 0xf9fbff, roughness: 0.56, metalness: 0.02 })
+  );
+  cloudBase.position.y = 0.12;
   gateGroup.add(cloudBase);
 
   gateGroup.position.set(position.x, 0, position.z);
-  gateGroup.lookAt(0, 1.3, 0);
+  gateGroup.lookAt(0, 1.6, 0);
   scene.add(gateGroup);
 
   gateMeshes.set(gate.id, portal);
+  gateVisuals.set(gate.id, { haloMat, auraMat, light: gateLight });
   setGateVisual(gate.id, isGateUnlocked(gate.id));
   interactables.push({ type: 'gate', id: gate.id, label: gate.label, href: gate.href, object: gateGroup, radius: hall3dLayout.interactRadius.gate });
 }
@@ -531,6 +849,7 @@ function createAmbientCluster(cluster) {
 const N = hall3dLayout.gates.length;
 const gateAngles = [];
 for (let i = 0; i < N; i++) gateAngles.push((i / N) * Math.PI * 2);
+buildExteriorMarbleBackdrop({ radius: 27.0, height: 10.0 });
 buildRotundaWalls({ gateAngles, wallRadius: 22.0, height: 6.0 });
 buildHeavenColumns({ count: 14, radius: 20.7, height: 6.1 });
 

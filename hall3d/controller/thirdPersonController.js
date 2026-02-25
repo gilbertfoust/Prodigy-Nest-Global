@@ -20,12 +20,14 @@ export class ThirdPersonController {
 
     // Camera orbit state
     this.yaw = 0;
-    this.pitch = 0.15;
+    // Locked over-the-shoulder orbit:
+    // keep a normal gameplay angle (not top-down), rotate only around yaw.
+    this.pitch = 0.4;
     this.distance = 8.5;
-    this.minPitch = -0.1;
-    this.maxPitch = 0.55;
-    this.minDistance = 4.5;
-    this.maxDistance = 14.0;
+    this.minPitch = 0.4;
+    this.maxPitch = 0.4;
+    this.minDistance = 8.5;
+    this.maxDistance = 8.5;
 
     // When moving, gently pull camera yaw behind the character (reduces “reversed” feeling)
     // User preference: do NOT auto-spin camera on movement.
@@ -77,20 +79,15 @@ export class ThirdPersonController {
     this.domElement.addEventListener('pointermove', (e) => {
       if (!this.isPointerDown) return;
       const dx = e.clientX - this.pointerLast.x;
-      const dy = e.clientY - this.pointerLast.y;
       this.pointerLast.x = e.clientX;
       this.pointerLast.y = e.clientY;
 
       const sensitivity = 0.0045;
       this.yaw -= dx * sensitivity;
-      this.pitch -= dy * sensitivity;
-      this.pitch = Math.max(this.minPitch, Math.min(this.maxPitch, this.pitch));
+      // Pitch is intentionally locked: camera only rotates around the target.
     });
 
-    this.domElement.addEventListener('wheel', (e) => {
-      const delta = Math.sign(e.deltaY);
-      this.distance = Math.max(this.minDistance, Math.min(this.maxDistance, this.distance + delta * 0.6));
-    }, { passive: true });
+    // Zoom intentionally disabled so the camera keeps a consistent elevated vantage point.
   }
 
   update(dt) {
@@ -181,6 +178,8 @@ export class ThirdPersonController {
     offset.applyQuaternion(q);
 
     const desiredCamPos = targetPos.clone().add(offset);
+    // Guardrail: never let the camera dip near/under the floor plane.
+    desiredCamPos.y = Math.max(desiredCamPos.y, 2.2);
 
     // Smooth camera
     const t = 1 - Math.pow(0.0005, dt);
@@ -214,4 +213,3 @@ function _wrapAngle(r) {
   while (r < -Math.PI) r += Math.PI * 2;
   return r;
 }
-
