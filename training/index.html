@@ -875,10 +875,24 @@
       if(isObj(v)) return v.t || "";
       return v || "";
     }
+    function transliterateKhmer(text){
+      const map = {
+        "ក":"k","ខ":"kh","គ":"k","ឃ":"kh","ង":"ng","ច":"ch","ឆ":"chh","ជ":"ch","ឈ":"chh","ញ":"nh",
+        "ដ":"d","ឋ":"th","ឌ":"d","ឍ":"th","ណ":"n","ត":"t","ថ":"th","ទ":"t","ធ":"th","ន":"n",
+        "ប":"b","ផ":"ph","ព":"p","ភ":"ph","ម":"m","យ":"y","រ":"r","ល":"l","វ":"v","ស":"s","ហ":"h","អ":"a",
+        "ា":"a","ិ":"i","ី":"ii","ឹ":"oe","ឺ":"ue","ុ":"u","ូ":"uu","ួ":"uo","ើ":"oe","ឿ":"oeu","ៀ":"ie","េ":"e","ែ":"ae","ៃ":"ai","ោ":"o","ៅ":"au",
+        "ំ":"m","ះ":"h","៉":"","៊":"","់":"","៌":"","្":"", "។":".","ៗ":""
+      };
+      let out = "";
+      for(const ch of (text||"")) out += (map[ch] !== undefined ? map[ch] : ch);
+      return out.replace(/\s+/g," ").trim();
+    }
+
     function getRom(item, key){
       if(key === "en") return item.en || "";
       const v = getValueByLang(item, key);
       if(isObj(v)) return v.r || v.t || "";
+      if(key === "km") return transliterateKhmer(v || "");
       return (v || "");
     }
     function normalize(s){
