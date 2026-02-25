@@ -181,6 +181,7 @@
     .lang-grid{ display:grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap:8px; }
     @media (max-width: 1100px){ .lang-grid{ grid-template-columns: repeat(5, minmax(0,1fr)); } }
     @media (max-width: 680px){ .lang-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    .lang-actions{ display:flex; gap:10px; flex-wrap:wrap; }
     .lang-pill{
       display:flex; gap:8px; align-items:center;
       padding:8px 10px;
@@ -453,12 +454,32 @@
       border-top: 1px solid var(--line);
       background: rgba(255,255,255,.80);
     }
+  
+    #startTutorialBtn{
+      position:fixed;
+      top:14px;
+      right:16px;
+      z-index:50;
+      border:1px solid var(--line);
+      background:#ffffff;
+      font-weight:700;
+    }
+
+    .overlay { position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:9998; }
+    .spotlight { position:fixed; border-radius:12px; box-shadow:0 0 0 9999px rgba(0,0,0,.65); transition:.3s; z-index:9999; pointer-events:none; }
+    .tutorial-box { position:fixed; background:white; padding:20px; border-radius:14px; width:300px; z-index:10000; box-shadow:0 4px 20px rgba(0,0,0,.3); }
+    .tutorial-box h3{margin:0 0 8px 0; font-size:18px;}
+    .tutorial-box p{margin:0 0 12px 0; font-size:13px; line-height:1.45; color:#30465a;}
+    .tutorial-actions{display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+    .tutorial-actions .right{display:flex; gap:8px;}
+
   </style>
 </head>
 <body>
   <div class="sky-layer" id="sky"></div>
 
   <div class="wrap">
+    <button id="startTutorialBtn" type="button" aria-label="Start tutorial">Tutorial</button>
     <header class="hero">
       <div class="brand">
         <h1>Polyglot Heaven ✨🌍</h1>
@@ -504,10 +525,10 @@
 
         <div class="controls" id="phraseControls">
           <div class="field">
-            <label for="q">Search (English or any translation / romanization)</label>
-            <input id="q" type="search" placeholder="e.g., airport • Wi-Fi • restaurant • שלום • مرحبا • こんにちは" />
+            <label for="searchBar">Search (English or any translation / romanization)</label>
+            <input id="searchBar" type="search" placeholder="e.g., airport • Wi-Fi • restaurant • שלום • مرحبا • こんにちは" />
           </div>
-          <div class="field">
+          <div class="field" id="categoryList">
             <label for="cat">Category</label>
             <select id="cat"></select>
           </div>
@@ -534,11 +555,15 @@
         </div>
 
         <div class="lang-grid" id="langGrid"></div>
+        <div class="lang-actions">
+          <button id="checkAllLangs" type="button">Check all languages</button>
+          <button id="uncheckAllLangs" type="button">Uncheck all languages</button>
+        </div>
 
         <div class="actions">
           <div class="btns">
-            <button class="primary" id="openFlash">Flashcards</button>
-            <button id="exportCsv">Export filtered CSV</button>
+            <button class="primary" id="flashcardsBtn">Flashcards</button>
+            <button id="exportCSV">Export filtered CSV</button>
             <button id="reset">Reset</button>
           </div>
           <div class="meta">
@@ -566,7 +591,7 @@
 
     <!-- ALPHABETS -->
     <section class="section" id="sec-alphabets">
-      <div class="card">
+      <div class="card" id="alphabetSection">
         <div class="card-top">
           <div class="mini">Alphabet explorer: compare scripts letter-by-letter and as full charts.</div>
           <div class="badge">Alphabet Lab</div>
@@ -639,7 +664,7 @@
 
     <!-- NUMBERS -->
     <section class="section" id="sec-numbers">
-      <div class="card">
+      <div class="card" id="numbersSection">
         <div class="card-top">
           <div class="mini">Numbers 0–20 plus 30/40/…/100.</div>
           <div class="badge">Numbers Lab</div>
@@ -655,7 +680,7 @@
 
     <!-- VERBS -->
     <section class="section" id="sec-verbs">
-      <div class="card">
+      <div class="card" id="verbsSection">
         <div class="card-top">
           <div class="mini">Verb library (100 common verbs) + irregular conjugator. Everything is editable.</div>
           <div class="badge">Verb Lab</div>
@@ -817,28 +842,57 @@
       { key:"pt",  label:"Portuguese", flag:"🇵🇹", script:"Latin" },
       { key:"es",  label:"Spanish",    flag:"🇪🇸", script:"Latin" },
       { key:"de",  label:"German",     flag:"🇩🇪", script:"Latin" },
+      { key:"pl",  label:"Polish",     flag:"🇵🇱", script:"Latin" },
+      { key:"tl",  label:"Tagalog",    flag:"🇵🇭", script:"Latin" },
       { key:"arc", label:"Aramaic (Syriac)", flag:"🕎", script:"Syriac" },
       { key:"ar",  label:"Arabic",     flag:"🇸🇦", script:"Arabic" },
       { key:"he",  label:"Hebrew",     flag:"🇮🇱", script:"Hebrew" },
       { key:"ru",  label:"Russian",    flag:"🇷🇺", script:"Cyrillic" },
       { key:"ja",  label:"Japanese",   flag:"🇯🇵", script:"Kana/Kanji" },
       { key:"zh",  label:"Chinese",    flag:"🇨🇳", script:"Hanzi/Pinyin" },
+      { key:"km",  label:"Khmer (Cambodian)", flag:"🇰🇭", script:"Khmer" },
       { key:"el",  label:"Greek",      flag:"🇬🇷", script:"Greek" },
     ];
 
     const P = (t, r) => ({t, r});
     const isObj = v => v && typeof v === "object" && ("t" in v || "r" in v);
+    const LANG_FALLBACKS = {};
+
+    function getValueByLang(item, key){
+      const primary = item ? item[key] : undefined;
+      if(primary !== undefined && primary !== null && primary !== "") return primary;
+      const fallbacks = LANG_FALLBACKS[key] || [];
+      for(const fb of fallbacks){
+        const candidate = item ? item[fb] : undefined;
+        if(candidate !== undefined && candidate !== null && candidate !== "") return candidate;
+      }
+      return primary;
+    }
 
     function getText(item, key){
       if(key === "en") return item.en || "";
-      const v = item[key];
+      const v = getValueByLang(item, key);
       if(isObj(v)) return v.t || "";
       return v || "";
     }
+    function transliterateKhmer(text){
+      const map = {
+        "ក":"k","ខ":"kh","គ":"k","ឃ":"kh","ង":"ng","ច":"ch","ឆ":"chh","ជ":"ch","ឈ":"chh","ញ":"nh",
+        "ដ":"d","ឋ":"th","ឌ":"d","ឍ":"th","ណ":"n","ត":"t","ថ":"th","ទ":"t","ធ":"th","ន":"n",
+        "ប":"b","ផ":"ph","ព":"p","ភ":"ph","ម":"m","យ":"y","រ":"r","ល":"l","វ":"v","ស":"s","ហ":"h","អ":"a",
+        "ា":"a","ិ":"i","ី":"ii","ឹ":"oe","ឺ":"ue","ុ":"u","ូ":"uu","ួ":"uo","ើ":"oe","ឿ":"oeu","ៀ":"ie","េ":"e","ែ":"ae","ៃ":"ai","ោ":"o","ៅ":"au",
+        "ំ":"m","ះ":"h","៉":"","៊":"","់":"","៌":"","្":"", "។":".","ៗ":""
+      };
+      let out = "";
+      for(const ch of (text||"")) out += (map[ch] !== undefined ? map[ch] : ch);
+      return out.replace(/\s+/g," ").trim();
+    }
+
     function getRom(item, key){
       if(key === "en") return item.en || "";
-      const v = item[key];
-      if(isObj(v)) return v.r || "";
+      const v = getValueByLang(item, key);
+      if(isObj(v)) return v.r || v.t || "";
+      if(key === "km") return transliterateKhmer(v || "");
       return (v || "");
     }
     function normalize(s){
@@ -1275,6 +1329,34 @@
           {ref:"Ch", name:"Χ χ (chi)", val:"ch/kh"},{ref:"Ps", name:"Ψ ψ (psi)", val:"ps"},{ref:"O", name:"Ω ω (omega)", val:"o"},
         ],
         chart: "Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω"
+      },
+      khmer: {
+        label: "Khmer (Cambodian)",
+        notes: "Khmer script with independent vowels and common consonants for beginner literacy.",
+        rows: [
+          {ref:"A", name:"អ (â) / អា (aa)", val:"a/aa"},{ref:"I", name:"ឥ (ĕ) / ឦ (ii)", val:"i/ii"},{ref:"U", name:"ឧ (ŏ) / ឩ (uu)", val:"u/uu"},
+          {ref:"E", name:"ឯ (ae)", val:"ae"},{ref:"O", name:"ឱ (ao) / ឲ (ao)", val:"ao"},{ref:"K", name:"ក (kâ)", val:"k"},
+          {ref:"Kh", name:"ខ (khâ)", val:"kh"},{ref:"Ng", name:"ង (ngâ)", val:"ng"},{ref:"Ch", name:"ច (châ)", val:"ch"},
+          {ref:"J", name:"ជ (chô)", val:"j"},{ref:"N", name:"ញ (nhô)", val:"nh"},{ref:"D", name:"ដ (dâ)", val:"d"},
+          {ref:"T", name:"ត (tâ)", val:"t"},{ref:"Th", name:"ថ (thâ)", val:"th"},{ref:"B", name:"ប (bâ)", val:"b"},
+          {ref:"P", name:"ព (pô)", val:"p"},{ref:"Ph", name:"ភ (phô)", val:"ph"},{ref:"M", name:"ម (mô)", val:"m"},
+          {ref:"Y", name:"យ (yô)", val:"y"},{ref:"R", name:"រ (rô)", val:"r"},{ref:"L", name:"ល (lô)", val:"l"},
+          {ref:"V", name:"វ (vô)", val:"v/w"},{ref:"S", name:"ស (sâ)", val:"s"},{ref:"H", name:"ហ (hâ)", val:"h"},
+          {ref:"A2", name:"អ (’â)", val:"glottal carrier"}
+        ],
+        chart: "Independent vowels: អ ឥ ឦ ឧ ឩ ឯ ឱ ឲ | Consonants: ក ខ គ ឃ ង ច ឆ ជ ឈ ញ ដ ឋ ឌ ឍ ណ ត ថ ទ ធ ន ប ផ ព ភ ម យ រ ល វ ស ហ អ"
+      },
+      polish_latin: {
+        label: "Polish (Latin + diacritics)",
+        notes: "Polish uses Latin letters with additional diacritics and digraphs.",
+        rows: "A Ą B C Ć D E Ę F G H I J K L Ł M N Ń O Ó P R S Ś T U W Y Z Ź Ż".split(" ").map(ch=>({ref:ch, name:ch, val:ch.toLowerCase()})),
+        chart: "A Ą B C Ć D E Ę F G H I J K L Ł M N Ń O Ó P R S Ś T U W Y Z Ź Ż"
+      },
+      tagalog_latin: {
+        label: "Tagalog / Filipino (Modern Latin)",
+        notes: "Modern Tagalog uses the 28-letter Filipino alphabet (including Ñ and Ng).",
+        rows: "A B C D E F G H I J K L M N Ñ NG O P Q R S T U V W X Y Z".split(" ").map(ch=>({ref:ch, name:ch, val:ch.toLowerCase()})),
+        chart: "A B C D E F G H I J K L M N Ñ NG O P Q R S T U V W X Y Z"
       }
     };
 
@@ -1284,7 +1366,8 @@
       syriac: {A:"ܐ", B:"ܒ", C:"ܟ/ܣ", D:"ܕ", E:"ܗ", F:"ܦ", G:"ܓ", H:"ܗ/ܚ", I:"ܝ", J:"ܝ", K:"ܟ", L:"ܠ", M:"ܡ", N:"ܢ", O:"ܘ", P:"ܦ", Q:"ܩ", R:"ܪ", S:"ܣ/ܫ", T:"ܬ", U:"ܘ", V:"ܒ/ܘ", W:"ܘ", X:"ܟܣ", Y:"ܝ", Z:"ܙ"},
       russian: {A:"А", B:"Б", C:"С", D:"Д", E:"Е", F:"Ф", G:"Г", H:"Х", I:"И", J:"Й", K:"К", L:"Л", M:"М", N:"Н", O:"О", P:"П", Q:"К", R:"Р", S:"С", T:"Т", U:"У", V:"В", W:"В", X:"КС", Y:"Ы/Й", Z:"З"},
       greek: {A:"Α", B:"Β", C:"Γ/Κ", D:"Δ", E:"Ε", F:"Φ", G:"Γ", H:"Η", I:"Ι", J:"Ι", K:"Κ", L:"Λ", M:"Μ", N:"Ν", O:"Ο", P:"Π", Q:"Κ", R:"Ρ", S:"Σ", T:"Τ", U:"Υ", V:"Β", W:"Ω", X:"Ξ", Y:"Υ", Z:"Ζ"},
-      chinese: {A:"啊", B:"不", C:"从", D:"的", E:"而", F:"发", G:"个", H:"和", I:"一", J:"就", K:"可", L:"了", M:"们", N:"你", O:"哦", P:"片", Q:"去", R:"人", S:"是", T:"他", U:"有", V:"为", W:"我", X:"想", Y:"也", Z:"在"}
+      chinese: {A:"啊", B:"不", C:"从", D:"的", E:"而", F:"发", G:"个", H:"和", I:"一", J:"就", K:"可", L:"了", M:"们", N:"你", O:"哦", P:"片", Q:"去", R:"人", S:"是", T:"他", U:"有", V:"为", W:"我", X:"想", Y:"也", Z:"在"},
+      khmer: {A:"អ", B:"ប", C:"ក/ច", D:"ដ/ឌ", E:"អេ", F:"ហ្វ", G:"គ", H:"ហ", I:"អិ", J:"ជ", K:"ក", L:"ល", M:"ម", N:"ន", O:"អូ", P:"ព", Q:"គ", R:"រ", S:"ស", T:"ត", U:"អុ", V:"វ", W:"វ", X:"ក្ស", Y:"យ", Z:"ស"}
     };
 
     /* =========================
@@ -2159,6 +2242,17 @@
        Language toggles
        ========================= */
     const langGrid = $("#langGrid");
+    function setLanguageVisibility(checked){
+      for(const lang of LANGS){
+        state.visible[lang.key] = lang.key === "en" ? true : checked;
+      }
+      renderLanguageToggles();
+      renderPhrases();
+      renderNumbers();
+      renderVerbLemmaTable();
+      renderVerbConj();
+    }
+
     function renderLanguageToggles(){
       langGrid.innerHTML = "";
       for(const lang of LANGS){
@@ -2364,6 +2458,7 @@
       if(alphaCompare.value === "cyrillic_ru") map = ALPHA_MAPS.russian;
       if(alphaCompare.value === "greek") map = ALPHA_MAPS.greek;
       if(alphaCompare.value === "chinese") map = ALPHA_MAPS.chinese;
+      if(alphaCompare.value === "khmer") map = ALPHA_MAPS.khmer;
 
       baseRows.forEach(row=>{
         const guess = map ? (map[row.ref] || "—") : "—";
@@ -2400,17 +2495,15 @@
         const tds = [];
         tds.push(`<td class="mono"><b>${row.n}</b></td>`);
         for(const lang of cols){
-          const v = row[lang.key];
-          if(isObj(v)){
-            const t = v.t || "—";
-            const r = v.r || "";
-            const showR = state.showRoman && state.mode!=="compact";
-            tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${r || t}</div>`:""}</div></td>`);
-          }else{
-            const t = v || "—";
-            const showR = state.showRoman && state.mode!=="compact";
+          const showR = state.showRoman && state.mode!=="compact";
+          if(lang.key === "en"){
+            const t = String(row.n);
             tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${t}</div>`:""}</div></td>`);
+            continue;
           }
+          const t = getText(row, lang.key) || "—";
+          const r = getRom(row, lang.key) || "";
+          tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${r && r!==t ? r : (r||t)}</div>`:""}</div></td>`);
         }
         tr.innerHTML = tds.join("");
         numBody.appendChild(tr);
@@ -2542,7 +2635,8 @@
       verbHead.innerHTML = `<th>Person</th>` + cols.map(l=>{
         const inf = conj.infinitives[l.key];
         const infText = isObj(inf) ? inf.t : (inf || "—");
-        const infRom  = isObj(inf) ? (inf.r || "") : (inf || "");
+        let infRom  = isObj(inf) ? (inf.r || "") : (inf || "");
+        if(l.key === "km" && !isObj(inf)) infRom = transliterateKhmer(infText);
         const showR = state.showRoman && state.mode!=="compact";
         return `<th>${l.flag} ${l.label}<span class="th-sub">${infText}${showR && infRom && infRom!==infText ? ` • ${infRom}` : ""}</span></th>`;
       }).join("");
@@ -2564,7 +2658,8 @@
           }else{
             const t = cell || "—";
             const showR = state.showRoman && state.mode!=="compact";
-            tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${t}</div>`:""}</div></td>`);
+            const r = (l.key === "km") ? transliterateKhmer(t) : t;
+            tds.push(`<td><div class="cell"><div class="t">${t}</div>${showR?`<div class="r">${r}</div>`:""}</div></td>`);
           }
         });
 
@@ -2572,6 +2667,164 @@
         verbBody.appendChild(tr);
       });
     }
+
+    function ensureLanguageCoverage(){
+      const numberOverrides = {
+        pl: {"0":"zero","1":"jeden","2":"dwa","3":"trzy","4":"cztery","5":"pięć","6":"sześć","7":"siedem","8":"osiem","9":"dziewięć","10":"dziesięć","20":"dwadzieścia","30":"trzydzieści","40":"czterdzieści","50":"pięćdziesiąt","60":"sześćdziesiąt","70":"siedemdziesiąt","80":"osiemdziesiąt","90":"dziewięćdziesiąt","100":"sto"},
+        tl: {"0":"sero","1":"isa","2":"dalawa","3":"tatlo","4":"apat","5":"lima","6":"anim","7":"pito","8":"walo","9":"siyam","10":"sampu","20":"dalawampu","30":"tatlumpu","40":"apatnapu","50":"limampu","60":"animnapu","70":"pitumpu","80":"walumpu","90":"siyamnapu","100":"isandaan"},
+        zh: {"0":P("零","líng"),"1":P("一","yī"),"2":P("二","èr"),"3":P("三","sān"),"4":P("四","sì"),"5":P("五","wǔ"),"6":P("六","liù"),"7":P("七","qī"),"8":P("八","bā"),"9":P("九","jiǔ"),"10":P("十","shí"),"20":P("二十","èrshí"),"30":P("三十","sānshí"),"40":P("四十","sìshí"),"50":P("五十","wǔshí"),"60":P("六十","liùshí"),"70":P("七十","qīshí"),"80":P("八十","bāshí"),"90":P("九十","jiǔshí"),"100":P("一百","yībǎi")},
+        el: {"0":P("μηδέν","miden"),"1":P("ένα","éna"),"2":P("δύο","dýo"),"3":P("τρία","tría"),"4":P("τέσσερα","téssera"),"5":P("πέντε","pénte"),"6":P("έξι","éxi"),"7":P("επτά","eptá"),"8":P("οκτώ","októ"),"9":P("εννέα","ennéa"),"10":P("δέκα","déka"),"20":P("είκοσι","eíkosi"),"30":P("τριάντα","triánta"),"40":P("σαράντα","saránta"),"50":P("πενήντα","penínta"),"60":P("εξήντα","exínta"),"70":P("εβδομήντα","evdomínta"),"80":P("ογδόντα","ogdónta"),"90":P("ενενήντα","enenínta"),"100":P("εκατό","ekató")}
+      };
+
+      const phraseOverrides = {
+        pl: {"Hello": "Cześć", "Hi": "Cześć", "Thank you": "Dziękuję", "You’re welcome": "Nie ma za co", "Please": "Proszę", "Yes": "Tak", "No": "Nie", "Excuse me": "Przepraszam", "I’m sorry": "Przykro mi", "Good morning": "Dzień dobry", "Good afternoon": "Dzień dobry", "Good evening": "Dobry wieczór", "Good night": "Dobranoc", "Goodbye": "Do widzenia", "See you later": "Do zobaczenia później", "How are you?": "Jak się masz?", "I’m fine, thank you": "Mam się dobrze, dziękuję", "What is your name?": "Jak masz na imię?", "My name is…": "Mam na imię…", "Do you speak English?": "Czy mówisz po angielsku?", "Do you speak Spanish?": "Czy mówisz po hiszpańsku?", "I don’t understand": "Nie rozumiem", "Could you repeat that?": "Czy możesz to powtórzyć?", "Could you speak more slowly?": "Czy możesz mówić wolniej?", "Please write it down": "Proszę to zapisać", "How do you say [word] in [language]?": "Jak powiedzieć [word] po [language]?", "What does that mean?": "Co to znaczy?", "Can you help me?": "Czy możesz mi pomóc?", "I need an interpreter": "Potrzebuję tłumacza", "Can you show me?": "Czy możesz mi pokazać?", "What time is it?": "Która godzina?", "Today": "Dzisiaj", "Tomorrow": "Jutro", "Now": "Teraz", "Later": "Później", "I don’t know": "Nie wiem", "Please wait": "Proszę czekać", "I’m hungry": "Jestem głodny/głodna", "I’m thirsty": "Chce mi się pić", "Where is…?": "Gdzie jest…?", "I’m lost": "Zgubiłem się/Zgubiłam się", "Left": "W lewo", "Right": "W prawo", "Straight ahead": "Prosto", "How far is it?": "Jak daleko to jest?", "How long will it take?": "Ile to potrwa?", "Where is the bus stop?": "Gdzie jest przystanek autobusowy?", "Where is the train station?": "Gdzie jest dworzec kolejowy?", "Where is the nearest metro station?": "Gdzie jest najbliższa stacja metra?", "Where is the airport?": "Gdzie jest lotnisko?", "Where can I buy tickets?": "Gdzie mogę kupić bilety?", "One ticket to [place], please": "Jeden bilet do [place], proszę", "What time does it leave?": "O której odjeżdża?", "What time does it arrive?": "O której przyjeżdża?", "Which platform?": "Który peron?", "Can you call a taxi for me?": "Czy możesz zamówić mi taksówkę?", "Stop here, please": "Proszę się tutaj zatrzymać", "Where is the hotel?": "Gdzie jest hotel?", "I have a reservation": "Mam rezerwację", "I’d like a room": "Chciałbym/Chciałabym pokój", "How much per night?": "Ile za noc?", "What time is check-in?": "O której jest zameldowanie?", "What time is check-out?": "O której jest wymeldowanie?", "Where is the elevator?": "Gdzie jest winda?", "The key/card, please": "Poproszę klucz/kartę", "Can I have the menu, please?": "Czy mogę prosić o menu?", "Water, please": "Wodę, proszę", "Coffee, please": "Kawę, proszę", "Tea, please": "Herbatę, proszę", "I’m vegetarian": "Jestem wegetarianinem/wegetarianką", "I’m vegan": "Jestem weganinem/weganką", "I’m allergic to [allergen]": "Mam alergię na [allergen]", "It’s delicious": "To jest pyszne", "The bill/check, please": "Poproszę rachunek", "Can I pay by card?": "Czy mogę zapłacić kartą?", "Can I have a receipt?": "Czy mogę dostać paragon?", "How much does it cost?": "Ile to kosztuje?", "Too expensive": "Za drogie", "Is there a discount?": "Czy jest zniżka?", "I would like to buy this": "Chciałbym/Chciałabym to kupić", "I’m just looking": "Tylko się rozglądam", "Do you have this in a different size?": "Czy macie to w innym rozmiarze?", "Can I try this on?": "Czy mogę to przymierzyć?", "Is there Wi-Fi?": "Czy jest Wi‑Fi?", "What is the Wi-Fi password?": "Jakie jest hasło do Wi‑Fi?", "Can I charge my phone here?": "Czy mogę tu naładować telefon?", "Where can I buy a SIM card?": "Gdzie mogę kupić kartę SIM?", "I don’t feel well": "Źle się czuję", "I need medicine": "Potrzebuję lekarstwa", "Is there a pharmacy nearby?": "Czy w pobliżu jest apteka?", "Where is the hospital?": "Gdzie jest szpital?", "I need help": "Potrzebuję pomocy", "Call the police, please": "Proszę wezwać policję", "Call a doctor, please": "Proszę wezwać lekarza", "I lost my passport": "Zgubiłem/Zgubiłam paszport", "Stop!": "Stop!", "Fire!": "Pożar!", "Emergency!": "Nagły wypadek!", "Do you have a map?": "Czy masz mapę?", "Can I get a map?": "Czy mogę dostać mapę?", "What’s the entrance fee?": "Jaka jest opłata za wstęp?", "What time does it start?": "O której to się zaczyna?", "Where can I find information?": "Gdzie mogę znaleźć informacje?", "Can I take a photo?": "Czy mogę zrobić zdjęcie?", "Could you take a picture of us?": "Czy możesz zrobić nam zdjęcie?"},
+        tl: {"Hello": "Kamusta", "Hi": "Kamusta", "Thank you": "Salamat", "You’re welcome": "Walang anuman", "Please": "Pakiusap", "Yes": "Oo", "No": "Hindi", "Excuse me": "Paumanhin", "I’m sorry": "Pasensya na", "Good morning": "Magandang umaga", "Good afternoon": "Magandang hapon", "Good evening": "Magandang gabi", "Good night": "Magandang gabi", "Goodbye": "Paalam", "See you later": "Kita tayo mamaya", "How are you?": "Kumusta ka?", "I’m fine, thank you": "Mabuti ako, salamat", "What is your name?": "Ano ang pangalan mo?", "My name is…": "Ang pangalan ko ay…", "Do you speak English?": "Nagsasalita ka ba ng Ingles?", "Do you speak Spanish?": "Nagsasalita ka ba ng Espanyol?", "I don’t understand": "Hindi ko naiintindihan", "Could you repeat that?": "Pwede mo bang ulitin iyon?", "Could you speak more slowly?": "Pwede ka bang magsalita nang mas mabagal?", "Please write it down": "Pakisulat ito", "How do you say [word] in [language]?": "Paano sabihin ang [word] sa [language]?", "What does that mean?": "Ano ang ibig sabihin niyan?", "Can you help me?": "Maaari mo ba akong tulungan?", "I need an interpreter": "Kailangan ko ng tagasalin", "Can you show me?": "Maaari mo ba akong pakitaan?", "What time is it?": "Anong oras na?", "Today": "Ngayon", "Tomorrow": "Bukas", "Now": "Ngayon na", "Later": "Mamaya", "I don’t know": "Hindi ko alam", "Please wait": "Pakiusap, maghintay", "I’m hungry": "Gutom ako", "I’m thirsty": "Uhaw ako", "Where is…?": "Nasaan ang…?", "I’m lost": "Naliligaw ako", "Left": "Kaliwa", "Right": "Kanan", "Straight ahead": "Diretso", "How far is it?": "Gaano ito kalayo?", "How long will it take?": "Gaano katagal ito?", "Where is the bus stop?": "Nasaan ang hintuan ng bus?", "Where is the train station?": "Nasaan ang estasyon ng tren?", "Where is the nearest metro station?": "Nasaan ang pinakamalapit na estasyon ng metro?", "Where is the airport?": "Nasaan ang paliparan?", "Where can I buy tickets?": "Saan ako makakabili ng tiket?", "One ticket to [place], please": "Isang tiket papuntang [place], pakiusap", "What time does it leave?": "Anong oras ito umaalis?", "What time does it arrive?": "Anong oras ito dumarating?", "Which platform?": "Anong plataporma?", "Can you call a taxi for me?": "Pwede mo ba akong tawagan ng taxi?", "Stop here, please": "Para dito, pakiusap", "Where is the hotel?": "Nasaan ang hotel?", "I have a reservation": "May reserbasyon ako", "I’d like a room": "Gusto ko ng kuwarto", "How much per night?": "Magkano bawat gabi?", "What time is check-in?": "Anong oras ang check-in?", "What time is check-out?": "Anong oras ang check-out?", "Where is the elevator?": "Nasaan ang elevator?", "The key/card, please": "Susi/card, pakiusap", "Can I have the menu, please?": "Pwede bang makahingi ng menu?", "Water, please": "Tubig, pakiusap", "Coffee, please": "Kape, pakiusap", "Tea, please": "Tsaa, pakiusap", "I’m vegetarian": "Vegetarian ako", "I’m vegan": "Vegan ako", "I’m allergic to [allergen]": "May allergy ako sa [allergen]", "It’s delicious": "Masarap ito", "The bill/check, please": "Ang bill, pakiusap", "Can I pay by card?": "Pwede ba akong magbayad gamit ang card?", "Can I have a receipt?": "Pwede ba akong makahingi ng resibo?", "How much does it cost?": "Magkano ito?", "Too expensive": "Masyadong mahal", "Is there a discount?": "May diskuwento ba?", "I would like to buy this": "Gusto kong bilhin ito", "I’m just looking": "Tinitingnan ko lang", "Do you have this in a different size?": "Mayroon ba nito sa ibang sukat?", "Can I try this on?": "Pwede ko ba itong isuot?", "Is there Wi-Fi?": "May Wi‑Fi ba?", "What is the Wi-Fi password?": "Ano ang password ng Wi‑Fi?", "Can I charge my phone here?": "Pwede ko bang i-charge ang telepono ko dito?", "Where can I buy a SIM card?": "Saan ako makakabili ng SIM card?", "I don’t feel well": "Masama ang pakiramdam ko", "I need medicine": "Kailangan ko ng gamot", "Is there a pharmacy nearby?": "May botika ba malapit dito?", "Where is the hospital?": "Nasaan ang ospital?", "I need help": "Kailangan ko ng tulong", "Call the police, please": "Tawagan ang pulis, pakiusap", "Call a doctor, please": "Tawagan ang doktor, pakiusap", "I lost my passport": "Nawala ang pasaporte ko", "Stop!": "Tigil!", "Fire!": "Sunog!", "Emergency!": "Emerhensiya!", "Do you have a map?": "May mapa ka ba?", "Can I get a map?": "Pwede ba akong makakuha ng mapa?", "What’s the entrance fee?": "Magkano ang bayad sa pagpasok?", "What time does it start?": "Anong oras ito nagsisimula?", "Where can I find information?": "Saan ako makakahanap ng impormasyon?", "Can I take a photo?": "Pwede ba akong kumuha ng litrato?", "Could you take a picture of us?": "Pwede mo ba kaming kuhanan ng litrato?"}
+      };
+
+      for(const p of PHRASES){
+        if(!p.pl || p.pl === "—") p.pl = phraseOverrides.pl[p.en] || "—";
+        if(!p.tl || p.tl === "—") p.tl = phraseOverrides.tl[p.en] || "—";
+      }
+
+      for(const n of NUMBERS){
+        const k = String(n.n);
+        if(!n.pl || n.pl === "—") n.pl = numberOverrides.pl[k] || "—";
+        if(!n.tl || n.tl === "—") n.tl = numberOverrides.tl[k] || "—";
+        if(!n.zh || n.zh === "—") n.zh = numberOverrides.zh[k] || n.zh || "—";
+        if(!n.el || n.el === "—") n.el = numberOverrides.el[k] || n.el || "—";
+      }
+
+      const verbOverrides = {
+        pl: {"be": "być", "have": "mieć", "do / make": "robić", "go": "iść", "come": "przyjść", "say": "powiedzieć", "tell": "powiedzieć", "see": "widzieć", "look": "patrzeć", "hear": "słyszeć", "listen": "słuchać", "speak": "mówić", "know": "wiedzieć", "think": "myśleć", "want": "chcieć", "need": "potrzebować", "can": "móc", "must": "musieć", "work": "pracować", "live": "mieszkać", "eat": "jeść", "drink": "pić", "sleep": "spać", "read": "czytać", "write": "pisać", "learn": "uczyć się", "teach": "uczyć", "study": "studiować", "understand": "rozumieć", "remember": "pamiętać", "forget": "zapominać", "ask": "pytać", "answer": "odpowiadać", "give": "dać", "take": "brać", "get": "dostać", "put": "kłaść", "bring": "przynieść", "send": "wysłać", "buy": "kupić", "sell": "sprzedać", "pay": "płacić", "open": "otworzyć", "close": "zamknąć", "start": "zacząć", "finish": "skończyć", "stop": "zatrzymać", "wait": "czekać", "help": "pomagać", "use": "używać", "find": "znaleźć", "meet": "spotkać", "call": "dzwonić", "try": "próbować", "leave": "wyjść", "arrive": "przyjechać", "travel": "podróżować", "move": "ruszać się", "stay": "zostać", "walk": "chodzić", "run": "biegać", "drive": "prowadzić", "ride": "jechać", "fly": "latać", "swim": "pływać", "cook": "gotować", "clean": "czyścić", "wash": "myć", "build": "budować", "break": "łamać", "fix": "naprawić", "choose": "wybrać", "change": "zmienić", "watch": "oglądać", "play": "grać", "work out": "ćwiczyć", "love": "kochać", "like": "lubić", "hate": "nienawidzić", "feel": "czuć", "hope": "mieć nadzieję", "plan": "planować", "agree": "zgadzać się", "decide": "decydować", "believe": "wierzyć", "explain": "wyjaśniać", "show": "pokazać", "check": "sprawdzać", "share": "dzielić się", "carry": "nosić", "hold": "trzymać", "cut": "ciąć", "turn": "obracać", "sit": "siedzieć", "stand": "stać", "wake": "budzić się", "fall": "upaść", "win": "wygrać", "lose": "przegrać", "order": "zamówić", "reserve": "zarezerwować"},
+        tl: {"be": "maging", "have": "magkaroon", "do / make": "gawin", "go": "pumunta", "come": "dumating", "say": "sabihin", "tell": "sabihin", "see": "makita", "look": "tumingin", "hear": "marinig", "listen": "makinig", "speak": "magsalita", "know": "alam", "think": "isipin", "want": "gusto", "need": "kailangan", "can": "kaya", "must": "dapat", "work": "magtrabaho", "live": "manirahan", "eat": "kumain", "drink": "uminom", "sleep": "matulog", "read": "magbasa", "write": "sumulat", "learn": "matuto", "teach": "magturo", "study": "mag-aral", "understand": "umunawa", "remember": "maalala", "forget": "makalimot", "ask": "magtanong", "answer": "sumagot", "give": "ibigay", "take": "kunin", "get": "makuha", "put": "ilagay", "bring": "dalhin", "send": "ipadala", "buy": "bumili", "sell": "magbenta", "pay": "magbayad", "open": "buksan", "close": "isara", "start": "magsimula", "finish": "tapusin", "stop": "tumigil", "wait": "maghintay", "help": "tumulong", "use": "gamitin", "find": "hanapin", "meet": "makipagkita", "call": "tumawag", "try": "subukan", "leave": "umalis", "arrive": "dumating", "travel": "maglakbay", "move": "gumalaw", "stay": "manatili", "walk": "maglakad", "run": "tumakbo", "drive": "magmaneho", "ride": "sumakay", "fly": "lumipad", "swim": "lumangoy", "cook": "magluto", "clean": "maglinis", "wash": "maghugas", "build": "magtayo", "break": "masira", "fix": "ayusin", "choose": "pumili", "change": "magbago", "watch": "manood", "play": "maglaro", "work out": "mag-ehersisyo", "love": "mahalin", "like": "magustuhan", "hate": "kamuhian", "feel": "maramdaman", "hope": "umasa", "plan": "magplano", "agree": "sumang-ayon", "decide": "magpasya", "believe": "maniwala", "explain": "ipaliwanag", "show": "ipakita", "check": "suriin", "share": "ibahagi", "carry": "dalhin", "hold": "hawakan", "cut": "putulin", "turn": "lumiko", "sit": "umupo", "stand": "tumayo", "wake": "magising", "fall": "mahulog", "win": "manalo", "lose": "matalo", "order": "umorder", "reserve": "magreserba"}
+      };
+
+      for(const v of VERB_LEMMAS){
+        if(!v.pl || v.pl === "—") v.pl = verbOverrides.pl[v.en] || "—";
+        if(!v.tl || v.tl === "—") v.tl = verbOverrides.tl[v.en] || "—";
+      }
+
+      const conjOverrides = {
+        pl: {
+          be: {present:["jestem","jesteś","jest","jest","jesteśmy","są"],past:["byłem/byłam","byłeś/byłaś","był","była","byliśmy/byłyśmy","byli/były"],future:["będę","będziesz","będzie","będzie","będziemy","będą"]},
+          have: {present:["mam","masz","ma","ma","mamy","mają"],past:["miałem/miałam","miałeś/miałaś","miał","miała","mieliśmy/miałyśmy","mieli/miały"],future:["będę mieć","będziesz mieć","będzie mieć","będzie mieć","będziemy mieć","będą mieć"]},
+          go: {present:["idę","idziesz","idzie","idzie","idziemy","idą"],past:["szedłem/szłam","szedłeś/szłaś","szedł","szła","szliśmy/szłyśmy","szli/szły"],future:["pójdę","pójdziesz","pójdzie","pójdzie","pójdziemy","pójdą"]},
+          do: {present:["robię","robisz","robi","robi","robimy","robią"],past:["robiłem/robiłam","robiłeś/robiłaś","robił","robiła","robiliśmy/robiłyśmy","robili/robiły"],future:["będę robić","będziesz robić","będzie robić","będzie robić","będziemy robić","będą robić"]},
+          want: {present:["chcę","chcesz","chce","chce","chcemy","chcą"],past:["chciałem/chciałam","chciałeś/chciałaś","chciał","chciała","chcieliśmy/chciałyśmy","chcieli/chciały"],future:["będę chcieć","będziesz chcieć","będzie chcieć","będzie chcieć","będziemy chcieć","będą chcieć"]}
+        },
+        tl: {
+          be: {present:["ako ay","ikaw ay","siya ay","siya ay","kami ay","sila ay"],past:["ay naging","ay naging","ay naging","ay naging","ay naging","ay naging"],future:["magiging","magiging","magiging","magiging","magiging","magiging"]},
+          have: {present:["mayroon ako","mayroon ka","mayroon siya","mayroon siya","mayroon kami","mayroon sila"],past:["nagkaroon ako","nagkaroon ka","nagkaroon siya","nagkaroon siya","nagkaroon kami","nagkaroon sila"],future:["magkakaroon ako","magkakaroon ka","magkakaroon siya","magkakaroon siya","magkakaroon kami","magkakaroon sila"]},
+          go: {present:["pumupunta ako","pumupunta ka","pumupunta siya","pumupunta siya","pumupunta kami","pumupunta sila"],past:["pumunta ako","pumunta ka","pumunta siya","pumunta siya","pumunta kami","pumunta sila"],future:["pupunta ako","pupunta ka","pupunta siya","pupunta siya","pupunta kami","pupunta sila"]},
+          do: {present:["ginagawa ko","ginagawa mo","ginagawa niya","ginagawa niya","ginagawa namin","ginagawa nila"],past:["ginawa ko","ginawa mo","ginawa niya","ginawa niya","ginawa namin","ginawa nila"],future:["gagawin ko","gagawin mo","gagawin niya","gagawin niya","gagawin namin","gagawin nila"]},
+          want: {present:["gusto ko","gusto mo","gusto niya","gusto niya","gusto namin","gusto nila"],past:["gusto ko","gusto mo","gusto niya","gusto niya","gusto namin","gusto nila"],future:["gugustuhin ko","gugustuhin mo","gugustuhin niya","gugustuhin niya","gugustuhin namin","gugustuhin nila"]}
+        }
+      };
+
+      for(const conj of VERB_CONJ){
+        if(conj.infinitives){
+          if(!conj.infinitives.pl || conj.infinitives.pl === "—") conj.infinitives.pl = verbOverrides.pl[conj.id] || "—";
+          if(!conj.infinitives.tl || conj.infinitives.tl === "—") conj.infinitives.tl = verbOverrides.tl[conj.id] || "—";
+        }
+        ["present","past","future"].forEach(tense=>{
+          if(!conj[tense]) return;
+          if((!conj[tense].pl || conj[tense].pl.length===0) && conjOverrides.pl[conj.id]?.[tense]) conj[tense].pl = conjOverrides.pl[conj.id][tense].slice();
+          if((!conj[tense].tl || conj[tense].tl.length===0) && conjOverrides.tl[conj.id]?.[tense]) conj[tense].tl = conjOverrides.tl[conj.id][tense].slice();
+          if(!conj[tense].pl) conj[tense].pl = [];
+          if(!conj[tense].tl) conj[tense].tl = [];
+          while(conj[tense].pl.length < PRON.length) conj[tense].pl.push("—");
+          while(conj[tense].tl.length < PRON.length) conj[tense].tl.push("—");
+        });
+      }
+    }
+
+    ensureLanguageCoverage();
+
+    function ensureKhmerCoverage(){
+      const kmPhraseMap = {
+        "Hello":"សួស្តី","Hi":"សួស្តី","Thank you":"អរគុណ","You’re welcome":"មិនអីទេ","Please":"សូម","Yes":"បាទ/ចាស","No":"ទេ",
+        "Excuse me":"សូមអភ័យទោស","I’m sorry":"ខ្ញុំសុំទោស","Good morning":"អរុណសួស្តី","Good afternoon":"ទិវាសួស្តី","Good evening":"សាយ័ណ្ហសួស្តី","Good night":"រាត្រីសួស្តី",
+        "Goodbye":"លាហើយ","See you later":"ជួបគ្នាពេលក្រោយ","How are you?":"សុខសប្បាយទេ?","I’m fine, thank you":"ខ្ញុំសុខសប្បាយ អរគុណ","What is your name?":"ឈ្មោះអ្វី?","My name is…":"ខ្ញុំឈ្មោះ…",
+        "Do you speak English?":"អ្នកនិយាយភាសាអង់គ្លេសបានទេ?","Do you speak Spanish?":"អ្នកនិយាយភាសាអេស្ប៉ាញបានទេ?","I don’t understand":"ខ្ញុំមិនយល់ទេ","Could you repeat that?":"សូមនិយាយម្ដងទៀតបានទេ?",
+        "Could you speak more slowly?":"សូមនិយាយយឺតៗបានទេ?","Please write it down":"សូមសរសេរឲ្យខ្ញុំ","How do you say [word] in [language]?":"តើនិយាយ [word] ជា [language] យ៉ាងដូចម្តេច?",
+        "What does that mean?":"វាមានន័យអ្វី?","Can you help me?":"អ្នកអាចជួយខ្ញុំបានទេ?","I need an interpreter":"ខ្ញុំត្រូវការអ្នកបកប្រែ","Can you show me?":"អ្នកអាចបង្ហាញខ្ញុំបានទេ?",
+        "What time is it?":"ម៉ោងប៉ុន្មានហើយ?","Today":"ថ្ងៃនេះ","Tomorrow":"ថ្ងៃស្អែក","Now":"ឥឡូវនេះ","Later":"ពេលក្រោយ","I don’t know":"ខ្ញុំមិនដឹងទេ","Please wait":"សូមរង់ចាំ",
+        "I’m hungry":"ខ្ញុំឃ្លាន","I’m thirsty":"ខ្ញុំស្រេកទឹក","Where is…?":"…នៅឯណា?","I’m lost":"ខ្ញុំវង្វេងផ្លូវ","Left":"ឆ្វេង","Right":"ស្តាំ","Straight ahead":"ត្រង់ទៅមុខ",
+        "How far is it?":"វាឆ្ងាយប៉ុណ្ណា?","How long will it take?":"វាចំណាយពេលប៉ុន្មាន?","Where is the bus stop?":"ចំណតឡានក្រុងនៅឯណា?","Where is the train station?":"ស្ថានីយរថភ្លើងនៅឯណា?",
+        "Where is the nearest metro station?":"ស្ថានីយម៉េត្រូជិតបំផុតនៅឯណា?","Where is the airport?":"ព្រលានយន្តហោះនៅឯណា?","Where can I buy tickets?":"ខ្ញុំអាចទិញសំបុត្រនៅឯណា?",
+        "One ticket to [place], please":"សូមសំបុត្រមួយទៅ [place]","What time does it leave?":"វាចេញម៉ោងប៉ុន្មាន?","What time does it arrive?":"វាមកដល់ម៉ោងប៉ុន្មាន?","Which platform?":"វេទិកាណា?",
+        "Can you call a taxi for me?":"អ្នកអាចហៅតាក់ស៊ីឲ្យខ្ញុំបានទេ?","Stop here, please":"សូមឈប់នៅទីនេះ","Where is the hotel?":"សណ្ឋាគារនៅឯណា?","I have a reservation":"ខ្ញុំមានការកក់ទុក",
+        "I’d like a room":"ខ្ញុំចង់បានបន្ទប់មួយ","How much per night?":"មួយយប់ថ្លៃប៉ុន្មាន?","What time is check-in?":"ចូលស្នាក់នៅម៉ោងប៉ុន្មាន?","What time is check-out?":"ចេញពីបន្ទប់ម៉ោងប៉ុន្មាន?",
+        "Where is the elevator?":"ជណ្តើរយន្តនៅឯណា?","The key/card, please":"សូមកូនសោ/កាត","Can I have the menu, please?":"សូមមឺនុយមួយ","Water, please":"សូមទឹកមួយ","Coffee, please":"សូមកាហ្វេមួយ",
+        "Tea, please":"សូមតែមួយ","I’m vegetarian":"ខ្ញុំបួស","I’m vegan":"ខ្ញុំបួសសុទ្ធ","I’m allergic to [allergen]":"ខ្ញុំមានអាឡែស៊ីចំពោះ [allergen]","It’s delicious":"ឆ្ងាញ់ណាស់",
+        "The bill/check, please":"សូមគិតលុយ","Can I pay by card?":"ខ្ញុំអាចបង់ដោយកាតបានទេ?","Can I have a receipt?":"សូមវិក័យប័ត្រមួយ","How much does it cost?":"វាថ្លៃប៉ុន្មាន?","Too expensive":"ថ្លៃពេក",
+        "Is there a discount?":"មានបញ្ចុះតម្លៃទេ?","I would like to buy this":"ខ្ញុំចង់ទិញនេះ","I’m just looking":"ខ្ញុំមើលសិន","Do you have this in a different size?":"មានទំហំផ្សេងទៀតទេ?","Can I try this on?":"ខ្ញុំអាចសាកពាក់បានទេ?",
+        "Is there Wi-Fi?":"មានវ៉ាយហ្វាយទេ?","What is the Wi-Fi password?":"ពាក្យសម្ងាត់វ៉ាយហ្វាយអ្វី?","Can I charge my phone here?":"ខ្ញុំអាចសាកទូរស័ព្ទនៅទីនេះបានទេ?","Where can I buy a SIM card?":"ខ្ញុំអាចទិញស៊ីមកាតនៅឯណា?",
+        "I don’t feel well":"ខ្ញុំមិនស្រួលខ្លួនទេ","I need medicine":"ខ្ញុំត្រូវការថ្នាំ","Is there a pharmacy nearby?":"មានឱសថស្ថាននៅជិតនេះទេ?","Where is the hospital?":"មន្ទីរពេទ្យនៅឯណា?","I need help":"ខ្ញុំត្រូវការជំនួយ",
+        "Call the police, please":"សូមហៅប៉ូលិស","Call a doctor, please":"សូមហៅគ្រូពេទ្យ","I lost my passport":"ខ្ញុំបាត់លិខិតឆ្លងដែន","Stop!":"ឈប់!","Fire!":"ភ្លើងឆេះ!","Emergency!":"បន្ទាន់!",
+        "Do you have a map?":"អ្នកមានផែនទីទេ?","Can I get a map?":"ខ្ញុំអាចយកផែនទីមួយបានទេ?","What’s the entrance fee?":"ថ្លៃចូលប៉ុន្មាន?","What time does it start?":"វាចាប់ផ្តើមម៉ោងប៉ុន្មាន?",
+        "Where can I find information?":"ខ្ញុំអាចរកព័ត៌មាននៅឯណា?","Can I take a photo?":"ខ្ញុំអាចថតរូបបានទេ?","Could you take a picture of us?":"អ្នកអាចថតរូបឲ្យពួកយើងបានទេ?"
+      };
+
+      const kmNumberMap = {
+        "0":"សូន្យ","1":"មួយ","2":"ពីរ","3":"បី","4":"បួន","5":"ប្រាំ","6":"ប្រាំមួយ","7":"ប្រាំពីរ","8":"ប្រាំបី","9":"ប្រាំបួន","10":"ដប់",
+        "20":"ម្ភៃ","30":"សាមសិប","40":"សែសិប","50":"ហាសិប","60":"ហុកសិប","70":"ចិតសិប","80":"ប៉ែតសិប","90":"កៅសិប","100":"មួយរយ"
+      };
+
+      const kmVerbMap = {
+        "be":"ជា","have":"មាន","do / make":"ធ្វើ","go":"ទៅ","come":"មក","say":"និយាយ","tell":"ប្រាប់","see":"ឃើញ","look":"មើល","hear":"ឮ","listen":"ស្តាប់","speak":"និយាយ",
+        "know":"ដឹង","think":"គិត","want":"ចង់","need":"ត្រូវការ","can":"អាច","must":"ត្រូវ","work":"ធ្វើការ","live":"រស់នៅ","eat":"ញ៉ាំ","drink":"ផឹក","sleep":"ដេក","read":"អាន",
+        "write":"សរសេរ","learn":"រៀន","teach":"បង្រៀន","study":"សិក្សា","understand":"យល់","remember":"ចងចាំ","forget":"ភ្លេច","ask":"សួរ","answer":"ឆ្លើយ","give":"ឲ្យ","take":"យក",
+        "get":"ទទួល","put":"ដាក់","bring":"នាំមក","send":"ផ្ញើ","buy":"ទិញ","sell":"លក់","pay":"បង់","open":"បើក","close":"បិទ","start":"ចាប់ផ្តើម","finish":"បញ្ចប់","stop":"ឈប់",
+        "wait":"រង់ចាំ","help":"ជួយ","use":"ប្រើ","find":"រកឃើញ","meet":"ជួប","call":"ហៅ","try":"សាកល្បង","leave":"ចាកចេញ","arrive":"មកដល់","travel":"ធ្វើដំណើរ","move":"ផ្លាស់ទី",
+        "stay":"ស្នាក់នៅ","walk":"ដើរ","run":"រត់","drive":"បើកបរ","ride":"ជិះ","fly":"ហោះ","swim":"ហែលទឹក","cook":"ចម្អិន","clean":"សម្អាត","wash":"លាង","build":"សាងសង់",
+        "break":"បំបែក","fix":"ជួសជុល","choose":"ជ្រើសរើស","change":"ផ្លាស់ប្តូរ","watch":"មើល","play":"លេង","work out":"ហាត់ប្រាណ","love":"ស្រឡាញ់","like":"ចូលចិត្ត","hate":"ស្អប់",
+        "feel":"មានអារម្មណ៍","hope":"សង្ឃឹម","plan":"រៀបចំផែនការ","agree":"យល់ព្រម","decide":"សម្រេចចិត្ត","believe":"ជឿ","explain":"ពន្យល់","show":"បង្ហាញ","check":"ពិនិត្យ","share":"ចែករំលែក",
+        "carry":"កាន់","hold":"កាន់ទុក","cut":"កាត់","turn":"បត់","sit":"អង្គុយ","stand":"ឈរ","wake":"ភ្ញាក់","fall":"ធ្លាក់","win":"ឈ្នះ","lose":"ចាញ់","order":"បញ្ជាទិញ","reserve":"កក់"
+      };
+
+      const kmLemmaByEn = Object.fromEntries(VERB_LEMMAS.map(v => [v.en, v.km || kmVerbMap[v.en] || "—"]));
+
+      for(const p of PHRASES){
+        if(!("km" in p)) p.km = "—";
+        if(!p.km || p.km === "—") p.km = kmPhraseMap[p.en] || "—";
+      }
+
+      for(const n of NUMBERS){
+        if(!("km" in n)) n.km = "—";
+        if(!n.km || n.km === "—") n.km = kmNumberMap[String(n.n)] || "—";
+      }
+
+      for(const v of VERB_LEMMAS){
+        if(!("km" in v)) v.km = "—";
+        if(!v.km || v.km === "—") v.km = kmVerbMap[v.en] || "—";
+        kmLemmaByEn[v.en] = v.km;
+      }
+
+      const kmPronouns = ["ខ្ញុំ", "អ្នក", "គាត់", "នាង", "យើង", "ពួកគេ"];
+      for(const conj of VERB_CONJ){
+        if(!conj.infinitives) conj.infinitives = {};
+        if(!conj.infinitives.km || conj.infinitives.km === "—") conj.infinitives.km = kmLemmaByEn[conj.id] || "—";
+
+        const base = (conj.infinitives.km && conj.infinitives.km !== "—") ? conj.infinitives.km : (kmLemmaByEn[conj.id] || "—");
+        const kmByTense = {
+          present: kmPronouns.map(pr => `${pr} ${base}`),
+          past: kmPronouns.map(pr => `${pr} បាន ${base}`),
+          future: kmPronouns.map(pr => `${pr} នឹង ${base}`)
+        };
+
+        ["present","past","future"].forEach(tense=>{
+          if(!conj[tense]) return;
+          if(!Array.isArray(conj[tense].km) || conj[tense].km.length === 0 || conj[tense].km.every(v => !v || v === "—")){
+            conj[tense].km = kmByTense[tense].slice();
+          }
+          while(conj[tense].km.length < PRON.length) conj[tense].km.push("—");
+          if(conj[tense].km.length > PRON.length) conj[tense].km = conj[tense].km.slice(0, PRON.length);
+        });
+      }
+    }
+
+    ensureKhmerCoverage();
 
     /* =========================
        CHINESE RENDERER
@@ -2779,6 +3032,143 @@
       }
     }
 
+    const TUTORIAL_STORAGE_KEY = "polyglot_tutorial_state_v1";
+    const TUTORIAL_STEPS = [
+      { id:"lang-grid", target:"#langGrid", title:"Select a Language", text:"Tap any language to load its phrases, alphabet, numbers, verbs, and flashcards." },
+      { id:"category-list", target:"#categoryList", title:"Choose a Category", text:"Each category filters the phrase list so you can study specific topic groups." },
+      { id:"search-bar", target:"#searchBar", title:"Search", text:"Search through all active translations instantly." },
+      { id:"phrase-table", target:"#phraseTable", title:"Phrase List", text:"Here you’ll find translations for every language. Missing entries auto-fill when possible." },
+      { id:"progress-counter", target:"#count", title:"Progress Counter", text:"This badge shows how many phrases are currently visible after filters." },
+      { id:"alphabet-section", target:"#alphabetSection", tab:"alphabets", title:"Alphabets", text:"Shows each language’s writing system. Some include romanization support." },
+      { id:"numbers-section", target:"#numbersSection", tab:"numbers", title:"Numbers", text:"Learn basic numerals and counting structures per language." },
+      { id:"verbs-section", target:"#verbsSection", tab:"verbs", title:"Verbs", text:"Conjugation tables show present, past, and future forms. Missing cells are filled from curated defaults when available." },
+      { id:"flashcards-btn", target:"#flashcardsBtn", tab:"phrases", title:"Flashcards", text:"Open random drill cards. You can set both prompt and answer languages for active recall." },
+      { id:"flashcards-modal", target:"#modal .modal-card", tab:"phrases", title:"Flashcards Modal", text:"Use prompt/answer language selectors, reveal, and next to drill quickly." },
+      { id:"export-btn", target:"#exportCSV", tab:"phrases", title:"Export CSV", text:"Download the active phrases table for offline study and review." },
+      { id:"dev-note", target:"#langGrid", title:"Add Languages in Code", text:"To add a language, add it in LANGS and provide data in PHRASES, NUMBERS, VERB_LEMMAS, and VERB_CONJ." },
+      { id:"finish", target:"body", title:"You're Ready!", text:"You now know how to use the training interface." }
+    ];
+
+    let tutorialUI = null;
+
+    function saveTutorialState(stateObj){
+      localStorage.setItem(TUTORIAL_STORAGE_KEY, JSON.stringify(stateObj));
+    }
+
+    function loadTutorialState(){
+      try { return JSON.parse(localStorage.getItem(TUTORIAL_STORAGE_KEY) || "{}"); }
+      catch { return {}; }
+    }
+
+    function clearTutorialUI(){
+      if(!tutorialUI) return;
+      tutorialUI.overlay.remove();
+      tutorialUI.spotlight.remove();
+      tutorialUI.box.remove();
+      tutorialUI = null;
+    }
+
+    function highlightTarget(selector){
+      if(!tutorialUI) return null;
+      const el = document.querySelector(selector) || document.body;
+      el.scrollIntoView({ behavior:"smooth", block:"center", inline:"nearest" });
+      const r = el.getBoundingClientRect();
+      const pad = 8;
+      tutorialUI.spotlight.style.left = Math.max(4, r.left - pad) + "px";
+      tutorialUI.spotlight.style.top = Math.max(4, r.top - pad) + "px";
+      tutorialUI.spotlight.style.width = Math.max(60, r.width + pad*2) + "px";
+      tutorialUI.spotlight.style.height = Math.max(40, r.height + pad*2) + "px";
+
+      const box = tutorialUI.box;
+      const bw = 320;
+      const x = Math.min(window.innerWidth - bw - 12, Math.max(12, r.left));
+      let y = r.bottom + 12;
+      if(y + 210 > window.innerHeight) y = Math.max(12, r.top - 220);
+      box.style.left = x + "px";
+      box.style.top = y + "px";
+      return el;
+    }
+
+    function renderTutorialStep(){
+      const stateObj = loadTutorialState();
+      if(!tutorialUI || !stateObj.active) return;
+      const idx = Math.max(0, Math.min(TUTORIAL_STEPS.length-1, stateObj.index || 0));
+      const step = TUTORIAL_STEPS[idx];
+      if(step.tab) setTab(step.tab);
+      if(step.id === "flashcards-modal"){
+        modal.classList.add("open");
+        refreshFlashLangOptions();
+        pickCard();
+      }
+
+      tutorialUI.box.querySelector("h3").textContent = step.title;
+      tutorialUI.box.querySelector("p").textContent = step.text;
+      tutorialUI.box.querySelector(".step").textContent = `Step ${idx+1} / ${TUTORIAL_STEPS.length}`;
+      tutorialUI.box.querySelector(".back").disabled = idx === 0;
+      tutorialUI.box.querySelector(".next").textContent = idx === TUTORIAL_STEPS.length-1 ? "Finish" : "Next";
+
+      setTimeout(()=>highlightTarget(step.target), 120);
+    }
+
+    function finishTutorial(completed=true){
+      modal.classList.remove("open");
+      clearTutorialUI();
+      saveTutorialState({ active:false, index:0, completed });
+    }
+
+    function startTutorial(fromStart=true){
+      const current = loadTutorialState();
+      const stateObj = {
+        active: true,
+        index: fromStart ? 0 : (current.index || 0),
+        completed: false
+      };
+      saveTutorialState(stateObj);
+
+      if(!tutorialUI){
+        const overlay = document.createElement("div");
+        overlay.className = "overlay";
+        const spotlight = document.createElement("div");
+        spotlight.className = "spotlight";
+        const box = document.createElement("div");
+        box.className = "tutorial-box";
+        box.innerHTML = `
+          <div class="mini step" style="margin-bottom:8px;"></div>
+          <h3></h3>
+          <p></p>
+          <div class="tutorial-actions">
+            <button class="skip" type="button">Skip Tutorial</button>
+            <div class="right">
+              <button class="back" type="button">Back</button>
+              <button class="next primary" type="button">Next</button>
+            </div>
+          </div>
+        `;
+        document.body.append(overlay, spotlight, box);
+        tutorialUI = { overlay, spotlight, box };
+
+        box.querySelector('.skip').addEventListener('click', ()=>finishTutorial(true));
+        box.querySelector('.back').addEventListener('click', ()=>{
+          const st = loadTutorialState();
+          saveTutorialState({ ...st, index: Math.max(0, (st.index||0)-1) });
+          renderTutorialStep();
+        });
+        box.querySelector('.next').addEventListener('click', ()=>{
+          const st = loadTutorialState();
+          const idx = st.index || 0;
+          if(idx >= TUTORIAL_STEPS.length-1){ finishTutorial(true); return; }
+          saveTutorialState({ ...st, index: idx+1 });
+          renderTutorialStep();
+        });
+      }
+      renderTutorialStep();
+    }
+
+    window.addEventListener('resize', ()=>{
+      const st = loadTutorialState();
+      if(st.active) renderTutorialStep();
+    });
+
     /* =========================
        Events
        ========================= */
@@ -2788,22 +3178,24 @@
       setTab(t.dataset.tab);
     });
 
-    $("#q").addEventListener("input", e=>{ state.q = e.target.value; renderPhrases(); });
+    $("#searchBar").addEventListener("input", e=>{ state.q = e.target.value; renderPhrases(); });
     $("#cat").addEventListener("change", e=>{ state.cat = e.target.value; renderPhrases(); });
     $("#showRoman").addEventListener("change", e=>{ state.showRoman = e.target.checked; renderPhrases(); renderNumbers(); renderVerbLemmaTable(); renderVerbConj(); });
     $("#editMode").addEventListener("change", e=>{ state.edit = e.target.checked; renderPhrases(); renderVerbLemmaTable(); });
     $("#stickyCats").addEventListener("change", e=>{ state.stickyCats = e.target.checked; renderPhrases(); });
     $("#mode").addEventListener("change", e=>{ state.mode = e.target.value; renderPhrases(); renderNumbers(); renderVerbLemmaTable(); renderVerbConj(); });
     $("#sort").addEventListener("change", e=>{ state.sortKey = e.target.value; renderPhrases(); });
+    $("#checkAllLangs").addEventListener("click", ()=> setLanguageVisibility(true));
+    $("#uncheckAllLangs").addEventListener("click", ()=> setLanguageVisibility(false));
 
-    $("#exportCsv").addEventListener("click", ()=>{
+    $("#exportCSV").addEventListener("click", ()=>{
       const rows = currentPhrases();
       download("polyglot-heaven-phrases.csv", toCSV(rows));
     });
 
     $("#reset").addEventListener("click", ()=>{
       state.tab="phrases";
-      state.q=""; $("#q").value="";
+      state.q=""; $("#searchBar").value="";
       state.cat="All"; $("#cat").value="All";
       state.showRoman=true; $("#showRoman").checked=true;
       state.edit=false; $("#editMode").checked=false;
@@ -2831,7 +3223,7 @@
     });
 
     // Flashcards
-    $("#openFlash").addEventListener("click", ()=>{
+    $("#flashcardsBtn").addEventListener("click", ()=>{
       modal.classList.add("open");
       refreshFlashLangOptions();
       pickCard();
@@ -2877,6 +3269,11 @@
       renderVerbLemmaTable();
       renderVerbConj();
       setTab("phrases");
+
+      $("#startTutorialBtn").addEventListener("click", ()=> startTutorial(true));
+      const tState = loadTutorialState();
+      if(tState.active) startTutorial(false);
+      else if(!tState.completed) setTimeout(()=>startTutorial(true), 350);
     }
     init();
   </script>
