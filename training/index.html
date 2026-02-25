@@ -454,12 +454,32 @@
       border-top: 1px solid var(--line);
       background: rgba(255,255,255,.80);
     }
+  
+    #startTutorialBtn{
+      position:fixed;
+      top:14px;
+      right:16px;
+      z-index:50;
+      border:1px solid var(--line);
+      background:#ffffff;
+      font-weight:700;
+    }
+
+    .overlay { position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:9998; }
+    .spotlight { position:fixed; border-radius:12px; box-shadow:0 0 0 9999px rgba(0,0,0,.65); transition:.3s; z-index:9999; pointer-events:none; }
+    .tutorial-box { position:fixed; background:white; padding:20px; border-radius:14px; width:300px; z-index:10000; box-shadow:0 4px 20px rgba(0,0,0,.3); }
+    .tutorial-box h3{margin:0 0 8px 0; font-size:18px;}
+    .tutorial-box p{margin:0 0 12px 0; font-size:13px; line-height:1.45; color:#30465a;}
+    .tutorial-actions{display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;}
+    .tutorial-actions .right{display:flex; gap:8px;}
+
   </style>
 </head>
 <body>
   <div class="sky-layer" id="sky"></div>
 
   <div class="wrap">
+    <button id="startTutorialBtn" type="button" aria-label="Start tutorial">Tutorial</button>
     <header class="hero">
       <div class="brand">
         <h1>Polyglot Heaven ✨🌍</h1>
@@ -505,10 +525,10 @@
 
         <div class="controls" id="phraseControls">
           <div class="field">
-            <label for="q">Search (English or any translation / romanization)</label>
-            <input id="q" type="search" placeholder="e.g., airport • Wi-Fi • restaurant • שלום • مرحبا • こんにちは" />
+            <label for="searchBar">Search (English or any translation / romanization)</label>
+            <input id="searchBar" type="search" placeholder="e.g., airport • Wi-Fi • restaurant • שלום • مرحبا • こんにちは" />
           </div>
-          <div class="field">
+          <div class="field" id="categoryList">
             <label for="cat">Category</label>
             <select id="cat"></select>
           </div>
@@ -542,8 +562,8 @@
 
         <div class="actions">
           <div class="btns">
-            <button class="primary" id="openFlash">Flashcards</button>
-            <button id="exportCsv">Export filtered CSV</button>
+            <button class="primary" id="flashcardsBtn">Flashcards</button>
+            <button id="exportCSV">Export filtered CSV</button>
             <button id="reset">Reset</button>
           </div>
           <div class="meta">
@@ -571,7 +591,7 @@
 
     <!-- ALPHABETS -->
     <section class="section" id="sec-alphabets">
-      <div class="card">
+      <div class="card" id="alphabetSection">
         <div class="card-top">
           <div class="mini">Alphabet explorer: compare scripts letter-by-letter and as full charts.</div>
           <div class="badge">Alphabet Lab</div>
@@ -644,7 +664,7 @@
 
     <!-- NUMBERS -->
     <section class="section" id="sec-numbers">
-      <div class="card">
+      <div class="card" id="numbersSection">
         <div class="card-top">
           <div class="mini">Numbers 0–20 plus 30/40/…/100.</div>
           <div class="badge">Numbers Lab</div>
@@ -660,7 +680,7 @@
 
     <!-- VERBS -->
     <section class="section" id="sec-verbs">
-      <div class="card">
+      <div class="card" id="verbsSection">
         <div class="card-top">
           <div class="mini">Verb library (100 common verbs) + irregular conjugator. Everything is editable.</div>
           <div class="badge">Verb Lab</div>
@@ -2887,6 +2907,143 @@
       }
     }
 
+    const TUTORIAL_STORAGE_KEY = "polyglot_tutorial_state_v1";
+    const TUTORIAL_STEPS = [
+      { id:"lang-grid", target:"#langGrid", title:"Select a Language", text:"Tap any language to load its phrases, alphabet, numbers, verbs, and flashcards." },
+      { id:"category-list", target:"#categoryList", title:"Choose a Category", text:"Each category filters the phrase list so you can study specific topic groups." },
+      { id:"search-bar", target:"#searchBar", title:"Search", text:"Search through all active translations instantly." },
+      { id:"phrase-table", target:"#phraseTable", title:"Phrase List", text:"Here you’ll find translations for every language. Missing entries auto-fill when possible." },
+      { id:"progress-counter", target:"#count", title:"Progress Counter", text:"This badge shows how many phrases are currently visible after filters." },
+      { id:"alphabet-section", target:"#alphabetSection", tab:"alphabets", title:"Alphabets", text:"Shows each language’s writing system. Some include romanization support." },
+      { id:"numbers-section", target:"#numbersSection", tab:"numbers", title:"Numbers", text:"Learn basic numerals and counting structures per language." },
+      { id:"verbs-section", target:"#verbsSection", tab:"verbs", title:"Verbs", text:"Conjugation tables show present, past, and future forms. Missing cells are filled from curated defaults when available." },
+      { id:"flashcards-btn", target:"#flashcardsBtn", tab:"phrases", title:"Flashcards", text:"Open random drill cards. You can set both prompt and answer languages for active recall." },
+      { id:"flashcards-modal", target:"#modal .modal-card", tab:"phrases", title:"Flashcards Modal", text:"Use prompt/answer language selectors, reveal, and next to drill quickly." },
+      { id:"export-btn", target:"#exportCSV", tab:"phrases", title:"Export CSV", text:"Download the active phrases table for offline study and review." },
+      { id:"dev-note", target:"#langGrid", title:"Add Languages in Code", text:"To add a language, add it in LANGS and provide data in PHRASES, NUMBERS, VERB_LEMMAS, and VERB_CONJ." },
+      { id:"finish", target:"body", title:"You're Ready!", text:"You now know how to use the training interface." }
+    ];
+
+    let tutorialUI = null;
+
+    function saveTutorialState(stateObj){
+      localStorage.setItem(TUTORIAL_STORAGE_KEY, JSON.stringify(stateObj));
+    }
+
+    function loadTutorialState(){
+      try { return JSON.parse(localStorage.getItem(TUTORIAL_STORAGE_KEY) || "{}"); }
+      catch { return {}; }
+    }
+
+    function clearTutorialUI(){
+      if(!tutorialUI) return;
+      tutorialUI.overlay.remove();
+      tutorialUI.spotlight.remove();
+      tutorialUI.box.remove();
+      tutorialUI = null;
+    }
+
+    function highlightTarget(selector){
+      if(!tutorialUI) return null;
+      const el = document.querySelector(selector) || document.body;
+      el.scrollIntoView({ behavior:"smooth", block:"center", inline:"nearest" });
+      const r = el.getBoundingClientRect();
+      const pad = 8;
+      tutorialUI.spotlight.style.left = Math.max(4, r.left - pad) + "px";
+      tutorialUI.spotlight.style.top = Math.max(4, r.top - pad) + "px";
+      tutorialUI.spotlight.style.width = Math.max(60, r.width + pad*2) + "px";
+      tutorialUI.spotlight.style.height = Math.max(40, r.height + pad*2) + "px";
+
+      const box = tutorialUI.box;
+      const bw = 320;
+      const x = Math.min(window.innerWidth - bw - 12, Math.max(12, r.left));
+      let y = r.bottom + 12;
+      if(y + 210 > window.innerHeight) y = Math.max(12, r.top - 220);
+      box.style.left = x + "px";
+      box.style.top = y + "px";
+      return el;
+    }
+
+    function renderTutorialStep(){
+      const stateObj = loadTutorialState();
+      if(!tutorialUI || !stateObj.active) return;
+      const idx = Math.max(0, Math.min(TUTORIAL_STEPS.length-1, stateObj.index || 0));
+      const step = TUTORIAL_STEPS[idx];
+      if(step.tab) setTab(step.tab);
+      if(step.id === "flashcards-modal"){
+        modal.classList.add("open");
+        refreshFlashLangOptions();
+        pickCard();
+      }
+
+      tutorialUI.box.querySelector("h3").textContent = step.title;
+      tutorialUI.box.querySelector("p").textContent = step.text;
+      tutorialUI.box.querySelector(".step").textContent = `Step ${idx+1} / ${TUTORIAL_STEPS.length}`;
+      tutorialUI.box.querySelector(".back").disabled = idx === 0;
+      tutorialUI.box.querySelector(".next").textContent = idx === TUTORIAL_STEPS.length-1 ? "Finish" : "Next";
+
+      setTimeout(()=>highlightTarget(step.target), 120);
+    }
+
+    function finishTutorial(completed=true){
+      modal.classList.remove("open");
+      clearTutorialUI();
+      saveTutorialState({ active:false, index:0, completed });
+    }
+
+    function startTutorial(fromStart=true){
+      const current = loadTutorialState();
+      const stateObj = {
+        active: true,
+        index: fromStart ? 0 : (current.index || 0),
+        completed: false
+      };
+      saveTutorialState(stateObj);
+
+      if(!tutorialUI){
+        const overlay = document.createElement("div");
+        overlay.className = "overlay";
+        const spotlight = document.createElement("div");
+        spotlight.className = "spotlight";
+        const box = document.createElement("div");
+        box.className = "tutorial-box";
+        box.innerHTML = `
+          <div class="mini step" style="margin-bottom:8px;"></div>
+          <h3></h3>
+          <p></p>
+          <div class="tutorial-actions">
+            <button class="skip" type="button">Skip Tutorial</button>
+            <div class="right">
+              <button class="back" type="button">Back</button>
+              <button class="next primary" type="button">Next</button>
+            </div>
+          </div>
+        `;
+        document.body.append(overlay, spotlight, box);
+        tutorialUI = { overlay, spotlight, box };
+
+        box.querySelector('.skip').addEventListener('click', ()=>finishTutorial(true));
+        box.querySelector('.back').addEventListener('click', ()=>{
+          const st = loadTutorialState();
+          saveTutorialState({ ...st, index: Math.max(0, (st.index||0)-1) });
+          renderTutorialStep();
+        });
+        box.querySelector('.next').addEventListener('click', ()=>{
+          const st = loadTutorialState();
+          const idx = st.index || 0;
+          if(idx >= TUTORIAL_STEPS.length-1){ finishTutorial(true); return; }
+          saveTutorialState({ ...st, index: idx+1 });
+          renderTutorialStep();
+        });
+      }
+      renderTutorialStep();
+    }
+
+    window.addEventListener('resize', ()=>{
+      const st = loadTutorialState();
+      if(st.active) renderTutorialStep();
+    });
+
     /* =========================
        Events
        ========================= */
@@ -2896,7 +3053,7 @@
       setTab(t.dataset.tab);
     });
 
-    $("#q").addEventListener("input", e=>{ state.q = e.target.value; renderPhrases(); });
+    $("#searchBar").addEventListener("input", e=>{ state.q = e.target.value; renderPhrases(); });
     $("#cat").addEventListener("change", e=>{ state.cat = e.target.value; renderPhrases(); });
     $("#showRoman").addEventListener("change", e=>{ state.showRoman = e.target.checked; renderPhrases(); renderNumbers(); renderVerbLemmaTable(); renderVerbConj(); });
     $("#editMode").addEventListener("change", e=>{ state.edit = e.target.checked; renderPhrases(); renderVerbLemmaTable(); });
@@ -2906,14 +3063,14 @@
     $("#checkAllLangs").addEventListener("click", ()=> setLanguageVisibility(true));
     $("#uncheckAllLangs").addEventListener("click", ()=> setLanguageVisibility(false));
 
-    $("#exportCsv").addEventListener("click", ()=>{
+    $("#exportCSV").addEventListener("click", ()=>{
       const rows = currentPhrases();
       download("polyglot-heaven-phrases.csv", toCSV(rows));
     });
 
     $("#reset").addEventListener("click", ()=>{
       state.tab="phrases";
-      state.q=""; $("#q").value="";
+      state.q=""; $("#searchBar").value="";
       state.cat="All"; $("#cat").value="All";
       state.showRoman=true; $("#showRoman").checked=true;
       state.edit=false; $("#editMode").checked=false;
@@ -2941,7 +3098,7 @@
     });
 
     // Flashcards
-    $("#openFlash").addEventListener("click", ()=>{
+    $("#flashcardsBtn").addEventListener("click", ()=>{
       modal.classList.add("open");
       refreshFlashLangOptions();
       pickCard();
@@ -2987,6 +3144,11 @@
       renderVerbLemmaTable();
       renderVerbConj();
       setTab("phrases");
+
+      $("#startTutorialBtn").addEventListener("click", ()=> startTutorial(true));
+      const tState = loadTutorialState();
+      if(tState.active) startTutorial(false);
+      else if(!tState.completed) setTimeout(()=>startTutorial(true), 350);
     }
     init();
   </script>
