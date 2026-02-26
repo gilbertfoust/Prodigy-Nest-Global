@@ -18,6 +18,39 @@ const dlgTextEl = document.getElementById('dlgText');
 const dlgOptsEl = document.getElementById('dlgOpts');
 const dlgCloseEl = document.getElementById('dlgClose');
 const feedbackEl = document.getElementById('feedback');
+const hudEl = document.getElementById('hud');
+const characterCandidates = ['character.glb', 'player.glb', 'avatar.glb'];
+
+function setModelStatus(message, tone = 'info') {
+  if (!hudEl) return;
+  let statusEl = document.getElementById('modelStatus');
+  if (!statusEl) {
+    statusEl = document.createElement('div');
+    statusEl.id = 'modelStatus';
+    statusEl.style.marginTop = '8px';
+    statusEl.style.paddingTop = '8px';
+    statusEl.style.borderTop = '1px solid rgba(100,70,20,.25)';
+    statusEl.style.fontSize = '13px';
+    statusEl.style.fontWeight = '600';
+    hudEl.appendChild(statusEl);
+  }
+  const toneMap = {
+    info: '#35507a',
+    success: '#1f7a4f',
+    warning: '#9a5a06',
+  };
+  statusEl.style.color = toneMap[tone] || toneMap.info;
+  statusEl.textContent = message;
+}
+
+function describeLoadError(err) {
+  if (!err) return 'unknown error';
+  if (typeof err === 'string') return err;
+  if (err.message) return err.message;
+  const targetUrl = err?.target?.responseURL || err?.target?.url || err?.currentTarget?.responseURL;
+  if (targetUrl) return `request failed: ${targetUrl}`;
+  return 'request failed';
+}
 // Ensure shared state structures exist
 if (typeof app !== 'undefined') {
   app.mainHall = app.mainHall || { npcsTalkedTo: [], gatesUnlocked: [], riddlesSolved: {}, conversationState: {} };
@@ -409,15 +442,24 @@ const controller = new ThirdPersonController({
 
 async function tryLoadCharacterGLB() {
   const loader = new GLTFLoader();
-  const characterUrl = new URL('./assets/character.glb', import.meta.url).href;
-  return new Promise((resolve) => {
-    loader.load(
-      characterUrl,
-      (gltf) => resolve({ ok: true, gltf }),
-      undefined,
-      (err) => resolve({ ok: false, err })
-    );
-  });
+  const errors = [];
+
+  for (const fileName of characterCandidates) {
+    const modelUrl = new URL(`./assets/${fileName}`, import.meta.url).href;
+    // eslint-disable-next-line no-await-in-loop
+    const attempt = await new Promise((resolve) => {
+      loader.load(
+        modelUrl,
+        (gltf) => resolve({ ok: true, gltf, fileName }),
+        undefined,
+        (err) => resolve({ ok: false, err, fileName })
+      );
+    });
+    if (attempt.ok) return attempt;
+    errors.push({ fileName, reason: describeLoadError(attempt.err) });
+  }
+
+  return { ok: false, errors };
 }
 
 function pickClip(clips, keywords) {
@@ -436,7 +478,7 @@ function fitCharacterToHall(model) {
   const size = new THREE.Vector3();
   box.getSize(size);
   const height = Math.max(size.y, 0.0001);
-  const targetHeight = 2.3;
+  const targetHeight = 1.8;
   const uniformScale = targetHeight / height;
   model.scale.setScalar(uniformScale);
 
@@ -446,9 +488,17 @@ function fitCharacterToHall(model) {
 
 // Load character if present; otherwise keep placeholder capsule
 (async () => {
+  setModelStatus(`Character model status: checking ${characterCandidates.join(', ')} in ./hall3d/assets ...`);
   const res = await tryLoadCharacterGLB();
   if (!res.ok) {
-    console.info('[hall3d] No character GLB found in /hall3d/assets (character|player|avatar). Using capsule placeholder.');
+    const failedSummary = (res.errors || [])
+      .map((item) => `${item.fileName}: ${item.reason}`)
+      .join(' | ');
+    console.info(`[hall3d] No character GLB found in /hall3d/assets (${characterCandidates.join(', ')}). Using capsule placeholder.`);
+    if (failedSummary) {
+      console.info(`[hall3d] Character load attempts: ${failedSummary}`);
+    }
+    setModelStatus(`Character model status: no GLB found (${characterCandidates.join(', ')}) — using capsule placeholder.`, 'warning');
     return;
   }
 
@@ -473,7 +523,8 @@ function fitCharacterToHall(model) {
     });
   }
 
-  console.info(`[hall3d] Loaded player model: ${res.modelUrl}`);
+  setModelStatus(`Character model status: ${res.fileName} loaded successfully.`, 'success');
+  console.info(`[hall3d] Loaded player model from ./hall3d/assets/${res.fileName}`);
 })();
 
 // --- Interactables (NPCs + Gates) ---
