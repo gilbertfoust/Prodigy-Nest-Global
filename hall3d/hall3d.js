@@ -479,7 +479,7 @@ function fitCharacterToHall(model) {
   const size = new THREE.Vector3();
   box.getSize(size);
   const height = Math.max(size.y, 0.0001);
-  const targetHeight = 2.3;
+  const targetHeight = 1.8;
   const uniformScale = targetHeight / height;
   model.scale.setScalar(uniformScale);
 
